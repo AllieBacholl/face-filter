@@ -9,7 +9,8 @@ module dff (q, d, clk, rst);
 
     assign q = state;
 
-    always @(posedge clk) begin
+// change to triggered on negative edge
+    always @(negedge clk) begin
       state = rst? 0 : d;
     end
 endmodule
