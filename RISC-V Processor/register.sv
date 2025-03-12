@@ -1,4 +1,4 @@
-module register (clk, reset, writeEnable, dataIn, dataOut);
+module Register (clk, reset, writeEnable, dataIn, dataOut);
 
     parameter WIDTH = 32;  // Default width is 16 bits
 
