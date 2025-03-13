@@ -6,9 +6,10 @@ module instr_decoder(
     output logic reg_write, mem_write_en, jump, branch,
     output logic [1:0] result_sel,
     output logic pcJalSrc,
-    output logic [1:0] alu_src_sel_A, alu_src_sel_B,
-    output logic [2:0] alu_ctrl,
-    output logic [1:0] imm_ctrl
+    output logic [1:0] alu_src_sel_B,
+    output logic alu_src_sel_A,
+    output logic [16:0] alu_ctrl,
+    output logic [2:0] imm_ctrl
 );
 
 
@@ -93,20 +94,60 @@ always @* begin
             // U-Type instructions
             `LUI: begin
                 // Control signals for LUI
+                reg_write = 1;
+                alu_src_sel_A = 1;
+                alu_src_sel_B = 201;
+                alu_ctrl = `LUI;
+                imm_ctrl = 3'b011;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 0;
             end
             
             `AUIPC: begin
                 // Control signals for AUIPC
+                reg_write = 1;
+                alu_src_sel_A = 1;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `AUIPC;
+                imm_ctrl = 3'b011;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 0;
             end
             
             // J-Type instruction
             `JAL: begin
                 // Control signals for JAL
+                reg_write = 1;
+                alu_src_sel_A = 1'bx;
+                alu_src_sel_B = 2'b10;
+                alu_ctrl = `JAL;
+                imm_ctrl = 3'b100;
+                jump = 1;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b10;
+                pcJalSrc = 1;
             end
             
             // I-Type Jump instruction
             `JALR: begin
                 // Control signals for JALR
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `JALR;
+                imm_ctrl = 3'b000;
+                jump = 1;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b10;
+                pcJalSrc = 1;
             end
             
             // B-Type instructions
