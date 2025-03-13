@@ -153,43 +153,144 @@ always @* begin
             // B-Type instructions
             `BEQ: begin
                 // Control signals for BEQ
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `BEQ;
+                imm_ctrl = 3'b010;
+                jump = 0;
+                branch = 1;
+                mem_write_en = 0;
+                result_sel = 2'bxx;
+                pcJalSrc = 0;   
             end
             
             `BNE: begin
                 // Control signals for BNE
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl =  `BNE;
+                imm_ctrl = 3'b010;
+                jump = 0;
+                branch = 1;
+                mem_write_en = 0;
+                result_sel = 2'bxx;
+                pcJalSrc = 0;
             end
             
             `BLT: begin
                 // Control signals for BLT
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `BLT;
+                imm_ctrl = 3'b010;
+                jump = 0;
+                branch = 1;
+                mem_write_en = 0;
+                result_sel = 2'bxx;
+                pcJalSrc = 0;
             end
             
             `BGE: begin
                 // Control signals for BGE
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl =  `BGE;
+                imm_ctrl = 3'b010;
+                jump = 0;
+                branch = 1;
+                mem_write_en = 0;
+                result_sel = 2'bxx;
+                pcJalSrc = 0;
             end
             
             `BLTU: begin
                 // Control signals for BLTU
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `BLTU;
+                imm_ctrl = 3'b010;
+                jump = 0;
+                branch = 1;
+                mem_write_en = 0;
+                result_sel = 2'bxx;
+                pcJalSrc = 0;
             end
             
             `BGEU: begin
                 // Control signals for BGEU
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl =  `BGEU;
+                imm_ctrl = 3'b010;
+                jump = 0;
+                branch = 1;
+                mem_write_en = 0;
+                result_sel = 2'bxx;
+                pcJalSrc = 0;
             end
             
             // I-Type Load instructions
             `LB: begin
                 // Control signals for LB
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `LB;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'b01;
+                pcJalSrc = 1'bx;
             end
             
             `LH: begin
                 // Control signals for LH
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `LB;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'b01;
+                pcJalSrc = 1'bx;
             end
             
             `LW: begin
                 // Control signals for LW
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `LB;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'b01;
+                pcJalSrc = 1'bx;
+
             end
             
             `LBU: begin
                 // Control signals for LBU
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `LB;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'b01;
+                pcJalSrc = 1'bx;
             end
             
             `LHU: begin
