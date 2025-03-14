@@ -295,6 +295,16 @@ always @* begin
             
             `LHU: begin
                 // Control signals for LHU
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `LB;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'b01;
+                pcJalSrc = 1'bx;
             end
             
             // S-Type Store instructions
