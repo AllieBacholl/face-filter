@@ -9,11 +9,16 @@ module instr_decoder(
     output logic [1:0] alu_src_sel_B,
     output logic alu_src_sel_A,
     output logic [4:0] alu_op,
-    output logic [2:0] imm_ctrl
+    output logic [2:0] imm_ctrl,
+
+    output err
 );
 
 // unused signals for now for later debugging
 logic [16:0] alu_ctrl;
+logic err_temp;
+
+assign err = err_temp;
 
 // RISC-V Instruction Type and Opcode Defines
 `define OP_R_TYPE      7'b0110011  // R-type

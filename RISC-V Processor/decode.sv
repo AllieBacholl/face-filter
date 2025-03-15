@@ -1,19 +1,20 @@
 module decode (
-    input EXT, rst,
+    input EXT_in, rst,
     input [31:0] pc_in,
-    input [31:0] instr_ID,
+    input [31:0] instr,
     input [31:0] pcPlus4_in,
-    input [31:0] writeData,
+    input [31:0] writeData, // from WB stage
+    input reg_write_WB,
     
     // control signals outputs
     output [31:0] pcPlus4_out, pc_out,
-    output [31:0] instr_out,
+    output [31:0] imm_res_ID,
     output reg_write_ID, mem_write_en_ID, jump_ID, branch_ID,
     output [1:0] result_sel_ID,
     output pcJalSrc_ID,
     output [1:0] alu_src_sel_B_ID,
     output alu_src_sel_A_ID,
-    output [16:0] alu_ctrl_ID,
+    output [4:0] alu_op_ID,
     output [2:0] imm_ctrl_ID,
 
     // data sinals outputs
@@ -21,10 +22,53 @@ module decode (
     output EXT_out,
     output [4:0] rs1_ID, rs2_ID, rd_ID,
     output [31:0] rs1_data_ID, rs2_data_ID,
+    output err
 
 );
 
+logic err_reg, err_decode;
 
+assign err = err_reg | err_decode;
+
+assign instr_12_ID = instr[12];
+assign instr_14_ID = instr[14];
+
+assign EXT_out = EXT_in;
+
+assign pcPlus4_out = pcPlus4_in;
+assign pc_out = pc_in;
+
+assign rs1_ID = instr[19:15];
+assign rs2_ID = instr[24:20];
+assign rd_ID = instr[11:7];
+
+immediate_execution IE(
+    .instruction(instr),         // Complete 32-bit instruction
+    .imm_ctrl_ID(imm_ctrl_ID),          // Control signal for immediate type
+    .imm_res_ID(imm_res_ID)    // Generated immediate value
+);
+
+instr_decoder(
+    .opcode(instr[6:0]), 
+    .funct3(instr[14:12]),
+    .funct7(instr[31:25]),
+
+    .reg_write(reg_write_ID), .mem_write_en(mem_write_en_ID), .jump(jump_ID), .branch(branch_ID),
+    .result_sel(result_sel_ID),
+    .pcJalSrc(pcJalSrc_ID),
+    .alu_src_sel_B(alu_src_sel_B_ID),
+    .alu_src_sel_A(alu_src_sel_A_ID),
+    .alu_op(alu_op_ID),
+    .imm_ctrl(imm_ctrl_ID),
+
+    .err(err_decode)
+);
+
+reg_file RF(
+    .clk(clk), .rst(rst),
+    .read1RegSel(rs1_ID), .read2RegSel(rs2_ID), .writeRegSel(rd_ID), .writeData(writeData), .writeEn(reg_write_WB),
+    .read1Data(rs1_data_ID), .read2Data(rs2_data_ID), .err(err_reg)
+);
 
 
 endmodule
