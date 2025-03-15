@@ -314,107 +314,330 @@ always @* begin
             // S-Type Store instructions
             `SB: begin
                 // Control signals for SB
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SB;
+                imm_ctrl = 3'b001;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'bxx;
+                pcJalSrc = 1'bx;
             end
             
             `SH: begin
                 // Control signals for SH
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SH;
+                imm_ctrl = 3'b001;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'bxx;
+                pcJalSrc = 1'bx;
             end
             
             `SW: begin
                 // Control signals for SW
+                reg_write = 0;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SW;
+                imm_ctrl = 3'b001;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 1;
+                result_sel = 2'bxx;
+                pcJalSrc = 1'bx;
             end
             
             // I-Type ALU instructions
             `ADDI: begin
                 // Control signals for ADDI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `ADDI;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SLTI: begin
                 // Control signals for SLTI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `SLTI;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SLTIU: begin
-                // Control signals for SLTIU
+                // Control signals for SLTIU ????
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `SLTIU;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `XORI: begin
                 // Control signals for XORI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `XORI;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `ORI: begin
                 // Control signals for ORI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `ORI;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `ANDI: begin
                 // Control signals for ANDI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `ANDI;
+                imm_ctrl = 3'b000;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SLLI: begin
                 // Control signals for SLLI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `SLLI;
+                imm_ctrl = 3'b101;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SRLI: begin
                 // Control signals for SRLI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `SRLI;
+                imm_ctrl = 3'b101;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SRAI: begin
                 // Control signals for SRAI
+                reg_write = 1;
+                alu_src_sel_A =0 ;
+                alu_src_sel_B = 2'b01;
+                alu_ctrl = `SRAI;
+                imm_ctrl = 3'b101;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             // R-Type instructions
             `ADD: begin
                 // Control signals for ADD
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `ADD;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SUB: begin
                 // Control signals for SUB
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SUB;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SLL: begin
                 // Control signals for SLL
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SLL;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SLT: begin
                 // Control signals for SLT
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SLT;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SLTU: begin
                 // Control signals for SLTU
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SLTU;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `XOR: begin
                 // Control signals for XOR
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `XOR;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SRL: begin
                 // Control signals for SRL
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SRL;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `SRA: begin
                 // Control signals for SRA
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `SRA;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `OR: begin
                 // Control signals for OR
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `OR;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             `AND: begin
                 // Control signals for AND
+                reg_write = 1;
+                alu_src_sel_A = 0;
+                alu_src_sel_B = 2'b00;
+                alu_ctrl = `AND;
+                imm_ctrl = 3'bxxx;
+                jump = 0;
+                branch = 0;
+                mem_write_en = 0;
+                result_sel = 2'b00;
+                pcJalSrc = 1'bx;
             end
             
             // System and Fence instructions
             `FENCE: begin
                 // Control signals for FENCE
+                err_temp = 1; // FENCE instruction not supported
             end
             
             `ECALL: begin
                 // Special handling for ECALL may require additional logic
                 // since it shares opcode/funct3/funct7 with EBREAK
+                err_temp = 1; // ECALL instruction not supported
             end
             
             `EBREAK: begin
                 // Special handling for EBREAK may require additional logic
                 // since it shares opcode/funct3/funct7 with ECALL
+                err_temp = 1; // EBREAK instruction not supported
             end
             
             default: err_temp = 1; // Unknown instruction
