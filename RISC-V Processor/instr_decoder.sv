@@ -8,10 +8,12 @@ module instr_decoder(
     output logic pcJalSrc,
     output logic [1:0] alu_src_sel_B,
     output logic alu_src_sel_A,
-    output logic [16:0] alu_ctrl,
+    output logic [4:0] alu_op,
     output logic [2:0] imm_ctrl
 );
 
+// unused signals for now for later debugging
+logic [16:0] alu_ctrl;
 
 // RISC-V Instruction Type and Opcode Defines
 `define OP_R_TYPE      7'b0110011  // R-type
@@ -83,6 +85,8 @@ module instr_decoder(
 `define FENCE          {`OP_FENCE, 3'b000, 7'bxxxxxxx}
 `define ECALL          {`OP_SYSTEM, 3'b000, 7'b0000000}
 `define EBREAK         {`OP_SYSTEM, 3'b000, 7'b0000000}
+
+alu_control alu_control_logic(.opcode(opcode), .funct3(funct3), .funct7(funct7), .aluOp(alu_op));
 
 
 always @* begin
