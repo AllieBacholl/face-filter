@@ -1,13 +1,10 @@
 module decode (
-    input EXT_in, rst,
-    input [31:0] pc_in,
+    input rst,
     input [31:0] instr,
-    input [31:0] pcPlus4_in,
     input [31:0] writeData, // from WB stage
     input reg_write_WB,
     
     // control signals outputs
-    output [31:0] pcPlus4_out, pc_out,
     output [31:0] imm_res_ID,
     output reg_write_ID, mem_write_en_ID, jump_ID, branch_ID,
     output [1:0] result_sel_ID,
@@ -19,24 +16,18 @@ module decode (
 
     // data sinals outputs
     output instr_12_ID, instr_14_ID,
-    output EXT_out,
     output [4:0] rs1_ID, rs2_ID, rd_ID,
     output [31:0] rs1_data_ID, rs2_data_ID,
-    output err
+    output err_ID
 
 );
 
 logic err_reg, err_decode;
 
-assign err = err_reg | err_decode;
+assign err_ID = err_reg | err_decode;
 
 assign instr_12_ID = instr[12];
 assign instr_14_ID = instr[14];
-
-assign EXT_out = EXT_in;
-
-assign pcPlus4_out = pcPlus4_in;
-assign pc_out = pc_in;
 
 assign rs1_ID = instr[19:15];
 assign rs2_ID = instr[24:20];

@@ -25,25 +25,27 @@ module execute (
     input [31:0] rs2_data_WB;
 
     // control signals outputs
-    output [31:0] pcPlus4_out, pc_out,
-    output [31:0] instr_out,
-    output reg_write_MEM, mem_write_en_MEM,
-    output [1:0] result_sel_MEM,
-    output [31:0] alu_result_MEM,
-    output [31:0] write_data_MEM, // rs2_data = write_data_MEM
-    output pc_next_set,
+    // output [31:0] pcPlus4_out, pc_out,
+    // output [31:0] instr_out,
+    // output reg_write_MEM, mem_write_en_MEM,
+    // output [1:0] result_sel_MEM,
+    // output [31:0] alu_result_MEM,
+    // output [31:0] write_data_MEM, // rs2_data = write_data_MEM
+    output pc_next_sel,
+
+    output [31:0]  branch_jump_addr;
+    output [31:0]  alu_result_EXE;    // Result of computation
 
     // data signals outputs
-    output EXT_out,
-    output [4:0] rs1_MEM, rs2_MEM, rd_MEM
+    // output EXT_out,
+    // output [4:0] rs1_MEM, rs2_MEM, rd_MEM
 );
 
 wire [4:0]   aluOp; 
 wire [31:0]  InA;               // Input operand A
 wire [31:0]  InB;               // Input operand B
 wire [31:0]  InB_forwarding;
-wire [31:0]  branch_jump_addr;
-wire [31:0]  alu_result_EXE;    // Result of computation
+
 wire         sf;                // Signal if Out is negative or positive
 wire         zf;                // Signal if Out is 0
 
@@ -65,7 +67,7 @@ wire bge = ((~sf | zf) & instr_in[14:12] == 3'b101);
 wire bltu = (($unsigned(rs1_EXE) < $unsigned(rs2_EXE)) & instr_in[14:12] == 3'b110);
 wire bgeu = (($unsigned(rs1_EXE) >= $unsigned(rs2_EXE)) & instr_in[14:12] == 3'b111);
 
-assign pc_next_set = ((beq | bne | blt | bge | bltu | bgeu) & branch_EXE) | jump_EXE;
+assign pc_next_sel = ((beq | bne | blt | bge | bltu | bgeu) & branch_EXE) | jump_EXE;
 
 
 
