@@ -10,6 +10,7 @@ module execute (
     input [1:0] alu_src_sel_B_EXE,
     input [16:0] alu_ctrl_EXE,
     input [1:0] imm_ctrl_EXE,
+    input [4:0]   aluOp,
 
     // data signals input
     input instr_12_EXE, instr_14_EXT,
@@ -41,7 +42,7 @@ module execute (
     // output [4:0] rs1_MEM, rs2_MEM, rd_MEM
 );
 
-wire [4:0]   aluOp; 
+
 wire [31:0]  InA;               // Input operand A
 wire [31:0]  InB;               // Input operand B
 wire [31:0]  InB_forwarding;
@@ -54,7 +55,7 @@ assign InA = ((forwarding_a[1] == 1'b1) ? rs1_data_MEM) : (forwarding_a[0] == 1'
 assign InB_forwarding = ((forwarding_b[1] == 1'b1) ? rs2_data_MEM) : (forwarding_b[0] == 1'b1) ? rs2_data_WB : rs2_data_EXE;
 assign InB = ((alu_src_sel_B_EXE[1] == 1'b1) ? branch_jump_addr) : (alu_src_sel_B_EXE[0] == 1'b1) ? imm_res_EXE : rs2_data_EXE;
 
-alu_control ialu_control(.opcode(instr_in[6:0]), .funct3(instr_in[14:12]), .funct7(instr_in[31]), .aluOp(aluOp));
+// alu_control ialu_control(.opcode(instr_in[6:0]), .funct3(instr_in[14:12]), .funct7(instr_in[31]), .aluOp(aluOp));
 alu (.InA(InA), .InB(InA), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));
 
 // Branch control
