@@ -60,7 +60,7 @@ instr_decoder(
     .err(err_decode)
 );
 
-regFile_bypasse RF(
+regFile_bypass RF(
     .clk(clk), .rst(rst),
     .read1RegSel(rs1_ID), .read2RegSel(rs2_ID), .writeRegSel(rd_WB), .writeData(writeData), .writeEn(reg_write_WB),
     .read1Data(rs1_data_ID), .read2Data(rs2_data_ID), .err(err_reg)
