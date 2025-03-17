@@ -16,7 +16,7 @@ module memory (
     output [31:0] mem_data_MEM
 );
 
-// Length: 1 = byte, 2 = half, 3 = word
+// Length: 0 = byte, 1 = half, 2 = word
 
    memory2c iMEMORY( // output wires
                      .data_out(mem_data_MEM), 

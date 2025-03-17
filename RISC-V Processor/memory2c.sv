@@ -62,7 +62,7 @@ module memory2c (data_out, data_in, addr, length, sign, enable, wr, createdump, 
    assign data_temp_1 = (enable & (~wr)) ? ((sign) ? {16{mem[addr[15:0]][8]}, mem[addr[15:0]], mem[addr[15:0]+8'h1]} : {16'b0, mem[addr[15:0]], mem[addr[15:0]+8'h1]}) : 32'b0;
    assign data_temp_2 = (enable & (~wr)) ? ({mem[addr],mem[addr+8'h1],mem[addr+8'h2],mem[addr+8'h3]}) : 32'b0;
       
-   assign data_out = (length == 2'b01) ? data_temp_0 : (length == 2'b10) ? data_temp_1 : (length == 2'b11) ? data_temp_2 : 32'b0;
+   assign data_out = (length == 2'b00) ? data_temp_0 : (length == 2'b01) ? data_temp_1 : (length == 2'b10) ? data_temp_2 : 32'b0;
 
    initial begin
       loaded = 0;
@@ -82,14 +82,14 @@ module memory2c (data_out, data_in, addr, length, sign, enable, wr, createdump, 
       end
       else begin
          if (enable & wr) begin
-            if (length == 2'b01) begin
+            if (length == 2'b00) begin
                 mem[addr[7:0]] = data_in[7:0];    // The actual write
                 if ({1'b0, addr} > largest) largest = addr;  // avoid negative numbers
-            end else if (length == 2'b10) begin
+            end else if (length == 2'b01) begin
                 mem[addr[15:0]] = data_in[15:8];       // The actual write
                 mem[addr[15:0]+1] = data_in[7:0];      // The actual write
                 if ({1'b0, addr} > largest) largest = addr;  // avoid negative numbers
-            end else if (length == 2'b11) begin
+            end else if (length == 2'b10) begin
                 mem[addr] = data_in[31:24];        // The actual write
                 mem[addr+1] = data_in[23:16];      // The actual write
                 mem[addr+2] = data_in[15:8];       // The actual write
