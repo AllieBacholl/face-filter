@@ -13,17 +13,17 @@ module execute (
     input [4:0]   aluOp,
 
     // data signals input
-    input instr_12_EXE, instr_14_EXT,
     input [4:0] rs1_EXE, rs2_EXE, rd_EXE,
     input [31:0] rs1_data_EXE, rs2_data_EXE, // rs2_data = write_data_MEM
     input [31:0] imm_res_EXE,
 
+    // TODO put in top level
     // Forwarding
-    input [1:0] forwarding_a, forwarding_b;
-    input [31:0] rs1_data_MEM;
-    input [31:0] rs2_data_MEM;
-    input [31:0] rs1_data_WB;
-    input [31:0] rs2_data_WB;
+    input [1:0] forwarding_a, forwarding_b,
+    input [31:0] rs1_data_MEM,
+    input [31:0] rs2_data_MEM,
+    input [31:0] rs1_data_WB,
+    input [31:0] rs2_data_WB,
 
     // control signals outputs
     // output [31:0] pcPlus4_out, pc_out,
@@ -34,8 +34,8 @@ module execute (
     // output [31:0] write_data_MEM, // rs2_data = write_data_MEM
     output pc_next_sel,
 
-    output [31:0]  branch_jump_addr;
-    output [31:0]  alu_result_EXE;    // Result of computation
+    output [31:0]  branch_jump_addr,
+    output [31:0]  alu_result_EXE    // Result of computation
 
     // data signals outputs
     // output EXT_out,
