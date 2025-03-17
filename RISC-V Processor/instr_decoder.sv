@@ -10,7 +10,8 @@ module instr_decoder(
     output logic alu_src_sel_A,
     output logic [4:0] alu_op,
     output logic [2:0] imm_ctrl,
-
+    output logic mem_read, mem_sign,// mem_sign 00-byte, 01-half-word, 10-word
+    output logic [1:0] mem_length,
     output err
 );
 
@@ -113,6 +114,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             `AUIPC: begin
@@ -127,6 +131,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             // J-Type instruction
@@ -142,6 +149,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b10;
                 pcJalSrc = 1;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             // I-Type Jump instruction
@@ -157,6 +167,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b10;
                 pcJalSrc = 1;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             // B-Type instructions
@@ -171,7 +184,10 @@ always @* begin
                 branch = 1;
                 mem_write_en = 0;
                 result_sel = 2'bxx;
-                pcJalSrc = 0;   
+                pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             `BNE: begin
@@ -186,6 +202,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'bxx;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             `BLT: begin
@@ -200,6 +219,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'bxx;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             `BGE: begin
@@ -214,6 +236,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'bxx;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             `BLTU: begin
@@ -228,6 +253,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'bxx;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             `BGEU: begin
@@ -242,6 +270,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'bxx;
                 pcJalSrc = 0;
+                mem_length = 0;
+                mem_read = 0;
+                mem_sign = 0;
             end
             
             // I-Type Load instructions
@@ -254,9 +285,12 @@ always @* begin
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = 1;
+                mem_write_en = 0;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b00;
+                mem_read = 1;
+                mem_sign = 1;
             end
             
             `LH: begin
@@ -264,13 +298,16 @@ always @* begin
                 reg_write = 1;
                 alu_src_sel_A = 0;
                 alu_src_sel_B = 2'b01;
-                alu_ctrl = `LB;
+                alu_ctrl = `LH;
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = 1;
+                mem_write_en = 0;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b01;
+                mem_read = 1;
+                mem_sign = 1;
             end
             
             `LW: begin
@@ -278,14 +315,16 @@ always @* begin
                 reg_write = 1;
                 alu_src_sel_A = 0;
                 alu_src_sel_B = 2'b01;
-                alu_ctrl = `LB;
+                alu_ctrl = `LW;
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = 1;
+                mem_write_en = ;0
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
-
+                mem_length = 2'b10;
+                mem_read = 1;
+                mem_sign = 1'bx;
             end
             
             `LBU: begin
@@ -293,13 +332,16 @@ always @* begin
                 reg_write = 1;
                 alu_src_sel_A = 0;
                 alu_src_sel_B = 2'b01;
-                alu_ctrl = `LB;
+                alu_ctrl = `LBU;
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = 1;
+                mem_write_en = 0;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b00;
+                mem_read = 1;
+                mem_sign = 0;
             end
             
             `LHU: begin
@@ -307,13 +349,16 @@ always @* begin
                 reg_write = 1;
                 alu_src_sel_A = 0;
                 alu_src_sel_B = 2'b01;
-                alu_ctrl = `LB;
+                alu_ctrl = `LHU;
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
                 mem_write_en = 1;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b01;
+                mem_read = 1;
+                mem_sign = 0;
             end
             
             // S-Type Store instructions
@@ -329,6 +374,9 @@ always @* begin
                 mem_write_en = 1;
                 result_sel = 2'bxx;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b00;
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SH: begin
@@ -343,6 +391,9 @@ always @* begin
                 mem_write_en = 1;
                 result_sel = 2'bxx;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b01;
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SW: begin
@@ -357,6 +408,9 @@ always @* begin
                 mem_write_en = 1;
                 result_sel = 2'bxx;
                 pcJalSrc = 1'bx;
+                mem_length = 2'b10;
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             // I-Type ALU instructions
@@ -372,6 +426,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SLTI: begin
@@ -386,6 +443,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SLTIU: begin
@@ -400,6 +460,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `XORI: begin
@@ -414,6 +477,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `ORI: begin
@@ -428,6 +494,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `ANDI: begin
@@ -442,6 +511,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SLLI: begin
@@ -456,6 +528,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SRLI: begin
@@ -470,6 +545,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SRAI: begin
@@ -484,6 +562,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             // R-Type instructions
@@ -499,6 +580,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SUB: begin
@@ -513,6 +597,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SLL: begin
@@ -527,6 +614,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SLT: begin
@@ -541,6 +631,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SLTU: begin
@@ -555,6 +648,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `XOR: begin
@@ -569,6 +665,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SRL: begin
@@ -583,6 +682,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `SRA: begin
@@ -597,6 +699,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `OR: begin
@@ -611,6 +716,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             `AND: begin
@@ -625,6 +733,9 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
+                mem_length = 2'bxx
+                mem_read = 0;
+                mem_sign = 1'bx;
             end
             
             // System and Fence instructions

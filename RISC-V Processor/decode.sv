@@ -3,6 +3,7 @@ module decode (
     input [31:0] instr,
     input [31:0] writeData, // from WB stage
     input reg_write_WB,
+    input [4:0] rd_WB,
     
     // control signals outputs
     output [31:0] imm_res_ID,
@@ -18,6 +19,8 @@ module decode (
     output instr_12_ID, instr_14_ID,
     output [4:0] rs1_ID, rs2_ID, rd_ID,
     output [31:0] rs1_data_ID, rs2_data_ID,
+    output mem_read_ID, mem_sign_ID,
+    output [1:0] mem_length_ID,
     output err_ID
 
 );
@@ -51,13 +54,15 @@ instr_decoder(
     .alu_src_sel_A(alu_src_sel_A_ID),
     .alu_op(alu_op_ID),
     .imm_ctrl(imm_ctrl_ID),
-
+    .mem_read(mem_read_ID),
+    .mem_sign(mem_sign_ID),
+    .mem_length(mem_length_ID),
     .err(err_decode)
 );
 
 reg_file RF(
     .clk(clk), .rst(rst),
-    .read1RegSel(rs1_ID), .read2RegSel(rs2_ID), .writeRegSel(rd_ID), .writeData(writeData), .writeEn(reg_write_WB),
+    .read1RegSel(rs1_ID), .read2RegSel(rs2_ID), .writeRegSel(rd_WB), .writeData(writeData), .writeEn(reg_write_WB),
     .read1Data(rs1_data_ID), .read2Data(rs2_data_ID), .err(err_reg)
 );
 
