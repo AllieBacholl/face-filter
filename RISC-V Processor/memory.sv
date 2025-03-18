@@ -1,6 +1,6 @@
 `default_nettype none
 module memory (
-    input rst, EXT,
+    input rst,
 
     // control signals input
     input reg_write_MEM, mem_write_en_MEM, mem_read_en_MEM

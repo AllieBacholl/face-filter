@@ -7,7 +7,6 @@ module fetch(
 
     output [31:0] pcPlus4, pc, // pc is current_pc
     output [31:0] instr,
-    output EXT_out, // output EXT
     output err
 );
 

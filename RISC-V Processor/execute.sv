@@ -1,23 +1,19 @@
 module execute (
-    input rst, EXT,
+    input rst,
     
     // control signals input
     input [31:0] pcPlus4_in, pc_in,
     input [31:0] instr_in,
-    input reg_write_EXE, mem_write_en_EXE, jump_EXE, branch_EXE,
-    input [1:0] result_sel_EXE,
-    input pcJalSrc_EXE,
+    input jump_EXE, branch_EXE,
     input [1:0] alu_src_sel_B_EXE,
-    input [16:0] alu_ctrl_EXE,
     input [1:0] imm_ctrl_EXE,
-    input [4:0]   aluOp,
+    input [4:0] aluOp,
 
     // data signals input
     input [4:0] rs1_EXE, rs2_EXE, rd_EXE,
     input [31:0] rs1_data_EXE, rs2_data_EXE, // rs2_data = write_data_MEM
     input [31:0] imm_res_EXE,
 
-    // TODO put in top level
     // Forwarding
     input [1:0] forwarding_a, forwarding_b,
     input [31:0] rs1_data_MEM,
@@ -26,20 +22,11 @@ module execute (
     input [31:0] rs2_data_WB,
 
     // control signals outputs
-    // output [31:0] pcPlus4_out, pc_out,
-    // output [31:0] instr_out,
-    // output reg_write_MEM, mem_write_en_MEM,
-    // output [1:0] result_sel_MEM,
-    // output [31:0] alu_result_MEM,
-    // output [31:0] write_data_MEM, // rs2_data = write_data_MEM
     output pc_next_sel,
 
+    // data signals outputs
     output [31:0]  branch_jump_addr,
     output [31:0]  alu_result_EXE    // Result of computation
-
-    // data signals outputs
-    // output EXT_out,
-    // output [4:0] rs1_MEM, rs2_MEM, rd_MEM
 );
 
 
