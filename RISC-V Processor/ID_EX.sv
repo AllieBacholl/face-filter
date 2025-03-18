@@ -13,6 +13,8 @@ module ID_EX(
     input alu_src_sel_A_in,
     input [4:0] alu_op_in,
     input [2:0] imm_ctrl_in,
+    input mem_read_in, mem_sign_in;
+    input [1:0] mem_length_in;
 
     output [31:0] pc_out, pcPlus4_out,
     output [31:0] rs1_data_out, rs2_data_out,
@@ -25,7 +27,10 @@ module ID_EX(
     output [1:0] alu_src_sel_B_out,
     output alu_src_sel_A_out,
     output [4:0] alu_op_out,
-    output [2:0] imm_ctrl_out
+    output [2:0] imm_ctrl_out,
+    output EXT_out,
+    output mem_read_out, mem_sign_out;
+    output [1:0] mem_length_out;
 );
 
 
@@ -48,7 +53,10 @@ dff alu_src_sel_B( .clk(clk), .rst(rst), .d(stall ? alu_src_sel_B_out : alu_src_
 dff alu_src_sel_A( .clk(clk), .rst(rst), .d(stall ? alu_src_sel_A_out : alu_src_sel_A_in), .q(alu_src_sel_A_out) );
 dff alu_op( .clk(clk), .rst(rst), .d(stall ? alu_op_out : alu_op_in), .q(alu_op_out) );
 dff imm_ctrl( .clk(clk), .rst(rst), .d(stall ? imm_ctrl_out : imm_ctrl_in), .q(imm_ctrl_out) );
-
-
+dff err(.q(err_out), .d(err_in), .clk(clk), .rst(rst));
+dff ext(.q(EXT_out), .d(EXT), .clk(clk), .rst(rst));
+dff mem_read(.q(mem_read_out), .d(mem_read_in), .clk(clk), .rst(rst));
+dff mem_sign(.q(mem_sign_out), .d(mem_sign_in), .clk(clk), .rst(rst));
+dff mem_length(.q(mem_length_out), .d(mem_length_in), .clk(clk), .rst(rst));
 
 endmodule

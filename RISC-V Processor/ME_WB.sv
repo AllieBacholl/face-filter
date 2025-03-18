@@ -1,5 +1,5 @@
 module ME_WB(
-    input clk, rst, err_in, stall,
+    input clk, rst, stall,
     input [31:0] pc_in,
     input [31:0] pcPlus4_in,
     input [31:0] rs1_data_in, rs2_data_in,

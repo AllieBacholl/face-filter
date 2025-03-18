@@ -37,10 +37,12 @@ wire [1:0] forwarding_a, forwarding_b;
 wire [31:0] alu_result_EXE, alu_result_MEM;
 wire pc_next_sel;
 wire [31:0] mem_data_MEM, mem_data_WB;
+wire err_FETCH_out, err_ID_out;
 
 wire interrupt_ctrl, interrupt_en, forwarding_mem;
 wire flush_IF_ID, flush_ID_EXE, stall_IF, stall_IF_ID;
 
+assign err = err_FETCH_out | err_ID_out;
 
 // Fetch
 fetch(
@@ -54,7 +56,7 @@ fetch(
     .alu_result_EXE(alu_result_EXE),
     .pc_next_sel(pc_next_sel), 
     .pcJalSrc_EXE(pcJalSrc_EXE),
-    .stall(), // TODO do we need
+    .stall(stall_IF),
     // Output
     .pcPlus4(pcPlus4_FETCH), 
     .pc(pc_FETCH),
@@ -67,17 +69,25 @@ IF_ID(
     // Input
     .clk(clk), 
     .rst(rst), 
-    .err_in(), // TODO do we need, err_ID driven by decode
+    .err_in(err_FETCH),
+    .EXT(EXT), 
     .pc_in(pc_FETCH),
     .instr_in(instr_FETCH),
     .pcPlus4_in(pcPlus4_FETCH),
-    .stall(), // TODO do we need
+    .stall(stall_IF_ID),
     .flush(flush_IF_ID),
+    .mem_read_in(mem_read_ID),
+    .mem_sign_in(mem_sign_ID),
+    .mem_length_in(mem_length_ID),
     // Output
+    .err_out(err_FETCH_out),
+    .EXT_out(EXT_ID), 
     .pc_out(pc_ID),
     .instr_out(instr_ID),
     .pcPlus4_out(pcPlus4_ID),
-    .err_out() // TODO do we need, err_ID driven by decode
+    .mem_read_out(mem_read_EXE),
+    .mem_sign_out(mem_sign_EXE),
+    .mem_length_out(mem_length_EXE)
 );
 
 
@@ -120,8 +130,8 @@ ID_EX(
     .clk(clk), 
     .rst(rst), 
     .err_in(err_ID), // TODO do we need
-    .EXT(EXT), 
-    .stall(), // TODO do we need
+    .EXT(EXT_ID), 
+    .stall(),
     .pc_in(pc_ID),
     .pcPlus4_in(pcPlus4_ID),
     .rs1_data_in(rs1_data_ID), 
@@ -137,10 +147,15 @@ ID_EX(
     .result_sel_in(result_sel_ID),
     .pcJalSrc_in(pcJalSrc_ID),
     .alu_src_sel_B_in(alu_src_sel_B_ID),
-    .alu_src_sel_A_in(), // TODO do we need
+    .alu_src_sel_A_in(), 
     .alu_op_in(alu_op_ID),
     .imm_ctrl_in(imm_ctrl_ID),
+    .mem_read_in(mem_read_EXE),
+    .mem_sign_in(mem_sign_EXE),
+    .mem_length_in(mem_length_EXE),
     // Output
+    .err_out(err_ID_out),
+    .EXT_out(EXT_EXE),
     .pc_out(pc_EXE), 
     .pcPlus4_out(pcPlus4_EXE),
     .rs1_data_out(rs1_data_EXE), 
@@ -156,15 +171,19 @@ ID_EX(
     .result_sel_out(result_sel_EXE),
     .pcJalSrc_out(pcJalSrc_EXE),
     .alu_src_sel_B_out(alu_src_sel_B_EXE),
-    .alu_src_sel_A_out(), // TODO do we need
+    .alu_src_sel_A_out(), 
     .alu_op_out(alu_op_EXE),
-    .imm_ctrl_out(imm_ctrl_EXE)
+    .imm_ctrl_out(imm_ctrl_EXE),
+    .mem_read_out(mem_read_MEM),
+    .mem_sign_out(mem_sign_MEM),
+    .mem_length_out(mem_length_MEM)
 );
 
 // Execute
 execute (
     // Input
     .rst(rst), 
+    .EXT(EXT_EXE),
     .pcPlus4_in(pcPlus4_EXE), 
     .pc_in(pc_EXE),
     .instr_in(instr_EXE),
@@ -187,6 +206,7 @@ execute (
     .rs1_data_WB(rs1_data_WB),
     .rs2_data_WB(rs2_data_WB),
     // Output
+    .EXT_out(EXT_MEM),
     .pc_next_sel(pc_next_sel),
     .branch_jump_addr(branch_jump_addr),
     .alu_result_EXE(alu_result_EXE)    // Result of computation
@@ -197,9 +217,8 @@ EX_ME(
     // Inputs
     .clk(clk), 
     .rst(rst), 
-    .err_in(), 
     .EXT(EXT_EXE), 
-    .stall(), // TODO do we need
+    .stall(),
     .pc_in(pc_EXE),
     .pcPlus4_in(pcPlus4_EXE),
     .rs1_data_in(rs1_data_EXE), 
@@ -210,6 +229,8 @@ EX_ME(
     .reg_write_in(reg_write_EXE), 
     .mem_write_en_in(mem_write_en_EXE),
     .result_sel_in(result_sel_EXE),
+    .mem_sign_in(),
+    .mem_length_in(),
     // Outputs
     .pc_out(pc_MEM), 
     .pcPlus4_out(pcPlus4_MEM),
@@ -220,7 +241,9 @@ EX_ME(
     .rd_out(rd_MEM),
     .reg_write_out(reg_write_MEM), 
     .mem_write_en_out(mem_write_en_MEM),
-    .result_sel_out(result_sel_MEM)
+    .result_sel_out(result_sel_MEM),
+    .mem_sign_out(),
+    .mem_length_out()
 );
 
 // Forwarding mem mux
@@ -233,7 +256,7 @@ memory (
     .rst(rst),
     .reg_write_MEM(reg_write_MEM), 
     .mem_write_en_MEM(mem_write_en_MEM), 
-    .mem_read_en_MEM(mem_read_en_MEM),
+    .mem_read_en_MEM(mem_read_MEM),
     .length_MEM(mem_length_MEM),
     .sign_MEM(mem_sign_MEM),
     .alu_result_MEM(alu_result_MEM),
@@ -247,9 +270,8 @@ ME_WB(
     // Inputs
     .clk(clk), 
     .rst(rst), 
-    .err_in(), // TODO do we need
-    .stall(), // TODO do we need
-    .pc_in(PC),
+    .stall(),
+    .pc_in(pc_MEM),
     .pcPlus4_in(pcPlus4_MEM),
     .rs1_data_in(rs1_data_MEM), 
     .rs2_data_in(rs2_data_MEM),
