@@ -6,7 +6,7 @@ module proc(
 );
 
 // Intermediate Signals
-wire EXT_ID, EXT_EXE, EXT_MEM, EXT_WB;
+wire EXT_ID, EXT_EXE, EXT_MEM;
 wire interrupt_en;
 wire [31:0] interrupt_handling_addr, branch_jump_addr;
 wire pc_next_sel;
@@ -54,13 +54,32 @@ fetch(
     .alu_result_EXE(alu_result_EXE),
     .pc_next_sel(pc_next_sel), 
     .pcJalSrc_EXE(pcJalSrc_EXE),
-    .stall(),
+    .stall(), // TODO do we need
     // Output
     .pcPlus4(pcPlus4_FETCH), 
     .pc(pc_FETCH),
     .instr(instr_FETCH),
     .err(err_FETCH)
 );
+
+// IF_ID
+IF_ID(
+    // Input
+    .clk(clk), 
+    .rst(rst), 
+    .err_in(), // TODO do we need, err_ID driven by decode
+    .pc_in(pc_FETCH),
+    .instr_in(instr_FETCH),
+    .pcPlus4_in(pcPlus4_FETCH),
+    .stall(), // TODO do we need
+    .flush(flush_IF_ID),
+    // Output
+    .pc_out(pc_ID),
+    .instr_out(instr_ID),
+    .pcPlus4_out(pcPlus4_ID),
+    .err_out() // TODO do we need, err_ID driven by decode
+);
+
 
 // Decode
 decode (
@@ -79,7 +98,7 @@ decode (
     .result_sel_ID(result_sel_ID),
     .pcJalSrc_ID(pcJalSrc_ID),
     .alu_src_sel_B_ID(alu_src_sel_B_EXE),
-    .alu_src_sel_A_ID(),
+    .alu_src_sel_A_ID(), // TODO do we need
     .alu_op_ID(alu_op_ID),
     .imm_ctrl_ID(imm_ctrl_ID),
     .instr_12_ID(), 
@@ -93,6 +112,53 @@ decode (
     .mem_sign_ID(mem_sign_ID),
     .mem_length_ID(mem_length_ID),
     .err_ID(err_ID)
+);
+
+// ID_EXE
+ID_EX(
+    // Input
+    .clk(clk), 
+    .rst(rst), 
+    .err_in(err_ID), // TODO do we need
+    .EXT(EXT), 
+    .stall(), // TODO do we need
+    .pc_in(pc_ID),
+    .pcPlus4_in(pcPlus4_ID),
+    .rs1_data_in(rs1_data_ID), 
+    .rs2_data_in(rs2_data_ID),
+    .imm_res_in(imm_res_ID),
+    .rs1_in(rs1_ID), 
+    .rs2_in(rs2_ID), 
+    .rd_in(rd_ID),
+    .reg_write_in(reg_write_ID), 
+    .mem_write_en_in(mem_write_en_ID), 
+    .jump_in(jump_ID), 
+    .branch_in(branch_ID),
+    .result_sel_in(result_sel_ID),
+    .pcJalSrc_in(pcJalSrc_ID),
+    .alu_src_sel_B_in(alu_src_sel_B_ID),
+    .alu_src_sel_A_in(), // TODO do we need
+    .alu_op_in(alu_op_ID),
+    .imm_ctrl_in(imm_ctrl_ID),
+    // Output
+    .pc_out(pc_EXE), 
+    .pcPlus4_out(pcPlus4_EXE),
+    .rs1_data_out(rs1_data_EXE), 
+    .rs2_data_out(rs2_data_EXE),
+    .imm_res_out(imm_res_EXE),
+    .rs1_out(rs1_EXE), 
+    .rs2_out(rs2_EXE), 
+    .rd_out(rd_EXE),
+    .reg_write_out(reg_write_EXE), 
+    .mem_write_en_out(mem_write_en_EXE), 
+    .jump_out(jump_EXE), 
+    .branch_out(branch_EXE),
+    .result_sel_out(result_sel_EXE),
+    .pcJalSrc_out(pcJalSrc_EXE),
+    .alu_src_sel_B_out(alu_src_sel_B_EXE),
+    .alu_src_sel_A_out(), // TODO do we need
+    .alu_op_out(alu_op_EXE),
+    .imm_ctrl_out(imm_ctrl_EXE)
 );
 
 // Execute
@@ -126,6 +192,37 @@ execute (
     .alu_result_EXE(alu_result_EXE)    // Result of computation
 );
 
+// EX_ME
+EX_ME(
+    // Inputs
+    .clk(clk), 
+    .rst(rst), 
+    .err_in(), 
+    .EXT(EXT_EXE), 
+    .stall(), // TODO do we need
+    .pc_in(pc_EXE),
+    .pcPlus4_in(pcPlus4_EXE),
+    .rs1_data_in(rs1_data_EXE), 
+    .rs2_data_in(rs2_data_EXE),
+    .rs1_in(rs1_EXE), 
+    .rs2_in(rs2_EXE), 
+    .rd_in(rd_EXE),
+    .reg_write_in(reg_write_EXE), 
+    .mem_write_en_in(mem_write_en_EXE),
+    .result_sel_in(result_sel_EXE),
+    // Outputs
+    .pc_out(pc_MEM), 
+    .pcPlus4_out(pcPlus4_MEM),
+    .rs1_data_out(rs1_data_MEM), 
+    .rs2_data_out(rs2_data_MEM),
+    .rs1_out(rs1_MEM), 
+    .rs2_out(rs2_MEM), 
+    .rd_out(rd_MEM),
+    .reg_write_out(reg_write_MEM), 
+    .mem_write_en_out(mem_write_en_MEM),
+    .result_sel_out(result_sel_MEM)
+);
+
 // Forwarding mem mux
 wire [31:0] input_mem_data;
 assign input_mem_data = (forwarding_mem) ? write_data_WB : rs2_data_MEM;
@@ -143,6 +240,36 @@ memory (
     .write_data_MEM(input_mem_data),
     // Output
     .mem_data_MEM(mem_data_MEM)
+);
+
+// ME_WB
+ME_WB(
+    // Inputs
+    .clk(clk), 
+    .rst(rst), 
+    .err_in(), // TODO do we need
+    .stall(), // TODO do we need
+    .pc_in(PC),
+    .pcPlus4_in(pcPlus4_MEM),
+    .rs1_data_in(rs1_data_MEM), 
+    .rs2_data_in(rs2_data_MEM),
+    .rs1_in(rs1_MEM), 
+    .rs2_in(rs2_MEM), 
+    .rd_in(rd_MEM),
+    .reg_write_in(reg_write_MEM), 
+    .mem_data_in(mem_data_MEM),
+    .result_sel_in(result_sel_MEM),
+    // Outputs
+    .pc_out(pc_WB), 
+    .pcPlus4_out(pcPlus4_WB),
+    .rs1_data_out(rs1_data_WB), 
+    .rs2_data_out(rs2_data_WB),
+    .rs1_out(rs1_WB), 
+    .rs2_out(rs2_WB), 
+    .rd_out(rd_WB),
+    .reg_write_out(reg_write_WB), 
+    .mem_data_out(mem_data_WB),
+    .result_sel_out(result_sel_WB)
 );
 
 // Writeback
@@ -187,12 +314,12 @@ hazard_detection(
 // Interrupt Handler
 interrupt_handler(
     // Input
-    clk(clk), 
-    rst(rst),
-    external(EXT_MEM),
+    .clk(clk), 
+    .rst(rst),
+    .external(EXT_MEM),
     // Output
-    interrupt_handling_addr(interrupt_handling_addr),
-    interrupt_ctrl(interrupt_ctrl)
+    .interrupt_handling_addr(interrupt_handling_addr),
+    .interrupt_ctrl(interrupt_ctrl)
 );
 
 

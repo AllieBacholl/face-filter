@@ -4,7 +4,6 @@ module memory (
 
     // control signals input
     input reg_write_MEM, mem_write_en_MEM, mem_read_en_MEM
-    input [1:0] resut_sel_MEM,
     input [1:0] length_MEM,
     input sign_MEM,
 
