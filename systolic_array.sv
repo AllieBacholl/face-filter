@@ -6,7 +6,6 @@ module systolic_array
 (
     input clk,
     input rst_n,
-    input start,
     input clr,
     input [DATA_WIDTH-1:0] weights [ARRAY_SIZE-1:0],
     input [DATA_WIDTH-1:0] inputs [ARRAY_SIZE-1:0],
@@ -16,14 +15,12 @@ module systolic_array
     output [ARRAY_SIZE-1:0] full_i,
     output [ARRAY_SIZE-1:0] empty_w,
     output [ARRAY_SIZE-1:0] empty_i,
-    output done
-
+    output logic [12:0] cnt // records how many times the last PE is enabled 
 );
     logic [DATA_WIDTH-1:0] weights_out [ARRAY_SIZE-1:0];
     logic [DATA_WIDTH-1:0] inputs_out [ARRAY_SIZE-1:0];
     logic [ARRAY_SIZE-1:0] rden;
     logic en_first;
-    logic [$clog2(ARRAY_SIZE):0] cnt;
 
     FIFO fifo_w [ARRAY_SIZE-1:0] (
         .clk(clk),
@@ -50,7 +47,7 @@ module systolic_array
     always_ff @(posedge clk) begin
         if (!rst_n) cnt <= 0;
         else if (clr) cnt <= 0;
-        else if (rden[0]) cnt <= cnt + 1;
+        else if (en[ARRAY_SIZE-2][ARRAY_SIZE-2]) cnt <= cnt + 1;
     end
 
     always_ff @(posedge clk, rst_n) begin
@@ -58,16 +55,16 @@ module systolic_array
             rden <= 0;
             en_first <= 0;
         end
-        else if (cnt == ARRAY_SIZE) begin
+        else if ((empty_i[0]) || (empty_w[0])) begin
             rden <= {rden[ARRAY_SIZE-2:0], 1'b0};
             en_first <= 0;
         end 
-        else if (start) begin
-            rden <= {rden[ARRAY_SIZE-2:0], 1'b1};
+        else if (clr) begin
+            rden <= {rden[ARRAY_SIZE-2:0], 1'b0};
             en_first <= rden[0];
         end
         else begin
-            rden <= {rden[ARRAY_SIZE-2:0], rden[0]};
+            rden <= {rden[ARRAY_SIZE-2:0], 1'b1};
             en_first <= rden[0];
         end
     end
@@ -146,5 +143,4 @@ module systolic_array
             end
         end
     endgenerate
-    assign done = en[ARRAY_SIZE-1][ARRAY_SIZE-1] & (~en[ARRAY_SIZE-2][ARRAY_SIZE-1]);
 endmodule

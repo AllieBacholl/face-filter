@@ -41,9 +41,16 @@ module tb_systolic();
         @(posedge clk) rst_n = 0;
         @(posedge clk) rst_n = 1;
         @(posedge clk) wren = 16'hffff;
-        @(posedge &{full_i, full_w}) wren = 0;
+        @(posedge clk) wren = 16'h0000;
         @(posedge clk) start = 1;
         @(posedge clk) start = 0;
+        for (int i = 0; i < 8; i=i+1) begin
+            @(posedge clk) wren = 16'hffff;
+            @(posedge clk) wren = 16'h0000;
+            @(posedge clk) wren = 16'h0000;
+            @(posedge clk) wren = 16'h0000;
+        end
+        @(posedge clk) wren = 16'h0000;
         @(posedge done) $stop;
     end
     always #1 clk = ~clk;
