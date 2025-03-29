@@ -7,18 +7,18 @@ module EX_ME(
 
     input reg_write_in, mem_write_en_in,
     input [1:0] result_sel_in,
-    input mem_read_in, mem_sign_in;
-    input [1:0] mem_length_in;
+    input mem_read_in, mem_sign_in,
+    input [1:0] mem_length_in,
 
     output [31:0] pc_out, pcPlus4_out,
     output [31:0] rs1_data_out, rs2_data_out,
     output [4:0] rs1_out, rs2_out, rd_out,
 
     output reg_write_out, mem_write_en_out,
-    output [1:0] result_sel_out
+    output [1:0] result_sel_out,
     output EXT_out,
-    output mem_read_out, mem_sign_out;
-    output [1:0] mem_length_out;
+    output mem_read_out, mem_sign_out,
+    output [1:0] mem_length_out
 );
 
 

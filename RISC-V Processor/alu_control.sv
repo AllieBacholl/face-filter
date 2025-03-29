@@ -11,27 +11,27 @@ module alu_control (opcode, funct3, funct7, aluOp);
    assign aluOp =
                      // I type instructions 
                     (opcode == 7'b0010011)          ?                   // If I instruction that uses ALU
-                    (fucnt3 == 3'b000)              ?   5'b10000 :      // add ALU Operation
-                    (fucnt3 == 3'b001)              ?   5'b10001 :      // sll ALU Operation
-                    (fucnt3 == 3'b010)              ?   5'b10010 :      // slt ALU Operation
-                    (fucnt3 == 3'b011)              ?   5'b10011 :      // sltu ALU Operation
-                    (fucnt3 == 3'b100)              ?   5'b10100 :      // xor ALU Operation
-                    (fucnt3 == 3'b101)              ?                   // sr ALU Operation
-                    (fucnt7 == 1'b0)    ?  5'b10101 :   5'b11101 :      // set if srl or sra
-                    (fucnt3 == 3'b110)              ?   5'b10110 :      // or ALU Operation
+                    (funct3 == 3'b000)              ?   5'b10000 :      // add ALU Operation
+                    (funct3 == 3'b001)              ?   5'b10001 :      // sll ALU Operation
+                    (funct3 == 3'b010)              ?   5'b10010 :      // slt ALU Operation
+                    (funct3 == 3'b011)              ?   5'b10011 :      // sltu ALU Operation
+                    (funct3 == 3'b100)              ?   5'b10100 :      // xor ALU Operation
+                    (funct3 == 3'b101)              ?                   // sr ALU Operation
+                    (funct7 == 1'b0)    ?  5'b10101 :   5'b11101 :      // set if srl or sra
+                    (funct3 == 3'b110)              ?   5'b10110 :      // or ALU Operation
                     5'b10111                        :                   // and ALU Operation
                     
                     // R type instructions 
                     (opcode == 7'b0110011)          ?                   // If R instruction that doesn't use ALU
-                    (fucnt3 == 3'b000)              ?                   // add or sub ALU Operation
-                    (fucnt7 == 1'b0)    ?  5'b10000 :   5'b11000 :      // set if add or sub
-                    (fucnt3 == 3'b001)              ?   5'b10001 :      // sll ALU Operation
-                    (fucnt3 == 3'b010)              ?   5'b10010 :      // slt ALU Operation
-                    (fucnt3 == 3'b011)              ?   5'b10011 :      // sltu ALU Operation
-                    (fucnt3 == 3'b100)              ?   5'b10100 :      // xor ALU Operation
-                    (fucnt3 == 3'b101)              ?                   // sr ALU Operation
-                    (fucnt7 == 1'b0)    ?  5'b10101 :   5'b11101 :      // set if srl or sra
-                    (fucnt3 == 3'b110)              ?   5'b10110 :      // or ALU Operation
+                    (funct3 == 3'b000)              ?                   // add or sub ALU Operation
+                    (funct7 == 1'b0)    ?  5'b10000 :   5'b11000 :      // set if add or sub
+                    (funct3 == 3'b001)              ?   5'b10001 :      // sll ALU Operation
+                    (funct3 == 3'b010)              ?   5'b10010 :      // slt ALU Operation
+                    (funct3 == 3'b011)              ?   5'b10011 :      // sltu ALU Operation
+                    (funct3 == 3'b100)              ?   5'b10100 :      // xor ALU Operation
+                    (funct3 == 3'b101)              ?                   // sr ALU Operation
+                    (funct7 == 1'b0)    ?  5'b10101 :   5'b11101 :      // set if srl or sra
+                    (funct3 == 3'b110)              ?   5'b10110 :      // or ALU Operation
                     5'b10111                        :                   // and ALU Operation
 
                     // B type instructions

@@ -3,7 +3,7 @@ module proc_hier_bench();
 wire [31:0] PC;
 wire [31:0] Inst;
 
-wire Regwrite;
+wire RegWrite;
 wire [2:0] WriteRegister;
 wire [31:0] WriteData;
 wire MemWrite;

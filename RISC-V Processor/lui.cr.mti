@@ -1,0 +1,183 @@
+{C:/Users/diana/Desktop/face-filter/RISC-V Processor/clkrst.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/clkrst.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module clkrst
+
+Top level modules:
+	clkrst
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module proc_hier
+
+Top level modules:
+	proc_hier
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/execute.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/execute.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module execute
+
+Top level modules:
+	execute
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/writeback.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/writeback.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module writeback
+
+Top level modules:
+	writeback
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/register.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/register.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Register
+
+Top level modules:
+	Register
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module regFile
+
+Top level modules:
+	regFile
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/EX_ME.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/EX_ME.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module EX_ME
+
+Top level modules:
+	EX_ME
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module regFile_bypass
+
+Top level modules:
+	regFile_bypass
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/hazard_detection.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/hazard_detection.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module hazard_detection
+
+Top level modules:
+	hazard_detection
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/ID_EX.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/ID_EX.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ID_EX
+
+Top level modules:
+	ID_EX
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/ME_WB.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/ME_WB.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ME_WB
+
+Top level modules:
+	ME_WB
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module interrupt_handler
+
+Top level modules:
+	interrupt_handler
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu_control.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu_control.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module alu_control
+
+Top level modules:
+	alu_control
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/fetch.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/fetch.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fetch
+
+Top level modules:
+	fetch
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/IF_ID.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/IF_ID.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module IF_ID
+
+Top level modules:
+	IF_ID
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module proc
+
+Top level modules:
+	proc
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/decode.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/decode.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module decode
+
+Top level modules:
+	decode
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_decoder.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_decoder.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module instr_decoder
+
+Top level modules:
+	instr_decoder
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory2c.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory2c.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module memory2c
+
+Top level modules:
+	memory2c
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_mem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_mem.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module instr_mem
+
+Top level modules:
+	instr_mem
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/pc_reg.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/pc_reg.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pc_reg
+
+Top level modules:
+	pc_reg
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/dff.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/dff.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module dff
+
+Top level modules:
+	dff
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module memory
+
+Top level modules:
+	memory
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/immediate_execution.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/immediate_execution.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module immediate_execution
+
+Top level modules:
+	immediate_execution
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module proc_hier_bench
+
+Top level modules:
+	proc_hier_bench
+
+} {} {}} {C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu.sv} {1 {vlog -work work -sv -stats=none {C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}}

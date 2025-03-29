@@ -17,7 +17,7 @@ module instr_mem(
     
     // Initialize instruction memory from external hex file
     initial begin
-        $readmemh("../instr.hex", instr_mem);
+        $readmemh("../tests/lui.hex", instr_mem);
     end
     
 endmodule

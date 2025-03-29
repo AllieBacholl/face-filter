@@ -1,0 +1,641 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/diana/Desktop/554/ECE554SP25_Minilab3
+valu
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1743282953
+!i10b 1
+!s100 F70oN5JV^Wii9TnGi>LJP1
+IQU^_aiRz3]lcVhWO>f1>U0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+Z3 dC:/Users/diana/Desktop/face-filter/RISC-V Processor
+w1743281092
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/alu.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1743282953.000000
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+valu_control
+R0
+R1
+!i10b 1
+!s100 5Olg7mJe:h<@z0HjNFeB[0
+I8^ZhEgg7WD?QA1=jOQ`2h2
+R2
+!s105 alu_control_sv_unit
+S1
+R3
+w1743281180
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu_control.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/alu_control.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu_control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/alu_control.sv|
+!i113 1
+R6
+R7
+vclkrst
+R0
+R1
+!i10b 1
+!s100 RY98YD^f2NM:Rb`CkfV5M2
+I?A?RJgN<`QQ>4z>c55V152
+R2
+!s105 clkrst_sv_unit
+S1
+R3
+w1743128279
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/clkrst.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/clkrst.sv
+L0 5
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/clkrst.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/clkrst.sv|
+!i113 1
+R6
+R7
+vdecode
+R0
+R1
+!i10b 1
+!s100 EC3R@a2SA7HP1aiJAX7QB0
+IGUNQCBccL[][FMQoeiUWQ2
+R2
+!s105 decode_sv_unit
+S1
+R3
+Z8 w1742269595
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/decode.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/decode.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/decode.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/decode.sv|
+!i113 1
+R6
+R7
+vdff
+R0
+R1
+!i10b 1
+!s100 IX7?]c=67af18Cgh0`1oG3
+IkHJc6GkAfUk]3bV26S@@=0
+R2
+!s105 dff_sv_unit
+S1
+R3
+w1742150793
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/dff.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/dff.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/dff.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/dff.sv|
+!i113 1
+R6
+R7
+vEX_ME
+R0
+Z9 !s110 1743282951
+!i10b 1
+!s100 hKZTdo_WXRzHB0HlQXYKk0
+I<WaQ;^N_AMDMDk`iShOh;1
+R2
+!s105 EX_ME_sv_unit
+S1
+R3
+w1743281216
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/EX_ME.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/EX_ME.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z10 !s108 1743282951.000000
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/EX_ME.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/EX_ME.sv|
+!i113 1
+R6
+R7
+n@e@x_@m@e
+vexecute
+R0
+R9
+!i10b 1
+!s100 dFO<l6703O4Y;KHVBLml92
+I3@?@?^kX37UnjTI<6A2di1
+R2
+!s105 execute_sv_unit
+S1
+R3
+w1743280434
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/execute.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/execute.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/execute.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/execute.sv|
+!i113 1
+R6
+R7
+vfetch
+R0
+R9
+!i10b 1
+!s100 ILYU]F6D4Ao5HLXL5d:DF2
+I8g;n[Bfg7nHg?N0:HDJ^X0
+R2
+!s105 fetch_sv_unit
+S1
+R3
+R8
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/fetch.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/fetch.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/fetch.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/fetch.sv|
+!i113 1
+R6
+R7
+vhazard_detection
+R0
+R9
+!i10b 1
+!s100 @ahQ?n>k=8i[E2nC5HTb=3
+I4ggaezL0QdgcCWmNmORGe3
+R2
+!s105 hazard_detection_sv_unit
+S1
+R3
+R8
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/hazard_detection.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/hazard_detection.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/hazard_detection.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/hazard_detection.sv|
+!i113 1
+R6
+R7
+vID_EX
+R0
+R9
+!i10b 1
+!s100 VU000>4[dBiUm47AJRJ:i3
+I2S6[F@=867HAiDRmj06h@3
+R2
+!s105 ID_EX_sv_unit
+S1
+R3
+w1743281236
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/ID_EX.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/ID_EX.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/ID_EX.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/ID_EX.sv|
+!i113 1
+R6
+R7
+n@i@d_@e@x
+vIF_ID
+R0
+R9
+!i10b 1
+!s100 e47AY^L_D;GZ6DFoiQj]51
+I_zQn_EkVU>59ec`C;]7<R3
+R2
+!s105 IF_ID_sv_unit
+S1
+R3
+w1742151488
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/IF_ID.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/IF_ID.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/IF_ID.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/IF_ID.sv|
+!i113 1
+R6
+R7
+n@i@f_@i@d
+vimmediate_execution
+R0
+R9
+!i10b 1
+!s100 agA^9;ZGKeba=MhLT8Di^3
+IWeXgka26o]3WP]]Y1An@63
+R2
+!s105 immediate_execution_sv_unit
+S1
+R3
+w1742063632
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/immediate_execution.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/immediate_execution.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/immediate_execution.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/immediate_execution.sv|
+!i113 1
+R6
+R7
+vinstr_decoder
+R0
+R9
+!i10b 1
+!s100 SU3?5Bfc@D0DbzRmbDcVF0
+I=l=>URmEc<B@`AWB8Mc;S3
+R2
+!s105 instr_decoder_sv_unit
+S1
+R3
+w1743280619
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_decoder.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_decoder.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_decoder.sv|
+!i113 1
+R6
+R7
+vinstr_mem
+R0
+R9
+!i10b 1
+!s100 PJD>N;9Bz1mTK1H=Kk`_l0
+IM@4TJN;@=4R026bjg`:0Z3
+R2
+!s105 instr_mem_sv_unit
+S1
+R3
+w1743280127
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_mem.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_mem.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_mem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/instr_mem.sv|
+!i113 1
+R6
+R7
+vinterrupt_handler
+R0
+Z11 !s110 1743282952
+!i10b 1
+!s100 3Zo_S4OD7jVV^EOQjFJH[2
+IQzT^7hI>]O=7^ZJ1=nMl:1
+R2
+!s105 interrupt_handler_sv_unit
+S1
+R3
+R8
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z12 !s108 1743282952.000000
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv|
+!i113 1
+R6
+R7
+vME_WB
+R0
+R11
+!i10b 1
+!s100 A390U8LoTMaQW?GadnO8`2
+I5194czaVnF7oXVCF7nXHj2
+R2
+!s105 ME_WB_sv_unit
+S1
+R3
+w1743126317
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/ME_WB.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/ME_WB.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/ME_WB.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/ME_WB.sv|
+!i113 1
+R6
+R7
+n@m@e_@w@b
+vmemory
+R0
+R11
+!i10b 1
+!s100 5KRe4f00OjQ8>iSjnD[mL3
+I_dk9=Bcd@M<K_;PO=_73T0
+R2
+!s105 memory_sv_unit
+S1
+R3
+w1743281546
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/memory.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory.sv|
+!i113 1
+R6
+R7
+vmemory2c
+R0
+!s110 1743284166
+!i10b 1
+!s100 TYlMRfhURNbMa:PfJ3Ih]2
+ISX@DAiNZY7n^7=IKPhdLT2
+R2
+!s105 memory2c_sv_unit
+S1
+R3
+w1743283990
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory2c.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/memory2c.sv
+L0 4
+R4
+r1
+!s85 0
+31
+!s108 1743284166.000000
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory2c.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/memory2c.sv|
+!i113 1
+R6
+R7
+vpc_reg
+R0
+R11
+!i10b 1
+!s100 cz0f_]:XC^NSVTQT;cj7:0
+I;Z?WVM2S>[4QfzlE0jVXk0
+R2
+!s105 pc_reg_sv_unit
+S1
+R3
+w1742150784
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/pc_reg.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/pc_reg.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/pc_reg.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/pc_reg.sv|
+!i113 1
+R6
+R7
+vproc
+R0
+R11
+!i10b 1
+!s100 ^8DTS@Ez]1dbRHPR2W8jJ1
+IP[O@hRmEPLb3c<aLDZ=l<1
+R2
+!s105 proc_sv_unit
+S1
+R3
+w1743282695
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/proc.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc.sv|
+!i113 1
+R6
+R7
+vproc_hier
+R0
+R11
+!i10b 1
+!s100 kjnzW:nRiRehDZig;bRi=1
+IBCLadfIU;SBjKPfhS@nzL1
+R2
+!s105 proc_hier_sv_unit
+S1
+R3
+w1743128716
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier.sv|
+!i113 1
+R6
+R7
+vproc_hier_bench
+R0
+R11
+!i10b 1
+!s100 Aoa5nfYZAh?FkWHz;KQm^3
+IEoCJ7`M?[@C54C2E7T9W91
+R2
+!s105 proc_hier_bench_sv_unit
+S1
+R3
+w1743280912
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv|
+!i113 1
+R6
+R7
+vregFile
+R0
+R11
+!i10b 1
+!s100 0CZ9a89mSZAJZj;3bKeTa3
+IOR5eIhbQKIc15T8>K5Fbc3
+R2
+!s105 regFile_sv_unit
+S1
+R3
+w1741796542
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile.sv|
+!i113 1
+R6
+R7
+nreg@file
+vregFile_bypass
+R0
+R11
+!i10b 1
+!s100 =@l?bIZB36h6^QWPNHL:g2
+IOk_k6CKMc7ZHizn83KXfQ2
+R2
+!s105 regFile_bypass_sv_unit
+S1
+R3
+w1741796609
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv|
+!i113 1
+R6
+R7
+nreg@file_bypass
+vRegister
+R0
+R1
+!i10b 1
+!s100 5SDRVVbMjjP[_5LU5JCGV2
+I5NAo4Hbgzn0ohIO36;=EW0
+R2
+!s105 register_sv_unit
+S1
+R3
+w1741795958
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/register.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/register.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/register.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/register.sv|
+!i113 1
+R6
+R7
+n@register
+vwriteback
+R0
+R1
+!i10b 1
+!s100 U4Dhg??GS]0?J:4]AFclK1
+IQoYKN;7JMecS777NjS9mL2
+R2
+!s105 writeback_sv_unit
+S1
+R3
+w1743280985
+8C:/Users/diana/Desktop/face-filter/RISC-V Processor/writeback.sv
+FC:/Users/diana/Desktop/face-filter/RISC-V Processor/writeback.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/diana/Desktop/face-filter/RISC-V Processor/writeback.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/diana/Desktop/face-filter/RISC-V Processor/writeback.sv|
+!i113 1
+R6
+R7

@@ -319,7 +319,7 @@ always @* begin
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = ;0
+                mem_write_en = 0;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
                 mem_length = 2'b10;
@@ -426,7 +426,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -443,7 +443,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -460,7 +460,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -477,7 +477,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -494,7 +494,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -511,7 +511,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -528,7 +528,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -545,7 +545,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -562,7 +562,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -580,7 +580,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -597,7 +597,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -614,7 +614,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -631,7 +631,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -648,7 +648,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -665,7 +665,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -682,7 +682,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -699,7 +699,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -716,7 +716,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end
@@ -733,7 +733,7 @@ always @* begin
                 mem_write_en = 0;
                 result_sel = 2'b00;
                 pcJalSrc = 1'bx;
-                mem_length = 2'bxx
+                mem_length = 2'bxx;
                 mem_read = 0;
                 mem_sign = 1'bx;
             end

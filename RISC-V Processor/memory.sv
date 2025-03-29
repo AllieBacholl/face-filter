@@ -1,18 +1,18 @@
 `default_nettype none
 module memory (
-    input rst,
+    input wire rst, clk,
 
     // control signals input
-    input reg_write_MEM, mem_write_en_MEM, mem_read_en_MEM
-    input [1:0] length_MEM,
-    input sign_MEM,
+    input wire reg_write_MEM, mem_write_en_MEM, mem_read_en_MEM,
+    input wire [1:0] length_MEM,
+    input wire sign_MEM,
 
     // data signals input
-    input [31:0] alu_result_MEM,
-    input [31:0] write_data_MEM,
+    input wire [31:0] alu_result_MEM,
+    input wire [31:0] write_data_MEM,
 
     // data signals outputs
-    output [31:0] mem_data_MEM
+    output wire [31:0] mem_data_MEM
 );
 
 // Length: 0 = byte, 1 = half, 2 = word

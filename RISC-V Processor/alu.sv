@@ -22,10 +22,10 @@ module alu (InA, InB, Oper, Out, zf, sf);
     assign B_int = (Oper == 5'b11000) ? (~InB) + 1'b1 : InB;
     
     // Shift operation: sll, srl, or sla
-    assign shift_result = ((Oper == 5'b10001) ? InA << B_int) : ((Oper == 5'b10101) ? InA >> B_int) : InA >>> B_int;
+    assign shift_result = (Oper == 5'b10001) ? InA << B_int : (Oper == 5'b10101) ? InA >> B_int: InA >>> B_int;
 
     // Arithmetic addition
-    sum = InA + B_int;
+    assign sum = InA + B_int;
     
     // Bitwise XOR, OR, and AND
     assign xor_result  = InA ^ B_int;

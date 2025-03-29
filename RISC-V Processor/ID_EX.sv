@@ -13,8 +13,8 @@ module ID_EX(
     input alu_src_sel_A_in,
     input [4:0] alu_op_in,
     input [2:0] imm_ctrl_in,
-    input mem_read_in, mem_sign_in;
-    input [1:0] mem_length_in;
+    input mem_read_in, mem_sign_in,
+    input [1:0] mem_length_in,
 
     output [31:0] pc_out, pcPlus4_out,
     output [31:0] rs1_data_out, rs2_data_out,
@@ -29,8 +29,8 @@ module ID_EX(
     output [4:0] alu_op_out,
     output [2:0] imm_ctrl_out,
     output EXT_out,
-    output mem_read_out, mem_sign_out;
-    output [1:0] mem_length_out;
+    output mem_read_out, mem_sign_out,
+    output [1:0] mem_length_out
 );
 
 
