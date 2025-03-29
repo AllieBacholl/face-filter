@@ -1,0 +1,22 @@
+# ModelSim/QuestaSim generated files
+*.wlf         # Simulation waveform log files
+*.vstf        # Verilog simulation trace files
+*.vcd         # Value change dump files
+transcript    # Simulation transcript/log
+modelsim.ini  # Local ModelSim configuration file
+vsim.wlf      # Default waveform file
+*.log         # Log files
+*.dat         # Data files generated during simulation
+*.ucdb        # Coverage data files
+*.ddb         # Debug database files
+*.htm         # HTML coverage reports
+*.sim         # Simulation cache files
+*.svf         # Simulation verification files
+*.qwave       # Questa waveform files
+*.qdb         # Questa database files
+
+# Libraries
+work/         # Compiled work library folder
+*.o           # Object files
+*.so          # Shared libraries
+*.dll         # Windows DLL files
