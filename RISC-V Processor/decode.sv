@@ -42,7 +42,7 @@ immediate_execution IE(
     .imm_res_ID(imm_res_ID)    // Generated immediate value
 );
 
-instr_decoder(
+instr_decoder instr_decoder(
     .opcode(instr[6:0]), 
     .funct3(instr[14:12]),
     .funct7(instr[31:25]),

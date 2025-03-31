@@ -3,7 +3,7 @@ module alu_control (opcode, funct3, funct7, aluOp);
 
    input wire [6:0]    opcode;        // Bottom 7 bits of instruction
    input wire [2:0]    funct3;        // Differentiate between different R and I instructions
-   input wire          funct7;        // 31st bit for shifting logical or arithmetic/adding or subtracting
+   input wire [6:0]    funct7;        // 31st bit for shifting logical or arithmetic/adding or subtracting
    
    output wire [4:0]   aluOp;         // Opcode going to the alu
                                       // [Do nothing][funct7][funct3]

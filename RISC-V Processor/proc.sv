@@ -10,9 +10,9 @@ wire EXT_ID, EXT_EXE, EXT_MEM;
 wire [31:0] interrupt_handling_addr, branch_jump_addr;
 wire pc_next_sel;
 wire pcJalSrc_ID, pcJalSrc_EXE;
-wire pc_FETCH, pc_ID, pc_EXE, pc_MEM, pc_WB;
-wire pcPlus4_FETCH, pcPlus4_ID, pcPlus4_EXE, pcPlus4_MEM, pcPlus4_WB;
-wire instr_FETCH, instr_ID, instr_EXE, instr_MEM, instr_WB;
+wire [31:0] pc_FETCH, pc_ID, pc_EXE, pc_MEM, pc_WB;
+wire [31:0] pcPlus4_FETCH, pcPlus4_ID, pcPlus4_EXE, pcPlus4_MEM, pcPlus4_WB;
+wire [31:0] instr_FETCH, instr_ID, instr_EXE, instr_MEM, instr_WB;
 wire err_FETCH, err_ID;
 wire [4:0] rs1_ID, rs1_EXE, rs1_MEM, rs1_WB;
 wire [4:0] rs2_ID, rs2_EXE, rs2_MEM, rs2_WB;
@@ -27,14 +27,18 @@ wire mem_sign_ID, mem_sign_EXE, mem_sign_MEM;
 wire [1:0] mem_length_ID, mem_length_EXE, mem_length_MEM;
 wire jump_ID, jump_EXE;
 wire branch_ID, branch_EXE;
-wire result_spcJalSrc_IDel_ID, result_sel_EXE, result_sel_MEM, result_sel_WB;
-wire [1:0] alu_src_sel_B_EXE;
+wire result_spcJalSrc_IDel_ID, result_sel_MEM, result_sel_WB;
+
+wire [1:0] result_sel_EXE, alu_src_sel_B_ID;
+wire [1:0] alu_src_sel_B_EXE, alu_src_sel_B_in, result_sel_out;
 wire [4:0] alu_op_ID, alu_op_EXE;
 wire [2:0] imm_ctrl_ID, imm_ctrl_EXE;
 wire [1:0] forwarding_a, forwarding_b;
 wire [31:0] alu_result_EXE, alu_result_MEM;
 wire [31:0] mem_data_MEM, mem_data_WB;
 wire err_FETCH_out, err_ID_out;
+wire [31:0] write_data_WB, alu_result_WB;
+wire [1:0] result_sel_ID;
 
 wire interrupt_ctrl, interrupt_en, forwarding_mem;
 wire flush_IF_ID, flush_ID_EXE, stall_IF, stall_IF_ID;
@@ -42,7 +46,7 @@ wire flush_IF_ID, flush_ID_EXE, stall_IF, stall_IF_ID;
 assign err = err_FETCH_out | err_ID_out;
 
 // Fetch
-fetch(
+fetch fetch(
     // Input
     .clk(clk), 
     .rst(rst), 
@@ -62,7 +66,7 @@ fetch(
 );
 
 // IF_ID
-IF_ID(
+IF_ID IF_ID(
     // Input
     .clk(clk), 
     .rst(rst), 
@@ -89,7 +93,7 @@ IF_ID(
 
 
 // Decode
-decode (
+decode decode(
     // Input
     .rst(rst),
     .instr(instr_ID),
@@ -122,7 +126,7 @@ decode (
 );
 
 // ID_EXE
-ID_EX(
+ID_EX ID_EX(
     // Input
     .clk(clk), 
     .rst(rst), 
@@ -177,7 +181,7 @@ ID_EX(
 );
 
 // Execute
-execute (
+execute execute(
     // Input
     .rst(rst), 
     .EXT(EXT_EXE),
@@ -210,7 +214,7 @@ execute (
 );
 
 // EX_ME
-EX_ME(
+EX_ME EX_ME(
     // Inputs
     .clk(clk), 
     .rst(rst), 
@@ -248,7 +252,7 @@ wire [31:0] input_mem_data;
 assign input_mem_data = (forwarding_mem) ? write_data_WB : rs2_data_MEM;
 
 // Memory
-memory (
+memory memory(
     // Input
     .rst(rst),
     .reg_write_MEM(reg_write_MEM), 
@@ -263,7 +267,7 @@ memory (
 );
 
 // ME_WB
-ME_WB(
+ME_WB ME_WB(
     // Inputs
     .clk(clk), 
     .rst(rst), 
@@ -292,7 +296,7 @@ ME_WB(
 );
 
 // Writeback
-writeback (
+writeback writeback(
     // Input
     .result_set_WB(result_sel_WB),
     .alu_result_WB(alu_result_WB),
@@ -303,7 +307,7 @@ writeback (
 );
 
 // Hazard Detection
-hazard_detection(
+hazard_detection hazard_detection(
     // Input
     .mem_write_en_ID(mem_write_en_ID), 
     .interrupt_ctrl(interrupt_ctrl),
@@ -331,7 +335,7 @@ hazard_detection(
 );
 
 // Interrupt Handler
-interrupt_handler(
+interrupt_handler interrupt_handler(
     // Input
     .clk(clk), 
     .rst(rst),

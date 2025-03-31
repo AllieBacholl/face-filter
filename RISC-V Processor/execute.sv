@@ -1,6 +1,6 @@
 module execute (
     input rst,
-    
+    input EXT,
     // control signals input
     input [31:0] pcPlus4_in, pc_in,
     input [31:0] instr_in,
@@ -8,6 +8,7 @@ module execute (
     input [1:0] alu_src_sel_B_EXE,
     input [1:0] imm_ctrl_EXE,
     input [4:0] aluOp,
+
 
     // data signals input
     input [4:0] rs1_EXE, rs2_EXE, rd_EXE,
@@ -22,6 +23,7 @@ module execute (
     input [31:0] rs2_data_WB,
 
     // control signals outputs
+    output EXT_out,
     output pc_next_sel,
 
     // data signals outputs
@@ -48,7 +50,7 @@ assign InB = (alu_src_sel_B_EXE[1] == 1'b1) ? branch_jump_addr :
              (alu_src_sel_B_EXE[0] == 1'b1) ? imm_res_EXE : rs2_data_EXE;
 
 // alu_control ialu_control(.opcode(instr_in[6:0]), .funct3(instr_in[14:12]), .funct7(instr_in[31]), .aluOp(aluOp));
-alu (.InA(InA), .InB(InA), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));
+alu alu(.InA(InA), .InB(InA), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));
 
 // Branch control
 assign branch_jump_addr = imm_res_EXE + pcPlus4_in;
