@@ -27,9 +27,9 @@ wire mem_sign_ID, mem_sign_EXE, mem_sign_MEM;
 wire [1:0] mem_length_ID, mem_length_EXE, mem_length_MEM;
 wire jump_ID, jump_EXE;
 wire branch_ID, branch_EXE;
-wire result_spcJalSrc_IDel_ID, result_sel_MEM, result_sel_WB;
+wire result_spcJalSrc_IDel_ID;
 
-wire [1:0] result_sel_EXE, alu_src_sel_B_ID;
+wire [1:0] result_sel_EXE, result_sel_MEM, result_sel_WB, alu_src_sel_B_ID;
 wire [1:0] alu_src_sel_B_EXE, alu_src_sel_B_in, result_sel_out;
 wire [4:0] alu_op_ID, alu_op_EXE;
 wire [2:0] imm_ctrl_ID, imm_ctrl_EXE;
@@ -232,6 +232,7 @@ EX_ME EX_ME(
     .result_sel_in(result_sel_EXE),
     .mem_sign_in(),
     .mem_length_in(),
+    .mem_read_in(mem_read_EXE),
     // Outputs
     .pc_out(pc_MEM), 
     .pcPlus4_out(pcPlus4_MEM),
@@ -244,7 +245,9 @@ EX_ME EX_ME(
     .mem_write_en_out(mem_write_en_MEM),
     .result_sel_out(result_sel_MEM),
     .mem_sign_out(),
-    .mem_length_out()
+    .mem_length_out(),
+    .mem_read_out(mem_read_MEM),
+    .EXT_out()
 );
 
 // Forwarding mem mux
@@ -254,6 +257,7 @@ assign input_mem_data = (forwarding_mem) ? write_data_WB : rs2_data_MEM;
 // Memory
 memory memory(
     // Input
+    .clk(clk),
     .rst(rst),
     .reg_write_MEM(reg_write_MEM), 
     .mem_write_en_MEM(mem_write_en_MEM), 
