@@ -6,13 +6,13 @@ module fetch_tb;
     reg clk = 0;
     reg rst;
     reg EXT_in = 1'bx;
-    reg interrupt_en = 1'b0;
+    reg interrupt_en = 1'bx;
     reg [31:0] interrupt_handling_addr = 32'hxxxxxxxx;
     reg [31:0] branch_jump_addr = 32'hxxxxxxxx;
     reg [31:0] alu_result_EXE = 32'hxxxxxxxx;
-    reg pc_next_sel = 1'b0;
+    reg pc_next_sel = 1'bx;
     reg pcJalSrc_EXE = 1'bx;
-    reg stall = 0;
+    reg stall = 1'b0;
 
     // Outputs
     wire [31:0] pcPlus4, pc;

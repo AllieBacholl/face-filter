@@ -13,9 +13,16 @@ module fetch(
     reg [31:0] pc_reg;
     
     // Logic for calculating pc_back and pc_next
-   
-    assign pc_back = pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE : branch_jump_addr) : pcPlus4;
-    assign pc_next = interrupt_en ? interrupt_handling_addr : pc_back;
+    
+        // assign pc_back = pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE : branch_jump_addr) : pcPlus4;
+        // assign pc_next = interrupt_en ? interrupt_handling_addr : pc_back;
+
+    assign pc_back = (pc_next_sel === 1'bx) ? pcPlus4 :
+                    (pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE : branch_jump_addr) : pcPlus4);
+
+    assign pc_next = (interrupt_en === 1'bx) ? pc_back :
+                    (interrupt_en ? interrupt_handling_addr : pc_back);
+
     
     // PC register with reset and stall capability
     always @(posedge clk or posedge rst) begin
