@@ -10,7 +10,6 @@ wire MemWrite;
 wire MemRead;
 wire [31:0] MemAddress;
 wire [31:0] MemData;
-wire rst;
 
 integer inst_count;
 integer trace_file;
@@ -19,9 +18,6 @@ integer sim_log_file;
 proc_hier DUT();
 
 initial begin
-      rst = 1;
-      #20
-      rst = 0;
       $display("Hello world...simulation starting");
       $display("See verilogsim.log and verilogsim.trace for output");
       inst_count = 0;
@@ -92,7 +88,7 @@ end
       
    end
 
-   assign rst = DUT.p0.rst;
+   
    assign PC = DUT.p0.fetch.pc;
     assign Inst = DUT.p0.fetch.instr;
     assign RegWrite = DUT.p0.decode.reg_write_WB;
