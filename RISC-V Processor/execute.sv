@@ -6,7 +6,7 @@ module execute (
     input [31:0] instr_in,
     input jump_EXE, branch_EXE,
     input [1:0] alu_src_sel_B_EXE,
-    input [1:0] imm_ctrl_EXE,
+    input [2:0] imm_ctrl_EXE,
     input [4:0] aluOp,
 
 
