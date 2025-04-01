@@ -1,8 +1,9 @@
-.section .text
-.globl _start
+    .section .text
+    .globl _start
 
 _start:
-    lui x5, 0x12345       # Load upper immediate into x5
-    sw x5, 0(x0)          # Store x5 at address 0 (for checking)
-    li a0, 10             # Exit syscall
-    ecall
+    lui x1, 0x12345
+
+    lui x2, 0x54321
+
+    add x3, x1, x2
