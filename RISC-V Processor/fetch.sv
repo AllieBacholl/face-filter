@@ -30,7 +30,7 @@ module fetch(
     assign pc = pc_reg;
     
     // Calculate PC+4
-    assign pcPlus4 = pc + 32'h4;
+    assign pcPlus4 = pc + 1;
     
     // Instruction memory
     instr_mem IM [31:0] (.clk(clk), .addr(pc), .rd_en(1'b1), .instr(instr));
