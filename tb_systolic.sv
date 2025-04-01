@@ -10,13 +10,13 @@ module tb_systolic();
     logic [15:0] full_w;
     logic [15:0] empty_i;
     logic [15:0] empty_w;
-    logic done;
+    logic [7:0] cnt;
     systolic_array systolic
     (
         .clk(clk),
         .rst_n(rst_n),
-        .start(start),
         .clr(clr),
+        .start(start),
         .weights(weights),
         .inputs(inputs),
         .wren_w(wren),
@@ -25,7 +25,7 @@ module tb_systolic();
         .full_i(full_i),
         .empty_w(empty_w),
         .empty_i(empty_i),
-        .done(done)
+        .cnt(cnt)
 
     );
     initial begin
@@ -35,23 +35,21 @@ module tb_systolic();
         start = 0;
         wren = 0;
         for (int i = 0; i < 16; i=i+1) begin
-            weights[i] = 8'h01;
-            inputs[i] = 8'h01;
+            weights[i] = 8'h02;
+            inputs[i] = 8'h02;
         end
         @(posedge clk) rst_n = 0;
         @(posedge clk) rst_n = 1;
-        @(posedge clk) wren = 16'hffff;
-        @(posedge clk) wren = 16'h0000;
         @(posedge clk) start = 1;
         @(posedge clk) start = 0;
-        for (int i = 0; i < 8; i=i+1) begin
+        for (int i = 0; i < 9; i=i+1) begin
             @(posedge clk) wren = 16'hffff;
             @(posedge clk) wren = 16'h0000;
             @(posedge clk) wren = 16'h0000;
             @(posedge clk) wren = 16'h0000;
         end
         @(posedge clk) wren = 16'h0000;
-        @(posedge done) $stop;
+        @(posedge cnt==9) $stop;
     end
     always #1 clk = ~clk;
     initial #10000 $stop;

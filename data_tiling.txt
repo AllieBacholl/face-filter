@@ -1,0 +1,13 @@
+Data tiling is necessary for the accelerator and the current plan is a tile is conceptually 
+C by 3 by 18 (or 33 depending on the stride).
+The order is as follows:
+row 0, col[0:17] (or col[0:32]), chan 0
+row 1, col[0:17] (or col[0:32]), chan 0
+row 2, col[0:17] (or col[0:32]), chan 0
+row 0, col[0:17] (or col[0:32]), chan 1
+row 1, col[0:17] (or col[0:32]), chan 1
+row 2, col[0:17] (or col[0:32]), chan 1
+...
+row 0, col[0:17] (or col[0:32]), chan #LAST_CHAN
+row 1, col[0:17] (or col[0:32]), chan #LAST_CHAN
+row 2, col[0:17] (or col[0:32]), chan #LAST_CHAN

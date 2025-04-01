@@ -1,6 +1,6 @@
 module FIFO
 #(
-  parameter DEPTH=2,
+  parameter DEPTH=8,
   parameter DATA_WIDTH=8
 )
 (
