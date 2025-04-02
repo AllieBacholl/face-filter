@@ -39,6 +39,6 @@ module fetch(
     assign pcPlus4 = pc + 1;
     
     // Instruction memory
-    instr_mem IM [31:0] (.clk(clk), .addr(pc), .rd_en(1'b1), .instr(instr));
+    instr_mem IM (.clk(clk), .addr(pc), .rd_en(1'b1), .instr(instr));
     
 endmodule
