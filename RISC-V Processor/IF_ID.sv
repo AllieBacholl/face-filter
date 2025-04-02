@@ -19,13 +19,13 @@ module IF_ID(
 );
 
 // pc
-dff pc [31:0] (.q(pc_out), .d(stall ? pc_out : pc_in), .clk(clk), .rst(rst));
+dff pc [31:0] (.q(pc_out), .d(flush ? 1'b0 : (stall ? pc_out : pc_in)), .clk(clk), .rst(rst));
 
-dff instr [31:0] (.q(instr_out), .d(stall ? instr_out : instr_in), .clk(clk), .rst(rst));
+dff instr [31:0] (.q(instr_out), .d(flush ? 1'b0 : (stall ? instr_out : instr_in)), .clk(clk), .rst(rst));
 
-dff pcPlus4 [31:0] (.q(pcPlus4_out), .d(stall ? pcPlus4_out : pcPlus4_in), .clk(clk), .rst(rst));
+dff pcPlus4 [31:0] (.q(pcPlus4_out), .d(flush ? 1'b0 : (stall ? pcPlus4_out : pcPlus4_in)), .clk(clk), .rst(rst));
 
-dff err(.q(err_out), .d(stall ? err_out : err_in), .clk(clk), .rst(rst));
+dff err(.q(err_out), .d(flush ? 1'b0 : (stall ? err_out : err_in)), .clk(clk), .rst(rst));
 
 
 endmodule

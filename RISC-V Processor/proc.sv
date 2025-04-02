@@ -132,7 +132,7 @@ ID_EX ID_EX(
     .rst(rst), 
     .err_in(err_ID), // TODO do we need
     .EXT(EXT_ID), 
-    .stall(),
+    .flush(flush_ID_EXE),
     .pc_in(pc_ID),
     .pcPlus4_in(pcPlus4_ID),
     .rs1_data_in(rs1_data_ID), 
