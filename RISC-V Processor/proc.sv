@@ -293,6 +293,7 @@ ME_WB ME_WB(
     .reg_write_in(reg_write_MEM), 
     .mem_data_in(mem_data_MEM),
     .result_sel_in(result_sel_MEM),
+    .alu_result_in(alu_result_MEM),
     // Outputs
     .pc_out(pc_WB), 
     .pcPlus4_out(pcPlus4_WB),
@@ -303,7 +304,8 @@ ME_WB ME_WB(
     .rd_out(rd_WB),
     .reg_write_out(reg_write_WB), 
     .mem_data_out(mem_data_WB),
-    .result_sel_out(result_sel_WB)
+    .result_sel_out(result_sel_WB),
+    .alu_result_out(alu_result_WB)
 );
 
 // Writeback
