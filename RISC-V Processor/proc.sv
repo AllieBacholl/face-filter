@@ -219,7 +219,7 @@ EX_ME EX_ME(
     .clk(clk), 
     .rst(rst), 
     .EXT(EXT_EXE), 
-    .stall(),
+    .stall(1'b0),
     .pc_in(pc_EXE),
     .pcPlus4_in(pcPlus4_EXE),
     .rs1_data_in(rs1_data_EXE), 
@@ -275,7 +275,7 @@ ME_WB ME_WB(
     // Inputs
     .clk(clk), 
     .rst(rst), 
-    .stall(),
+    .stall(1'b0),
     .pc_in(pc_MEM),
     .pcPlus4_in(pcPlus4_MEM),
     .rs1_data_in(rs1_data_MEM), 
