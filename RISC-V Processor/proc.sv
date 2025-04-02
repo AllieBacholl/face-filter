@@ -43,7 +43,7 @@ wire [1:0] result_sel_ID;
 wire interrupt_ctrl, interrupt_en, forwarding_mem;
 wire flush_IF_ID, flush_ID_EXE, stall_IF, stall_IF_ID;
 
-assign err = err_FETCH_out | err_ID_out;
+assign err = 1'b0;
 
 // Fetch
 fetch fetch(

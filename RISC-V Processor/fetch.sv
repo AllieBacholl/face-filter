@@ -17,6 +17,8 @@ module fetch(
         // assign pc_back = pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE : branch_jump_addr) : pcPlus4;
         // assign pc_next = interrupt_en ? interrupt_handling_addr : pc_back;
 
+    assign err = 1'b0;
+
     assign pc_back = (pc_next_sel === 1'bx) ? pcPlus4 :
                     (pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE : branch_jump_addr) : pcPlus4);
 
