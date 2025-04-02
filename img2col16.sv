@@ -22,17 +22,30 @@ module img2col16
     output logic [$clog2(DEPTH)-1:0] rd_addr, // read address of the img data
     output logic rd_en // read enable signal to the BRAM
 );
-    localparam TILE_ROW_LEN_STRIDE1 = 18; // in bytes
-    localparam TILE_ROW_LEN_STRIDE2 = 33;
-    logic [3:0] SHIFT_IN_CYCLES_STRIDE1;
-    assign SHIFT_IN_CYCLES_STRIDE1 = (8*TILE_ROW_LEN_STRIDE1 + (DATA_IN_WIDTH*8) - 1)/(DATA_IN_WIDTH*8) ;
-    logic [3:0] SHIFT_IN_CYCLES_STRIDE2;
-    assign SHIFT_IN_CYCLES_STRIDE2 = (8*TILE_ROW_LEN_STRIDE2 + (DATA_IN_WIDTH*8) - 1)/(DATA_IN_WIDTH*8);
 
-    logic [SHIFT_IN_CYCLES_STRIDE2*(DATA_IN_WIDTH*8)-1:0] data_reg [1:0]; // 18 bytes or 33 bytes for 3 cycles, with offset tolerance
+    logic [40*8-1:0] data_reg [1:0]; // 18 bytes or 33 bytes for 3 cycles, with offset tolerance
     logic [5:0] cnt_shift; // cycle counter for shifting data_reg[0]
     logic [5:0] cnt_shift_ff;
     logic [5:0] cnt_rd;
+    logic shift_en;
+    logic inc_rd_addr;
+    logic dec_rd_addr;
+    logic [2:0] byte_offset; // byte offset of the data in the first byte of input data
+    logic [2:0] byte_offset_ff;
+    logic data_rdy_out_ff;
+
+    localparam TILE_ROW_LEN_STRIDE1 = 18; // in bytes
+    localparam TILE_ROW_LEN_STRIDE2 = 33;
+    logic [3:0] SHIFT_IN_CYCLES_STRIDE1_static;
+    logic [3:0] SHIFT_IN_CYCLES_STRIDE1;
+    logic [3:0] SHIFT_IN_CYCLES_STRIDE1_nxt;
+    assign SHIFT_IN_CYCLES_STRIDE1_static = ((TILE_ROW_LEN_STRIDE1 + DATA_IN_WIDTH - 1 + byte_offset[2:0]) >> $clog2(DATA_IN_WIDTH));
+    assign SHIFT_IN_CYCLES_STRIDE1 = SHIFT_IN_CYCLES_STRIDE1_static  - (|byte_offset[2:0]);
+    logic [3:0] SHIFT_IN_CYCLES_STRIDE2_static;
+    logic [3:0] SHIFT_IN_CYCLES_STRIDE2;
+    assign SHIFT_IN_CYCLES_STRIDE2_static = ((TILE_ROW_LEN_STRIDE2 + DATA_IN_WIDTH - 1 + byte_offset) >> $clog2(DATA_IN_WIDTH));
+    assign SHIFT_IN_CYCLES_STRIDE2 = SHIFT_IN_CYCLES_STRIDE2_static  - (|byte_offset);
+
 
 
     always_ff @(posedge clk, negedge rst_n) begin
@@ -55,26 +68,37 @@ module img2col16
 
     always_ff @(posedge clk, negedge rst_n) begin
         if (~rst_n) begin
-            cnt_shift <= 0;
             data_rdy_out <= 0;
+            byte_offset_ff  <= 0;
         end
         else if (clr) begin
-            cnt_shift <= 0;
             data_rdy_out <= 0;
+            byte_offset_ff  <= 0;
         end
         else if (cnt_rd == 2'b10 && data_consumed) begin
             data_rdy_out <= 0;
         end
-        else if (data_vld_in) begin
-            if (~stride2_en && cnt_shift != SHIFT_IN_CYCLES_STRIDE1-1) begin
-                cnt_shift <= cnt_shift + 1;
+        else if (shift_en) begin
+            if (stride2_en ? (cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) : (cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
+                data_rdy_out <= 1;
+                byte_offset_ff <= byte_offset;
             end
-            else if (stride2_en && cnt_shift != SHIFT_IN_CYCLES_STRIDE2-1) begin
-                cnt_shift <= cnt_shift + 1;
+        end
+    end
+
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (~rst_n) begin
+            cnt_shift <= 0;
+        end
+        else if (clr) begin
+            cnt_shift <= 0;
+        end
+        else if (shift_en) begin
+            if (stride2_en ? (cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) : (cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
+                cnt_shift <= 0;
             end
             else begin
-                cnt_shift <= 0;
-                data_rdy_out <= 1;
+                cnt_shift <= cnt_shift + 1;
             end
         end
     end
@@ -88,15 +112,13 @@ module img2col16
             data_reg[0] <= 0;
             data_reg[1] <= 0;
         end
-        else if (data_vld_in) begin
-            data_reg[0] <= {data_in, data_reg[0][SHIFT_IN_CYCLES_STRIDE2*(DATA_IN_WIDTH*8)-1:(DATA_IN_WIDTH*8)]};
-            if (~stride2_en && cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1) data_reg[1] <= {data_in, data_reg[0][SHIFT_IN_CYCLES_STRIDE2*(DATA_IN_WIDTH*8)-1:(DATA_IN_WIDTH*8)]};
-            else if (stride2_en && cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) data_reg[1] <= {data_in, data_reg[0][SHIFT_IN_CYCLES_STRIDE2*(DATA_IN_WIDTH*8)-1:(DATA_IN_WIDTH*8)]};
+        else if (shift_en) begin
+            data_reg[0] <= {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]};
+            if (~stride2_en && cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1) data_reg[1] <= {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]};
+            else if (stride2_en && cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) data_reg[1] <= {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]};
         end
     end
 
-    logic [2:0] byte_offset; // byte offset of the data in the first byte of input data
-    logic data_rdy_out_ff;
     always_ff @(posedge clk, negedge rst_n) begin
         if (~rst_n) begin
             data_rdy_out_ff <= 0;
@@ -112,41 +134,26 @@ module img2col16
         end
         else if (clr) begin
             byte_offset <= 0;
-        end
+        end 
         else if (data_rdy_out & ~data_rdy_out_ff) begin
-            byte_offset <= byte_offset + ((stride2_en) ? (TILE_ROW_LEN_STRIDE2 - TILE_ROW_LEN_STRIDE2/DATA_IN_WIDTH*DATA_IN_WIDTH) : (TILE_ROW_LEN_STRIDE1 - TILE_ROW_LEN_STRIDE1/DATA_IN_WIDTH*DATA_IN_WIDTH)); // when 18 bytes per tile, 2 bytes offset, when 33 bytes per tile, 1 byte offset
+            byte_offset <= (stride2_en) ? byte_offset + (TILE_ROW_LEN_STRIDE2 - TILE_ROW_LEN_STRIDE2/DATA_IN_WIDTH*DATA_IN_WIDTH) : (byte_offset[2:0] + (TILE_ROW_LEN_STRIDE1 - TILE_ROW_LEN_STRIDE1/DATA_IN_WIDTH*DATA_IN_WIDTH)); // when 18 bytes per tile, 2 bytes offset, when 33 bytes per tile, 1 byte offset
         end
     end
 
-    // always_ff @(posedge clk, negedge rst_n) begin
-    //     if (~rst_n) begin
-    //         rd_addr <= 0;
-    //     end
-    //     else if (clr) begin
-    //         rd_addr <= 0;
-    //     end
-    //     else if (data_vld_in) begin
-    //         rd_addr <= rd_addr + 1;
-    //     end
-    // end
-
-    logic stop_shift;
-    assign stop_shift = (cnt_rd == 2'b10);
-
-    // always_ff @(posedge clk, negedge rst_n) begin
-    //     if (~rst_n) begin
-    //         rd_en <= 0;
-    //     end
-    //     else if (clr) begin
-    //         rd_en <= 0;
-    //     end
-    //     else if (~stop_shift) begin
-    //         rd_en <= 1;
-    //     end
-    //     else begin
-    //         rd_en <= 0;
-    //     end
-    // end
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (~rst_n) begin
+            rd_addr <= 0;
+        end
+        else if (clr) begin
+            rd_addr <= 0;
+        end
+        else if (inc_rd_addr) begin
+            rd_addr <= rd_addr + 1;
+        end
+        else if (dec_rd_addr) begin
+            rd_addr <= rd_addr - 1;
+        end
+    end
 
     // define states, idle and transmission states
     typedef enum logic [1:0] {IDLE,  SHIFT, PAUSE} state_t;
@@ -164,40 +171,43 @@ module img2col16
             state <= nxt_state;
         end
     end
-
-    logic shift_en;
-    logic inc_rd_addr;
     always_comb begin
         rd_en = 0;
         shift_en = 0;
         inc_rd_addr = 0;
+        dec_rd_addr = 0;
         case (state)
             IDLE: begin
                 rd_en = 1;
                 nxt_state = SHIFT;
+                inc_rd_addr = 1;
             end
             SHIFT: begin
-                if (cnt_rd == 2 && (stride2_en ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
+                if (data_rdy_out && (stride2_en ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin// && (stride2_en ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
                     nxt_state = PAUSE;
+                    dec_rd_addr = 1;
                 end
                 else if (data_vld_in) begin
                     rd_en = 1;
-                    shift_en = 1;
                     inc_rd_addr = 1;
+                    shift_en = 1;
                 end   
             end
             PAUSE: begin
                 if (!data_rdy_out) begin
                     nxt_state = SHIFT;
+                    rd_en = 1;
+                    inc_rd_addr = 1;
                 end
             end
-
         endcase
     end
 
     always_comb begin
         for (int i = 0; i < 16; i++) begin
-            data_out[i] = data_reg[1][((((i << stride2_en)+cnt_rd) << 3) + (byte_offset << 3) + (stride2_en ? 0 : ((SHIFT_IN_CYCLES_STRIDE2-SHIFT_IN_CYCLES_STRIDE1)*DATA_IN_WIDTH))) +: 8];
+            data_out[i] = data_reg[1][((((i << stride2_en)+cnt_rd) << 3) + ((stride2_en ? byte_offset_ff : byte_offset_ff[2:0]) << 3) + 40*8 - ((stride2_en ? (SHIFT_IN_CYCLES_STRIDE2_static) : (SHIFT_IN_CYCLES_STRIDE1_static)) << $clog2(DATA_IN_WIDTH*8))) +: 8];
         end
     end
+    logic [31:0] debug;
+    assign debug = ((stride2_en ? byte_offset_ff : byte_offset_ff[2:0]) << 3) + 40*8 - ((stride2_en ? (SHIFT_IN_CYCLES_STRIDE2_static) : (SHIFT_IN_CYCLES_STRIDE1_static)) << $clog2(DATA_IN_WIDTH*8));
 endmodule

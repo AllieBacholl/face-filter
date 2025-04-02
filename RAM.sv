@@ -22,11 +22,29 @@ module RAM
                 data[i] <= 0;
             end
             if (TYPE == 1) begin
-                // we have 4 input channels
-                for (int i = 0; i < 4; i=i+1) begin
-                    for (int j = 0; j < 3; j=j+1) begin
-                        for (int k = 0; k < 18; k++) begin
-                            data[(i*18+j*6+k)/8][i*18+j*6+k - (i*18+j*6+k)/8*8 +: 8] <= {i[0], j[1:0], k[4:0]};
+                // Loop over channels
+                for (int c = 0; c < 4; c = c + 1) begin
+                    // Loop over rows
+                    for (int r = 0; r < 3; r = r + 1) begin
+                        // Loop over columns (18 bytes per row)
+                        for (int col = 0; col < 18; col = col + 1) begin
+                            
+                            // Assign unique pattern {channel, row, column}
+                            data[(c*18*3 + r*18 + col)/8][((c*18*3 + r*18 + col)-(c*18*3 + r*18 + col)/8*8)*8 +: 8] <= {col};
+                        end
+                    end
+                end
+            end
+            else begin
+                // Loop over channels
+                for (int c = 0; c < 4; c = c + 1) begin
+                    // Loop over rows
+                    for (int r = 0; r < 3; r = r + 1) begin
+                        // Loop over columns (18 bytes per row)
+                        for (int col = 0; col < 33; col = col + 1) begin
+                            
+                            // Assign unique pattern {channel, row, column}
+                            data[(c*33*3 + r*33 + col)/8][((c*33*3 + r*33 + col)-(c*33*3 + r*33 + col)/8*8)*8 +: 8] <= {col};
                         end
                     end
                 end

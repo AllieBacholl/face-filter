@@ -11,3 +11,21 @@ row 2, col[0:17] (or col[0:32]), chan 1
 row 0, col[0:17] (or col[0:32]), chan #LAST_CHAN
 row 1, col[0:17] (or col[0:32]), chan #LAST_CHAN
 row 2, col[0:17] (or col[0:32]), chan #LAST_CHAN
+
+but the next tile (or one of the future tiles) is gonna look like
+
+row 1, col[0:17] (or col[0:32]), chan 0
+row 2, col[0:17] (or col[0:32]), chan 0
+row 3, col[0:17] (or col[0:32]), chan 0
+row 1, col[0:17] (or col[0:32]), chan 1
+row 2, col[0:17] (or col[0:32]), chan 1
+row 3, col[0:17] (or col[0:32]), chan 1
+...
+row 1, col[0:17] (or col[0:32]), chan #LAST_CHAN
+row 2, col[0:17] (or col[0:32]), chan #LAST_CHAN
+row 3, col[0:17] (or col[0:32]), chan #LAST_CHAN
+
+And the overlap is kinda huge. What is the best way to store the data in SDRAM so that the access is much more efficient
+when I try to move it to BRAM?
+
+INPUT CHAN: 64, INPUT DIMENSION: 128 == 4* INPUT CHAN: 64, INPUT DIMENSION: 64

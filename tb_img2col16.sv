@@ -44,7 +44,7 @@ module tb_img2col16();
 
     // Parameters
     parameter BAND = 64;
-    parameter TYPE = 1;
+    parameter TYPE = 2;
 
     // Instantiate the RAM module
     RAM #(
@@ -70,7 +70,7 @@ module tb_img2col16();
         rst_n = 0;
         clr =1;
         data_consumed = 0;
-        stride2_en = 0;
+        stride2_en = 1;
         input_offset = 0;
 
         // Reset sequence
@@ -78,6 +78,13 @@ module tb_img2col16();
         #10 clr = 1;
         #10 clr = 0;
         
+        // Observe the outputs
+        #1000;
+
+        @(posedge clk) clr =1;
+        #100;
+        @(posedge clk) clr =0;
+
         // Observe the outputs
         #1000;
         
