@@ -47,10 +47,10 @@ assign InB_forwarding = (forwarding_b[1] == 1'b1) ? rs2_data_MEM :
                         (forwarding_b[0] == 1'b1) ? rs2_data_WB : rs2_data_EXE;
 
 assign InB = (alu_src_sel_B_EXE[1] == 1'b1) ? branch_jump_addr : 
-             (alu_src_sel_B_EXE[0] == 1'b1) ? imm_res_EXE : rs2_data_EXE;
+             (alu_src_sel_B_EXE[0] == 1'b1) ? imm_res_EXE : InB_forwarding;
 
 // alu_control ialu_control(.opcode(instr_in[6:0]), .funct3(instr_in[14:12]), .funct7(instr_in[31]), .aluOp(aluOp));
-alu alu(.InA(InA), .InB(InA), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));
+alu alu(.InA(InA), .InB(InB), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));
 
 // Branch control
 assign branch_jump_addr = imm_res_EXE + pcPlus4_in;
