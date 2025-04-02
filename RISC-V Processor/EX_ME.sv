@@ -9,6 +9,7 @@ module EX_ME(
     input [1:0] result_sel_in,
     input mem_read_in, mem_sign_in,
     input [1:0] mem_length_in,
+    input [31:0] write_data_in,
 
     output [31:0] pc_out, pcPlus4_out,
     output [31:0] rs1_data_out, rs2_data_out,
@@ -18,6 +19,7 @@ module EX_ME(
     output [1:0] result_sel_out,
     output EXT_out,
     output mem_read_out, mem_sign_out,
+    output [31:0] write_data_out,
     output [1:0] mem_length_out
 );
 
@@ -38,5 +40,7 @@ dff ext(.q(EXT_out), .d(EXT), .clk(clk), .rst(rst));
 dff mem_read(.q(mem_read_out), .d(mem_read_in), .clk(clk), .rst(rst));
 dff mem_sign(.q(mem_sign_out), .d(mem_sign_in), .clk(clk), .rst(rst));
 dff mem_length [1:0](.q(mem_length_out), .d(mem_length_in), .clk(clk), .rst(rst));
+
+dff write_data(.clk(clk), .rst(rst), .d(stall ? write_data_out : write_data_in), .q(write_data_out))
 
 endmodule

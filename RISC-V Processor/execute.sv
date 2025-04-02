@@ -28,7 +28,8 @@ module execute (
 
     // data signals outputs
     output [31:0]  branch_jump_addr,
-    output [31:0]  alu_result_EXE    // Result of computation
+    output [31:0]  alu_result_EXE ,   // Result of computation
+    output [31:0] write_data_EXE
 );
 
 
@@ -54,6 +55,8 @@ alu alu(.InA(InA), .InB(InB), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(s
 
 // Branch control
 assign branch_jump_addr = imm_res_EXE + pcPlus4_in;
+
+assign write_data_EXE = InB_forwarding;
 
 wire beq = (zf & instr_in[14:12] == 3'b000);
 wire bne = (~zf & instr_in[14:12] == 3'b001);
