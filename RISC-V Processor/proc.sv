@@ -110,7 +110,7 @@ decode decode(
     .branch_ID(branch_ID),
     .result_sel_ID(result_sel_ID),
     .pcJalSrc_ID(pcJalSrc_ID),
-    .alu_src_sel_B_ID(alu_src_sel_B_EXE),
+    .alu_src_sel_B_ID(alu_src_sel_B_ID),
     .alu_src_sel_A_ID(), // TODO do we need
     .alu_op_ID(alu_op_ID),
     .imm_ctrl_ID(imm_ctrl_ID),
