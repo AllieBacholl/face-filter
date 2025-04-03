@@ -35,7 +35,7 @@ module RAM
                     end
                 end
             end
-            else begin
+            else if (TYPE == 2) begin
                 // Loop over channels
                 for (int c = 0; c < 4; c = c + 1) begin
                     // Loop over rows

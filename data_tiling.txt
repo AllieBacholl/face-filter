@@ -42,13 +42,14 @@ channel -> row -> col
 
 
 The order of computation:
-for a tile in tiles:
-    replace tile
-    for a group in weight groups:
-        replace weight
-        group conv tile
+for a weight tile in weight tiles:
+    replace weight tile
+    for a input tile in input tiles:
+        replace input tile
+        conv
         finishes
         writes back
+    calculate scaling factor for channels in weight tiles
     Move output from BRAM to DRAM
 
 
@@ -62,11 +63,33 @@ reading is alternated
 (9 * 16 bytes wide) blocks of all the layers
 or 18 * 8 in this case every two lines are for one cycle of FIFOs.
 
+in_chan 0 (0,0) out_chan 0 --- out_chan 15
+in_chan 0 (0,1) out_chan 0 --- out_chan 15
+in_chan 0 (0,2) out_chan 0 --- out_chan 15
+in_chan 0 (1,0) out_chan 0 --- out_chan 15
+...
+in_chan 0 (2,2) out_chan 0 --- out_chan 15
+
+in_chan 1 (0,0) out_chan 0 --- out_chan 15
+in_chan 1 (0,1) out_chan 0 --- out_chan 15
+in_chan 1 (0,2) out_chan 0 --- out_chan 15
+in_chan 1 (1,0) out_chan 0 --- out_chan 15
+...
+in_chan 1 (2,2) out_chan 0 --- out_chan 15
+
+in_chan #LAST_IN_CHAN (0,0) out_chan 0 --- out_chan 15
+in_chan #LAST_IN_CHAN (0,1) out_chan 0 --- out_chan 15
+in_chan #LAST_IN_CHAN (0,2) out_chan 0 --- out_chan 15
+in_chan #LAST_IN_CHAN (1,0) out_chan 0 --- out_chan 15
+...
+in_chan #LAST_IN_CHAN (2,2) out_chan 0 --- out_chan 15
+
 DEPTH of 16 byte wide BRAM is currently 8192
 and of course it doubles if 8 byte BRAM is used
 
 3. HOW OUTPUT is stored in BRAM:
 
+8 bytes * 8192
 
 
 
