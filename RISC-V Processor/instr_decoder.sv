@@ -106,7 +106,7 @@ always @* begin
                 // Control signals for LUI
                 reg_write = 1;
                 alu_src_sel_A = 1;
-                alu_src_sel_B = 201;
+                alu_src_sel_B = 2'b01;
                 alu_ctrl = `LUI;
                 imm_ctrl = 3'b011;
                 jump = 0;
