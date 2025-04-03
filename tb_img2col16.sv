@@ -96,7 +96,7 @@ module tb_img2col16();
     integer file; // File handle
 
     initial begin
-        forever begin
+        repeat (4) begin
             @(posedge data_rdy_out);
             repeat (3) @(posedge clk) data_consumed = 1;
             @(posedge clk) data_consumed = 0;

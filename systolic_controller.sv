@@ -39,13 +39,13 @@ logic [9:0] cnt_fed; // how many times FIFO is fed without clr/writeback
 logic [7:0] cnt_output;
 
 // kernel memory offset register 0
-// kernel channel number register 1
+// output channel number register 1
 // input memory offset register 2
 // input channel number register 3
 // input feature dimension register 4
 // output memory offset register 5
-// stride (1 bit), config_complete (1 bit) 6
-// done (1 bit) read only 7
+// stride (1 bit), config_complete (1 bit) register 6
+// done (1 bit) read only register 7
 logic [31:0] regFile [7:0];
 logic [31:0] output_dim_reg;
 logic [7:0] reg_out;
@@ -70,21 +70,21 @@ always_ff @(posedge clk, negedge rst_n) begin
 end
 
 // do required computation after config complete
-logic [9:0] channel_offset;
-logic [9:0] row_offset;
-logic [9:0] col_offset;
-logic [2:0] byte_offset;
-always_ff @(posedge clk, negedge rst_n) begin
-    if (!rst_n) begin
-        channel_offset; <= 0;
-        row_offset <= 0;
-        col_offset <= 0;
-        byte_offset <= 0;
-    end
-    else if (regFile[6][0]) begin
-        channel_offset <= regFile[4][7:0] * regFile[4][7:0];
-    end
-end
+// logic [9:0] channel_offset;
+// logic [9:0] row_offset;
+// logic [9:0] col_offset;
+// logic [2:0] byte_offset;
+// always_ff @(posedge clk, negedge rst_n) begin
+//     if (!rst_n) begin
+//         channel_offset; <= 0;
+//         row_offset <= 0;
+//         col_offset <= 0;
+//         byte_offset <= 0;
+//     end
+//     else if (regFile[6][0]) begin
+//         channel_offset <= regFile[4][7:0] * regFile[4][7:0];
+//     end
+// end
 
 // tristate databus
 assign reg_data = (rd_wr_reg) ? reg_out : 8'bzzzzzzzz;

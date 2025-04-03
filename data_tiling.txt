@@ -1,6 +1,6 @@
 Data tiling is necessary for the accelerator and the current plan is a tile is conceptually 
 C by 3 by 18 (or 33 depending on the stride).
-The order is as follows:
+The order is as follows: NOTE THIS IS HOW DATA IS PLACED ON BRAM
 row 0, col[0:17] (or col[0:32]), chan 0
 row 1, col[0:17] (or col[0:32]), chan 0
 row 2, col[0:17] (or col[0:32]), chan 0
@@ -25,7 +25,49 @@ row 1, col[0:17] (or col[0:32]), chan #LAST_CHAN
 row 2, col[0:17] (or col[0:32]), chan #LAST_CHAN
 row 3, col[0:17] (or col[0:32]), chan #LAST_CHAN
 
-And the overlap is kinda huge. What is the best way to store the data in SDRAM so that the access is much more efficient
-when I try to move it to BRAM?
-
 INPUT CHAN: 64, INPUT DIMENSION: 128 == 4* INPUT CHAN: 64, INPUT DIMENSION: 64
+
+SDRAM data storage: NEED A SDRAM READER
+
+channel -> row -> col
+
+[Chan 0, Row 0, Col 0-end]  → Sequential
+[Chan 0, Row 1, Col 0-end]
+[Chan 0, Row 2, Col 0-end]
+...
+[Chan 1, Row 0, Col 0-end]
+[Chan 1, Row 1, Col 0-end]
+...
+[Last_Chan, Row 0, Col 0-end]
+
+
+The order of computation:
+for a tile in tiles:
+    replace tile
+    for a group in weight groups:
+        replace weight
+        group conv tile
+        finishes
+        writes back
+    Move output from BRAM to DRAM
+
+
+1. HOW INPUT is stored in BRAM:
+
+8 bytes by 792 and two of them.
+reading is alternated
+
+2. HOW WEIGHT is stored in BRAM:
+
+(9 * 16 bytes wide) blocks of all the layers
+or 18 * 8 in this case every two lines are for one cycle of FIFOs.
+
+DEPTH of 16 byte wide BRAM is currently 8192
+and of course it doubles if 8 byte BRAM is used
+
+3. HOW OUTPUT is stored in BRAM:
+
+
+
+
+
