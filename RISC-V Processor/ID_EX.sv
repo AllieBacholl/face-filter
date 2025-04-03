@@ -15,6 +15,7 @@ module ID_EX(
     input [2:0] imm_ctrl_in,
     input mem_read_in, mem_sign_in,
     input [1:0] mem_length_in,
+    input [31:0] instr_in,
 
     output [31:0] pc_out, pcPlus4_out,
     output [31:0] rs1_data_out, rs2_data_out,
@@ -31,7 +32,8 @@ module ID_EX(
     output EXT_out,
     output mem_read_out, mem_sign_out,
     output [1:0] mem_length_out,
-    output err_out
+    output err_out,
+    output [31:0] instr_out
 );
 
 
@@ -59,5 +61,7 @@ dff ext(.q(EXT_out), .d(flush ? 1'b0: EXT), .clk(clk), .rst(rst));
 dff mem_read(.q(mem_read_out), .d(flush ? 1'b0: mem_read_in), .clk(clk), .rst(rst));
 dff mem_sign(.q(mem_sign_out), .d(flush ? 1'b0 : mem_sign_in), .clk(clk), .rst(rst));
 dff mem_length [1:0] (.q(mem_length_out), .d(flush ? 1'b0: mem_length_in), .clk(clk), .rst(rst));
+
+dff instr [31:0] (.q(instr_out), .d(flush ? 1'b0 : instr_in), .clk(clk), .rst(rst));
 
 endmodule

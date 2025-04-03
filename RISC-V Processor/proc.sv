@@ -156,6 +156,7 @@ ID_EX ID_EX(
     .mem_read_in(mem_read_ID),
     .mem_sign_in(mem_sign_ID),
     .mem_length_in(mem_length_ID),
+    .instr_in(instr_ID),
     // Output
     .err_out(err_ID_out),
     .EXT_out(EXT_EXE),
@@ -179,7 +180,8 @@ ID_EX ID_EX(
     .imm_ctrl_out(imm_ctrl_EXE),
     .mem_read_out(mem_read_EXE),
     .mem_sign_out(mem_sign_EXE),
-    .mem_length_out(mem_length_EXE)
+    .mem_length_out(mem_length_EXE),
+    .instr_out(instr_EXE)
 );
 
 // Execute
