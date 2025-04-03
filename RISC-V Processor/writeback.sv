@@ -13,7 +13,7 @@ module writeback (
     output logic [31:0] write_data_WB
 );
 
- assign writeData = (result_set_WB == 2'b10) ? pcPlus4_WB : (result_set_WB == 2'b01) ? mem_data_WB : alu_result_WB;
+ assign write_data_WB = (result_set_WB == 2'b10) ? pcPlus4_WB : (result_set_WB == 2'b01) ? mem_data_WB : alu_result_WB;
 
    
 endmodule
