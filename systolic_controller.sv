@@ -18,6 +18,7 @@ module systolic_controller
     input [ARRAY_SIZE-1:0] empty_w,
     input [ARRAY_SIZE-1:0] empty_i,
     input data_rdy_in, // need to make the feeding of data synchronized
+    input data_written,
     input [4*DATA_WIDTH-1:0] O [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0],
     output stride2_en, // stride 2 enable
     output [31:0] input_offset, // offset of the input data in the BRAM
@@ -68,22 +69,6 @@ end
 assign stride2_en = regFile[6][1];
 assign input_offset = regFile[2];
 
-// do required computation after config complete
-// logic [9:0] channel_offset;
-// logic [9:0] row_offset;
-// logic [9:0] col_offset;
-// logic [2:0] byte_offset;
-// always_ff @(posedge clk, negedge rst_n) begin
-//     if (!rst_n) begin
-//         channel_offset; <= 0;
-//         row_offset <= 0;
-//         col_offset <= 0;
-//         byte_offset <= 0;
-//     end
-//     else if (regFile[6][0]) begin
-//         channel_offset <= regFile[4][7:0] * regFile[4][7:0];
-//     end
-// end
 logic inc_weight_addr;
 logic shift_weight_addr; // shift weight address by a tile
 logic clr_weight_addr;
@@ -102,20 +87,6 @@ always_ff @(posedge clk, negedge rst_n) begin
     end
 end
 
-logic [2:0] w_tile_cnt;
-logic clr_w_tile_cnt;
-always_ff @(posedge clk, negedge rst_n) begin
-    if (!rst_n) begin
-        w_tile_cnt <= 0;
-    end
-    else if (clr_w_tile_cnt) begin
-        w_tile_cnt <= 0;
-    end
-    else if (inc_i_tile_cnt && sat_i_tile_cnt) begin
-        w_tile_cnt <= w_tile_cnt + 1;
-    end
-end 
-
 logic [9:0] cnt_fed; // how many times FIFO is fed without clr/writeback
 logic inc_cnt_fed;
 logic clr_cnt_fed;
@@ -130,6 +101,9 @@ always_ff @(posedge clk, negedge rst_n) begin
     end
     else if (clr_weight_addr) begin
         weight_rd_addr <= 0;
+    end
+    else if (shift_weight_addr) begin
+        weight_rd_addr <= weight_rd_addr - ((regFile[3] << 3) + regFile[3]);
     end
     else if (inc_weight_addr) begin
         weight_rd_addr <= weight_rd_addr + 1;
@@ -198,9 +172,12 @@ always_comb begin
                 inc_cnt_fed = 1;
                 rd = 1;
             end
+            else begin
+                rd = 1;
+            end
         COMPUTING:
             rd = 1;
-            if (cnt == output_dim_reg) begin
+            if (cnt == ((regFile[3] << 3) + regFile[3])) begin
                 nxt_state = WRITE_BACK;
                 clr_weight_addr = 1; // we swap input tiles first and reuse weight tile
                 inc_i_tile_cnt = 1;
@@ -214,19 +191,23 @@ always_comb begin
             end
         WRITE_BACK:
             if (cnt_output == ARRAY_SIZE*ARRAY_SIZE) begin
-                if (sat_i_tile_cnt && ) begin
-
+                if (weight_rd_addr == (regFile[1] >> 4)) begin
+                    nxt_state = IDLE;
+                    clr_weight_addr = 1;
                 end
                 else begin
+                    nxt_state = FILL;
+                    shift_weight_addr = (|i_tile_cnt);
                 end
-                nxt_state = IDLE;
                 clr_cnt_fed = 1;
                 clr_output_cnt = 1;
-                wr = 1;
             end
             else begin
-                inc_output_cnt = 1;
                 wr = 1;
+                data_out = O[cnt_output[$clog2(ARRAY_SIZE) +: $clog2(ARRAY_SIZE)]][cnt_output[$clog2(ARRAY_SIZE)-1:0]];
+                if (data_written) begin
+                    inc_output_cnt = 1;
+                end
             end
     endcase
 end
