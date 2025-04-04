@@ -20,7 +20,7 @@ module alu (InA, InB, Oper, Out, zf, sf, funct3);
 
     // Invert B for subtraction
     // 2's complement for subtraction, A - B
-    assign B_int = (Oper == 5'b11000) ? (~InB) + 1'b1 : InB;
+    assign B_int = (Oper == 5'b11000 | Oper == 5'b10010) ? (~InB) + 1'b1 : InB;
     
     // Shift operation: sll, srl, or sla
     assign shift_result = (Oper == 5'b10001) ? InA << B_int : (Oper == 5'b10101) ? InA >> B_int: InA >>> B_int;
