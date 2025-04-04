@@ -1,8 +1,0 @@
-{C:/Users/Patron/Desktop/face-filter/RISC-V Processor/decode.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Patron/Desktop/face-filter/RISC-V Processor/decode.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module decode
-
-Top level modules:
-	decode
-
-} {} {}}
