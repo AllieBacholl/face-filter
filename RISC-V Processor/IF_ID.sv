@@ -10,7 +10,7 @@ module IF_ID(
     output [31:0] instr_out,
     output [31:0] pcPlus4_out,
     output err_out,
-    output EXT_out,
+    output EXT_out
 
 );
 
