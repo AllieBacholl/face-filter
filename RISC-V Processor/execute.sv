@@ -37,8 +37,12 @@ wire [31:0]  InA;               // Input operand A
 wire [31:0]  InB;               // Input operand B
 wire [31:0]  InB_forwarding;
 
+wire [2:0] funct3; //specifically for slt and sltu differentiation
+
 wire         sf;                // Signal if Out is negative or positive
 wire         zf;                // Signal if Out is 0
+
+assign funct3 = instr_in[14:12];
 
 // ALU
 assign InA = (forwarding_a == 2'b00) ? rs1_data_EXE : 
@@ -51,7 +55,7 @@ assign InB = (alu_src_sel_B_EXE == 2'b00) ? InB_forwarding :
              (alu_src_sel_B_EXE == 2'b01) ? imm_res_EXE : branch_jump_addr;
 
 // alu_control ialu_control(.opcode(instr_in[6:0]), .funct3(instr_in[14:12]), .funct7(instr_in[31]), .aluOp(aluOp));
-alu alu(.InA(InA), .InB(InB), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));
+alu alu(.InA(InA), .InB(InB), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf), .funct3(funct3));
 
 // Branch control
 assign branch_jump_addr = imm_res_EXE + pcPlus4_in;

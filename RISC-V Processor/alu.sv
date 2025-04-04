@@ -1,4 +1,4 @@
-module alu (InA, InB, Oper, Out, zf, sf);
+module alu (InA, InB, Oper, Out, zf, sf, funct3);
 
     parameter OPERAND_WIDTH = 32;    
     parameter NUM_OPERATIONS = 5;
@@ -6,6 +6,7 @@ module alu (InA, InB, Oper, Out, zf, sf);
     input  [OPERAND_WIDTH-1:0]  InA ; // Input operand A
     input  [OPERAND_WIDTH-1:0]  InB ; // Input operand B
     input  [NUM_OPERATIONS-1:0] Oper; // Operation type
+    input [2:0] funct3;
     output [OPERAND_WIDTH-1:0]  Out ; // Result of computation
     output                      sf  ; // Signal if Out is negative or positive
     output                      zf  ; // Signal if Out is 0
@@ -48,8 +49,8 @@ module alu (InA, InB, Oper, Out, zf, sf);
                     (Oper == 5'b10100)                                          ?   xor_result          :       // xor
                     (Oper == 5'b10110)                                          ?   or_result           :       // or
                     (Oper == 5'b10111)                                          ?   and_result          :       // and
-                    (Oper == 5'b10010)                                          ?   {31'b0, (~zf & sf)} :       // slt, set if A < B, A - B sign
+                    ((Oper == 5'b10010) & (funct3 == 3'b010))                        ?   {31'b0, (~zf & sf)} :       // slt, set if A < B, A - B sign
                     // stlu
-                    (Oper == 5'b10010)                                          ?   sltu                :       // slt, set if A < B, A - B sign
+                    ((Oper == 5'b10010) & (funct3 == 3'b011))                                          ?   sltu                :       // slt, set if A < B, A - B sign
                     InB;                                                                                        // Pass B input through
 endmodule
