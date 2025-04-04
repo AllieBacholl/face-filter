@@ -41,14 +41,14 @@ wire         sf;                // Signal if Out is negative or positive
 wire         zf;                // Signal if Out is 0
 
 // ALU
-assign InA = (forwarding_a[1] == 1'b1) ? rs1_data_MEM : 
-             (forwarding_a[0] == 1'b1) ? rs1_data_WB : rs1_data_EXE;
+assign InA = (forwarding_a == 2'b00) ? rs1_data_EXE : 
+             (forwarding_a == 2'b01) ? rs1_data_WB : rs1_data_MEM;
 
-assign InB_forwarding = (forwarding_b[1] == 1'b1) ? rs2_data_MEM : 
-                        (forwarding_b[0] == 1'b1) ? rs2_data_WB : rs2_data_EXE;
+assign InB_forwarding = (forwarding_b == 2'b00) ? rs2_data_EXE : 
+                        (forwarding_b == 2'b01) ? rs2_data_WB : rs2_data_MEM;
 
-assign InB = (alu_src_sel_B_EXE[1] == 1'b1) ? branch_jump_addr : 
-             (alu_src_sel_B_EXE[0] == 1'b1) ? imm_res_EXE : InB_forwarding;
+assign InB = (alu_src_sel_B_EXE == 2'b00) ? InB_forwarding : 
+             (alu_src_sel_B_EXE == 2'b01) ? imm_res_EXE : branch_jump_addr;
 
 // alu_control ialu_control(.opcode(instr_in[6:0]), .funct3(instr_in[14:12]), .funct7(instr_in[31]), .aluOp(aluOp));
 alu alu(.InA(InA), .InB(InB), .Oper(aluOp), .Out(alu_result_EXE), .zf(zf), .sf(sf));

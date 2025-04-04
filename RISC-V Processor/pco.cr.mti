@@ -82,6 +82,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ME_WB
 
+} {} {}} {C:/Users/Patron/Desktop/face-filter/RISC-V Processor/IF_ID.sv} {1 {vlog -work work -sv -stats=none {C:\Users\Patron\Desktop\face-filter\RISC-V Processor\IF_ID.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module IF_ID
+
+Top level modules:
+	IF_ID
+
 } {} {}} {C:/Users/Patron/Desktop/face-filter/RISC-V Processor/clkrst.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Patron/Desktop/face-filter/RISC-V Processor/clkrst.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module clkrst
@@ -165,12 +172,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	proc_hier
-
-} {} {}} {C:/Users/Patron/Desktop/face-filter/RISC-V Processor/execute.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Patron/Desktop/face-filter/RISC-V Processor/execute.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module execute
-
-Top level modules:
-	execute
 
 } {} {}}

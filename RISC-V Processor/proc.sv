@@ -200,10 +200,10 @@ execute execute(
     // Forwarding
     .forwarding_a(forwarding_a), 
     .forwarding_b(forwarding_b),
-    .rs1_data_MEM(rs1_data_MEM),
-    .rs2_data_MEM(rs2_data_MEM),
-    .rs1_data_WB(rs1_data_WB),
-    .rs2_data_WB(rs2_data_WB),
+    .rs1_data_MEM(alu_result_MEM),
+    .rs2_data_MEM(alu_result_MEM),
+    .rs1_data_WB(write_data_WB),
+    .rs2_data_WB(write_data_WB),
     // Output
     .EXT_out(EXT_EXE),
     .pc_next_sel(pc_next_sel),
