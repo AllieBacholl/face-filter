@@ -4,8 +4,6 @@ module IF_ID(
     input [31:0] instr_in,
     input [31:0] pcPlus4_in,
     input stall, flush,
-    input mem_read_in, mem_sign_in,
-    input [1:0] mem_length_in,
     input EXT, // immediate value
 
     output [31:0] pc_out,
@@ -13,8 +11,6 @@ module IF_ID(
     output [31:0] pcPlus4_out,
     output err_out,
     output EXT_out,
-    output mem_read_out, mem_sign_out,
-    output [1:0] mem_length_out
 
 );
 

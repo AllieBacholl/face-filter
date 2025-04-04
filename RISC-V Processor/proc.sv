@@ -79,18 +79,12 @@ IF_ID IF_ID(
     .pcPlus4_in(pcPlus4_FETCH),
     .stall(stall_IF_ID),
     .flush(flush_IF_ID),
-    .mem_read_in(mem_read_ID),
-    .mem_sign_in(mem_sign_ID),
-    .mem_length_in(mem_length_ID),
     // Output
     .err_out(err_FETCH_out),
     .EXT_out(EXT_ID), 
     .pc_out(pc_ID),
     .instr_out(instr_ID),
-    .pcPlus4_out(pcPlus4_ID),
-    .mem_read_out(mem_read_EXE),
-    .mem_sign_out(mem_sign_EXE),
-    .mem_length_out(mem_length_EXE)
+    .pcPlus4_out(pcPlus4_ID)
 );
 
 

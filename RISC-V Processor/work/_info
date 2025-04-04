@@ -10,7 +10,7 @@ cModel Technology
 dC:/Users/diana/Desktop/554/ECE554SP25_Minilab3
 valu
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1743714620
+Z1 !s110 1743791286
 !i10b 1
 !s100 F70oN5JV^Wii9TnGi>LJP1
 I]iYRh?O5FDd3mfK39EDHF1
@@ -18,7 +18,7 @@ Z2 VDg1SIo80bB@j0V0VzS_@n1
 !s105 alu_sv_unit
 S1
 Z3 dC:/Users/Patron/Desktop/face-filter/RISC-V Processor
-Z4 w1743547795
+Z4 w1743716943
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/alu.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/alu.sv
 L0 1
@@ -26,7 +26,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1743714620.000000
+Z6 !s108 1743791286.000000
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/alu.sv|
 !i113 1
@@ -82,7 +82,7 @@ R7
 R8
 vdecode
 R0
-Z9 !s110 1743714623
+R1
 !i10b 1
 !s100 7<>>^5VA^LhWWSk3TNT@H3
 I];FMTH5WP][XnHboP?WiZ3
@@ -98,7 +98,7 @@ R5
 r1
 !s85 0
 31
-Z10 !s108 1743714623.000000
+R6
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/decode.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/decode.sv|
 !i113 1
@@ -106,7 +106,7 @@ R7
 R8
 vdff
 R0
-R9
+R1
 !i10b 1
 !s100 IX7?]c=67af18Cgh0`1oG3
 I@Y_oP7I9g_:QgoH82BJKG3
@@ -122,7 +122,7 @@ R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/dff.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/dff.sv|
 !i113 1
@@ -130,7 +130,7 @@ R7
 R8
 vEX_ME
 R0
-Z11 !s110 1743714619
+!s110 1743791284
 !i10b 1
 !s100 F7dl8RBUCR>kR8;TGbN;S2
 IYgX?3M^6>We7^d<Pa7?7n3
@@ -138,7 +138,7 @@ R2
 !s105 EX_ME_sv_unit
 S1
 R3
-Z12 w1743625067
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/EX_ME.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/EX_ME.sv
 L0 1
@@ -146,7 +146,7 @@ R5
 r1
 !s85 0
 31
-Z13 !s108 1743714619.000000
+Z9 !s108 1743791284.000000
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/EX_ME.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/EX_ME.sv|
 !i113 1
@@ -155,7 +155,7 @@ R8
 n@e@x_@m@e
 vexecute
 R0
-R11
+Z10 !s110 1743791285
 !i10b 1
 !s100 MdF^4XTbYlIAB^[KIJLH81
 IAzlAzo<:]JZaWX2j4E^LZ1
@@ -163,7 +163,7 @@ R2
 !s105 execute_sv_unit
 S1
 R3
-w1743624208
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/execute.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/execute.sv
 L0 1
@@ -171,7 +171,7 @@ R5
 r1
 !s85 0
 31
-R13
+R9
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/execute.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/execute.sv|
 !i113 1
@@ -179,15 +179,15 @@ R7
 R8
 vfetch
 R0
-R11
+R10
 !i10b 1
-!s100 i10j1aTd;VMdjM3RE66GP1
-IV^NmPBjF]TXUR5^Kg>ER81
+!s100 ]T>Rdhm_`o:i[4cibG1IP3
+IcDU`Xd:GTaCn><?C`3U?D0
 R2
 !s105 fetch_sv_unit
 S1
 R3
-w1743618666
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch.sv
 L0 1
@@ -195,7 +195,7 @@ R5
 r1
 !s85 0
 31
-R13
+Z11 !s108 1743791285.000000
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch.sv|
 !i113 1
@@ -203,7 +203,7 @@ R7
 R8
 vfetch_tb
 R0
-R11
+R10
 !i10b 1
 !s100 mf>Pmf7Ye:[_QFIGnZozH1
 Ijb3_CeM?ZdPmA1J8Io1L12
@@ -211,7 +211,7 @@ R2
 !s105 fetch_tb_sv_unit
 S1
 R3
-w1743552629
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch_tb.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch_tb.sv
 L0 3
@@ -219,7 +219,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/fetch_tb.sv|
 !i113 1
@@ -227,7 +227,7 @@ R7
 R8
 vhazard_detection
 R0
-R11
+R10
 !i10b 1
 !s100 ;5R0Ce_V^Kz>8OnL:?T_l2
 IC3QGzzAN;oXAj5eJUPPjR0
@@ -235,7 +235,7 @@ R2
 !s105 hazard_detection_sv_unit
 S1
 R3
-Z14 w1743547796
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/hazard_detection.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/hazard_detection.sv
 L0 1
@@ -243,7 +243,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/hazard_detection.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/hazard_detection.sv|
 !i113 1
@@ -251,15 +251,15 @@ R7
 R8
 vID_EX
 R0
-R11
+R10
 !i10b 1
-!s100 Ja;[eCP^UaoTj[6IOOkI20
-IfKT;aokUcOzaS_7j_3TQL0
+!s100 3Q_YR>3zV^zeTI17zj<EF1
+I6>7N`PF<?Ro@@8<SE0@ec2
 R2
 !s105 ID_EX_sv_unit
 S1
 R3
-w1743620914
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/ID_EX.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/ID_EX.sv
 L0 1
@@ -267,7 +267,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/ID_EX.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/ID_EX.sv|
 !i113 1
@@ -276,7 +276,7 @@ R8
 n@i@d_@e@x
 vIF_ID
 R0
-R11
+R10
 !i10b 1
 !s100 zE;cT23I]<i1g=Y_P^PF[3
 IagkNHo@D1gK:2eHI0jGaY1
@@ -284,7 +284,7 @@ R2
 !s105 IF_ID_sv_unit
 S1
 R3
-w1743621126
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/IF_ID.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/IF_ID.sv
 L0 1
@@ -292,7 +292,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/IF_ID.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/IF_ID.sv|
 !i113 1
@@ -301,7 +301,7 @@ R8
 n@i@f_@i@d
 vimmediate_execution
 R0
-R11
+R10
 !i10b 1
 !s100 agA^9;ZGKeba=MhLT8Di^3
 IKbVT]U:kP3`>9]9YG]UFW0
@@ -309,7 +309,7 @@ R2
 !s105 immediate_execution_sv_unit
 S1
 R3
-R14
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/immediate_execution.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/immediate_execution.sv
 L0 1
@@ -317,7 +317,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/immediate_execution.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/immediate_execution.sv|
 !i113 1
@@ -325,15 +325,15 @@ R7
 R8
 vinstr_decoder
 R0
-R11
+R10
 !i10b 1
-!s100 SU3?5Bfc@D0DbzRmbDcVF0
-ICX<[@=^@HZf?2XLIQ]KPE2
+!s100 Y1H:o<[e`I?MPSC63gd=i2
+IPGLeR06HWBFhMI[10PZa30
 R2
 !s105 instr_decoder_sv_unit
 S1
 R3
-R14
+w1743718727
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_decoder.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_decoder.sv
 L0 1
@@ -341,7 +341,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_decoder.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_decoder.sv|
 !i113 1
@@ -349,7 +349,7 @@ R7
 R8
 vinstr_mem
 R0
-R11
+R10
 !i10b 1
 !s100 65^LIom04K8=<G5H1KiZR3
 I?>;S>@]?AkJBd]J=7^@oP3
@@ -357,7 +357,7 @@ R2
 !s105 instr_mem_sv_unit
 S1
 R3
-R12
+Z12 w1743716944
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_mem.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_mem.sv
 L0 1
@@ -365,7 +365,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_mem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/instr_mem.sv|
 !i113 1
@@ -373,7 +373,7 @@ R7
 R8
 vinterrupt_handler
 R0
-R11
+R10
 !i10b 1
 !s100 SRF`UjWRmneRMTjVW4D6C1
 IH=VIgcGZU^WY`MP]FOF=`3
@@ -381,7 +381,7 @@ R2
 !s105 interrupt_handler_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv
 L0 1
@@ -389,7 +389,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/interrupt_handler.sv|
 !i113 1
@@ -397,7 +397,7 @@ R7
 R8
 vME_WB
 R0
-R1
+R10
 !i10b 1
 !s100 z[J;A^l2EK9=[[:6Jfj0X3
 IjGD8X`4;c]Wfaafz1BE<:1
@@ -405,7 +405,7 @@ R2
 !s105 ME_WB_sv_unit
 S1
 R3
-w1743625263
+R4
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/ME_WB.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/ME_WB.sv
 L0 1
@@ -413,7 +413,7 @@ R5
 r1
 !s85 0
 31
-R13
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/ME_WB.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/ME_WB.sv|
 !i113 1
@@ -422,7 +422,7 @@ R8
 n@m@e_@w@b
 vmemory
 R0
-R1
+R10
 !i10b 1
 !s100 5KRe4f00OjQ8>iSjnD[mL3
 Ikhm8NgC?6>Y4@jF]STn[g0
@@ -430,7 +430,7 @@ R2
 !s105 memory_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory.sv
 L0 2
@@ -438,7 +438,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory.sv|
 !i113 1
@@ -446,7 +446,7 @@ R7
 R8
 vmemory2c
 R0
-R1
+R10
 !i10b 1
 !s100 O[3U6l3:n^Fji5lS=hW=m2
 IoiWGgahY;_z_S3DZjidIR1
@@ -454,7 +454,7 @@ R2
 !s105 memory2c_sv_unit
 S1
 R3
-w1743618358
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory2c.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory2c.sv
 L0 4
@@ -462,7 +462,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory2c.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/memory2c.sv|
 !i113 1
@@ -470,7 +470,7 @@ R7
 R8
 vpc_reg
 R0
-R1
+R10
 !i10b 1
 !s100 cz0f_]:XC^NSVTQT;cj7:0
 IYoYok[W<[=4PJf?SS6OL;3
@@ -478,7 +478,7 @@ R2
 !s105 pc_reg_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/pc_reg.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/pc_reg.sv
 L0 1
@@ -486,7 +486,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/pc_reg.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/pc_reg.sv|
 !i113 1
@@ -494,15 +494,15 @@ R7
 R8
 vproc
 R0
-R1
+R10
 !i10b 1
-!s100 YShh5H^oAA><e`W4I>Kc_2
-ITLTUhlIMaaD2E9P^iMPE^2
+!s100 9<=][8BA29WRYz]YOkYf_3
+I`:DMILIgQOMNJjG`ZY0Dl2
 R2
 !s105 proc_sv_unit
 S1
 R3
-w1743625125
+w1743720756
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc.sv
 L0 3
@@ -510,7 +510,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc.sv|
 !i113 1
@@ -526,7 +526,7 @@ R2
 !s105 proc_hier_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc_hier.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc_hier.sv
 L0 1
@@ -534,7 +534,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc_hier.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc_hier.sv|
 !i113 1
@@ -550,7 +550,7 @@ R2
 !s105 proc_hier_bench_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/proc_hier_bench.sv
 L0 1
@@ -574,7 +574,7 @@ R2
 !s105 regFile_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/regFile.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/regFile.sv
 L0 1
@@ -599,7 +599,7 @@ R2
 !s105 regFile_bypass_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/regFile_bypass.sv
 L0 1
@@ -624,7 +624,7 @@ R2
 !s105 register_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/register.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/register.sv
 L0 1
@@ -643,13 +643,13 @@ vwriteback
 R0
 R1
 !i10b 1
-!s100 U4Dhg??GS]0?J:4]AFclK1
-IB]@`Hl=JkMZYLg5g;GQ2Z2
+!s100 m1UhQ@jn9Mz`TkGdY?XlL0
+I;d3PDeP9<mEcK:8TII`cY0
 R2
 !s105 writeback_sv_unit
 S1
 R3
-R14
+R12
 8C:/Users/Patron/Desktop/face-filter/RISC-V Processor/writeback.sv
 FC:/Users/Patron/Desktop/face-filter/RISC-V Processor/writeback.sv
 L0 2
