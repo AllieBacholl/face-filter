@@ -74,6 +74,8 @@ end
                   MemAddress,
                   MemData);
 
+            $display("      ");
+
             end else if (MemRead) begin
                // ld
                $fdisplay(trace_file,"INUM: %8d PC: 0x%04x REG: %d VALUE: 0x%04x ADDR: 0x%04x",
@@ -88,6 +90,8 @@ end
                         WriteRegister,
                         WriteData,
                         MemAddress);
+               
+                  $display("      ");
 
             
             end else begin
@@ -102,6 +106,7 @@ end
                         PC,
                         WriteRegister,
                         WriteData );
+               $display("      ");
             end
          end else begin // if (RegWrite)
             if (MemWrite) begin
@@ -118,6 +123,8 @@ end
                         PC,
                         MemAddress,
                         MemData);
+
+               $display("      ");
             end else begin
                // conditional branch or NOP
                // Need better checking in pipelined testbench
@@ -129,6 +136,8 @@ end
                 $display("INUM: %8d PC: 0x%04x",
                          (inst_count-1),
                          PC );
+
+               $display("      ");
             end
          end 
       end
