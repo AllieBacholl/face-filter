@@ -41,7 +41,7 @@ module alu (InA, InB, Oper, Out, zf, sf, funct3);
     assign sf = (of) ? ((InA[OPERAND_WIDTH-1]) ? 1'b0 : 1'b1) : sum[OPERAND_WIDTH-1];
 
     // stlu flag
-    assign sltu = ($unsigned(InA) < $unsigned(B_int));
+    assign sltu = ($unsigned(InA) < $unsigned(InB));
 
     // Output mux to select the correct operation result
     assign Out =    (Oper == 5'b10000 | Oper == 5'b11000)                       ?   sum                 :       // add or sub
