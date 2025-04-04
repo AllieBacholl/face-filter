@@ -1,5 +1,5 @@
 module decode (
-    input rst,
+    input rst, clk, 
     input [31:0] instr,
     input [31:0] writeData, // from WB stage
     input reg_write_WB,

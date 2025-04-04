@@ -91,6 +91,7 @@ IF_ID IF_ID(
 // Decode
 decode decode(
     // Input
+    .clk(clk),
     .rst(rst),
     .instr(instr_ID),
     .writeData(write_data_WB), // from WB stage

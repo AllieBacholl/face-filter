@@ -40,4 +40,6 @@ module regFile_bypass (
     assign read2Data = (read2RegSel == 5'b00000) ? 32'b0 :
                       ((read2RegSel == writeRegSel) & writeEn) ? writeData : read2Data_buffer;
 
+   
+
 endmodule

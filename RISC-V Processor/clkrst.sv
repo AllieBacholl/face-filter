@@ -35,8 +35,8 @@ module clkrst (clk, rst, err);
         without this change, such benchmarks will erroneously fail due to
         reset cycles at the beginning.
         */
-       if (cycle_count > 100) begin
-          $display("hmm....more than 100004 cycles of simulation...error?\n");
+       if (cycle_count > 20) begin
+          $display("hmm....more than 20 cycles of simulation...error?\n");
           $finish;
        end
     end
