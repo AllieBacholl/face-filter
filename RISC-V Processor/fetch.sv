@@ -20,7 +20,7 @@ module fetch(
     assign err = 1'b0;
 
     assign pc_back = (pc_next_sel === 1'bx) ? pcPlus4 :
-                    (pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE : branch_jump_addr) : pcPlus4);
+                    (pc_next_sel ? (pcJalSrc_EXE ? (alu_result_EXE >> 2) : (branch_jump_addr >> 2)) : pcPlus4);
 
     assign pc_next = (interrupt_en === 1'bx) ? pc_back :
                     (interrupt_en ? interrupt_handling_addr : pc_back);
