@@ -168,8 +168,8 @@ end
     assign RegWrite = DUT.p0.decode.reg_write_WB;
     assign WriteRegister = DUT.p0.decode.rd_WB;
     assign WriteData = DUT.p0.decode.writeData;
-    assign MemRead = DUT.p0.memory.mem_write_en_MEM;
-    assign MemWrite = DUT.p0.memory.mem_read_en_MEM;
+    assign MemRead = DUT.p0.memory.mem_read_en_MEM;
+    assign MemWrite = DUT.p0.memory.mem_write_en_MEM;
     assign MemAddress = DUT.p0.memory.alu_result_MEM;
     assign MemData = DUT.p0.memory.write_data_MEM;
 
