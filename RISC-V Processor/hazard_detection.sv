@@ -3,11 +3,11 @@ module hazard_detection(
     input [4:0] rs1_ID, rs2_ID,
     input pc_next_sel,
     input [4:0] rs1_EXE, rs2_EXE, rd_EXE,
-    input [1:0] result_sel_EXE,
+    input [1:0] result_sel_EXE, result_sel_MEM,
     input [4:0] rs1_MEM, rs2_MEM, rd_MEM,
     input [4:0] rd_WB,
     input reg_write_WB,
-    output logic flush_IF_ID, flush_ID_EXE, stall_IF, stall_IF_ID,
+    output logic flush_IF_ID, flush_ID_EXE, flush_EXE_MEM, stall_IF, stall_IF_ID, stall_ID_EXE,
     output logic interrupt_en,
     output logic [1:0] forwarding_A, forwarding_B,
     output logic forwarding_mem
@@ -16,7 +16,7 @@ module hazard_detection(
     // Register for ALU forwarding control
     logic [1:0] forward_A, forward_B;
     logic forward_mem;
-    logic load_use_hazard, branch_hazard;
+    logic load_use_hazard, load_store_hazard, branch_hazard;
     logic interrupt_allowed;
 
     // Data Hazard Detection Logic
@@ -59,6 +59,7 @@ module hazard_detection(
     always @(*) begin
         // Default: no stall
         load_use_hazard = 1'b0;
+        load_store_hazard = 1'b0;
         
         // Detect load-use hazard:
         // If instruction in EXE stage is a load (result_sel_EXE == 2'b01)
@@ -66,6 +67,13 @@ module hazard_detection(
         if (result_sel_EXE == 2'b01 && rd_EXE != 5'b00000) begin
             if ((rs1_ID == rd_EXE) || (rs2_ID == rd_EXE)) begin
                 load_use_hazard = 1'b1;
+            end
+        end
+
+        // for extreme cases, check LB before SB such that LB X2, 0(X3) followed by SB X1, 0(X2)
+        if(result_sel_MEM ==2'b01 && mem_write_en_ID) begin
+            if (rd_MEM == rs2_EXE) begin
+                load_store_hazard = 1'b0;     
             end
         end
     end
@@ -100,14 +108,24 @@ module hazard_detection(
         // Default: no stall or flush
         stall_IF = 1'b0;
         stall_IF_ID = 1'b0;
+        stall_ID_EXE = 1'b0;
+        
         flush_IF_ID = 1'b0;
         flush_ID_EXE = 1'b0;
+        flush_EXE_MEM = 1'b0;
         
         // Handle load-use hazard
         if (load_use_hazard) begin
             stall_IF = 1'b1;     // Stall IF stage
             stall_IF_ID = 1'b1;  // Stall ID stage
             flush_ID_EXE = 1'b1; // Flush EXE stage (insert bubble)
+        end
+
+        if(load_store_hazard) begin
+            stall_IF = 1'b1;     // Stall IF stage
+            stall_IF_ID = 1'b1;  // Stall ID stage
+            stall_ID_EXE = 1'b1; // Flush EXE stage (insert bubble)
+            flush_EXE_MEM = 1'b1; // Flush MEM stage (insert bubble)
         end
         
         // Handle branch/jump hazard

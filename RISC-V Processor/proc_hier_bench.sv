@@ -171,7 +171,7 @@ end
     assign MemRead = DUT.p0.memory.mem_read_en_MEM;
     assign MemWrite = DUT.p0.memory.mem_write_en_MEM;
     assign MemAddress = DUT.p0.memory.alu_result_MEM;
-    assign MemData = DUT.p0.memory.write_data_MEM;
+    assign MemData = DUT.p0.memory.mem_data_MEM;
 
     assign rs1_data_ID = DUT.p0.decode.rs1_data_ID;
      assign rs2_data_ID = DUT.p0.decode.rs2_data_ID;

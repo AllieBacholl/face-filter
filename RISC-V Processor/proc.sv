@@ -43,7 +43,7 @@ wire [1:0] result_sel_ID;
 wire [31:0] write_data_EXE, write_data_MEM;
 
 wire interrupt_ctrl, interrupt_en, forwarding_mem;
-wire flush_IF_ID, flush_ID_EXE, stall_IF, stall_IF_ID;
+wire flush_IF_ID, flush_ID_EXE, flush_EXE_MEM, stall_IF, stall_IF_ID, stall_ID_EXE;
 
 assign err = 1'b0;
 
@@ -127,6 +127,7 @@ ID_EX ID_EX(
     // Input
     .clk(clk), 
     .rst(rst), 
+    .stall(stall_ID_EXE),
     .err_in(err_ID), // TODO do we need
     .EXT(EXT_ID), 
     .flush(flush_ID_EXE),
@@ -220,6 +221,7 @@ EX_ME EX_ME(
     .rst(rst), 
     .EXT(EXT_EXE), 
     .stall(1'b0),
+    .flush(flush_EXE_MEM),
     .pc_in(pc_EXE),
     .pcPlus4_in(pcPlus4_EXE),
     .rs1_data_in(rs1_data_EXE), 
@@ -328,6 +330,7 @@ hazard_detection hazard_detection(
     .rs2_EXE(rs2_EXE), 
     .rd_EXE(rd_EXE),
     .result_sel_EXE(result_sel_EXE),
+    .result_sel_MEM(result_sel_MEM),
     .rs1_MEM(rs1_MEM), 
     .rs2_MEM(rs2_MEM), 
     .rd_MEM(rd_MEM),
@@ -336,8 +339,10 @@ hazard_detection hazard_detection(
     // Output
     .flush_IF_ID(flush_IF_ID), 
     .flush_ID_EXE(flush_ID_EXE), 
+    .flush_EXE_MEM(flush_EXE_MEM),
     .stall_IF(stall_IF), 
     .stall_IF_ID(stall_IF_ID),
+    .stall_ID_EXE(stall_ID_EXE),
     .interrupt_en(interrupt_en),
     .forwarding_A(forwarding_a), 
     .forwarding_B(forwarding_b),

@@ -30,10 +30,7 @@ module clkrst (clk, rst, err);
     always @(posedge clk) begin
        cycle_count = cycle_count + 1;
        /*
-        MDS (3/25/19): change from 100000 cycles to 100004 cycles to
-        allow tests that intentionally loop infinitely to pass in wiscalculator;
-        without this change, such benchmarks will erroneously fail due to
-        reset cycles at the beginning.
+        Tianqi Shen
         */
        if (cycle_count > 20) begin
           $display("hmm....more than 20 cycles of simulation...error?\n");

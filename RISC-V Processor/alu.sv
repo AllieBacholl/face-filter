@@ -44,13 +44,14 @@ module alu (InA, InB, Oper, Out, zf, sf, funct3);
     assign sltu = ({1'b0, InA} < {1'b0, InB});
 
     // Output mux to select the correct operation result
-    assign Out =    (Oper == 5'b10000 | Oper == 5'b11000)                       ?   sum                 :       // add or sub
+    assign Out =    (Oper == 5'b01000 | Oper == 5'b10000 
+                    | Oper == 5'b11000 | Oper == 5'b00000)                      ?   sum                 :       // add or sub
                     (Oper == 5'b10001 | Oper == 5'b10101 | Oper == 5'b11101)    ?   shift_result        :       // sll, srl, sra    
                     (Oper == 5'b10100)                                          ?   xor_result          :       // xor
                     (Oper == 5'b10110)                                          ?   or_result           :       // or
                     (Oper == 5'b10111)                                          ?   and_result          :       // and
-                    ((Oper == 5'b10010) & (funct3 == 3'b010))                        ?   {31'b0, (~zf & sf)} :       // slt, set if A < B, A - B sign
+                    ((Oper == 5'b10010) & (funct3 == 3'b010))                   ?   {31'b0, (~zf & sf)} :       // slt, set if A < B, A - B sign
                     // stlu
-                    ((Oper == 5'b10011) & (funct3 == 3'b011))                                          ?         sltu         :       // slt, set if A < B, A - B sign
+                    ((Oper == 5'b10011) & (funct3 == 3'b011))                   ?         sltu          :       // slt, set if A < B, A - B sign
                     InB;                                                                                        // Pass B input through
 endmodule

@@ -56,7 +56,7 @@ module memory2c (data_out, data_in, addr, length, sign, enable, wr, createdump, 
       end
    end
 
-   always @(posedge clk) begin
+   always @(negedge clk) begin
       if (rst) begin
          // first init to 0, then load loadfile_all.img
          if (!loaded) begin

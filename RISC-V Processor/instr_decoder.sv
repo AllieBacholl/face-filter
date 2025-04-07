@@ -366,7 +366,7 @@ always @* begin
                 // Control signals for SB
                 reg_write = 0;
                 alu_src_sel_A = 0;
-                alu_src_sel_B = 2'b00;
+                alu_src_sel_B = 2'b01;
                 alu_ctrl = `SB;
                 imm_ctrl = 3'b001;
                 jump = 0;
@@ -383,7 +383,7 @@ always @* begin
                 // Control signals for SH
                 reg_write = 0;
                 alu_src_sel_A = 0;
-                alu_src_sel_B = 2'b00;
+                alu_src_sel_B = 2'b01;
                 alu_ctrl = `SH;
                 imm_ctrl = 3'b001;
                 jump = 0;
@@ -400,7 +400,7 @@ always @* begin
                 // Control signals for SW
                 reg_write = 0;
                 alu_src_sel_A = 0;
-                alu_src_sel_B = 2'b00;
+                alu_src_sel_B = 2'b01;
                 alu_ctrl = `SW;
                 imm_ctrl = 3'b001;
                 jump = 0;

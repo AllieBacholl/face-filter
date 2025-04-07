@@ -42,9 +42,14 @@ module alu_control (opcode, funct3, funct7, aluOp);
                     (opcode == 7'b1100111)          ?                   // If jalr instruction, add ALU operation
                     5'b10000                        :
 
-                    // Don't use ALU
-                    // Load/Store
-                    // Jump
-                    5'b00000                        ;                   // ALU out = input B
+                    // Load
+                    (opcode == 7'b0000011)          ?                   // If load instruction, add ALU operation
+                    5'b00000                        :
+
+                     // Store
+                     (opcode == 7'b0100011)          ? 
+                     5'b01000                        :
+
+                    5'b00000                        ;                   // ALU out = sum
 endmodule
 `default_nettype wire
