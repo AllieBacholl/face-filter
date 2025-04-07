@@ -1,4 +1,4 @@
 # face-filter
 
-Talk is cheap
-Show me your code
+Talk is cheap!
+Show me your code!
