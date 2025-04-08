@@ -131,7 +131,7 @@ module hazard_detection(
         // Handle branch/jump hazard
         if (branch_hazard) begin
             flush_IF_ID = 1'b1;  // Flush instructions in IF and ID stages
-            flush_ID_EXE = 1'b0; // Don't flush EXE stage for branch
+            flush_ID_EXE = 1'b1; // Flush EXE stage for branch
         end
         
         // Handle interrupt

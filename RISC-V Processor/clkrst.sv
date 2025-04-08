@@ -32,8 +32,8 @@ module clkrst (clk, rst, err);
        /*
         Tianqi Shen
         */
-       if (cycle_count > 20) begin
-          $display("hmm....more than 20 cycles of simulation...error?\n");
+       if (cycle_count > 100) begin
+          $display("hmm....more than 100 cycles of simulation...error?\n");
           $finish;
        end
     end
