@@ -356,7 +356,7 @@ always @* begin
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = 1;
+                mem_write_en = 0;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
                 mem_length = 2'b01;
