@@ -44,6 +44,7 @@ wire [31:0] write_data_EXE, write_data_MEM;
 
 wire interrupt_ctrl, interrupt_en, forwarding_mem;
 wire flush_IF_ID, flush_ID_EXE, flush_EXE_MEM, stall_IF, stall_IF_ID, stall_ID_EXE;
+wire jalr_en_ID, jalr_en_EXE;
 
 assign err = 1'b0;
 
@@ -60,6 +61,7 @@ fetch fetch(
     .pc_next_sel(pc_next_sel), 
     .pcJalSrc_EXE(pcJalSrc_EXE),
     .stall(stall_IF),
+    .jalr_en(jalr_en_EXE),
     // Output
     .pcPlus4(pcPlus4_FETCH), 
     .pc(pc_FETCH),
@@ -119,6 +121,7 @@ decode decode(
     .mem_read_ID(mem_read_ID), 
     .mem_sign_ID(mem_sign_ID),
     .mem_length_ID(mem_length_ID),
+    .jalr_en_ID(jalr_en_ID),
     .err_ID(err_ID)
 );
 
@@ -153,6 +156,7 @@ ID_EX ID_EX(
     .mem_sign_in(mem_sign_ID),
     .mem_length_in(mem_length_ID),
     .instr_in(instr_ID),
+    .jalr_en_in(jalr_en_ID),
     // Output
     .err_out(err_ID_out),
     .EXT_out(EXT_EXE),
@@ -177,6 +181,7 @@ ID_EX ID_EX(
     .mem_read_out(mem_read_EXE),
     .mem_sign_out(mem_sign_EXE),
     .mem_length_out(mem_length_EXE),
+    .jalr_en_out(jalr_en_EXE),
     .instr_out(instr_EXE)
 );
 

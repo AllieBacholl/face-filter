@@ -4,6 +4,7 @@ module fetch(
     input [31:0] branch_jump_addr, alu_result_EXE, // pc from id stage
     input pc_next_sel, pcJalSrc_EXE,
     input stall, 
+    input jalr_en,
     output [31:0] pcPlus4, pc, // pc is current_pc
     output [31:0] instr,
     output err
@@ -20,7 +21,7 @@ module fetch(
     assign err = 1'b0;
 
     assign pc_back = (pc_next_sel === 1'bx) ? pcPlus4 :
-                    (pc_next_sel ? (pcJalSrc_EXE ? alu_result_EXE - 4: branch_jump_addr - 4) : pcPlus4);
+                    (pc_next_sel ? (pcJalSrc_EXE ? (jalr_en ? alu_result_EXE : alu_result_EXE - 4) : branch_jump_addr - 4) : pcPlus4);
 
     assign pc_next = (interrupt_en === 1'bx) ? pc_back :
                     (interrupt_en ? interrupt_handling_addr : pc_back);
