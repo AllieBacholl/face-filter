@@ -50,6 +50,9 @@ module alu_control (opcode, funct3, funct7, aluOp);
                      (opcode == 7'b0100011)          ? 
                      5'b01000                        :
 
+                     (opcode == 7'b0110111)         ?     //LUI
+                     5'b01101                        : 
+
                     5'b00000                        ;                   // ALU out = sum
 endmodule
 `default_nettype wire

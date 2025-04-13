@@ -51,6 +51,7 @@ module alu (InA, InB, Oper, Out, zf, sf, funct3);
                     (Oper == 5'b10110)                                          ?   or_result           :       // or
                     (Oper == 5'b10111)                                          ?   and_result          :       // and
                     ((Oper == 5'b10010) & (funct3 == 3'b010))                   ?   {31'b0, (~zf & sf)} :       // slt, set if A < B, A - B sign
+                    (Oper == 5'b01101)                                         ? InB                    :       // lui
                     // stlu
                     ((Oper == 5'b10011) & (funct3 == 3'b011))                   ?         sltu          :       // slt, set if A < B, A - B sign
                     InB;                                                                                        // Pass B input through

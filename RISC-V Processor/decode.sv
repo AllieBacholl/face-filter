@@ -14,6 +14,7 @@ module decode (
     output alu_src_sel_A_ID,
     output [4:0] alu_op_ID,
     output [2:0] imm_ctrl_ID,
+    output jalr_en_ID,
 
     // data sinals outputs
     output instr_12_ID, instr_14_ID,
@@ -57,6 +58,7 @@ instr_decoder instr_decoder(
     .mem_read(mem_read_ID),
     .mem_sign(mem_sign_ID),
     .mem_length(mem_length_ID),
+    .jalr_en(jalr_en_ID),
     .err(err_decode)
 );
 

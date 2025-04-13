@@ -16,11 +16,13 @@ module ID_EX(
     input mem_read_in, mem_sign_in,
     input [1:0] mem_length_in,
     input [31:0] instr_in,
+    input jalr_en_in,
 
     output [31:0] pc_out, pcPlus4_out,
     output [31:0] rs1_data_out, rs2_data_out,
     output [31:0] imm_res_out,
     output [4:0] rs1_out, rs2_out, rd_out,
+
 
     output reg_write_out, mem_write_en_out, jump_out, branch_out,
     output [1:0] result_sel_out,
@@ -33,7 +35,8 @@ module ID_EX(
     output mem_read_out, mem_sign_out,
     output [1:0] mem_length_out,
     output err_out,
-    output [31:0] instr_out
+    output [31:0] instr_out,
+    output jalr_en_out
 );
 
 
@@ -63,6 +66,8 @@ dff mem_sign(.q(mem_sign_out), .d(flush ? 1'b0 : (stall ? mem_sign_out : mem_sig
 dff mem_length [1:0] (.q(mem_length_out), .d(flush ? 1'b0 : (stall ? mem_length_out : mem_length_in)), .clk(clk), .rst(rst));
 
 dff instr [31:0] (.q(instr_out), .d(flush ? 1'b0 : (stall ? instr_out : instr_in)), .clk(clk), .rst(rst));
+
+dff jalr_en(.q(jalr_en_out), .d(flush ? 1'b0 : (stall ? jalr_en_out : jalr_en_in)), .clk(clk), .rst(rst));
 
 
 endmodule

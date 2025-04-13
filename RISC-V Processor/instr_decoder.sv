@@ -12,6 +12,7 @@ module instr_decoder(
     output logic [2:0] imm_ctrl,
     output logic mem_read, mem_sign,// mem_sign 00-byte, 01-half-word, 10-word
     output logic [1:0] mem_length,
+    output logic jalr_en,
     output err
 );
 
@@ -98,6 +99,7 @@ alu_control alu_control_logic(.opcode(opcode), .funct3(funct3), .funct7(funct7),
 always @* begin
         // Default assignments
         err_temp = 0;
+        jalr_en = 0;
         
         // Combined instruction pattern for case statement
         casex ({opcode, funct3, funct7})
@@ -170,6 +172,7 @@ always @* begin
                 mem_length = 0;
                 mem_read = 0;
                 mem_sign = 0;
+                jalr_en = 1; // Enable JALR
             end
             
             // B-Type instructions
@@ -353,7 +356,7 @@ always @* begin
                 imm_ctrl = 3'b000;
                 jump = 0;
                 branch = 0;
-                mem_write_en = 1;
+                mem_write_en = 0;
                 result_sel = 2'b01;
                 pcJalSrc = 1'bx;
                 mem_length = 2'b01;
