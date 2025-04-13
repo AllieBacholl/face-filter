@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/altera_reset_controller.v"
+   type="VERILOG"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/altera_reset_synchronizer.v"
+   type="VERILOG"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/altera_reset_controller.sdc"
+   type="SDC"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/bram_onchip_memory2_1.v"
+   type="VERILOG"
+   library="onchip_memory2_1" />
+ <file
+   path="simulation/submodules/bram_onchip_memory2_0.v"
+   type="VERILOG"
+   library="onchip_memory2_0" />
+ <file path="simulation/bram.v" type="VERILOG" />
+ <topLevel name="bram" />
+ <deviceFamily name="cyclonev" />
+ <modelMap
+   controllerPath="bram.onchip_memory2_0"
+   modelPath="bram.onchip_memory2_0" />
+ <modelMap
+   controllerPath="bram.onchip_memory2_1"
+   modelPath="bram.onchip_memory2_1" />
+</simPackage>

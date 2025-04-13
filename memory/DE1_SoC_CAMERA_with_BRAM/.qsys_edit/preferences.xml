@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="47" />
+   <irq preferredWidth="34" />
+   <export preferredWidth="237" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library/Basic Functions/Bridges and Adaptors/Memory Mapped,Library/Basic Functions/Simulation; Debug and Verification,Library/Qsys Interconnect/Memory-Mapped Alpha,Library/Basic Functions/Bridges and Adaptors,Library/Memory Interfaces and Controllers,Library/Basic Functions/On Chip Memory,Library/Memory Interfaces and Controllers/Memory Interfaces with ALTMEMPHY,Library/Basic Functions/Simulation; Debug and Verification/Simulation,Project,Library/Processors and Peripherals,Library/Memory Interfaces and Controllers/Memory Interfaces with UniPHY,Library/University Program/Memory,Library/University Program,Library/Memory Interfaces and Controllers/SDRAM,Library/Processors and Peripherals/Hard Processor Components,Library,Library/Basic Functions,Library/Qsys Interconnect/Memory-Mapped,Library/Qsys Interconnect,Library/Memory Interfaces and Controllers/Flash" />
+ <window width="2582" height="1550" x="-11" y="-11" />
+ <generation simulation="VERILOG" />
+ <hdlexample language="VERILOG" />
+</preferences>
