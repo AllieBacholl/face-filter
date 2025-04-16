@@ -1,0 +1,22 @@
+# system info instr_mem_onchip on 2025.04.16.15:03:32
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1744833811
+#
+#
+# Files generated for instr_mem_onchip on 2025.04.16.15:03:32
+files:
+filepath,kind,attributes,module,is_top
+simulation/instr_mem_onchip.v,VERILOG,,instr_mem_onchip,true
+simulation/submodules/instr_mem_onchip_instr_mem.v,VERILOG,,instr_mem_onchip_instr_mem,false
+simulation/submodules/altera_reset_controller.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_synchronizer.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_controller.sdc,SDC,,altera_reset_controller,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+instr_mem_onchip.instr_mem,instr_mem_onchip_instr_mem
+instr_mem_onchip.rst_controller,altera_reset_controller

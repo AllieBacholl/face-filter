@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/altera_reset_controller.v"
+   type="VERILOG"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/altera_reset_synchronizer.v"
+   type="VERILOG"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/altera_reset_controller.sdc"
+   type="SDC"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/instr_mem_onchip_instr_mem.v"
+   type="VERILOG"
+   library="instr_mem" />
+ <file path="simulation/instr_mem_onchip.v" type="VERILOG" />
+ <topLevel name="instr_mem_onchip" />
+ <deviceFamily name="cyclonev" />
+ <modelMap
+   controllerPath="instr_mem_onchip.instr_mem"
+   modelPath="instr_mem_onchip.instr_mem" />
+</simPackage>

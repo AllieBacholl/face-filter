@@ -1,0 +1,12 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst regFile -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst regFile.onchip_regFile -pg 1 -lvl 2 -y 30
+preplace inst regFile.clk_0 -pg 1 -lvl 1 -y 90
+preplace netloc EXPORT<net_container>regFile</net_container>(SLAVE)regFile.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>regFile</net_container>(SLAVE)regFile.mem,(SLAVE)onchip_regFile.s1) 1 0 2 NJ 80 NJ
+preplace netloc POINT_TO_POINT<net_container>regFile</net_container>(MASTER)clk_0.clk_reset,(SLAVE)onchip_regFile.reset1) 1 1 1 280
+preplace netloc EXPORT<net_container>regFile</net_container>(SLAVE)regFile.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>regFile</net_container>(SLAVE)onchip_regFile.clk1,(MASTER)clk_0.clk) 1 1 1 260
+levelinfo -pg 1 0 50 430
+levelinfo -hier regFile 60 90 320 420

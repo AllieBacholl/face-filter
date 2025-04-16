@@ -1,0 +1,22 @@
+# system info regFile on 2025.04.16.14:49:35
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1744832973
+#
+#
+# Files generated for regFile on 2025.04.16.14:49:35
+files:
+filepath,kind,attributes,module,is_top
+simulation/regFile.v,VERILOG,,regFile,true
+simulation/submodules/regFile_onchip_regFile.v,VERILOG,,regFile_onchip_regFile,false
+simulation/submodules/altera_reset_controller.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_synchronizer.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_controller.sdc,SDC,,altera_reset_controller,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+regFile.onchip_regFile,regFile_onchip_regFile
+regFile.rst_controller,altera_reset_controller

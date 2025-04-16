@@ -1,0 +1,12 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst instr_mem.instr_mem -pg 1 -lvl 2 -y 30
+preplace inst instr_mem.clk_0 -pg 1 -lvl 1 -y 90
+preplace inst instr_mem -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc EXPORT<net_container>instr_mem</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)instr_mem.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>instr_mem</net_container>(SLAVE)clk_0.clk_in,(SLAVE)instr_mem.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>instr_mem</net_container>(SLAVE)instr_mem.s1,(SLAVE)instr_mem.mem) 1 0 2 NJ 80 NJ
+preplace netloc POINT_TO_POINT<net_container>instr_mem</net_container>(MASTER)clk_0.clk_reset,(SLAVE)instr_mem.reset1) 1 1 1 280
+preplace netloc POINT_TO_POINT<net_container>instr_mem</net_container>(SLAVE)instr_mem.clk1,(MASTER)clk_0.clk) 1 1 1 260
+levelinfo -pg 1 0 50 410
+levelinfo -hier instr_mem 60 90 310 400

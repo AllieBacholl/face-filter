@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/altera_reset_controller.v"
+   type="VERILOG"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/altera_reset_synchronizer.v"
+   type="VERILOG"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/altera_reset_controller.sdc"
+   type="SDC"
+   library="rst_controller" />
+ <file
+   path="simulation/submodules/regFile_onchip_onchip_regFile.v"
+   type="VERILOG"
+   library="onchip_regFile" />
+ <file path="simulation/regFile_onchip.v" type="VERILOG" />
+ <topLevel name="regFile_onchip" />
+ <deviceFamily name="cyclonev" />
+ <modelMap
+   controllerPath="regFile_onchip.onchip_regFile"
+   modelPath="regFile_onchip.onchip_regFile" />
+</simPackage>

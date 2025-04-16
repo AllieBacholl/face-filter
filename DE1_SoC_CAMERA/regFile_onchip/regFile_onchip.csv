@@ -1,0 +1,22 @@
+# system info regFile_onchip on 2025.04.16.15:29:34
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1744835374
+#
+#
+# Files generated for regFile_onchip on 2025.04.16.15:29:34
+files:
+filepath,kind,attributes,module,is_top
+simulation/regFile_onchip.v,VERILOG,,regFile_onchip,true
+simulation/submodules/regFile_onchip_onchip_regFile.v,VERILOG,,regFile_onchip_onchip_regFile,false
+simulation/submodules/altera_reset_controller.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_synchronizer.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_controller.sdc,SDC,,altera_reset_controller,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+regFile_onchip.onchip_regFile,regFile_onchip_onchip_regFile
+regFile_onchip.rst_controller,altera_reset_controller

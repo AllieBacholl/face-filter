@@ -1,0 +1,77 @@
+Info: Starting: Create simulation model
+Info: qsys-generate C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip\simulation --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading DE1_SoC_CAMERA/regFile_onchip.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.0]
+Progress: Parameterizing module clk_0
+Progress: Adding onchip_regFile [altera_avalon_onchip_memory2 18.0]
+Progress: Parameterizing module onchip_regFile
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: regFile_onchip: Generating regFile_onchip "regFile_onchip" for SIM_VERILOG
+Info: onchip_regFile: Starting RTL generation for module 'regFile_onchip_onchip_regFile'
+Info: onchip_regFile:   Generation command is [exec C:/intelfpga_lite/18.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.0/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.0/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.0/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=regFile_onchip_onchip_regFile --dir=C:/Users/albac/AppData/Local/Temp/alt0194_5999157390051552780.dir/0002_onchip_regFile_gen/ --quartus_dir=C:/intelfpga_lite/18.0/quartus --verilog --config=C:/Users/albac/AppData/Local/Temp/alt0194_5999157390051552780.dir/0002_onchip_regFile_gen//regFile_onchip_onchip_regFile_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/albac/AppData/Local/Temp/alt0194_5999157390051552780.dir/0002_onchip_regFile_gen/  ]
+Info: onchip_regFile: Done RTL generation for module 'regFile_onchip_onchip_regFile'
+Info: onchip_regFile: "regFile_onchip" instantiated altera_avalon_onchip_memory2 "onchip_regFile"
+Info: rst_controller: "regFile_onchip" instantiated altera_reset_controller "rst_controller"
+Info: regFile_onchip: Done "regFile_onchip" with 3 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip\regFile_onchip.spd --output-directory=C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip\regFile_onchip.spd --output-directory=C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	2 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/regFile_onchip/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip.qsys --block-symbol-file --output-directory=C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading DE1_SoC_CAMERA/regFile_onchip.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.0]
+Progress: Parameterizing module clk_0
+Progress: Adding onchip_regFile [altera_avalon_onchip_memory2 18.0]
+Progress: Parameterizing module onchip_regFile
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip.qsys --synthesis=VERILOG --output-directory=C:\Users\albac\Documents\face-filter\DE1_SoC_CAMERA\regFile_onchip\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading DE1_SoC_CAMERA/regFile_onchip.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.0]
+Progress: Parameterizing module clk_0
+Progress: Adding onchip_regFile [altera_avalon_onchip_memory2 18.0]
+Progress: Parameterizing module onchip_regFile
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: regFile_onchip: Generating regFile_onchip "regFile_onchip" for QUARTUS_SYNTH
+Info: onchip_regFile: Starting RTL generation for module 'regFile_onchip_onchip_regFile'
+Info: onchip_regFile:   Generation command is [exec C:/intelfpga_lite/18.0/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.0/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.0/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.0/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.0/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=regFile_onchip_onchip_regFile --dir=C:/Users/albac/AppData/Local/Temp/alt0194_5999157390051552780.dir/0005_onchip_regFile_gen/ --quartus_dir=C:/intelfpga_lite/18.0/quartus --verilog --config=C:/Users/albac/AppData/Local/Temp/alt0194_5999157390051552780.dir/0005_onchip_regFile_gen//regFile_onchip_onchip_regFile_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_regFile: Done RTL generation for module 'regFile_onchip_onchip_regFile'
+Info: onchip_regFile: "regFile_onchip" instantiated altera_avalon_onchip_memory2 "onchip_regFile"
+Info: rst_controller: "regFile_onchip" instantiated altera_reset_controller "rst_controller"
+Info: regFile_onchip: Done "regFile_onchip" with 3 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
