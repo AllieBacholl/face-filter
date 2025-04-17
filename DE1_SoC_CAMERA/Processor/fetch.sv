@@ -46,7 +46,7 @@ module fetch(
 	 
 	 instr_mem_onchip u0 (
         .clk_clk        (clk),        	//   clk.clk
-        .mem_address    (pc),    		//   mem.address
+        .mem_address    ((pc << 2)),    		//   mem.address
         .mem_clken      (1'b1),      	//      .clken
         .mem_chipselect (1'b1), 			//      .chipselect
         .mem_write      (1'b0),      	//      .write
