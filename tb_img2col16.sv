@@ -9,7 +9,8 @@ module tb_img2col16();
     // Testbench Signals
     logic clk;
     logic rst_n;
-    logic clr;
+    logic clr; // clr and reset
+    logic start;
     logic [(DATA_IN_WIDTH*8)-1:0] data_in;
     logic data_vld_in;
     logic data_consumed;
@@ -19,6 +20,7 @@ module tb_img2col16();
     logic data_rdy_out;
     logic [$clog2(DEPTH)-1:0] rd_addr;
     logic rd_en;
+    logic [4:0] activated_FIFO_num;
 
     // Clock generation
     always #5 clk = ~clk; // 10ns clock period
@@ -31,6 +33,7 @@ module tb_img2col16();
         .clk(clk),
         .rst_n(rst_n),
         .clr(clr),
+        .start(start),
         .data_in(data_in),
         .data_vld_in(data_vld_in),
         .data_consumed(data_consumed),
@@ -39,7 +42,8 @@ module tb_img2col16();
         .data_out(data_out),
         .data_rdy_out(data_rdy_out),
         .rd_addr(rd_addr),
-        .rd_en(rd_en)
+        .rd_en(rd_en),
+        .activated_FIFO_num(activated_FIFO_num)
     );
 
     // Parameters
@@ -69,9 +73,11 @@ module tb_img2col16();
         clk = 0;
         rst_n = 0;
         clr =1;
+        start = 0;
         data_consumed = 0;
         stride2_en = 1;
         input_offset = 0;
+        activated_FIFO_num = 16;
 
         // Reset sequence
         #20 rst_n = 1;
@@ -85,8 +91,18 @@ module tb_img2col16();
         #100;
         @(posedge clk) clr =0;
 
+        // Start the test
+        #10 start = 1;
+        #10 start = 0;
+
         // Observe the outputs
         #1000;
+
+        // clear and see if the data_rdy_out is 0
+        @(posedge clk) clr =1;
+        #10;
+        @(posedge clk) clr =0;
+        #100;
         
         // End simulation
         $stop;

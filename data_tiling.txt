@@ -89,6 +89,17 @@ and of course it doubles if 8 byte BRAM is used
 
 8 bytes * 8192
 
+0 row (0:7) col 0
+1 row (8:15) col 0
+2 row (0:7) col 1
+3 row (8:15) col 1
+...
+31 row (8:15) col 15
 
+
+
+
+row -> chann -> col
+row * output_dim * output_chann + 
 
 

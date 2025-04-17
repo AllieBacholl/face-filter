@@ -8,18 +8,19 @@ module systolic_array
     input rst_n,
     input clr,
     input start,
-    input [DATA_WIDTH-1:0] weights [ARRAY_SIZE-1:0],
+    input signed [DATA_WIDTH-1:0] weights [ARRAY_SIZE-1:0],
     input [DATA_WIDTH-1:0] inputs [ARRAY_SIZE-1:0],
     input [ARRAY_SIZE-1:0] wren_w,
     input [ARRAY_SIZE-1:0] wren_i,
+    input [5:0] activated_pe, 
     output [ARRAY_SIZE-1:0] full_w,
     output [ARRAY_SIZE-1:0] full_i,
     output [ARRAY_SIZE-1:0] empty_w,
     output [ARRAY_SIZE-1:0] empty_i,
     output logic [9:0] cnt, // records how many times the last PE is enabled
-    output logic [4*DATA_WIDTH-1:0] O [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0]
+    output logic signed [4*DATA_WIDTH-1:0] O [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0]
 );
-    logic [DATA_WIDTH-1:0] weights_out [ARRAY_SIZE-1:0];
+    logic signed [DATA_WIDTH-1:0] weights_out [ARRAY_SIZE-1:0];
     logic [DATA_WIDTH-1:0] inputs_out [ARRAY_SIZE-1:0];
     logic [ARRAY_SIZE-1:0] rden;
     logic en_first;
@@ -56,7 +57,7 @@ module systolic_array
     always_ff @(posedge clk) begin
         if (!rst_n) cnt <= 0;
         else if (clr) cnt <= 0;
-        else if (en[ARRAY_SIZE-1][ARRAY_SIZE-2] && en[ARRAY_SIZE-2][ARRAY_SIZE-1]) cnt <= cnt + 1;
+        else if (en[activated_pe-1][activated_pe-2] && en[activated_pe-2][activated_pe-1]) cnt <= cnt + 1;
     end
 
     always_ff @(posedge clk, rst_n) begin
@@ -82,7 +83,7 @@ module systolic_array
         end
     end
     genvar i, j;
-    logic [DATA_WIDTH-1:0] A [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0];
+    logic signed [DATA_WIDTH-1:0] A [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0];
     logic [DATA_WIDTH-1:0] B [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0];
     generate
         for (i = 0; i < ARRAY_SIZE; i=i+1) begin
