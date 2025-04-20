@@ -1,0 +1,15 @@
+
+State Machine - |DE1_SoC_CAMERA|driver:driver0|state
+Name state.TRANSMIT state.TRANSMIT_WAIT state.RECEIVE state.WAIT state.START2 state.START1 
+state.START1 0 0 0 0 0 0 
+state.START2 0 0 0 0 1 1 
+state.WAIT 0 0 0 1 0 1 
+state.RECEIVE 0 0 1 0 0 1 
+state.TRANSMIT_WAIT 0 1 0 0 0 1 
+state.TRANSMIT 1 0 0 0 0 1 
+
+State Machine - |DE1_SoC_CAMERA|I2C_CCD_Config:u8|mSetup_ST
+Name mSetup_ST.0000 mSetup_ST.0010 mSetup_ST.0001 
+mSetup_ST.0000 0 0 0 
+mSetup_ST.0001 1 0 1 
+mSetup_ST.0010 1 1 0 

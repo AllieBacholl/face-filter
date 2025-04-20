@@ -1,0 +1,341 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : 0.921
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.960
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK2_50'
+Slack : 14.870
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 36.479
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.219
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.318
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK2_50'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'CLOCK_50'
+Slack : 1.025
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.983
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'CLOCK2_50'
+Slack : 13.873
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 13.972
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'CLOCK2_50'
+Slack : 0.760
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.174
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.325
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'CLOCK_50'
+Slack : 12.129
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.771
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : 8.831
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.869
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.300
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : 1.040
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.286
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK2_50'
+Slack : 14.823
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 36.525
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.279
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK2_50'
+Slack : 0.464
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'CLOCK_50'
+Slack : 1.513
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.537
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'CLOCK2_50'
+Slack : 13.819
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 14.346
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'CLOCK2_50'
+Slack : 0.602
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.876
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.064
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'CLOCK_50'
+Slack : 12.022
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.752
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : 8.832
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.901
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.251
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 5.030
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : 5.250
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK2_50'
+Slack : 16.902
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 38.022
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.141
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.205
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK2_50'
+Slack : 0.223
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.945
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'CLOCK_50'
+Slack : 4.105
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 15.403
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'CLOCK2_50'
+Slack : 16.335
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'CLOCK2_50'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.104
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 1.195
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'CLOCK_50'
+Slack : 10.920
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.887
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.474
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : 8.779
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.553
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : 5.599
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 5.805
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK2_50'
+Slack : 17.096
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 38.181
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.146
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.194
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK2_50'
+Slack : 0.212
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 4.926
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'CLOCK_50'
+Slack : 5.023
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 16.160
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'CLOCK2_50'
+Slack : 16.499
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'CLOCK2_50'
+Slack : 0.219
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.720
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.825
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'CLOCK_50'
+Slack : 10.684
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.885
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.430
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : 8.762
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'u6|sdram_pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.545
+TNS   : 0.000
+
+------------------------------------------------------------
