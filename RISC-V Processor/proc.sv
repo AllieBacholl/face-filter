@@ -2,10 +2,13 @@
 
 module proc(
     input clk, rst, EXT,
+    input [31:0] register_accelerator_in,
+    output [31:0] register_accelerator_out,
     output err
 );
 
 // Intermediate Signals
+wire polling;
 wire EXT_ID, EXT_EXE, EXT_MEM;
 wire [31:0] interrupt_handling_addr, branch_jump_addr;
 wire pc_next_sel;
@@ -60,7 +63,7 @@ fetch fetch(
     .alu_result_EXE(alu_result_EXE),
     .pc_next_sel(pc_next_sel), 
     .pcJalSrc_EXE(pcJalSrc_EXE),
-    .stall(stall_IF),
+    .stall(stall_IF | polling),
     .jalr_en(jalr_en_EXE),
     // Output
     .pcPlus4(pcPlus4_FETCH), 
@@ -79,7 +82,7 @@ IF_ID IF_ID(
     .pc_in(pc_FETCH),
     .instr_in(instr_FETCH),
     .pcPlus4_in(pcPlus4_FETCH),
-    .stall(stall_IF_ID),
+    .stall(stall_IF_ID | polling),
     .flush(flush_IF_ID),
     // Output
     .err_out(err_FETCH_out),
@@ -99,6 +102,7 @@ decode decode(
     .writeData(write_data_WB), // from WB stage
     .reg_write_WB(reg_write_WB),
     .rd_WB(rd_WB),
+    .register_accelerator_in(register_accelerator_in),
     // Outputs
     .imm_res_ID(imm_res_ID),
     .reg_write_ID(reg_write_ID), 
@@ -122,7 +126,9 @@ decode decode(
     .mem_sign_ID(mem_sign_ID),
     .mem_length_ID(mem_length_ID),
     .jalr_en_ID(jalr_en_ID),
-    .err_ID(err_ID)
+    .err_ID(err_ID),
+    .register_accelerator_out(register_accelerator_out),
+    .polling(polling)
 );
 
 // ID_EXE
@@ -130,7 +136,7 @@ ID_EX ID_EX(
     // Input
     .clk(clk), 
     .rst(rst), 
-    .stall(stall_ID_EXE),
+    .stall(stall_ID_EXE | polling),
     .err_in(err_ID), // TODO do we need
     .EXT(EXT_ID), 
     .flush(flush_ID_EXE),
@@ -225,7 +231,7 @@ EX_ME EX_ME(
     .clk(clk), 
     .rst(rst), 
     .EXT(EXT_EXE), 
-    .stall(1'b0),
+    .stall(polling),
     .flush(flush_EXE_MEM),
     .pc_in(pc_EXE),
     .pcPlus4_in(pcPlus4_EXE),
@@ -286,7 +292,7 @@ ME_WB ME_WB(
     // Inputs
     .clk(clk), 
     .rst(rst), 
-    .stall(1'b0),
+    .stall(polling),
     .pc_in(pc_MEM),
     .pcPlus4_in(pcPlus4_MEM),
     .rs1_data_in(rs1_data_MEM), 
