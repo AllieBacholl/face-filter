@@ -287,6 +287,14 @@ begin
 	rCCD_FVAL	<=	D5M_FVAL;
 end
 
+// Switch select for display image
+wire 			[22:0]			read_addr;
+assign read_addr =	SW[2]  ? 23'h04B000 : 
+							(SW[3] ? 23'h096000 : 
+							(SW[4] ? 23'h0E1000 : 
+							(SW[5] ? 23'h12C000 : 
+							23'h000000)));
+
 //auto start when power on
 assign auto_start = ((KEY[0])&&(DLY_RST_3)&&(!DLY_RST_4))? 1'b1:1'b0;
 //Reset module
@@ -359,7 +367,7 @@ Sdram_Control	   u7	(	//	HOST Side
 							.WR1(write),
 							.WR1_ADDR(0),
                      .WR1_MAX_ADDR(640*480),
-						   .WR1_LENGTH(10'h050),
+						   .WR1_LENGTH(8'h50),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
 
@@ -368,16 +376,16 @@ Sdram_Control	   u7	(	//	HOST Side
 							.WR2(1'b0), // sCCD_DVAL
 							.WR2_ADDR(23'h100000),
 							.WR2_MAX_ADDR(23'h100000+640*480),
-							.WR2_LENGTH(10'h50),
+							.WR2_LENGTH(8'h50),
 							.WR2_LOAD(!DLY_RST_0),				
 							.WR2_CLK(~D5M_PIXLCLK),
 
                      //	FIFO Read Side 1
 						   .RD1_DATA(Read_DATA1),
 				        	.RD1(Read),
-				        	.RD1_ADDR(0),
-                     .RD1_MAX_ADDR(640*480),
-							.RD1_LENGTH(10'h050),
+				        	.RD1_ADDR(read_addr),
+                     .RD1_MAX_ADDR(read_addr+640*480),
+							.RD1_LENGTH(8'h50),
 							.RD1_LOAD(!DLY_RST_0),
 							.RD1_CLK(~VGA_CTRL_CLK),
 							
@@ -386,7 +394,7 @@ Sdram_Control	   u7	(	//	HOST Side
 							.RD2(1'b0),    // Read
 							.RD2_ADDR(23'h100000),
                      .RD2_MAX_ADDR(23'h100000+640*480),
-							.RD2_LENGTH(10'h50),
+							.RD2_LENGTH(8'h50),
                    	.RD2_LOAD(!DLY_RST_0),
 							.RD2_CLK(~VGA_CTRL_CLK),
 										
