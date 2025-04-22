@@ -11,6 +11,7 @@ module tb_img2col16();
     logic rst_n;
     logic clr; // clr and reset
     logic start;
+    logic [1:0] pad_first_col; // 00: no padding, 01: 1 byte padding, 10: 2 byte padding
     logic [(DATA_IN_WIDTH*8)-1:0] data_in;
     logic data_vld_in;
     logic data_consumed;
@@ -35,6 +36,7 @@ module tb_img2col16();
         .clr(clr),
         .start(start),
         .data_in(data_in),
+        .pad_first_col(pad_first_col),
         .data_vld_in(data_vld_in),
         .data_consumed(data_consumed),
         .stride2_en(stride2_en),
@@ -48,7 +50,7 @@ module tb_img2col16();
 
     // Parameters
     parameter BAND = 64;
-    parameter TYPE = 2;
+    parameter TYPE = 1;
 
     // Instantiate the RAM module
     RAM #(
@@ -75,8 +77,9 @@ module tb_img2col16();
         clr =1;
         start = 0;
         data_consumed = 0;
-        stride2_en = 1;
+        stride2_en = 0;
         input_offset = 0;
+        pad_first_col = 2'b10; 
         activated_FIFO_num = 16;
 
         // Reset sequence

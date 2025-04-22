@@ -16,6 +16,8 @@ module tb_tile_mover;
     logic [ADDR_WIDTH-1:0] stride_chan;
     logic [9:0] chan_num;
     logic start;
+    logic pad_all;
+    logic [1:0] pad_first_col; // unused in current logic
     logic data_valid;
     logic data_consumed;
 
@@ -36,6 +38,8 @@ module tb_tile_mover;
         .clk(clk),
         .rst_n(rst_n),
         .clr(clr),
+        .pad_all(pad_all),
+        .pad_first_col(pad_first_col),
         .row_len(row_len),
         .base_addr_rd(base_addr_rd),
         .base_addr_wr(base_addr_wr),
@@ -88,6 +92,8 @@ module tb_tile_mover;
         clr = 0;
         start = 0;
         data_valid = 0;
+        pad_all = 1;
+        pad_first_col = 2'b00; // unused in current logic
 
         // Configuration
         row_len = 6'd18;         // 3 reads (18 / 8 = 2.25, ceil → 3)

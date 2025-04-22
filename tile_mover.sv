@@ -6,7 +6,7 @@
     * @version 1.0
     * @date 2025-4-16
     */
-module tile_mover 
+module tile_mover // moves one row of data
 #(
     parameter DATA_WIDTH = 64,
     parameter ADDR_WIDTH = 8
@@ -14,6 +14,8 @@ module tile_mover
     input clk,
     input rst_n,
     input clr,
+    input pad_all,
+    input [1:0] pad_first_col,
     input [5:0] row_len, // how many columns needed per row, 18 or 33 or (FIFO-1)*stride + 3
     input [ADDR_WIDTH-1:0] base_addr_rd, // global row number
     input [ADDR_WIDTH-1:0] base_addr_wr, // global row number
@@ -66,7 +68,7 @@ module tile_mover
         end else if (clr) begin
             row_len_reg <= '1;
         end else if (start) begin
-            row_len_reg <= row_len;
+            row_len_reg <= (pad_first_col[1]) ? row_len-2 : (pad_first_col[0]) ? row_len - 1 : row_len;
         end
     end
 
@@ -77,11 +79,11 @@ module tile_mover
         end else if (clr) begin
             rd_en <= 0;
         end else if (start) begin
-            rd_en <= 1;
+            rd_en <= ~pad_all;
         end else if (chan_cnt == 0) begin
             rd_en <= 0;
         end else if (data_valid & data_consumed) begin
-            rd_en <= 1;
+            rd_en <= ~pad_all;
         end else begin
             rd_en <= 0;
         end

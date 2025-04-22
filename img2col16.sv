@@ -14,6 +14,7 @@ module img2col16
     input clr,
     input start,
     input [(DATA_IN_WIDTH*8)-1:0] data_in, // consumes (#FIFO-1)*stride+3 bytes per 3 clocks
+    input [1:0] pad_first_col, // padding for the first column 0, 1 or 2 paddings
     input data_vld_in, 
     input data_consumed, // request to read new data for every FIFO (16 bytes at a time)
     input stride2_en, // stride 2 enable
@@ -38,9 +39,9 @@ module img2col16
 
     logic [5:0] TILE_ROW_LEN_STRIDE1; // in bytes
     logic [5:0] TILE_ROW_LEN_STRIDE2;
-    assign TILE_ROW_LEN_STRIDE1 = (activated_FIFO_num) + 2; // 3 bytes for the first FIFO
-    assign TILE_ROW_LEN_STRIDE2 = (activated_FIFO_num << 1) + 1; // 3 bytes for the first FIFO
-    // assign byte_offset = stride2_en ? 8 - (TILE_ROW_LEN_STRIDE2[2:0]) : 8 - (TILE_ROW_LEN_STRIDE1[2:0]);
+    assign TILE_ROW_LEN_STRIDE1 = (activated_FIFO_num) + 2 - pad_first_col; // 3 bytes for the first FIFO
+    assign TILE_ROW_LEN_STRIDE2 = (activated_FIFO_num << 1) + 1 - pad_first_col; // 3 bytes for the first FIFO
+    // assign byte_offset = stride2_en_ff ? 8 - (TILE_ROW_LEN_STRIDE2[2:0]) : 8 - (TILE_ROW_LEN_STRIDE1[2:0]);
     //logic [3:0] SHIFT_IN_CYCLES_STRIDE1_static;
     //logic [3:0] SHIFT_IN_CYCLES_STRIDE1_static_ff;
     logic [3:0] SHIFT_IN_CYCLES_STRIDE1;
@@ -54,7 +55,18 @@ module img2col16
     //assign SHIFT_IN_CYCLES_STRIDE2 = SHIFT_IN_CYCLES_STRIDE2_static  - (|byte_offset);
     assign SHIFT_IN_CYCLES_STRIDE2 = ((TILE_ROW_LEN_STRIDE2 + DATA_IN_WIDTH - 1) >> $clog2(DATA_IN_WIDTH));
 
-
+    logic stride2_en_ff;
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (~rst_n) begin
+            stride2_en_ff <= 0;
+        end
+        else if (clr) begin
+            stride2_en_ff <= 0;
+        end
+        else if (start) begin
+            stride2_en_ff <= stride2_en;
+        end
+    end
 
     always_ff @(posedge clk, negedge rst_n) begin
         if (~rst_n) begin
@@ -87,7 +99,7 @@ module img2col16
             data_rdy_out <= 0;
         end
         else if (shift_en) begin
-            if (stride2_en ? (cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) : (cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
+            if (stride2_en_ff ? (cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) : (cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
                 data_rdy_out <= 1;
                 //byte_offset_ff <= byte_offset;
                 // SHIFT_IN_CYCLES_STRIDE1_static_ff <= SHIFT_IN_CYCLES_STRIDE1_static;
@@ -104,7 +116,7 @@ module img2col16
             cnt_shift <= 0;
         end
         else if (shift_en) begin
-            if (stride2_en ? (cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) : (cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
+            if (stride2_en_ff ? (cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) : (cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
                 cnt_shift <= 0;
             end
             else begin
@@ -112,6 +124,13 @@ module img2col16
             end
         end
     end
+
+    logic [40*8-1:0] data_shift_pad;
+    logic [40*8-1:0] data_shift;
+    assign data_shift_pad = pad_first_col[1] ? {data_in, 16'h0000, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)+16]} : 
+                            (pad_first_col[0] ? {data_in, 8'h00, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)+8]} : {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]});
+    assign data_shift = {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]}; 
+
     
     always_ff @(posedge clk, negedge rst_n) begin
         if (~rst_n) begin
@@ -122,10 +141,18 @@ module img2col16
             data_reg[0] <= 0;
             data_reg[1] <= 0;
         end
+        else if (start) begin
+            data_reg[0] <= pad_first_col[1] ? {16'h0000, data_reg[0][40*8-1:16]} : pad_first_col[0] ? {8'h00, data_reg[0][40*8-1:8]} : data_reg[0];
+        end
         else if (shift_en) begin
-            data_reg[0] <= {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]};
-            if (~stride2_en && cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1) data_reg[1] <= {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]};
-            else if (stride2_en && cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1) data_reg[1] <= {data_in, data_reg[0][40*8-1:(DATA_IN_WIDTH*8)]};
+            if (data_rdy_out && ~data_rdy_out_ff) begin
+                data_reg[0] <= data_shift_pad;
+                if (stride2_en_ff ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1) data_reg[1] <= data_shift_pad;
+            end
+            else begin
+                data_reg[0] <= data_shift;
+                if (stride2_en_ff ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1) data_reg[1] <= data_shift;
+            end
         end
     end
 
@@ -146,7 +173,7 @@ module img2col16
     //         byte_offset <= 0;
     //     end 
     //     else if (data_rdy_out & ~data_rdy_out_ff) begin
-    //         byte_offset <= (stride2_en) ? (byte_offset[2:0] + TILE_ROW_LEN_STRIDE2[2:0]) : (byte_offset[2:0] + TILE_ROW_LEN_STRIDE1[2:0]); // when 18 bytes per tile, 2 bytes offset, when 33 bytes per tile, 1 byte offset, 8 bit data in width is hard coded
+    //         byte_offset <= (stride2_en_ff) ? (byte_offset[2:0] + TILE_ROW_LEN_STRIDE2[2:0]) : (byte_offset[2:0] + TILE_ROW_LEN_STRIDE1[2:0]); // when 18 bytes per tile, 2 bytes offset, when 33 bytes per tile, 1 byte offset, 8 bit data in width is hard coded
     //     end
     // end
 
@@ -156,6 +183,9 @@ module img2col16
         end
         else if (clr) begin
             rd_addr <= 0;
+        end
+        else if (start) begin
+            rd_addr <= input_offset[$clog2(DEPTH)-1:0];
         end
         else if (inc_rd_addr) begin
             rd_addr <= rd_addr + 1;
@@ -196,7 +226,7 @@ module img2col16
                 end
             end
             SHIFT: begin
-                if (data_rdy_out && (stride2_en ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin// && (stride2_en ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
+                if (data_rdy_out && (stride2_en_ff ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin// && (stride2_en_ff ? cnt_shift == SHIFT_IN_CYCLES_STRIDE2-1 : cnt_shift == SHIFT_IN_CYCLES_STRIDE1-1)) begin
                     nxt_state = PAUSE;
                     dec_rd_addr = 1;
                 end
@@ -215,14 +245,12 @@ module img2col16
             end
         endcase
     end
-
-    always_comb begin
-        for (int i = 0; i < 16; i++) begin
-            //if (i < activated_FIFO_num) data_out[i] = data_reg[1][((((i << stride2_en)+cnt_rd) << 3) + ((stride2_en ? byte_offset_ff : byte_offset_ff[2:0]) << 3) + 40*8 - ((stride2_en ? (SHIFT_IN_CYCLES_STRIDE2_static_ff) : (SHIFT_IN_CYCLES_STRIDE1_static_ff)) << $clog2(DATA_IN_WIDTH*8))) +: 8];
-            if (i < activated_FIFO_num) data_out[i] = data_reg[1][((((i << stride2_en)+cnt_rd) << 3) + 40*8 - ((stride2_en ? (SHIFT_IN_CYCLES_STRIDE2) : (SHIFT_IN_CYCLES_STRIDE1)) << $clog2(DATA_IN_WIDTH*8))) +: 8];
-            else data_out[i] = 0;
+    logic [8:0] base_select;
+    assign base_select = 40*8 - ((stride2_en_ff ? (SHIFT_IN_CYCLES_STRIDE2) : (SHIFT_IN_CYCLES_STRIDE1)) << $clog2(DATA_IN_WIDTH*8)) - (pad_first_col << $clog2(8));
+    genvar i;
+    generate
+        for (i = 0; i < 16; i = i + 1) begin
+            assign data_out[i] = (i < activated_FIFO_num) ? data_reg[1][((((i << stride2_en_ff)+cnt_rd) << 3) + base_select) +: 8] : 0;
         end
-    end
-    logic [31:0] debug;
-    // assign debug = ((stride2_en ? byte_offset_ff : byte_offset_ff[2:0]) << 3) + 40*8 - ((stride2_en ? (SHIFT_IN_CYCLES_STRIDE2_static_ff) : (SHIFT_IN_CYCLES_STRIDE1_static_ff)) << $clog2(DATA_IN_WIDTH*8));
+    endgenerate
 endmodule

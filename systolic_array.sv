@@ -9,7 +9,7 @@ module systolic_array
     input clr,
     input start,
     input signed [DATA_WIDTH-1:0] weights [ARRAY_SIZE-1:0],
-    input [DATA_WIDTH-1:0] inputs [ARRAY_SIZE-1:0],
+    input signed [DATA_WIDTH-1:0] inputs [ARRAY_SIZE-1:0],
     input [ARRAY_SIZE-1:0] wren_w,
     input [ARRAY_SIZE-1:0] wren_i,
     input [5:0] activated_pe, 

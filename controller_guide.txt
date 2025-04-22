@@ -1,0 +1,72 @@
+img2col:
+    control: start_img2col -> one cycle high
+    control: clr_img2col -> one cycle high
+    control: data_consumed(data_read) -> one cycle high
+    control: stride2_en -> one cycle high at start
+    control: input_offset -> one cycle valid at start
+    control: activated_FIFO_num -> all high
+    data: data_out
+    status: data_rdy_out
+
+output_proc:
+    parameters: DATA_WIDTH, how wide is a numer, 8 bit
+                ADDR_WIDTH = 13 -> 2^13
+    control: start_output_proc -> one cycle high
+    control: clr_output_proc -> one cycle high
+    control: max_pooling_en -> high at start
+    control: relu_en -> high at start
+    control: scale -> valid at start
+    control: zero_point -> same as above
+    control: activated_FIFO_num -> same as above
+    data: quant_systolic_out_pooled_final
+    status: processing_done -> high till start
+    status: systolic_out_consumed -> one batch of systolic array processed, need one to set done when no pooling otherwise two
+
+tile_mover:
+    parameters: ADDR_WIDTH = 13
+    control: start_tile_mover -> one cycle
+    control: clr_tile_mover -> one cycle
+    control: row_len -> high at start, how long the row of the tile will begin
+    control: base_addr_rd -> high at start
+    control: chan_num -> (can be preloaded) high at the start
+    control: data_consumed -> one cycle, 8 bytes of data is received
+    control: stride_chan -> (can be preloaded) valid at start, the stride in terms of addresses of a channel
+    status: done -> high till start again
+
+write_back:
+    parameters: ADDR_WIDTH = 10
+    control: start_write_back -> one cycle
+    control: clr_write_back -> one cycle
+    control: base_output_addr -> valid at start (calculated by the current row #, col #)
+    control: stride_chan -> (can be preloaded) high at start, stride of a channel in terms of addresses
+    control: activated_FIFO_num -> high at start
+    status: done -> high till start again
+
+Tile_write_mux:
+    Tile_A_select_wr,
+    Tile_B_select_wr,
+
+Tile_read_mux:
+    Tile_A_select_rd,
+    Tile_B_select_rd
+
+Output_write_mux:
+    Output_A_select_wr,
+    Output_B_select_wr
+
+Output_read_mux:
+    Output_A_select_rd,
+    Output_B_select_wr
+
+implied mux with Tile BRAM for data reuse
+
+    
+config registers
+kernel memory offset register 0
+output channel register 1 (kernel number so that we don't need a multiplier)
+input memory offset register 2
+input channel number register 3
+input feature dimension register 4
+output memory offset register 5
+conv or lin (1 bit) padding (2 bit) stride (1 bit), config_complete (1 bit) register 6
+done (1 bit) read only register 7

@@ -3,16 +3,16 @@ module PE
     parameter DATA_WIDTH=8
 ) 
 (
-    input [DATA_WIDTH-1:0] A,
-    input [DATA_WIDTH-1:0] B,
+    input signed [DATA_WIDTH-1:0] A,
+    input signed [DATA_WIDTH-1:0] B,
     input en,
     input clk,
     input rst_n,
     input clr,
-    output reg [4*DATA_WIDTH-1:0] Out,
+    output reg signed [4*DATA_WIDTH-1:0] Out,
     output reg en_out,
-    output reg [DATA_WIDTH-1:0] A_out,
-    output reg [DATA_WIDTH-1:0] B_out
+    output reg signed [DATA_WIDTH-1:0] A_out,
+    output reg signed [DATA_WIDTH-1:0] B_out
 );
     always_ff @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin

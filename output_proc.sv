@@ -1,7 +1,7 @@
 module output_proc
 #(
     parameter DATA_WIDTH = 8,
-    parameter ADDR_WIDTH = 8
+    parameter ARRAY_SIZE = 16
 ) (
     input clk, 
     input rst_n,
@@ -10,12 +10,11 @@ module output_proc
     input max_pooling_en, // only captured at the start, unless clear is set again this will be flushed
     input relu_en, // same as above
     input signed [31:0] scale, // Scaling factor (precomputed as fixed-point)
+    input signed [31:0] zero_point, // zero_point
     input [4:0] activated_FIFO_num, // how many FIFOs are activated
-    input [ADDR_WIDTH-1:0] base_addr_wr,
-    input [4*DATA_WIDTH-1:0] systolic_out [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0],
-    output logic [8*DATA_WIDTH-1:0] data_out,
-    output logic [ADDR_WIDTH-1:0] addr_out,
-    output logic wr_en,
+    input signed [4*DATA_WIDTH-1:0] systolic_out [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0],
+    output logic [DATA_WIDTH-1:0] quant_systolic_out_pooled_final [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0],
+    output logic processing_done, // processing done signal
     output logic systolic_out_consumed
 );
     logic [$clog2(ARRAY_SIZE)-1:0] cnt_quant;
@@ -29,7 +28,7 @@ module output_proc
             batch_label <= 0;
         end
         else if (clr) begin
-            uantizing <= 0;
+            quantizing <= 0;
             systolic_out_consumed <= 0;
             batch_label <= 0;
         end
@@ -70,7 +69,7 @@ module output_proc
             cnt_quant <= 0;
             cnt_quant_ff <= 0;
         end
-        else if (cnt_quant != activated_FIFO_num - 1) begin
+        else if (cnt_quant != activated_FIFO_num - 1 && quantizing) begin
             cnt_quant <= cnt_quant + 1;
             cnt_quant_ff <= cnt_quant;
         end
@@ -83,7 +82,7 @@ module output_proc
     // relu and select row
     logic [4*DATA_WIDTH-1:0] systolic_row_selected [ARRAY_SIZE-1:0];
     logic [DATA_WIDTH-1:0] quant_systolic_out [ARRAY_SIZE-1:0];
-    always_ff @(posedge clK, negedge rst_n) begin
+    always_ff @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
             for (int i = 0; i < ARRAY_SIZE; i = i + 1) begin
                 systolic_row_selected[i] <= 0;
@@ -96,7 +95,7 @@ module output_proc
         end
         else if (quantizing) begin
             for (int i = 0; i < ARRAY_SIZE; i = i + 1) begin
-                systolic_row_selected[i] <= (relu_en_ff & systolic_out[i][cnt_quant][4*DATA_WIDTH-1]) '0 : systolic_out[i][cnt_quant];
+                systolic_row_selected[i] <= (relu_en_ff & systolic_out[i][cnt_quant][4*DATA_WIDTH-1]) ? '0 : systolic_out[i][cnt_quant];
             end
         end
     end
@@ -105,6 +104,7 @@ module output_proc
     quantize_int8 quant_array [ARRAY_SIZE-1:0] (
         .x_32(systolic_row_selected),   // 32-bit input (accumulated MAC result)
         .scale(scale),  // Fixed-point scale in Q0.31
+        .zero_point(zero_point), // zero_point
         .x_8(quant_systolic_out)     // Quantized output
     );
 
@@ -130,20 +130,20 @@ module output_proc
         end
         else if (max_pooling_en_ff) begin
             for (int i = 0; i < ARRAY_SIZE/2; i = i + 1) begin
-                quant_systolic_out_pooled[cnt_quant_ff][i] <= (quant_systolic_out[2*i] > quant_systolic_out[2*i+1]) ? quant_systolic_out[2*i] : quant_systolic_out[2*i+1];
-                quant_systolic_out_pooled_ff[cnt_quant_ff][i] <= quant_systolic_out_pooled[cnt_quant_ff][i];
+                quant_systolic_out_pooled[i][cnt_quant_ff] <= (quant_systolic_out[2*i] > quant_systolic_out[2*i+1]) ? quant_systolic_out[2*i] : quant_systolic_out[2*i+1];
+                quant_systolic_out_pooled_ff[i][cnt_quant_ff] <= quant_systolic_out_pooled[i][cnt_quant_ff];
             end
         end
         else begin
             for (int i = 0; i < ARRAY_SIZE; i = i + 1) begin
-                quant_systolic_out_pooled[cnt_quant_ff][i] <= quant_systolic_out[i];
-                quant_systolic_out_pooled_ff[cnt_quant_ff][i] <= quant_systolic_out_pooled[cnt_quant_ff][i];
+                quant_systolic_out_pooled[i][cnt_quant_ff] <= quant_systolic_out[i];
+                quant_systolic_out_pooled_ff[i][cnt_quant_ff] <= quant_systolic_out_pooled[i][cnt_quant_ff];
             end
         end
     end
 
     // second half of max pooling
-    logic [DATA_WIDTH-1:0] quant_systolic_out_pooled_final [ARRAY_SIZE-1:0][ARRAY_SIZE-1:0];
+    logic set_done;
     always_ff @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
             for (int j = 0; j < ARRAY_SIZE; j = j + 1) begin
@@ -151,6 +151,7 @@ module output_proc
                     quant_systolic_out_pooled_final[j][i] <= 0;
                 end
             end
+            set_done <= 0;
         end
         else if (clr) begin
             for (int j = 0; j < ARRAY_SIZE; j = j + 1) begin
@@ -158,20 +159,39 @@ module output_proc
                     quant_systolic_out_pooled_final[j][i] <= 0;
                 end
             end
+            set_done <= 0;
         end
-        else if (max_pooling_en_ff && batch_label == 3'b010) begin
+        else if (max_pooling_en_ff && batch_label == 3'b010 && ~processing_done) begin
             for (int j = 0; j < ARRAY_SIZE; j = j + 1) begin
                 for (int i = 0; i < ARRAY_SIZE/2; i = i + 1) begin
                     quant_systolic_out_pooled_final[i][j] <= (quant_systolic_out_pooled[i][j] > quant_systolic_out_pooled_ff[i][j]) ? quant_systolic_out_pooled[i][j] : quant_systolic_out_pooled_ff[i][j];
                 end
             end
+            set_done <= 1;
         end
-        else if (~max_pooling_en_ff) begin
+        else if (~max_pooling_en_ff && ~processing_done) begin
             for (int j = 0; j < ARRAY_SIZE; j = j + 1) begin
-                for (int i = 0; i < ARRAY_SIZE/2; i = i + 1) begin
+                for (int i = 0; i < ARRAY_SIZE; i = i + 1) begin
                     quant_systolic_out_pooled_final[i][j] <= quant_systolic_out_pooled[i][j];
                 end
             end
+            set_done <= (cnt_quant == 0) && (cnt_quant_ff != 0);
+        end
+    end 
+
+    // processing done signal
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (!rst_n) begin
+            processing_done <= 0;
+        end
+        else if (clr) begin
+            processing_done <= 0;
+        end
+        else if (start) begin
+            processing_done <= 0;
+        end
+        else if (set_done) begin
+            processing_done <= 1;
         end
     end
 endmodule
