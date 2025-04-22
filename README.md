@@ -1,4 +1,3 @@
-# face-filter
+# Traffic Sign Detector
 
-Talk is cheap!
-Show me your code!
+Traffic Signs Detector
