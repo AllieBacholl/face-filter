@@ -366,7 +366,7 @@ Sdram_Control	   u7	(	//	HOST Side
 							.WR1_DATA({8'b0, rx_data}), // {1'b0,sCCD_G[11:7],sCCD_B[11:2]}
 							.WR1(write),
 							.WR1_ADDR(0),
-                     .WR1_MAX_ADDR(640*480),
+                     .WR1_MAX_ADDR(640*480*5),
 						   .WR1_LENGTH(8'h50),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
