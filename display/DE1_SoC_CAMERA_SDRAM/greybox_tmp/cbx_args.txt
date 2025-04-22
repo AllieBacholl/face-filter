@@ -21,4 +21,4 @@ rdreq
 wrclk
 wrreq
 q
-rdusedw
+wrusedw

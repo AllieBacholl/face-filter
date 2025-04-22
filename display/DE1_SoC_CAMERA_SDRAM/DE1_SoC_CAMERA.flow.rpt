@@ -1,5 +1,5 @@
 Flow report for DE1_SoC_CAMERA
-Sat Apr 19 18:57:40 2025
+Mon Apr 21 20:03:24 2025
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat Apr 19 18:57:34 2025       ;
+; Flow Status                     ; Successful - Mon Apr 21 20:03:18 2025       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; DE1_SoC_CAMERA                              ;
 ; Top-level Entity Name           ; DE1_SoC_CAMERA                              ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 593 / 32,070 ( 2 % )                        ;
-; Total registers                 ; 980                                         ;
+; Logic utilization (in ALMs)     ; 618 / 32,070 ( 2 % )                        ;
+; Total registers                 ; 1058                                        ;
 ; Total pins                      ; 226 / 457 ( 49 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 51,152 / 4,065,280 ( 1 % )                  ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/19/2025 18:55:13 ;
+; Start date & time ; 04/21/2025 20:01:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE1_SoC_CAMERA      ;
 +-------------------+---------------------+
@@ -78,7 +78,8 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 125381169939211.174510691322288        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 71205096837331.174528369501136         ; --            ; --          ; --         ;
+; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; v/sdram_pll.cmp                        ; --            ; --          ; --         ;
@@ -91,6 +92,7 @@ refer to the applicable agreement for further details.
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; SPD_FILE                            ; v/sdram_pll.spd                        ; --            ; --          ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                     ; --            ; --          ; --         ;
+; USE_SIGNALTAP_FILE                  ; stp1.stp                               ; --            ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -99,11 +101,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 4991 MB             ; 00:00:15                           ;
-; Fitter               ; 00:01:46     ; 1.1                     ; 8003 MB             ; 00:10:52                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 4846 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.6                     ; 5368 MB             ; 00:00:07                           ;
-; Total                ; 00:02:23     ; --                      ; --                  ; 00:11:18                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 5010 MB             ; 00:00:14                           ;
+; Fitter               ; 00:01:30     ; 1.1                     ; 8029 MB             ; 00:12:03                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4846 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.7                     ; 5373 MB             ; 00:00:08                           ;
+; Total                ; 00:01:47     ; --                      ; --                  ; 00:12:29                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

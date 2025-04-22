@@ -283,7 +283,6 @@ begin
 	rCCD_FVAL	<=	D5M_FVAL;
 end
 
-
 //auto start when power on
 assign auto_start = ((KEY[0])&&(DLY_RST_3)&&(!DLY_RST_4))? 1'b1:1'b0;
 //Reset module
@@ -311,8 +310,8 @@ CCD_Capture			u3	(
 							.iCLK(~D5M_PIXLCLK),
 							.iRST(DLY_RST_2)
 						   );
-//D5M raw date convert to RGB data
 
+//D5M raw date convert to RGB data
 RAW2RGB				u4	(	
 							.iCLK(D5M_PIXLCLK),
 							.iRST(DLY_RST_1),
@@ -352,20 +351,20 @@ Sdram_Control	   u7	(	//	HOST Side
 							.CLK(sdram_ctrl_clk),
 
 							//	FIFO Write Side 1
-							.WR1_DATA({8'b0, rx_data}),      // {1'b0,sCCD_G[11:7],sCCD_B[11:2]}
+							.WR1_DATA({8'b0, rx_data}), // {1'b0,sCCD_G[11:7],sCCD_B[11:2]}
 							.WR1(write),
 							.WR1_ADDR(0),
-                     .WR1_MAX_ADDR(640*480), // 
-						   .WR1_LENGTH(8'h50),
+                     .WR1_MAX_ADDR(640*480),
+						   .WR1_LENGTH(10'h050),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
 
-							//	FIFO Write Side 2
+							//	FIFO Write Side 2, not used
 							.WR2_DATA({1'b0,sCCD_G[6:2],sCCD_R[11:2]}),  
 							.WR2(1'b0), // sCCD_DVAL
 							.WR2_ADDR(23'h100000),
 							.WR2_MAX_ADDR(23'h100000+640*480),
-							.WR2_LENGTH(8'h50),
+							.WR2_LENGTH(10'h50),
 							.WR2_LOAD(!DLY_RST_0),				
 							.WR2_CLK(~D5M_PIXLCLK),
 
@@ -374,16 +373,16 @@ Sdram_Control	   u7	(	//	HOST Side
 				        	.RD1(Read),
 				        	.RD1_ADDR(0),
                      .RD1_MAX_ADDR(640*480),
-							.RD1_LENGTH(8'h50),
+							.RD1_LENGTH(10'h050),
 							.RD1_LOAD(!DLY_RST_0),
-							.RD1_CLK(~CLOCK_50),
+							.RD1_CLK(~VGA_CTRL_CLK),
 							
-							//	FIFO Read Side 2
+							//	FIFO Read Side 2, not used
 						   .RD2_DATA(Read_DATA2),
 							.RD2(1'b0),    // Read
 							.RD2_ADDR(23'h100000),
                      .RD2_MAX_ADDR(23'h100000+640*480),
-							.RD2_LENGTH(8'h50),
+							.RD2_LENGTH(10'h50),
                    	.RD2_LOAD(!DLY_RST_0),
 							.RD2_CLK(~VGA_CTRL_CLK),
 										
@@ -411,26 +410,6 @@ I2C_CCD_Config 	u8	(	//	Host Side
 							.I2C_SCLK(D5M_SCLK),
 							.I2C_SDAT(D5M_SDATA)
 						   );
-//VGA DISPLAY
-// VGA_Controller	  u1	(	//	Host Side
-// 							.oRequest(Read),
-// 							.iRed(Read_DATA2[9:0]),
-// 					      .iGreen({Read_DATA1[14:10],Read_DATA2[14:10]}),
-// 						   .iBlue(Read_DATA1[9:0]),
-// 						
-// 							//	VGA Side
-// 							.oVGA_R(oVGA_R),
-// 							.oVGA_G(oVGA_G),
-// 							.oVGA_B(oVGA_B),
-// 							.oVGA_H_SYNC(VGA_HS),
-// 							.oVGA_V_SYNC(VGA_VS),
-// 							.oVGA_SYNC(VGA_SYNC_N),
-// 							.oVGA_BLANK(VGA_BLANK_N),
-// 							//	Control Signal
-// 							.iCLK(VGA_CTRL_CLK),
-// 							.iRST_N(DLY_RST_2),
-// 							.iZOOM_MODE_SW(SW[9])
-// 						   );
 							
 vga_ctrl
 #(
@@ -467,48 +446,23 @@ vga_ctrl
 	.vga_sync_n	   (VGA_SYNC_N),
 	.vga_blank_n	(VGA_BLANK_N)	
 );
-							
-// UART
-wire txd;
+
 wire rxd;
-wire iocs;
-wire iorw;
-wire rda;
-wire tbr;
-wire [1:0] ioaddr;
-wire [7:0] databus;
-wire [1:0] br_cfg;
-
-assign GPIO_0[3] = txd;
 assign rxd = GPIO_0[5];
-assign br_cfg = 2'b11; // Should be max (38400)
 
-// Instantiate your spart here
-spart spart0(   .clk(CLOCK_50),
-                .rst_n(rst_n),
-                .iocs(iocs),
-                .iorw(iorw),
-                .rda(rda),
-                .tbr(tbr),
-                .ioaddr(ioaddr),
-                .databus(databus),
-                .txd(txd),
-                .rxd(rxd)
-            );
-
-// Instantiate your driver here
-driver driver0( .clk(CLOCK_50),
-                .rst_n(rst_n),
-                .br_cfg(br_cfg),
-                .iocs(iocs),
-                .iorw(iorw),
-                .rda(rda),
-                .tbr(tbr),
-                .ioaddr(ioaddr),
-                .databus(databus),
-                .read_data_next(rx_data),
-                .read_valid(write)
-            );
+uart_rx
+#(
+   .UART_BPS    (20'd115200),   
+   .CLK_FREQ    (26'd50_000_000)    
+)     
+uart_rx_inst
+(
+    .sys_clk     (CLOCK_50),
+    .sys_rst_n   (DLY_RST_0),
+    .rx          (rxd),
+    .po_data     (rx_data),
+    .po_flag     (write)
+);
 
 
 endmodule
