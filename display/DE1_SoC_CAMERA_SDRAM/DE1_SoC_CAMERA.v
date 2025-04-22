@@ -288,19 +288,59 @@ begin
 end
 
 // Switch select for display image
-wire 			[22:0]			read_addr;
-assign read_addr =	SW[2]  ? 23'h04B000 : 
-							(SW[3] ? 23'h096000 : 
-							(SW[4] ? 23'h0E1000 : 
-							(SW[5] ? 23'h12C000 : 
-							23'h000000)));
+reg 			[22:0]			read_addr;
+reg [2:0] prevSW;
+reg [2:0] curSW;
+reg swRST;
+
+always_comb begin
+	if (SW[2]) begin
+		read_addr <= 23'h04B000;
+		curSW <= 3'b001;
+	end
+	else if (SW[3]) begin
+		read_addr <= 23'h096000;
+		curSW <= 3'b010;
+	end
+	else if (SW[4]) begin
+		read_addr <= 23'h0E1000;
+		curSW <= 3'b011;
+	end
+	else if (SW[5]) begin
+		read_addr <= 23'h12C000;
+		curSW <= 3'b100;
+	end
+	else begin
+		read_addr <= 23'h000000;
+		curSW <= 3'b111;
+	end
+end
+
+always@(posedge CLOCK_50 or negedge KEY[0])
+begin
+	if (!KEY[0])
+		prevSW <= 3'b000;
+	else
+		prevSW <= curSW;
+end
+
+
+always@(posedge CLOCK_50 or negedge KEY[0]) begin
+	if (!KEY[0])
+		swRST <= 1'b1;
+	else if (prevSW != curSW) begin
+		swRST <= 1'b0;
+	end else begin
+		swRST <= 1'b1;
+	end
+end
 
 //auto start when power on
 assign auto_start = ((KEY[0])&&(DLY_RST_3)&&(!DLY_RST_4))? 1'b1:1'b0;
 //Reset module
 Reset_Delay			u2	(	
 							.iCLK(CLOCK_50),
-							.iRST(KEY[0]),
+							.iRST(KEY[0] | swRST),
 							.oRST_0(DLY_RST_0),
 							.oRST_1(DLY_RST_1),
 							.oRST_2(DLY_RST_2),
@@ -342,7 +382,7 @@ SEG7_LUT_6 			u5	(
 							.oSEG0(HEX0),.oSEG1(HEX1),
 							.oSEG2(HEX2),.oSEG3(HEX3),
 							.oSEG4(HEX4),.oSEG5(HEX5),
-							.iDIG(Frame_Cont[23:0])
+							.iDIG({prevSW, 1'b0, curSW, 1'b0, swRST, 15'h00})
 						   );
 												
 sdram_pll 			u6	(
@@ -366,7 +406,7 @@ Sdram_Control	   u7	(	//	HOST Side
 							.WR1_DATA({8'b0, rx_data}), // {1'b0,sCCD_G[11:7],sCCD_B[11:2]}
 							.WR1(write),
 							.WR1_ADDR(0),
-                     .WR1_MAX_ADDR(640*480*5),
+                     .WR1_MAX_ADDR(460800*5),
 						   .WR1_LENGTH(8'h50),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
@@ -384,7 +424,7 @@ Sdram_Control	   u7	(	//	HOST Side
 						   .RD1_DATA(Read_DATA1),
 				        	.RD1(Read),
 				        	.RD1_ADDR(read_addr),
-                     .RD1_MAX_ADDR(read_addr+640*480),
+                     .RD1_MAX_ADDR(read_addr+(640*480)),
 							.RD1_LENGTH(8'h50),
 							.RD1_LOAD(!DLY_RST_0),
 							.RD1_CLK(~VGA_CTRL_CLK),
