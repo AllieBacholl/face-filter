@@ -260,13 +260,17 @@ wire             				auto_start;
 //=======================================================
 //  Structural coding
 //=======================================================
+
+// UART
+wire rxd;
+assign rxd = GPIO_0[5];
+
 // D5M
 assign	D5M_TRIGGER	=	1'b1;  // tRIGGER
 assign	D5M_RESET_N	=	DLY_RST_1;
 
 wire VGA_CTRL_CLK;
-wire oVGA_CLK;
-assign   VGA_CLK = oVGA_CLK;
+assign   VGA_CLK = VGA_CTRL_CLK;
 
 assign	LEDR		=	Y_Cont;
 
@@ -411,58 +415,39 @@ I2C_CCD_Config 	u8	(	//	Host Side
 							.I2C_SDAT(D5M_SDATA)
 						   );
 							
-vga_ctrl
-#(
-	.H_FRONT(	`H_FRONT		)	,
-	.H_SYNC (	`H_SYNC 		)	,
-	.H_BACK (	`H_BACK 		)	,
-	.H_DISP (	`H_DISP 		)	,
-	.H_TOTAL(	`H_TOTAL 	)	,
 
-	.V_FRONT(	`V_FRONT		)	,
-	.V_SYNC (	`V_SYNC 		)	,
-	.V_BACK (	`V_BACK 		)	,
-	.V_DISP (	`V_DISP 		)	,
-	.V_TOTAL(	`V_TOTAL		)	
-)vga_ctrl_inst
-(
-	.clk_in		   (VGA_CTRL_CLK),
-	.rst_n			(DLY_RST_2),
-	.data_in		   ({Read_DATA1[7:5],5'b00_000,Read_DATA1[4:2],5'b00_000,Read_DATA1[1:0],6'b000_000})	,
-	.rom_en		   (),
-	.data_en		   (Read),
-	.x_pos			(),
-	.y_pos			(),
+//VGA DISPLAY
+VGA_Controller	  u1	(	//	Host Side
+							.oRequest(Read),
+							.iRed({Read_DATA1[7:5],7'h00}),
+					      .iGreen({Read_DATA1[4:2],7'h00}),
+						   .iBlue({Read_DATA1[1:0],8'hb00}),
+						
+							//	VGA Side
+							.oVGA_R(oVGA_R),
+							.oVGA_G(oVGA_G),
+							.oVGA_B(oVGA_B),
+							.oVGA_H_SYNC(VGA_HS),
+							.oVGA_V_SYNC(VGA_VS),
+							.oVGA_SYNC(VGA_SYNC_N),
+							.oVGA_BLANK(VGA_BLANK_N),
+							//	Control Signal
+							.iCLK(VGA_CTRL_CLK),
+							.iRST_N(DLY_RST_2),
+							.iZOOM_MODE_SW(SW[9])
+						   );
 
-	.vga_hs		   (VGA_HS),
-	.vga_vs		   (VGA_VS),
-	.vga_href		()	,
-	.vga_de		   ()	,
-	.vga_r			(oVGA_R),
-	.vga_g			(oVGA_G),
-	.vga_b			(oVGA_B),
 
-	.vga_clk		   (oVGA_CLK),
-	.vga_sync_n	   (VGA_SYNC_N),
-	.vga_blank_n	(VGA_BLANK_N)	
-);
-
-wire rxd;
-assign rxd = GPIO_0[5];
-
-uart_rx
-#(
-   .UART_BPS    (20'd115200),   
-   .CLK_FREQ    (26'd50_000_000)    
-)     
-uart_rx_inst
-(
-    .sys_clk     (CLOCK_50),
-    .sys_rst_n   (DLY_RST_0),
-    .rx          (rxd),
-    .po_data     (rx_data),
-    .po_flag     (write)
-);
+uart_rx 					#(
+							.UART_BPS    (20'd115200),   
+							.CLK_FREQ    (26'd50_000_000))     
+							uart_rx_inst (
+							.sys_clk     (CLOCK_50),
+							.sys_rst_n   (DLY_RST_0),
+							.rx          (rxd),
+							.po_data     (rx_data),
+							.po_flag     (write)
+							);
 
 
 endmodule
