@@ -1,6 +1,6 @@
 function [outfile] = imgtohex(infile)
 
-RGB = imread('stop.jpg');
+RGB = imread(infile);
 [row,col,n] = size(RGB);
 
 R=RGB(:,:,1);
