@@ -2,8 +2,8 @@
 
 module proc(
     input clk, rst, EXT,
-    input [31:0] register_accelerator_in,
-    output [31:0] register_accelerator_out,
+    input [31:0] register_accelerator_in [0 : 7],
+    output [31:0] register_accelerator_out [0 : 7],
     output err
 );
 

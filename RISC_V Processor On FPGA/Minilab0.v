@@ -56,7 +56,7 @@ parameter OFF   = 7'b1111111;		// all off
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
-wire 			[31:0]			register_accelerator_out;
+wire 			[31:0]			register_accelerator_out [0 : 7];
 wire								err;
 reg 			[2:0]				accelerator_leds;
 wire rst_ff;
@@ -75,9 +75,9 @@ assign rst_n = KEY[0];
 always @(posedge CLOCK_50 or negedge KEY[0]) begin
 	if(!KEY[0]) begin
 		accelerator_leds <= 3'b000;
-	end else if(register_accelerator_out == 32'h0000) begin
+	end else if(register_accelerator_out[1] == 32'h0000) begin
 		accelerator_leds <= 3'b001;
-	end else if(register_accelerator_out == 32'h0001) begin
+	end else if(register_accelerator_out[1] == 32'h0001) begin
 		accelerator_leds <= 3'b010;
 	end
 
@@ -85,12 +85,16 @@ end
 									
 assign LEDR = {7'h00, accelerator_leds};
 
+wire [31 : 0] register_accelerator_in [0:7];
+
+assign register_accelerator_in[1] = 32'b0;
+
 proc proc(
     .clk(CLOCK_50), 
 	 .rst(!KEY[0]), 
 	 .EXT(),
-    .register_accelerator_in(32'h0001),
-    .register_accelerator_out(register_accelerator_out),
+    .register_accelerator_in(register_accelerator_in),
+    .register_accelerator_out(register_accelerator_out[1]),
     .err(err)
 );
 
