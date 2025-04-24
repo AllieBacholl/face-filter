@@ -18,7 +18,7 @@ module memory2c (data_out, data_in, addr, length, sign, enable, wr, createdump, 
    wire [31:0]        data_temp_1;
    wire [31:0]        data_temp_2;
    
-   reg [7:0]          mem [0:65535];
+   reg [7:0]          mem [0:655];
    reg                loaded;
    reg [16:0]         largest;
 
@@ -51,9 +51,9 @@ module memory2c (data_out, data_in, addr, length, sign, enable, wr, createdump, 
    initial begin
       loaded = 0;
       largest = 0;
-      for (i = 0; i < 65536; i=i+1) begin
-         mem[i] = 8'd0;
-      end
+      //for (i = 0; i < 65536; i=i+1) begin
+      //   mem[i] = 8'd0;
+      //end
    end
 
    always @(negedge clk) begin
@@ -84,13 +84,13 @@ module memory2c (data_out, data_in, addr, length, sign, enable, wr, createdump, 
                 if (mem_addr+3 > largest) largest = mem_addr+3;
             end
          end
-         if (createdump) begin
-            mcd = $fopen("dumpfile", "w");
-            for (i=0; i<=largest+1; i=i+1) begin
-               $fdisplay(mcd,"%4h %2h", i, mem[i]);
-            end
-            $fclose(mcd);
-         end
+         //if (createdump) begin
+         //   mcd = $fopen("dumpfile", "w");
+         //   for (i=0; i<=largest+1; i=i+1) begin
+         //      $fdisplay(mcd,"%4h %2h", i, mem[i]);
+         //   end
+         //  $fclose(mcd);
+         //end
       end
    end
 

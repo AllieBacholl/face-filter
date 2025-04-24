@@ -42,7 +42,7 @@ always @(posedge clk) begin
     $display("reg1:  0x%04x reg2 :  0x%04x", readReg[1], readReg[2]);
 end
 
-Register reg0  (.clk(clk), .reset(rst), .writeEnable(writeEnableSignals[0]),  .dataIn(writeData), .dataOut(readReg[0]));
+// Register reg0  (.clk(clk), .reset(rst), .writeEnable(writeEnableSignals[0]),  .dataIn(writeData), .dataOut(readReg[0]));
 Register reg1  (.clk(clk), .reset(rst), .writeEnable(writeEnableSignals[1]),  .dataIn(writeData), .dataOut(readReg[1]));
 Register reg2  (.clk(clk), .reset(rst), .writeEnable(writeEnableSignals[2]),  .dataIn(writeData), .dataOut(readReg[2]));
 Register reg3  (.clk(clk), .reset(rst), .writeEnable(writeEnableSignals[3]),  .dataIn(writeData), .dataOut(readReg[3]));

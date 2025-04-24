@@ -10,6 +10,6 @@ module Register (clk, reset, writeEnable, dataIn, dataOut);
     wire [WIDTH-1:0] nextData;
     assign nextData = writeEnable ? dataIn : dataOut;
 
-    dff flipFlopArray [WIDTH-1:0] (.clk(clk), .rst(reset), .d(nextData), .q(dataOut));
+    dff_proc flipFlopArray [WIDTH-1:0] (.clk(clk), .rst(reset), .d(nextData), .q(dataOut));
 
 endmodule

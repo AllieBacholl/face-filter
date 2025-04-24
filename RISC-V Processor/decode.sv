@@ -74,8 +74,19 @@ regFile_bypass RF(
     .read1Data(rs1_data_ID), .read2Data(rs2_data_ID), .err(err_reg)
 );
 
+reg register_accelerator_out_reg;
 // Register accelerator for bypassing
-assign register_accelerator_out = (reg_write_WB && rd_WB == 5'b00001) ? writeData : 5'b0;
+assign register_accelerator_out = register_accelerator_out_reg;
+
+
+always_ff @(negedge clk or posedge rst) begin
+	if(rst)
+		register_accelerator_out_reg <= 32'h0;
+	else if(reg_write_WB && rd_WB == 5'b00001) begin
+		register_accelerator_out_reg <= writeData;
+	end
+
+end
 
 always @(*) begin
     polling_reg = 32'b0; // Default polling to 0

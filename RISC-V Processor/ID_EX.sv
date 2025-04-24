@@ -40,34 +40,34 @@ module ID_EX(
 );
 
 
-dff pc [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? pc_out : pc_in)), .q(pc_out) );
-dff pcPlus4 [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? pcPlus4_out : pcPlus4_in)), .q(pcPlus4_out) );
-dff rs1_data [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs1_data_out : rs1_data_in)), .q(rs1_data_out) );
-dff rs2_data [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs2_data_out : rs2_data_in)), .q(rs2_data_out) );
-dff imm_res [31:0] (.clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? imm_res_out : imm_res_in)), .q(imm_res_out) );
-dff rs1 [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs1_out : rs1_in)), .q(rs1_out) );
-dff rs2 [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs2_out : rs2_in)), .q(rs2_out) );
-dff rd [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rd_out : rd_in)), .q(rd_out) );
+dff_proc pc [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? pc_out : pc_in)), .q(pc_out) );
+dff_proc pcPlus4 [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? pcPlus4_out : pcPlus4_in)), .q(pcPlus4_out) );
+dff_proc rs1_data [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs1_data_out : rs1_data_in)), .q(rs1_data_out) );
+dff_proc rs2_data [31:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs2_data_out : rs2_data_in)), .q(rs2_data_out) );
+dff_proc imm_res [31:0] (.clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? imm_res_out : imm_res_in)), .q(imm_res_out) );
+dff_proc rs1 [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs1_out : rs1_in)), .q(rs1_out) );
+dff_proc rs2 [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rs2_out : rs2_in)), .q(rs2_out) );
+dff_proc rd [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? rd_out : rd_in)), .q(rd_out) );
 
-dff reg_write ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? reg_write_out : reg_write_in)), .q(reg_write_out) );
-dff mem_write_en ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? mem_write_en_out : mem_write_en_in)), .q(mem_write_en_out) );
-dff jump ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? jump_out : jump_in)), .q(jump_out) );
-dff branch( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? branch_out : branch_in)), .q(branch_out) );
-dff result_sel [1:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? result_sel_out : result_sel_in)), .q(result_sel_out) );
-dff pcJalSrc( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? pcJalSrc_out : pcJalSrc_in)), .q(pcJalSrc_out) );
-dff alu_src_sel_B [1:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? alu_src_sel_B_out : alu_src_sel_B_in)), .q(alu_src_sel_B_out) );
-dff alu_src_sel_A( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? alu_src_sel_A_out : alu_src_sel_A_in)), .q(alu_src_sel_A_out) );
-dff alu_op [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? alu_op_out : alu_op_in)), .q(alu_op_out) );
-dff imm_ctrl [2:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? imm_ctrl_out : imm_ctrl_in)), .q(imm_ctrl_out) );
-dff err(.q(err_out), .d(flush ? 1'b0 : (stall ? err_out : err_in)), .clk(clk), .rst(rst));
-dff ext(.q(EXT_out), .d(flush ? 1'b0 : (stall ? EXT_out : EXT)), .clk(clk), .rst(rst));
-dff mem_read(.q(mem_read_out), .d(flush ? 1'b0 : (stall ? mem_read_out : mem_read_in)), .clk(clk), .rst(rst));
-dff mem_sign(.q(mem_sign_out), .d(flush ? 1'b0 : (stall ? mem_sign_out : mem_sign_in)), .clk(clk), .rst(rst));
-dff mem_length [1:0] (.q(mem_length_out), .d(flush ? 1'b0 : (stall ? mem_length_out : mem_length_in)), .clk(clk), .rst(rst));
+dff_proc reg_write ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? reg_write_out : reg_write_in)), .q(reg_write_out) );
+dff_proc mem_write_en ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? mem_write_en_out : mem_write_en_in)), .q(mem_write_en_out) );
+dff_proc jump ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? jump_out : jump_in)), .q(jump_out) );
+dff_proc branch( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? branch_out : branch_in)), .q(branch_out) );
+dff_proc result_sel [1:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? result_sel_out : result_sel_in)), .q(result_sel_out) );
+dff_proc pcJalSrc( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? pcJalSrc_out : pcJalSrc_in)), .q(pcJalSrc_out) );
+dff_proc alu_src_sel_B [1:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? alu_src_sel_B_out : alu_src_sel_B_in)), .q(alu_src_sel_B_out) );
+dff_proc alu_src_sel_A( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? alu_src_sel_A_out : alu_src_sel_A_in)), .q(alu_src_sel_A_out) );
+dff_proc alu_op [4:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? alu_op_out : alu_op_in)), .q(alu_op_out) );
+dff_proc imm_ctrl [2:0] ( .clk(clk), .rst(rst), .d(flush ? 1'b0 : (stall ? imm_ctrl_out : imm_ctrl_in)), .q(imm_ctrl_out) );
+dff_proc err(.q(err_out), .d(flush ? 1'b0 : (stall ? err_out : err_in)), .clk(clk), .rst(rst));
+dff_proc ext(.q(EXT_out), .d(flush ? 1'b0 : (stall ? EXT_out : EXT)), .clk(clk), .rst(rst));
+dff_proc mem_read(.q(mem_read_out), .d(flush ? 1'b0 : (stall ? mem_read_out : mem_read_in)), .clk(clk), .rst(rst));
+dff_proc mem_sign(.q(mem_sign_out), .d(flush ? 1'b0 : (stall ? mem_sign_out : mem_sign_in)), .clk(clk), .rst(rst));
+dff_proc mem_length [1:0] (.q(mem_length_out), .d(flush ? 1'b0 : (stall ? mem_length_out : mem_length_in)), .clk(clk), .rst(rst));
 
-dff instr [31:0] (.q(instr_out), .d(flush ? 1'b0 : (stall ? instr_out : instr_in)), .clk(clk), .rst(rst));
+dff_proc instr [31:0] (.q(instr_out), .d(flush ? 1'b0 : (stall ? instr_out : instr_in)), .clk(clk), .rst(rst));
 
-dff jalr_en(.q(jalr_en_out), .d(flush ? 1'b0 : (stall ? jalr_en_out : jalr_en_in)), .clk(clk), .rst(rst));
+dff_proc jalr_en(.q(jalr_en_out), .d(flush ? 1'b0 : (stall ? jalr_en_out : jalr_en_in)), .clk(clk), .rst(rst));
 
 
 endmodule
