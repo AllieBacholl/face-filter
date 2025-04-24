@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at uart_tx.sv(21): object "transmitting" differs only in case from object "TRANSMITTING" in the same scope File: C:/Users/albac/Documents/face-filter/display/DE1_SoC_CAMERA_PLAN_B_2/uart/uart_tx.sv Line: 21
