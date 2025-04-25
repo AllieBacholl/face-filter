@@ -3,12 +3,43 @@ module image_resize_avg_simple (
     input  wire        rst_n,       // Active-low reset
     input  wire        KEY_2,           // Active-low key to start
     input  wire [7:0]  Read_DATA2,      // 8-bit pixel from SDRAM
+    input  reg         tx_done,
     output reg         start_resize,    // Trigger SDRAM read
-    output reg  [22:0] read_addr_resize // SDRAM read address
+    output reg  [22:0] read_addr_resize, // SDRAM read address
+    output reg         done,
+    output reg  [7:0]  uart_tx,
+    output  reg        uart_trmt
 );
 
     // Output array: 32x32, 8-bit pixels
-    reg [7:0] out [0:31][0:31];
+     // send counter: 0…1023
+    reg [9:0] send_cnt;
+
+    always_ff @(posedge clk or negedge rst_n) begin
+      if (!rst_n) begin
+        send_cnt   <= 10'd0;
+        uart_tx    <= 8'd0;
+        uart_trmt  <= 1'b0;
+        done       <= 1'b0;
+      end else if (triggered) begin
+        if (!tx_done && send_cnt < 10'd1024) begin
+          // drive uart_tx/trmt while UART is busy
+          uart_tx   <= out[ send_cnt[9:5] ][ send_cnt[4:0] ];
+          uart_trmt <= 1'b1;
+        end else begin
+          // deassert trmt
+          uart_trmt <= 1'b0;
+          if (tx_done) begin
+            if (send_cnt == 10'd1023) begin
+              done <= 1'b1;      // all 1024 bytes have been sent
+            end else begin
+              send_cnt <= send_cnt + 10'd1;
+            end
+          end
+        end
+      end
+    end
+    
 
     // Internal registers
     reg [31:0] pixel_sum;         // Accumulator for 20x15 block

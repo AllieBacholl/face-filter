@@ -79,7 +79,7 @@ module uart_tx(
 	// SR flop generating tx_done, set_done is S, init is R
 	always_ff @(posedge clk, negedge rst_n)
 		if(!rst_n)
-			tx_done <= 1'b1;
+			tx_done <= 1'b0;
 		else if(init)
 			tx_done <= 1'b0;
 		else if(set_done)

@@ -228,6 +228,7 @@ module DE1_SoC_CAMERA(
 //=======================================================
 wire			 [15:0]			Read_DATA1;
 wire	       [15:0]			Read_DATA2;
+wire         [15:0]        Read_DATA3;
 
 wire			 [11:0]			mCCD_DATA;
 wire								mCCD_DVAL;
@@ -498,6 +499,14 @@ Sdram_Control	   u7	(	//	HOST Side
 							.RD2_LENGTH(8'h50),
                    	.RD2_LOAD(!DLY_RST_0),
 							.RD2_CLK(~CLOCK_50),
+
+                     .RD3_DATA(Read_DATA3),
+				        	.RD3(start_resize),
+				        	.RD3_ADDR(read_addr_resize_reg),
+                     .RD3_MAX_ADDR(640*480),
+							.RD3_LENGTH(8'h50),
+							.RD3_LOAD(!DLY_RST_0),
+							.RD3_CLK(~CLOCK_50),
 										
 							//	SDRAM Side
 						   .SA(DRAM_ADDR),
@@ -512,30 +521,31 @@ Sdram_Control	   u7	(	//	HOST Side
 						   );
 
 // reg resize_done_20;
+reg done_uart;
+reg [7:0] uart_tx_signal;
+reg uart_trmt;
 
-// assign start_resize = start_resize_reg;
-// assign read_addr_resize = read_addr_resize_reg;
-
-// always_ff @(posedge CLOCK_50 or negedge DLY_RST_0 or negedge KEY[2]) begin : resize
-//    if (!DLY_RST_0) begin
-//       start_resize_reg <= 1'b0;
-//       read_addr_resize_reg <= 23'b0;
-//       resize_done_20 <= 1'b0;
-//    end else if (!KEY[2]) begin
-//       start_resize_reg <= 1'b1;
-//       resize_done_20 <= 1'b1;
-//       read_addr_resize_reg <= 23'd0;
-//    end else if (start_resize) begin
-//       if (read_addr_resize_reg == 23'd20) begin
-//          resize_done_20 <= 1'b1; // Optional: Signal that resize is done
-//          read_addr_resize_reg <= read_addr_resize_reg; // Hold at 20
-//       end else begin
-//          read_addr_resize_reg <= read_addr_resize_reg + 1; // Increment every clock cycle
-//       end
-//    end
-// end
+image_resize_avg_simple (
+    .clk(CLOCK_50),        // Clock
+    .rst_n(!DLY_RST_0),       // Active-low reset
+    .KEY_2(KEY[2]),     
+    .tx_done(tbr),      // Active-low key to start
+    .Read_DATA2(Read_DATA3[7:0]),      // 8-bit pixel from SDRAM
+    .start_resize(start_resize_reg),    // Trigger SDRAM read
+    .read_addr_resize(read_addr_resize_reg), // SDRAM read address
+    .done(done_uart),
+    .uart_tx(uart_tx_signal),
+    .uart_trmt(uart_trmt)
+    .
+);
 
 
+always @(posedge CLOCK_50 or negedge DLY_RST_0 ) begin
+   if(!DLY_RST_0) begin
+      start_resize <= 1'b0;
+   end else
+      start_resize <= start_resize_reg;
+end
 							
 				
 //D5M I2C control
@@ -588,8 +598,8 @@ uart_rx 					#(
 uart_tx					uart_tx_inst (
 							.clk(CLOCK_50), 
 							.rst_n(DLY_RST_0),		
-							.trmt(tbr & tx_en),				
-							.tx_data(Read_DATA2[11:4]),		
+							.trmt(~done_uart & uart_trmt),				
+							.tx_data(uart_tx_signal),		
 							.TX(txd),				
 							.tx_done(tbr)
 							);

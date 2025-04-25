@@ -18,8 +18,12 @@ module tb_image_resize_avg_simple;
     .rst_n             (rst_n),
     .KEY_2             (KEY_2),
     .Read_DATA2        (Read_DATA2),
+
     .start_resize      (start_resize),
-    .read_addr_resize  (read_addr_resize)
+    .read_addr_resize  (read_addr_resize),
+    .done(),
+    .uart_tx(),
+    .uart_trmt         ()
   );
 
   // 1) Clock gen: 50 MHz → 20 ns period
