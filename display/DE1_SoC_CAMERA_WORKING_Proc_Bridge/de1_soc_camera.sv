@@ -554,4 +554,16 @@ uart_tx					uart_tx_inst (
 							.tx_done(tbr)
 							);
 
+wire [31:0] register_accelerator_in, register_accelerator_out;
+
+assign register_accelerator_in = tx_count;
+
+ proc p0(
+    .clk(CLOCK_50), .rst(~DLY_RST_0), .EXT(),
+    .register_accelerator_in(register_accelerator_in),
+    .register_accelerator_out(register_accelerator_out),
+    .err()
+);
+
+
 endmodule
