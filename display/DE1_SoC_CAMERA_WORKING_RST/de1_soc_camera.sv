@@ -277,9 +277,9 @@ reg 		[19:0]	tx_count;
 wire		[9:0] 	iRed;
 wire		[9:0] 	iGreen;
 wire		[9:0] 	iBlue;
-wire		[6:0] 	curImg;
+reg		[7:0] 	cur_img;
 wire		[22:0] 	read_addr;
-reg 		[2:0] 	sw_sync, sw_sync_d;
+reg 		[9:0] 	disp_sync_d;
 reg					dispRst_ff;
 
 //=======================================================
@@ -292,8 +292,17 @@ assign GPIO_0[3] = txd;
 
 // UART
 assign frame_data = sCCD_R;	// Greyscale
-assign curImg = SW[7] + SW[6];
-assign read_addr 	= SW[8] ? 23'h000000 : 23'h100000 + (23'h04B000 * curImg);
+assign read_addr 	= SW[8] ? 23'h000000 : 23'h100000 + (23'h04B000 * cur_img);
+
+always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
+  if (!DLY_RST_0) begin
+    cur_img <= 8'h00;
+  end else if (write & !SW[7]) begin	// Only change the current image when SW[7] not flipped
+    cur_img <= rx_data;
+  end else begin
+	 cur_img <= cur_img;
+  end
+end
 
 // TX Reset
 always@(negedge KEY[3] or negedge DLY_RST_0 or posedge CLOCK_50 or negedge KEY[2])
@@ -323,30 +332,28 @@ begin
 end
 
 // Display
-assign iRed 	= SW[8] ? Read_DATA1[11:2] : {Read_DATA1[7:5], 7'h00};
-assign iGreen 	= SW[8] ? Read_DATA1[11:2] : {Read_DATA1[4:2], 7'h00};
-assign iBlue 	= SW[8] ? Read_DATA1[11:2] : {Read_DATA1[1:0], 8'h00};
+assign iRed 	= SW[8] ? {Read_DATA1[11:2]} : {Read_DATA1[7:5], 7'h00};
+assign iGreen 	= SW[8] ? {Read_DATA1[11:2]} : {Read_DATA1[4:2], 7'h00};
+assign iBlue 	= SW[8] ? {Read_DATA1[11:2]} : {Read_DATA1[1:0], 8'h00};
 
 // Display Reset
 // Sample switches
 always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
   if (!DLY_RST_0) begin
-    sw_sync    <= 3'b000;
-    sw_sync_d  <= 3'b000;
+    disp_sync_d  <= 9'h000;
   end else begin
-    sw_sync_d  <= sw_sync;
-    sw_sync    <= {SW[8], SW[7], SW[6]};
+    disp_sync_d  <= {cur_img, SW[8]};	// Only need 7 bits for 47 image select
   end
 end
 
 // Detect SW change
-wire sw_changed = (sw_sync != sw_sync_d);
+wire disp_changed = ({cur_img, SW[8]} != disp_sync_d);
 
 // Generate rst
 always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
   if (!DLY_RST_0)
     dispRst_ff <= 1'b1;
-  else if (sw_changed)
+  else if (disp_changed)
     dispRst_ff <= 1'b0;     // pulse low when a switch toggles
   else
     dispRst_ff <= 1'b1;     // otherwise stay high
@@ -432,7 +439,7 @@ SEG7_LUT_6 			u5	(
 							.oSEG0(HEX0),.oSEG1(HEX1),
 							.oSEG2(HEX2),.oSEG3(HEX3),
 							.oSEG4(HEX4),.oSEG5(HEX5),
-							.iDIG({7'h00, dispRst_ff, 7'h00, dispRst_ff, 7'h00, dispRst_ff})
+							.iDIG({7'h00, tx_en, rx_data, cur_img})
 						   );
 												
 sdram_pll 			u6	(
@@ -451,9 +458,9 @@ Sdram_Control	   u7	(	//	HOST Side
 
 							//	FIFO Write Side 1
 							.WR1_DATA({8'h00, rx_data}),
-							.WR1(write),
+							.WR1(write & SW[7]),	// Only write whats recieved when SW[7] is asserted
 							.WR1_ADDR(23'h100000),
-                     .WR1_MAX_ADDR(23'h100000+(460800*3)),
+                     .WR1_MAX_ADDR(23'h100000+(460800*10)), // for 15 images
 						   .WR1_LENGTH(8'h50),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
