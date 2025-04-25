@@ -223,6 +223,12 @@ module DE1_SoC_CAMERA(
 );
 
 
+wire                 image_resize_start;
+reg                  image_resize_start_reg;
+reg     [7:0]        pix_color_out;
+reg     [9:0]        compress_addr;
+reg                  sram_wr;
+
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
@@ -540,6 +546,47 @@ VGA_Controller	  u1	(	//	Host Side
 							.iZOOM_MODE_SW(SW[9])
 						   );
 
+
+
+                 
+image_resizer resizer(
+    .clk(CLOCK_50),            // Clock
+    .rst_n(DLY_RST_0),         // Active low reset
+    .start(image_resize_start),         // High when pix_* inputs are valid
+    .pix_color_in(iRed),  // 8-bit pixel color input
+    .pix_haddr(X_Cont),     // Pixel column address (0 to 1279)
+    .pix_vaddr(Y_Cont),     // Pixel row address (0 to 959)
+    .sram_wr(sram_wr),        // SRAM write enable strobe
+    .pix_color_out(pix_color_out), // Averaged 8-bit pixel color output
+    .compress_addr(compress_addr)  // Compressed pixel address (0 to 1023)
+);
+
+
+assign image_resize_start = image_resize_start_reg;
+
+reg [7:0] image_after_resize [0:1023];
+reg  [9:0] idx;
+
+always @(posedge CLOCK_50 or negedge DLY_RST_0 or negedge KEY[2] or negedge KEY[0]) begin
+   if(!DLY_RST_0) begin
+      image_resize_start_reg <= 1'b0;
+   end else if(!KEY[2]) begin
+      image_resize_start_reg <= 1'b1;
+   end else if(!KEY[0]) begin
+      image_resize_start_reg <= 1'b0;
+   end
+end
+
+always @(posedge CLOCK_50 or negedge DLY_RST_0 or negedge KEY[2] or negedge KEY[0]) begin
+   if(DLY_RST_0) begin
+      image_after_resize <= '0;
+   end else if(sram_wr) begin
+      image_after_resize[idx] <= pix_color_out;
+      idx <= idx + 1;
+      if(idx == 10'd1024)
+         idx <= 10'b0;
+   end
+end
 
 uart_rx 					#(
 							.UART_BPS    (20'd115200),   
