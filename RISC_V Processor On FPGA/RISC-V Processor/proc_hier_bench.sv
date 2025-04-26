@@ -14,14 +14,19 @@ wire [31:0] MemData;
 wire rs1_data_ID, rs2_data_ID;
 
 wire [4:0] rs1_ID, rs2_ID;
+wire [31:0] register_accelerator_in [0 : 7];
+wire [31:0] register_accelerator_out [0 : 7];
 
 integer inst_count;
 integer trace_file;
 integer sim_log_file;
 
-proc_hier DUT();
+//proc_hier DUT();
 
 initial begin
+      #50;
+      #30;
+      register_accelerator_in[1] = 32'h0004_B000;
       $display("Hello world...simulation starting");
       $display("See verilogsim.log and verilogsim.trace for output");
       inst_count = 0;

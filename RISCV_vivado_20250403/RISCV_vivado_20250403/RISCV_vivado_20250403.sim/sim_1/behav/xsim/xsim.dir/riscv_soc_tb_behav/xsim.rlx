@@ -1,0 +1,12 @@
+
+{ 
+    crc :  7021758291928731857  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 3ebe628960034ca7aeb972937bcf6d47 --incr --debug typical --relax --mt 2 -d INSTR_FILE=rv32um-p-remu.txt -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot riscv_soc_tb_behav xil_defaultlib.riscv_soc_tb xil_defaultlib.glbl" , 
+    buildDate : "May 24 2019" , 
+    buildTime : "15:06:07" , 
+    linkCmd : "E:\\Xilinx\\Vivado\\2019.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/riscv_soc_tb_behav/xsimk.exe\"   \"xsim.dir/riscv_soc_tb_behav/obj/xsim_0.win64.obj\" \"xsim.dir/riscv_soc_tb_behav/obj/xsim_1.win64.obj\" -L\"E:\\Xilinx\\Vivado\\2019.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

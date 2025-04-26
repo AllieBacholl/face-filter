@@ -4,7 +4,6 @@ module decode (
     input [31:0] writeData, // from WB stage
     input reg_write_WB,
     input [4:0] rd_WB,
-    input [31:0] register_accelerator_in,
     
     // control signals outputs
     output [31:0] imm_res_ID,
@@ -20,21 +19,17 @@ module decode (
     // data sinals outputs
     output instr_12_ID, instr_14_ID,
     output [4:0] rs1_ID, rs2_ID, rd_ID,
-    output [31:0] rs1_data_ID, rs2_data_ID, register_accelerator_out,
+    output [31:0] rs1_data_ID, rs2_data_ID,
     output mem_read_ID, mem_sign_ID,
     output [1:0] mem_length_ID,
-    output err_ID,
-    output polling
+    output err_ID
 
 );
 
 logic err_reg, err_decode;
 
-logic polling_reg;
-
 assign err_ID = err_reg | err_decode;
 
-assign polling = polling_reg;
 
 assign instr_12_ID = instr[12];
 assign instr_14_ID = instr[14];
@@ -74,17 +69,5 @@ regFile_bypass RF(
     .read1Data(rs1_data_ID), .read2Data(rs2_data_ID), .err(err_reg)
 );
 
-// Register accelerator for bypassing
-assign register_accelerator_out = (reg_write_WB && rd_WB == 5'b00001) ? writeData : 5'b0;
-
-always @(*) begin
-    polling_reg = 32'b0; // Default polling to 0
-    
-    if (register_accelerator_in == 32'b0) begin // Branch instruction
-        polling_reg = 1'b1; // Set polling to 1 for branch instructions
-    end else begin
-        polling_reg = 1'b0; // Reset polling for other instructions
-    end
-end
 
 endmodule

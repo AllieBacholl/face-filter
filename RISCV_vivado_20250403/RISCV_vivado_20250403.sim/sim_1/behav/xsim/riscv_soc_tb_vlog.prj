@@ -1,0 +1,31 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  -d "INSTR_FILE="rv32ui-p-sub.txt"" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/Hazard_Detection_Forwarding_unit.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/alu_add.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/alu_ctrl.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/alu_ex.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/dff.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/wrap/dram.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/wrap/dual_ram.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/ex_mem.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/id_ex.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/if_id.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/imm_gen.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/wrap/iram.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/jump_ctrl_unit.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/main_ctrl.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/mem_wb.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/mux2.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/mux3.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/or_gate.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/pc.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/regs.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/riscv_core/riscv_core.v" \
+"../../../../RISCV_vivado_20250403.srcs/sources_1/imports/chip/riscv_soc.v" \
+"../../../../RISCV_vivado_20250403.srcs/sim_1/imports/tb/riscv_soc_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

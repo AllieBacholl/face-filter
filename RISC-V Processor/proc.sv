@@ -2,13 +2,10 @@
 
 module proc(
     input clk, rst, EXT,
-    input [31:0] register_accelerator_in,
-    output [31:0] register_accelerator_out,
     output err
 );
 
 // Intermediate Signals
-wire polling;
 wire EXT_ID, EXT_EXE, EXT_MEM;
 wire [31:0] interrupt_handling_addr, branch_jump_addr;
 wire pc_next_sel;
@@ -102,7 +99,6 @@ decode decode(
     .writeData(write_data_WB), // from WB stage
     .reg_write_WB(reg_write_WB),
     .rd_WB(rd_WB),
-    .register_accelerator_in(register_accelerator_in),
     // Outputs
     .imm_res_ID(imm_res_ID),
     .reg_write_ID(reg_write_ID), 
@@ -126,9 +122,7 @@ decode decode(
     .mem_sign_ID(mem_sign_ID),
     .mem_length_ID(mem_length_ID),
     .jalr_en_ID(jalr_en_ID),
-    .err_ID(err_ID),
-    .register_accelerator_out(register_accelerator_out),
-    .polling(polling)
+    .err_ID(err_ID)
 );
 
 // ID_EXE

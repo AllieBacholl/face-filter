@@ -21,7 +21,7 @@ module decode (
     output instr_12_ID, instr_14_ID,
     output [4:0] rs1_ID, rs2_ID, rd_ID,
     output [31:0] rs1_data_ID, rs2_data_ID, 
-    output [31:0 ]register_accelerator_out [0 : 7],
+    output [31:0] register_accelerator_out [0 : 7],
     output mem_read_ID, mem_sign_ID,
     output [1:0] mem_length_ID,
     output err_ID,
@@ -69,11 +69,17 @@ instr_decoder instr_decoder(
     .err(err_decode)
 );
 
-// never use r0 and r1
-regFile_bypass RF(
-    .clk(clk), .rst(rst),
-    .read1RegSel(rs1_ID), .read2RegSel(rs2_ID), .writeRegSel(rd_WB), .writeData(writeData), .writeEn(reg_write_WB),
-    .read1Data(rs1_data_ID = (rs1_ID == 5'b00001) ? register_accelerator_out_reg[1] : rs1_data_ID), .read2Data(rs2_data_ID), .err(err_reg)
+regFile_bypass RF (
+  .clk         (clk),
+  .rst         (rst),
+  .read1RegSel (rs1_ID),
+  .read2RegSel (rs2_ID),
+  .writeRegSel (rd_WB),
+  .writeData   (writeData),
+  .writeEn     (reg_write_WB),
+  .read1Data   (muxed_rs1_data),
+  .read2Data   (rs2_data_ID),
+  .err         (err_reg)
 );
 
 reg [31:0] register_accelerator_out_reg [0:7];
@@ -98,12 +104,23 @@ always_ff @(negedge clk or posedge rst) begin
         register_accelerator_out_reg[5] <= 32'h0;
         register_accelerator_out_reg[6] <= 32'h0;
         register_accelerator_out_reg[7] <= 32'h0; // for reset sdram
-    end else if (reg_write_WB && rd_WB < 5'd8) begin
+    end else if (reg_write_WB && (rd_WB < 5'd8)) begin
         // Write to the selected register if index is in bounds
         register_accelerator_out_reg[rd_WB] <= writeData;
     end
 end
 
+
+assign rs1_data_ID = (rs1_ID == 5'b00001)
+                       ? register_accelerator_out_reg[1]
+                       : muxed_rs1_data;
+
+always_ff @(posedge clk or posedge rst) begin
+    if(rd_WB == 5'b00001) begin
+        // Muxed output for rs1 data based on register accelerator input
+        register_accelerator_out_reg[rd_WB] <= register_accelerator_in[rd_WB];
+    end
+end
 
 always @(*) begin
     polling_reg = 32'b0; // Default polling to 0

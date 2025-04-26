@@ -1,0 +1,638 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/altera/16.0
+valu
+Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z1 !s110 1745628057
+!i10b 1
+!s100 cQzIFaShgg7h_:1G2WZd]1
+IlYFKK6REQlUQjSOHK<^T10
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+Z3 dC:/4-/face-filter/RISC-V Processor
+Z4 w1745524168
+8C:/4-/face-filter/RISC-V Processor/alu.sv
+FC:/4-/face-filter/RISC-V Processor/alu.sv
+L0 1
+Z5 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z6 !s108 1745628057.000000
+!s107 C:/4-/face-filter/RISC-V Processor/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/alu.sv|
+!i113 1
+Z7 o-work work -sv
+valu_control
+R0
+R1
+!i10b 1
+!s100 <XF=hR=SiM5:YcgIzn^;R2
+IG@i1=Ho_kBSJKJUOKS;bH1
+R2
+!s105 alu_control_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/alu_control.sv
+FC:/4-/face-filter/RISC-V Processor/alu_control.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/alu_control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/alu_control.sv|
+!i113 1
+R7
+vclkrst
+R0
+R1
+!i10b 1
+!s100 lloohCm3mdHH5L0kaad5]1
+Id3>Z1eIA33ET]3RWY@7[>1
+R2
+!s105 clkrst_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/clkrst.sv
+FC:/4-/face-filter/RISC-V Processor/clkrst.sv
+L0 5
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/clkrst.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/clkrst.sv|
+!i113 1
+R7
+vdecode
+R0
+R1
+!i10b 1
+!s100 S6ZaXQ:69PIAl8<dmSfQO1
+IT:m@Jf;fNGITJ]eB[Rjc13
+R2
+!s105 decode_sv_unit
+S1
+R3
+w1745627179
+8C:/4-/face-filter/RISC-V Processor/decode.sv
+FC:/4-/face-filter/RISC-V Processor/decode.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/decode.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/decode.sv|
+!i113 1
+R7
+vdff
+R0
+R1
+!i10b 1
+!s100 23kB;9F_=3YiKBKminQmn1
+I>bX171mg`BiAe6>?@UfSl3
+R2
+!s105 dff_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/dff.sv
+FC:/4-/face-filter/RISC-V Processor/dff.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/dff.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/dff.sv|
+!i113 1
+R7
+vEX_ME
+R0
+R1
+!i10b 1
+!s100 >Wl>]^B_:CX^MMElSdWC82
+IVhf2P?4Ti>@LZGKVmDBR43
+R2
+!s105 EX_ME_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/EX_ME.sv
+FC:/4-/face-filter/RISC-V Processor/EX_ME.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/EX_ME.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/EX_ME.sv|
+!i113 1
+R7
+n@e@x_@m@e
+vexecute
+R0
+R1
+!i10b 1
+!s100 IKMC6DLNiE9=zi@T>3B?@2
+I70VJWMNiEAUX5?2ocGO921
+R2
+!s105 execute_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/execute.sv
+FC:/4-/face-filter/RISC-V Processor/execute.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/execute.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/execute.sv|
+!i113 1
+R7
+vfetch
+R0
+R1
+!i10b 1
+!s100 Ioc5zbATEl`ZcR4aoP3@P1
+ILnho4;:A2KLNaz3`N_20T0
+R2
+!s105 fetch_sv_unit
+S1
+R3
+w1745628052
+8C:/4-/face-filter/RISC-V Processor/fetch.sv
+FC:/4-/face-filter/RISC-V Processor/fetch.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/fetch.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/fetch.sv|
+!i113 1
+R7
+vfetch_tb
+R0
+R1
+!i10b 1
+!s100 mf>Pmf7Ye:[_QFIGnZozH1
+I1<R2UR1P1oVd4_UhRb0?<3
+R2
+!s105 fetch_tb_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/fetch_tb.sv
+FC:/4-/face-filter/RISC-V Processor/fetch_tb.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/fetch_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/fetch_tb.sv|
+!i113 1
+R7
+vhazard_detection
+R0
+Z8 !s110 1745628058
+!i10b 1
+!s100 ^DI4Vn:;J^`nieK82UOdf3
+IBnmJ[?m=B^@d5X_`ff4WS2
+R2
+!s105 hazard_detection_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/hazard_detection.sv
+FC:/4-/face-filter/RISC-V Processor/hazard_detection.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z9 !s108 1745628058.000000
+!s107 C:/4-/face-filter/RISC-V Processor/hazard_detection.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/hazard_detection.sv|
+!i113 1
+R7
+vID_EX
+R0
+R8
+!i10b 1
+!s100 :ZSVz9:5SBXajA2z3KKAQ0
+INic?RXFZ;]]deJ:=AAL=n3
+R2
+!s105 ID_EX_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/ID_EX.sv
+FC:/4-/face-filter/RISC-V Processor/ID_EX.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/ID_EX.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/ID_EX.sv|
+!i113 1
+R7
+n@i@d_@e@x
+vIF_ID
+R0
+R8
+!i10b 1
+!s100 aX7l1lcmRT4okSAeN@9U21
+IG?@`5>Z6N6;ERMj5EL@R>3
+R2
+!s105 IF_ID_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/IF_ID.sv
+FC:/4-/face-filter/RISC-V Processor/IF_ID.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/IF_ID.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/IF_ID.sv|
+!i113 1
+R7
+n@i@f_@i@d
+vimmediate_execution
+R0
+R8
+!i10b 1
+!s100 agA^9;ZGKeba=MhLT8Di^3
+IlzH]IVbLeDgBR1XdC=l313
+R2
+!s105 immediate_execution_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/immediate_execution.sv
+FC:/4-/face-filter/RISC-V Processor/immediate_execution.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/immediate_execution.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/immediate_execution.sv|
+!i113 1
+R7
+vinstr_decoder
+R0
+R8
+!i10b 1
+!s100 W_EjENR1Qh?o<;RVz[oF61
+I_m?I0Wo[m>6R^N`KO^JS^3
+R2
+!s105 instr_decoder_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/instr_decoder.sv
+FC:/4-/face-filter/RISC-V Processor/instr_decoder.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/instr_decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/instr_decoder.sv|
+!i113 1
+R7
+vinstr_mem
+R0
+R8
+!i10b 1
+!s100 F[HC<mGYWbBkI6_zL59I[2
+IGI7cFAe>AU^@5oSj:ci9U1
+R2
+!s105 instr_mem_sv_unit
+S1
+R3
+w1745627802
+8C:/4-/face-filter/RISC-V Processor/instr_mem.sv
+FC:/4-/face-filter/RISC-V Processor/instr_mem.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/instr_mem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/instr_mem.sv|
+!i113 1
+R7
+vinterrupt_handler
+R0
+R8
+!i10b 1
+!s100 SRF`UjWRmneRMTjVW4D6C1
+I3WSGKKBAL451>0DH3a`ia0
+R2
+!s105 interrupt_handler_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/interrupt_handler.sv
+FC:/4-/face-filter/RISC-V Processor/interrupt_handler.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/interrupt_handler.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/interrupt_handler.sv|
+!i113 1
+R7
+vME_WB
+R0
+R8
+!i10b 1
+!s100 z[J;A^l2EK9=[[:6Jfj0X3
+IzMR6hQK4U8>Y0hF^ISHDd3
+R2
+!s105 ME_WB_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/ME_WB.sv
+FC:/4-/face-filter/RISC-V Processor/ME_WB.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/ME_WB.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/ME_WB.sv|
+!i113 1
+R7
+n@m@e_@w@b
+vmemory
+R0
+R8
+!i10b 1
+!s100 5KRe4f00OjQ8>iSjnD[mL3
+I9^J8ZFI>:QXoSAQAg=]TK2
+R2
+!s105 memory_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/memory.sv
+FC:/4-/face-filter/RISC-V Processor/memory.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/memory.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/memory.sv|
+!i113 1
+R7
+vmemory2c
+R0
+R8
+!i10b 1
+!s100 Ed=ieU_@3ki82k6HZn5Zm3
+IdzUPV2GaFkOh;BoJ;`=0]0
+R2
+!s105 memory2c_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/memory2c.sv
+FC:/4-/face-filter/RISC-V Processor/memory2c.sv
+L0 4
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC-V Processor/memory2c.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/memory2c.sv|
+!i113 1
+R7
+vpc_reg
+R0
+Z10 !s110 1745628059
+!i10b 1
+!s100 cz0f_]:XC^NSVTQT;cj7:0
+IJh8bb5QkakXODAfV23P191
+R2
+!s105 pc_reg_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/pc_reg.sv
+FC:/4-/face-filter/RISC-V Processor/pc_reg.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z11 !s108 1745628059.000000
+!s107 C:/4-/face-filter/RISC-V Processor/pc_reg.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/pc_reg.sv|
+!i113 1
+R7
+vproc
+R0
+R10
+!i10b 1
+!s100 FU0A98dRPD]8_H0JHm[[J2
+I;@]m^Wh39j3Je22?bL]^O1
+R2
+!s105 proc_sv_unit
+S1
+R3
+w1745627126
+8C:/4-/face-filter/RISC-V Processor/proc.sv
+FC:/4-/face-filter/RISC-V Processor/proc.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC-V Processor/proc.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/proc.sv|
+!i113 1
+R7
+vproc_hier
+R0
+R10
+!i10b 1
+!s100 kjnzW:nRiRehDZig;bRi=1
+Ikl=JOQGMn3X3>>=Ci8W0m1
+R2
+!s105 proc_hier_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/proc_hier.sv
+FC:/4-/face-filter/RISC-V Processor/proc_hier.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC-V Processor/proc_hier.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/proc_hier.sv|
+!i113 1
+R7
+vproc_hier_bench
+R0
+R10
+!i10b 1
+!s100 IQLlNmh3zebR=RSMB=oFi3
+I16jkV88:DzSlZ[IJ_KK@;3
+R2
+!s105 proc_hier_bench_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/proc_hier_bench.sv
+FC:/4-/face-filter/RISC-V Processor/proc_hier_bench.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC-V Processor/proc_hier_bench.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/proc_hier_bench.sv|
+!i113 1
+R7
+vregFile
+R0
+R10
+!i10b 1
+!s100 [Q3ER:Ek9>n0Q5<iPQJ683
+IzDF1^=Ii=b[mH?4heQjhW0
+R2
+!s105 regFile_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/regFile.sv
+FC:/4-/face-filter/RISC-V Processor/regFile.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC-V Processor/regFile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/regFile.sv|
+!i113 1
+R7
+nreg@file
+vregFile_bypass
+R0
+R10
+!i10b 1
+!s100 :G]SM7`g;A]0IA@>[oGX73
+Im@LkePCd??63Xi;MNHXgc2
+R2
+!s105 regFile_bypass_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/regFile_bypass.sv
+FC:/4-/face-filter/RISC-V Processor/regFile_bypass.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC-V Processor/regFile_bypass.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/regFile_bypass.sv|
+!i113 1
+R7
+nreg@file_bypass
+vRegister
+R0
+R10
+!i10b 1
+!s100 5SDRVVbMjjP[_5LU5JCGV2
+I3TS0=Cd7870D_lfbW7OH93
+R2
+!s105 register_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/register.sv
+FC:/4-/face-filter/RISC-V Processor/register.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC-V Processor/register.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/register.sv|
+!i113 1
+R7
+n@register
+vwriteback
+R0
+R1
+!i10b 1
+!s100 m1UhQ@jn9Mz`TkGdY?XlL0
+IS]3jnICe;O?AUD_eIb6W=2
+R2
+!s105 writeback_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC-V Processor/writeback.sv
+FC:/4-/face-filter/RISC-V Processor/writeback.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC-V Processor/writeback.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC-V Processor/writeback.sv|
+!i113 1
+R7
