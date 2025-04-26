@@ -1,115 +1,126 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
-module tb_image_resize_avg_simple;
+module image_resize_avg_simple_tb;
 
-  // Inputs to DUT
+  // ----------------------------------------------------------------
+  //  DUT I/O
+  // ----------------------------------------------------------------
   reg         clk;
   reg         rst_n;
   reg         KEY_2;
   reg  [7:0]  Read_DATA2;
+  reg         tx_done;
 
-  // Outputs from DUT
   wire        start_resize;
   wire [22:0] read_addr_resize;
+  wire        done;           // DUT’s “averaging done”
+  wire [7:0]  uart_tx;
+  wire        uart_trmt;
 
-  // Instantiate the DUT
+  // ----------------------------------------------------------------
+  //  Loop indices and counters (module‐scope for Verilog-2001)
+  // ----------------------------------------------------------------
+  integer pixel_count;
+  integer by, bx, py, px;
+
+  // ----------------------------------------------------------------
+  //  Instantiate your DUT
+  // ----------------------------------------------------------------
   image_resize_avg_simple dut (
-    .clk               (clk),
-    .rst_n             (rst_n),
-    .KEY_2             (KEY_2),
-    .Read_DATA2        (Read_DATA2),
-
-    .start_resize      (start_resize),
-    .read_addr_resize  (read_addr_resize),
-    .done(),
-    .uart_tx(),
-    .uart_trmt         ()
+    .clk             (clk),
+    .rst_n           (rst_n),
+    .KEY_2           (KEY_2),
+    .Read_DATA2      (Read_DATA2),
+    .tx_done         (tx_done),
+    .start_resize    (start_resize),
+    .read_addr_resize(read_addr_resize),
+    .done            (),
+    .uart_tx         (uart_tx),
+    .uart_trmt       (uart_trmt),
+    .avg_done        (),
+    .triggered       (done)
   );
 
-  // 1) Clock gen: 50 MHz → 20 ns period
+  // ----------------------------------------------------------------
+  //  100 MHz clock
+  // ----------------------------------------------------------------
   initial clk = 0;
-  always #10 clk = ~clk;
+  always #5 clk = ~clk;
 
-  // 2) Data source: hold 600 after reset
-  always @(posedge clk) begin
-    if (!rst_n)
-      Read_DATA2 <= 8'd0;
-    else
-      Read_DATA2 <= 8'd600;
-  end
+  // ----------------------------------------------------------------
+  //  Watchdog timeout (10 ms)
+  // ----------------------------------------------------------------
+  // initial begin
+  //   #10_000_000;
+  //   $display("** TIMEOUT at %0t **", $time);
+  //   $finish;
+  // end
 
-  // 3) Stimulus: reset, pulse KEY_2, run…
+  // ----------------------------------------------------------------
+  //  Task: verify each 20×15 block average
+  // ----------------------------------------------------------------
+  task check_averages;
+    reg [31:0] sum;
+    reg [7:0]  expected;
+    begin
+      $display("Checking %0d×%0d blocks…", 32, 32);
+      for (by = 0; by < 32; by = by + 1) begin
+        for (bx = 0; bx < 32; bx = bx + 1) begin
+          sum = 0;
+          for (py = 0; py < 15; py = py + 1)
+            for (px = 0; px < 20; px = px + 1)
+              sum = sum + dut.receive[by*15 + py][bx*20 + px];
+          expected = sum / 300;
+          if (dut.out[by][bx] !== expected) begin
+            $display("  ERROR out[%0d][%0d]: exp=%0d got=%0d",
+                     by, bx, expected, dut.out[by][bx]);
+          end else begin
+            $display("  PASS  out[%0d][%0d]: %0d",
+                     by, bx, dut.out[by][bx]);
+          end
+        end
+      end
+    end
+  endtask
+
+  // ----------------------------------------------------------------
+  //  Main stimulus
+  // ----------------------------------------------------------------
   initial begin
-    $dumpfile("tb_image_resize_avg_simple.vcd");
-    $dumpvars(0, tb_image_resize_avg_simple);
-
-    rst_n = 1'b0;
-    KEY_2 = 1'b1;
-    #100;
-
-    rst_n = 1'b1;
-    #50;
-
-    KEY_2 = 1'b0;  // start
+    // -- reset
+    rst_n      = 0;
+    KEY_2      = 1;      // not pressed (active-low)
+    Read_DATA2 = 0;
+    tx_done    = 1;
     #20;
-    KEY_2 = 1'b1;
+    rst_n = 1;
+    #10;
 
-    #50000;       // enough time for 3 blocks
+    // -- trigger the DUT to start resizing
+    $display(">> Pressing KEY_2 at %0t", $time);
+    KEY_2 = 0; #10; KEY_2 = 1;
+
+    // -- stream pixels only when DUT asks for them
+    pixel_count = 0;
+    // keep feeding until DUT asserts done
+    while (!done) begin
+      @(posedge clk);
+      if (start_resize) begin
+        // simple gradient pattern: (pixel_count mod 256)
+        Read_DATA2 = pixel_count % 256;
+        pixel_count = pixel_count + 1;
+      end
+    end
+
+    #10
+    $display(">> Averaging completed at %0t", $time);
+
+    // -- verify results
+    check_averages();
+
+    #100;
+    $display(">> TEST FINISHED at %0t", $time);
     $finish;
-  end
-
-  // optional monitor
-  initial begin
-   // $monitor("%0t | bx=%0d by=%0d px=%0d py=%0d out00=%0d",
-          //   $time, dut.block_x, dut.block_y, dut.pixel_x, dut.pixel_y, dut.out[0][0]);
-  end
-
-  // 4) Compute expected averages (all 600)
-  reg [7:0] expected0, expected1, expected2;
-  initial begin
-    expected0 = 8'd600;
-    expected1 = 8'd600;
-    expected2 = 8'd600;
-    $display("Expecting out[0][0]=%0d, out[0][1]=%0d, out[0][2]=%0d",
-             expected0, expected1, expected2);
-  end
-
-  // 5a) Check block [0][0] when block_x rolls to 1
-  always @(posedge clk) begin
-    if (dut.block_x == 1 && dut.block_y == 0 &&
-        dut.pixel_x == 0 && dut.pixel_y == 0) begin
-      if (dut.out[0][0] !== expected0)
-        $display("FAIL block[0][0]=%0d, expected=%0d",
-               dut.out[0][0], expected0);
-      else
-        $display("PASS block[0][0]=%0d", expected0);
-    end
-  end
-
-  // 5b) Check block [0][1] when block_x rolls to 2
-  always @(posedge clk) begin
-    if (dut.block_x == 2 && dut.block_y == 0 &&
-        dut.pixel_x == 0 && dut.pixel_y == 0) begin
-      if (dut.out[0][1] !== expected1)
-        $display("FAIL block[0][1]=%0d, expected=%0d",
-               dut.out[0][1], expected1);
-      else
-        $display("PASS block[0][1]=%0d", expected1);
-    end
-  end
-
-  // 5c) Check block [0][2] when block_x rolls to 3, then finish
-  always @(posedge clk) begin
-    if (dut.block_x == 3 && dut.block_y == 0 &&
-        dut.pixel_x == 0 && dut.pixel_y == 0) begin
-      if (dut.out[0][2] !== expected2)
-        $display("FAIL block[0][2]=%0d, expected=%0d",
-               dut.out[0][2], expected2);
-      else
-        $display("PASS block[0][2]=%0d", expected2);
-
-      #10 $finish;
-    end
   end
 
 endmodule

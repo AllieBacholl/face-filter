@@ -10,15 +10,15 @@ cModel Technology
 dC:/intelFPGA/18.1
 vimage_resize_avg_simple
 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z0 !s110 1745621090
+Z0 !s110 1745686107
 !i10b 1
-!s100 ^LWWWcP1OK60E<Gk<fz;E0
-I4:lV^Qgd2^@RBCNd_I66V3
+!s100 EJLCY61gA`4VV3>hlcQ8@0
+IUmoAeFmd1YejV2:SCLYOE2
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 !s105 image_resize_avg_simple_sv_unit
 S1
 Z2 dC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v
-w1745619380
+w1745683881
 8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv
 FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv
 L0 1
@@ -26,30 +26,51 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1745621090.000000
+Z4 !s108 1745686107.000000
 !s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv|
 !i113 1
 o-work work -sv
 Z5 tCvgOpt 0
-vtb_image_resize_avg_simple
+vimage_resize_avg_simple_tb
 R0
 !i10b 1
-!s100 J5Pk_JL:SjUAWHN^PAA0L1
-I8`a6_3>WU<E^=F6e^5C0Y2
+!s100 C`BQLEfRUbRI]6jn]>g^02
+IHaFM4e?SK5cRNoYKN[N6_3
 R1
 R2
-w1745621083
-8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v
-FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v
+w1745686104
+Z6 8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v
+Z7 FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v
 L0 3
 R3
 r1
 !s85 0
 31
 R4
-!s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v|
+Z8 !s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v|
 !i113 1
-o-work work
+Z10 o-work work
+R5
+vtb_image_resize_avg_simple
+!s110 1745621090
+!i10b 1
+!s100 J5Pk_JL:SjUAWHN^PAA0L1
+I8`a6_3>WU<E^=F6e^5C0Y2
+R1
+R2
+w1745621083
+R6
+R7
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1745621090.000000
+R8
+R9
+!i113 1
+R10
 R5
