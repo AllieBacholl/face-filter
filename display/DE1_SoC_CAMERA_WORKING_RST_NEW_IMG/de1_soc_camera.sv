@@ -493,20 +493,12 @@ Sdram_Control	   u7	(	//	HOST Side
 							
 							//	FIFO Read Side 2, not used
 						   .RD2_DATA(Read_DATA2),
-							.RD2(start_resize),    // Read
-							.RD2_ADDR(0),
+							.RD2(start_resize_reg),    // Read
+							.RD2_ADDR(read_addr_resize_reg),
                      .RD2_MAX_ADDR(640*480),
 							.RD2_LENGTH(8'h50),
                    	.RD2_LOAD(!DLY_RST_0),
 							.RD2_CLK(~CLOCK_50),
-
-                     .RD3_DATA(Read_DATA3),
-				        	.RD3(start_resize),
-				        	.RD3_ADDR(read_addr_resize_reg),
-                     .RD3_MAX_ADDR(640*480),
-							.RD3_LENGTH(8'h50),
-							.RD3_LOAD(!DLY_RST_0),
-							.RD3_CLK(~CLOCK_50),
 										
 							//	SDRAM Side
 						   .SA(DRAM_ADDR),
@@ -522,32 +514,29 @@ Sdram_Control	   u7	(	//	HOST Side
 
 // reg resize_done_20;
 reg done_uart;
-reg [7:0] uart_tx_signal;
+logic [7:0] uart_tx_signal;
 reg uart_trmt;
+logic avg_done;
+logic triggered_img;
+
 
 image_resize_avg_simple (
     .clk(CLOCK_50),        // Clock
     .rst_n(!DLY_RST_0),       // Active-low reset
-    .KEY_2(KEY[2]),     
-    .tx_done(tbr),      // Active-low key to start
-    .Read_DATA2(Read_DATA3[7:0]),      // 8-bit pixel from SDRAM
+    .KEY_2(KEY[2]),           // Active-low key to start
+    .Read_DATA2(Read_DATA2[7:0]),      // 8-bit pixel from SDRAM
+    .tx_done(tbr),
     .start_resize(start_resize_reg),    // Trigger SDRAM read
     .read_addr_resize(read_addr_resize_reg), // SDRAM read address
     .done(done_uart),
     .uart_tx(uart_tx_signal),
-    .uart_trmt(uart_trmt)
-    .
+    .uart_trmt(uart_trmt),
+    .avg_done(avg_done),
+    .triggered(triggered_img)
 );
 
 
-always @(posedge CLOCK_50 or negedge DLY_RST_0 ) begin
-   if(!DLY_RST_0) begin
-      start_resize <= 1'b0;
-   end else
-      start_resize <= start_resize_reg;
-end
-							
-				
+									
 //D5M I2C control
 I2C_CCD_Config 	u8	(	//	Host Side
 							.iCLK(CLOCK2_50),
@@ -589,7 +578,7 @@ uart_rx 					#(
 							.CLK_FREQ    (26'd50_000_000))     
 							uart_rx_inst (
 							.sys_clk     (CLOCK_50),
-							.sys_rst_n   (DLY_RST_0),
+							.sys_rst_n   (!DLY_RST_0),
 							.rx          (rxd),
 							.po_data     (rx_data),
 							.po_flag     (write)
@@ -597,8 +586,8 @@ uart_rx 					#(
 
 uart_tx					uart_tx_inst (
 							.clk(CLOCK_50), 
-							.rst_n(DLY_RST_0),		
-							.trmt(~done_uart & uart_trmt),				
+							.rst_n(!DLY_RST_0),		
+							.trmt(uart_trmt),				
 							.tx_data(uart_tx_signal),		
 							.TX(txd),				
 							.tx_done(tbr)
