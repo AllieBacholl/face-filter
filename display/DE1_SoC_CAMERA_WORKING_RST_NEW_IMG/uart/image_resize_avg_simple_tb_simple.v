@@ -9,14 +9,16 @@ module image_resize_avg_simple_tb;
   reg         rst_n;
   reg         KEY_2;
   reg  [7:0]  Read_DATA2;
-  reg         tx_done;
+  wire         tx_done;
+  wire [7:0]    
 
   wire        start_resize;
   wire [22:0] read_addr_resize;
   wire        done;           // DUT’s “averaging done”
-  wire [7:0]  uart_tx;
+  wire [7:0]  uart_tx_data;
   wire        uart_trmt;
   wire        avg_done;
+  wire        done;
 
   // ----------------------------------------------------------------
   //  Loop indices and counters (module‐scope for Verilog-2001)
@@ -35,12 +37,21 @@ module image_resize_avg_simple_tb;
     .tx_done         (tx_done),
     .start_resize    (start_resize),
     .read_addr_resize(read_addr_resize),
-    .done            (),
-    .uart_tx         (uart_tx),
+    .done            (done),
+    .uart_tx         (uart_tx_data),
     .uart_trmt       (uart_trmt),
     .avg_done        (avg_done),
     .triggered       (done)
   );
+
+
+  uart_tx ut(
+	.clk(clk), .rst_n(rst_n),	// 50MHz system clock & asynch active low reset
+	.trmt(uart_trmt),	 // asserted for 1 clock to initiate transmission
+	.tx_data(uart_tx_data),		// byte to transmit
+	.TX(),				// serial data output
+	.tx_done(tx_done)	// asserted when byte is done transmitting, and stays high till next byte transmitted.
+);
 
   // ----------------------------------------------------------------
   //  100 MHz clock
@@ -64,7 +75,7 @@ module image_resize_avg_simple_tb;
     reg [31:0] sum;
     reg [7:0]  expected;
     begin
-      $display("Checking %0d×%0d blocks…", 32, 32);
+      $display("Checking %0dx%0d blocks…", 32, 32);
       for (by = 0; by < 32; by = by + 1) begin
         for (bx = 0; bx < 32; bx = bx + 1) begin
           sum = 0;
