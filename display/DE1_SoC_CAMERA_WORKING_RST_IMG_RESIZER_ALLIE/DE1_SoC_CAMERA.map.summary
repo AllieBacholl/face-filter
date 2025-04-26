@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Apr 25 17:14:00 2025
+Analysis & Synthesis Status : Successful - Sat Apr 26 04:28:35 2025
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : DE1_SoC_CAMERA
 Top-level Entity Name : DE1_SoC_CAMERA
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 12318
+Total registers : 12501
 Total pins : 226
 Total virtual pins : 0
-Total block memory bits : 77,776
+Total block memory bits : 1,499,088
 Total DSP Blocks : 1
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

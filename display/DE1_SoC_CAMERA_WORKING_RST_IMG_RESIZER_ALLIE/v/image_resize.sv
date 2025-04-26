@@ -21,27 +21,23 @@ reg        [9:0] vPixCntResize; // Count of the amount of vertical pixels (up to
 reg        [9:0] hPixCntResize; // Count of the amount of horizontal pixels (up to 32)
 reg        [9:0] vWriteCnt; // Count of the amount of vertical pixels written out (up to 32)
 reg        [9:0] hWriteCnt; // Count of the amount of horizontal pixels written out (up to 32)
-wire       [22:0] currBaseAddr;
+reg       [22:0] currBaseAddrV;
+reg       [22:0] currBaseAddrH;
 
-wire        [17:0] sum;
+reg        [15:0] sum;
 
-// Put the pixels in a line buffer (20 x 8)
-// Create 15 Line buffers to create 15 x 20 x 8
-reg         [7:0] pixels [0:14] [0:19];
 // 32 x 32 resized image
 reg        	[7:0] pixelsResize [0:31] [0:31];
 
-wire                read;
-wire                write;
-wire                newLine;
-wire                done;
-wire                doneResize;
-wire                hPixCntResizeInc; 
-wire                vPixCntResizeInc; 
-wire                setResizeValid;
-wire					  setPixel;
-
-int i, j;
+logic                read;
+logic                write;
+logic                newLine;
+logic                done;
+logic                doneResize;
+logic                hPixCntResizeInc; 
+logic                vPixCntResizeInc; 
+logic                setResizeValid;
+logic					  	setPixel;
 
 // Resize Pixel Count control
 always_ff @(posedge clk, negedge rst_n) begin
@@ -71,7 +67,7 @@ end
 // Write to resize image
 always_ff @(posedge clk) begin
     if (setPixel) begin
-        pixelsResize[vPixCntResize][hPixCntResize] = sum / 300;
+        pixelsResize[vPixCntResize][hPixCntResize] <= sum/300;
 	 end
 end
 
@@ -128,7 +124,7 @@ always_ff @(posedge clk, negedge rst_n) begin
         end
 
     end else begin
-        oPix <= 8'hFF;
+        oPix <= 8'hAA;
         hWriteCnt <= 10'd0;
         vWriteCnt <= 10'd0;
     end
@@ -138,31 +134,48 @@ end
 always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n) begin
         oSdramAddr <= BASE_ADDR;
-        currBaseAddr <= BASE_ADDR;
+        currBaseAddrV <= BASE_ADDR;
+        currBaseAddrH <= BASE_ADDR;
         vPixCnt <= 10'h000;
+    end else if (done) begin
+        if (hPixCntResize == 10'd31) begin
+            currBaseAddrV <= currBaseAddrV + (15*STRIDE);
+            oSdramAddr <= currBaseAddrV + (15*STRIDE);
+            currBaseAddrH <= 23'h0000;
+        end else begin
+            currBaseAddrH <= currBaseAddrH + 20;
+            oSdramAddr <= currBaseAddrH + currBaseAddrV + 20;
+        end
+        vPixCnt <= 1'b0;
     end else if (oSdramRd & newLine) begin
         oSdramAddr <= oSdramAddr + STRIDE;
-        vPixCnt <= vPixCnt + 1'b1;
-    end else if (done) begin
-        currBaseAddr <= currBaseAddr + (15*STRIDE);
-        oSdramAddr <= currBaseAddr + (15*STRIDE);
-        vPixCnt <= 1'b0;
-    end
+        if (vPixCnt >= ROW_WIDTH-1) begin
+            vPixCnt <= 1'b0;
+        end else begin
+            vPixCnt <= vPixCnt + 1'b1;
+        end
+    end 
 end
 
 // Store the data read from SDRAM
 always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n) begin
         hPixCnt <= 1'b0;
+		sum <= 9'h000;
     end else if (oSdramRd) begin
-        pixels[vPixCnt][hPixCnt] <= iPix;
+		  // Take the average of the values
+          if (hPixCnt == 0 & vPixCnt == 0) begin
+                sum <= {1'b0, iPix};
+          end else begin
+            	sum <= sum + iPix;
+          end
         // Reset horizontal count once it equals 19
         if (hPixCnt >= COLUMN_WIDTH-1) begin
             hPixCnt <= 1'b0;
         end else begin
             hPixCnt <= hPixCnt + 1'b1;
         end
-    end
+    end 
 end
 
 // State Machine
@@ -186,11 +199,8 @@ always_comb begin
     hPixCntResizeInc = 1'b0;
     vPixCntResizeInc = 1'b0;
     write = 1'b0;
-    setResizeValid = 1'b1;
+    setResizeValid = 1'b0;
 	 setPixel = 1'b0;
-	 i = 0;
-	 j = 0;
-	 sum = 0;
 
     case (state)
         // Picture Taken
@@ -215,16 +225,8 @@ always_comb begin
         end
 
         RESIZE: begin
-            // Take the average off all the pixels
-            // Sum all read pixels
-            for (i = 0; i < ROW_WIDTH; i = i + 1) begin
-                for (j = 0; j < COLUMN_WIDTH; j = j + 1) begin
-                    sum = sum + pixels[i][j];
-                end
-            end
-
-            // Divide by number of pixels (15 * 20 = 300)
-				setPixel = 1'b1;
+            // Write pixels out
+			setPixel = 1'b1;
             hPixCntResizeInc = 1'b1;
             if (hPixCntResize == 10'd31) begin
                 vPixCntResizeInc = 1'b1;
@@ -242,7 +244,7 @@ always_comb begin
 
         DONE: begin
             write = 1'b1;
-            if (hWriteCnt == 10'd31 && vWriteCnt == 10'd31) begin
+            if (hWriteCnt == 10'd31 & vWriteCnt == 10'd31) begin
                 write = 1'b0;
                 setResizeValid = 1'b1;
                 nxt_state = IDLE;

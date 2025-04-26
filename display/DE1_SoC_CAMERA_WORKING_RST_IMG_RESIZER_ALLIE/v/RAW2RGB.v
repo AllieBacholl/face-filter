@@ -76,9 +76,9 @@ reg [11:0] pixel_out;
 // assign	oRed	=	mCCD_R[11:0];
 // assign	oGreen	=	mCCD_G[12:1];
 // assign	oBlue	=	mCCD_B[11:0];
-assign	oRed		=	pixel_out ;
-assign	oGreen	=	pixel_out ;
-assign	oBlue		=	pixel_out ;
+assign	oRed		=	pixel_out[11:0] ;
+assign	oGreen	=	pixel_out[11:0] ;
+assign	oBlue		=	pixel_out[11:0] ;
 assign	oDVAL	=	mDVAL;
 
 Line_Buffer1 	u0	(	.clken(iDVAL),

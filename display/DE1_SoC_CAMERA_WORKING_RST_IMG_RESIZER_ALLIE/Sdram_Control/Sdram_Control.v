@@ -438,9 +438,9 @@ Sdram_RD_FIFO  u_read4_fifo (
 //=======================================================
 //  Structural coding
 //=======================================================
-assign mDATAIN = 	(WR_MASK[0])	?	mDATAIN1 : 
-						(WR_MASK[1])	?	mDATAIN2	:
-						(WR_MASK[2])	?	mDATAIN3	:
+assign mDATAIN = 	(WR_MASK[0])	?	mDATAIN1 	: 
+						(WR_MASK[1])	?	mDATAIN2		:
+						(WR_MASK[2])	?	mDATAIN3		:
 					mDATAIN4;
 assign DQ = oe ? DQOUT : `DSIZE'hzzzz;
 assign active	=	Read | Write;
