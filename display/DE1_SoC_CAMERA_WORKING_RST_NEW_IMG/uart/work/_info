@@ -1,0 +1,82 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v
+vimage_resize_avg_simple
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1745696768
+!i10b 1
+!s100 8<=@b0B5CP?RND3hzaTce0
+I^B?]9mk;K43SdO5NH8Kj43
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 image_resize_avg_simple_sv_unit
+S1
+Z3 dC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart
+w1745696686
+8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple.sv
+FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1745696768.000000
+!s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+vimage_resize_avg_simple_tb
+R0
+R1
+!i10b 1
+!s100 _okg?KI4]bW3HGCJ_zoTY3
+IV6afG:d?5889Nh6]?G:]90
+R2
+!s105 image_resize_avg_simple_tb_simple_sv_unit
+S1
+R3
+w1745696606
+8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple_tb_simple.sv
+FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple_tb_simple.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple_tb_simple.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple_tb_simple.sv|
+!i113 1
+R6
+R7
+vuart_tx
+R0
+R1
+!i10b 1
+!s100 hD8zQVnb8gdW;@PkVb`;23
+IVA013K@U30hfDb<Tl]1=o0
+R2
+!s105 uart_tx_sv_unit
+S1
+R3
+w1745696757
+8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/uart_tx.sv
+FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/uart_tx.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/uart_tx.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/uart_tx.sv|
+!i113 1
+R6
+R7

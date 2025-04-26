@@ -33,32 +33,90 @@ module image_resize_avg_simple (
     
 
 
-    reg tx_done_prev;
-always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-        send_cnt     <= 10'd0;
-        uart_tx      <= 8'd0;
-        uart_trmt    <= 1'b0;
-        done         <= 1'b0;
-        tx_done_prev <= 1'b0;
-    end else if (avg_done) begin
-        tx_done_prev <= tx_done;  // Track previous tx_done
-        if (tx_done && send_cnt < 10'd1024) begin
-            uart_tx   <= out[send_cnt[9:5]][send_cnt[4:0]];
-            uart_trmt <= 1'b1;
-        end else begin
-            uart_trmt <= 1'b0;
-            if (tx_done && !tx_done_prev) begin  // Rising edge of tx_done
-                if (send_cnt == 10'd1023) begin
-                    done <= 1'b1;
-                end else begin
-                    send_cnt <= send_cnt + 10'd1;
-                end
-            end
-        end
-    end
-end
+reg tx_done_prev;
+// always_ff @(posedge clk or negedge rst_n) begin
+//     if (!rst_n) begin
+//         send_cnt     <= 10'd0;
+//         uart_tx      <= 8'd0;
+//         uart_trmt    <= 1'b0;
+//         done         <= 1'b0;
+//         tx_done_prev <= 1'b0;
+//     end else if (avg_done) begin
+//         tx_done_prev <= tx_done;  // Track previous tx_done
+//         if (tx_done && send_cnt < 10'd1024) begin
+//             uart_tx   <= out[send_cnt[9:5]][send_cnt[4:0]];
+//             uart_trmt <= 1'b1;
+//         end else begin
+//             uart_trmt <= 1'b0;
+//             if (tx_done && !tx_done_prev) begin  // Rising edge of tx_done
+//                 if (send_cnt == 10'd1023) begin
+//                     done <= 1'b1;
+//                 end else begin
+//                     send_cnt <= send_cnt + 10'd1;
+//                 end
+//             end
+//         end
+//     end
+// end
 
+    //========================================================================
+    // Byte-by-byte UART send FSM
+    //========================================================================
+        // at module scope
+    typedef enum logic [1:0] {S_IDLE, S_WAIT} send_state_t;
+    send_state_t   send_state;
+    reg            prev_avg_done;
+
+    always_ff @(posedge clk or negedge rst_n) begin
+      if (!rst_n) begin
+        send_state    <= S_IDLE;
+        prev_avg_done <= 1'b0;
+        tx_done_prev  <= 1'b0;
+        send_cnt      <= 10'd0;
+        done          <= 1'b0;
+        uart_trmt     <= 1'b0;
+      end else begin
+        // remember last cycle’s avg_done & tx_done
+        prev_avg_done <= avg_done;
+        tx_done_prev  <= tx_done;
+
+        case (send_state)
+          // ————————————————————————————————————————————————
+          // IDLE: trigger first byte on the rising edge of avg_done
+          // ————————————————————————————————————————————————
+          S_IDLE: begin
+            done      <= 1'b0;
+            uart_trmt <= 1'b0;
+            if (avg_done && !prev_avg_done) begin
+              send_cnt  <= 10'd0;
+              uart_tx   <= out[0][0];
+              uart_trmt <= 1'b1;       // start first byte
+              send_state <= S_WAIT;
+            end
+          end
+
+          S_WAIT: begin
+            uart_trmt <= 1'b0;        // only pulse for 1 cycle
+
+            // on rising edge of tx_done
+            if (!tx_done_prev && tx_done) begin
+              if (send_cnt == 10'd1023) begin
+                done       <= 1'b1;
+                send_state <= S_IDLE;
+              end else begin
+                send_cnt  <= send_cnt + 1;
+                // load the next byte
+                uart_tx   <= out[(send_cnt+1)>>5][(send_cnt+1)&5'h1F];
+                uart_trmt <= 1'b1;
+                // stay in WAIT and wait for next tx_done↑
+              end
+            end
+          end
+
+          default: send_state <= S_IDLE;
+        endcase
+      end
+    end
 
 
     // Main logic

@@ -9,8 +9,8 @@ module image_resize_avg_simple_tb;
   reg         rst_n;
   reg         KEY_2;
   reg  [7:0]  Read_DATA2;
-  wire         tx_done;
-  wire [7:0]    
+  logic         tx_done;
+  
 
   wire        start_resize;
   wire [22:0] read_addr_resize;
@@ -18,7 +18,6 @@ module image_resize_avg_simple_tb;
   wire [7:0]  uart_tx_data;
   wire        uart_trmt;
   wire        avg_done;
-  wire        done;
 
   // ----------------------------------------------------------------
   //  Loop indices and counters (module‐scope for Verilog-2001)
@@ -95,6 +94,44 @@ module image_resize_avg_simple_tb;
     end
   endtask
 
+
+// ----------------------------------------------------------------
+//  at the top of your TB, add:
+integer tx_count;
+reg [7:0] expected_byte;
+
+// ----------------------------------------------------------------
+//  initialize the coun
+// ----------------------------------------------------------------
+//  on each rising edge of tx_done (i.e. end-of-byte), compare
+//  the byte your DUT just handed to the UART with the
+//  v// ----------------------------------------------------------------
+  initial begin
+    tx_count = 0;
+  end
+
+  always @(negedge tx_done) begin
+    // compute block indices
+    by            = tx_count / 32;
+    bx            = tx_count % 32;
+    // grab what we expect
+    expected_byte = dut.out[by][bx];
+
+    if (uart_tx_data !== expected_byte) begin
+      $display("UART ERROR @ byte %0d (block [%0d][%0d]): exp=%0d got=%0d",
+               tx_count, by, bx, expected_byte, uart_tx_data);
+    end else begin
+      $display("UART PASS  @ byte %0d (block [%0d][%0d]) = %0d",
+               tx_count, by, bx, uart_tx_data);
+    end
+
+    tx_count = tx_count + 1;
+  end
+
+  initial begin
+  $monitor("At time %0t: tx_count=%b send_count=%b uart_tx_data=%b", $time, tx_count,  dut.send_cnt , uart_tx_data);
+  end
+
   // ----------------------------------------------------------------
   //  Main stimulus
   // ----------------------------------------------------------------
@@ -131,7 +168,7 @@ module image_resize_avg_simple_tb;
     // -- verify results
     check_averages();
 
-    #100;
+    @(posedge done);
     $display(">> TEST FINISHED at %0t", $time);
     $finish;
   end
