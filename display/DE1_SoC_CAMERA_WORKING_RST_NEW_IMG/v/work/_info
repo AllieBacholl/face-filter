@@ -10,7 +10,7 @@ cModel Technology
 dC:/intelFPGA/18.1
 vimage_resize_avg_simple
 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z0 !s110 1745686107
+Z0 !s110 1745691090
 !i10b 1
 !s100 EJLCY61gA`4VV3>hlcQ8@0
 IUmoAeFmd1YejV2:SCLYOE2
@@ -18,7 +18,7 @@ Z1 VDg1SIo80bB@j0V0VzS_@n1
 !s105 image_resize_avg_simple_sv_unit
 S1
 Z2 dC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v
-w1745683881
+w1745686380
 8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv
 FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv
 L0 1
@@ -26,7 +26,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1745686107.000000
+Z4 !s108 1745691090.000000
 !s107 C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple.sv|
 !i113 1
@@ -35,11 +35,11 @@ Z5 tCvgOpt 0
 vimage_resize_avg_simple_tb
 R0
 !i10b 1
-!s100 C`BQLEfRUbRI]6jn]>g^02
-IHaFM4e?SK5cRNoYKN[N6_3
+!s100 gHZA2KbPBJ@hD[Jj9e3eg3
+I3^GRR^T]B1bgeBmamBH2[2
 R1
 R2
-w1745686104
+w1745690981
 Z6 8C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v
 Z7 FC:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/v/image_resize_avg_simple_tb_simple.v
 L0 3

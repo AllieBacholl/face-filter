@@ -16,6 +16,7 @@ module image_resize_avg_simple_tb;
   wire        done;           // DUT’s “averaging done”
   wire [7:0]  uart_tx;
   wire        uart_trmt;
+  wire        avg_done;
 
   // ----------------------------------------------------------------
   //  Loop indices and counters (module‐scope for Verilog-2001)
@@ -37,7 +38,7 @@ module image_resize_avg_simple_tb;
     .done            (),
     .uart_tx         (uart_tx),
     .uart_trmt       (uart_trmt),
-    .avg_done        (),
+    .avg_done        (avg_done),
     .triggered       (done)
   );
 
@@ -103,7 +104,7 @@ module image_resize_avg_simple_tb;
     // -- stream pixels only when DUT asks for them
     pixel_count = 0;
     // keep feeding until DUT asserts done
-    while (!done) begin
+    while (!avg_done) begin
       @(posedge clk);
       if (start_resize) begin
         // simple gradient pattern: (pixel_count mod 256)
@@ -113,6 +114,7 @@ module image_resize_avg_simple_tb;
     end
 
     #10
+    
     $display(">> Averaging completed at %0t", $time);
 
     // -- verify results
