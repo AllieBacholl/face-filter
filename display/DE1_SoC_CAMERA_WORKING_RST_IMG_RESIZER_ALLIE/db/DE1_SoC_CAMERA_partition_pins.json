@@ -376,10 +376,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[2]",
-					"strict" : false
-				},
-				{
 					"name" : "D5M_PIXLCLK",
 					"strict" : false
 				},
@@ -389,6 +385,10 @@
 				},
 				{
 					"name" : "CLOCK2_50",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[2]",
 					"strict" : false
 				},
 				{

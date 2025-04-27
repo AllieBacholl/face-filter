@@ -66,8 +66,10 @@ end
 
 // Write to resize image
 always_ff @(posedge clk) begin
-    if (setPixel) begin
-        pixelsResize[vPixCntResize][hPixCntResize] <= sum/300;
+    if (write) begin
+        oPix <= sum/300;
+	 end else begin
+		  oPix <= 8'hAA;
 	 end
 end
 
@@ -107,11 +109,9 @@ end
 // Write Data Control
 always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n) begin
-        oPix <= 8'h00;
         vWriteCnt <= 1'b0;
         hWriteCnt <= 1'b0;
     end else if (oSdramWr) begin
-        oPix <= pixelsResize[vWriteCnt][hWriteCnt];
         if (hWriteCnt >= 10'd31) begin
             hWriteCnt <= 10'h000;
             if (vWriteCnt >= 10'd31) begin
@@ -124,7 +124,6 @@ always_ff @(posedge clk, negedge rst_n) begin
         end
 
     end else begin
-        oPix <= 8'hAA;
         hWriteCnt <= 10'd0;
         vWriteCnt <= 10'd0;
     end
@@ -226,7 +225,7 @@ always_comb begin
 
         RESIZE: begin
             // Write pixels out
-			setPixel = 1'b1;
+				write = 1'b1;
             hPixCntResizeInc = 1'b1;
             if (hPixCntResize == 10'd31) begin
                 vPixCntResizeInc = 1'b1;
@@ -243,12 +242,8 @@ always_comb begin
         end
 
         DONE: begin
-            write = 1'b1;
-            if (hWriteCnt == 10'd31 & vWriteCnt == 10'd31) begin
-                write = 1'b0;
-                setResizeValid = 1'b1;
-                nxt_state = IDLE;
-            end
+            setResizeValid = 1'b1;
+            nxt_state = IDLE;
         end
     endcase
 end

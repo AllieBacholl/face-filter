@@ -228,8 +228,6 @@ module DE1_SoC_CAMERA(
 //=======================================================
 wire			 [15:0]			Read_DATA1;
 wire	       [15:0]			Read_DATA2;
-wire	       [15:0]			Read_DATA3;
-wire	       [15:0]			Read_DATA4;
 
 wire			 [11:0]			mCCD_DATA;
 wire								mCCD_DVAL;
@@ -248,6 +246,11 @@ wire								DLY_RST_DISP_1;
 wire								DLY_RST_DISP_2;
 wire								DLY_RST_DISP_3;
 wire								DLY_RST_DISP_4;
+wire								DLY_RST_KEY2_0;
+wire								DLY_RST_KEY2_1;
+wire								DLY_RST_KEY2_2;
+wire								DLY_RST_KEY2_3;
+wire								DLY_RST_KEY2_4;
 wire								Read;
 reg		    [11:0]			rCCD_DATA;
 reg								rCCD_LVAL;
@@ -280,7 +283,7 @@ wire		[9:0] 	iGreen;
 wire		[9:0] 	iBlue;
 reg		[7:0] 	cur_img;
 wire		[22:0] 	read_addr;
-reg 		[10:0] 	disp_sync_d;
+reg 		[9:0] 	disp_sync_d;
 reg					dispRst_ff;
 
 // Resize
@@ -290,6 +293,10 @@ wire 		[7:0]    resize_pix;
 wire              resize_wr;
 wire              resize_rd;
 wire     [22:0]   resize_addr;
+
+// RAM
+wire 		[9:0]		addressRam;
+wire		[7:0]		ramData;
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -311,15 +318,44 @@ always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
   end
 end
 
+// RAM Address
+always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
+  if (!DLY_RST_0) begin
+    addressRam <= 10'h000;
+  end else if (resize_valid) begin
+    addressRam <= 10'h000;
+  end else if (addressRam >= 1024) begin
+    addressRam <= 10'h000;
+  end else if ((tbr & tx_en) | resize_wr) begin
+	 addressRam <= addressRam + 1'b1;
+  end
+end
+
+reg prev_button;   // Previous value of button input
+reg trigger;
+
+always @(posedge CLOCK_50) begin
+    prev_button <= !KEY[2]; // Store the current button value in the next cycle
+end
+
+always @(posedge CLOCK_50) begin
+    if (!KEY[2] && !prev_button) begin // Rising edge detected
+        trigger <= 1'b1;             // Set the trigger signal
+    end else begin
+        trigger <= 1'b0;             // Reset the trigger signal
+    end
+end
+
 // Resize start and TX Enable
-always@(negedge DLY_RST_0 or posedge CLOCK_50 or negedge KEY[2] or negedge KEY[3])
+always@(negedge DLY_RST_0 or posedge CLOCK_50 or posedge trigger or negedge KEY[3])
 begin
 	if (!DLY_RST_0 | !KEY[3]) begin
 		resize_start <= 1'b0;
 		tx_en <= 1'b0;
 	end
-	else if (!KEY[2]) begin
+	else if (trigger) begin
 		resize_start <= 1'b1;
+		tx_en <= 1'b0;
 	end
 	else if (resize_valid) begin
 		tx_en <= 1'b1;
@@ -330,16 +366,15 @@ begin
 		resize_start <= 1'b0;
 	end else begin
 		resize_start <= 1'b0;
-		tx_en <= 1'b0;
 	end
 end
 
-always@(posedge CLOCK_50 or negedge DLY_RST_0 or negedge KEY[2])
+always@(posedge CLOCK_50 or negedge DLY_RST_0 or negedge DLY_RST_KEY2_0)
 begin
 	if (!DLY_RST_0) begin
 		tx_count <= 1'b0;
 	end
-	else if (!KEY[2]) begin
+	else if (!DLY_RST_KEY2_0) begin
 		tx_count <= 1'b0;
 	end
 	else if (tbr & tx_en) begin
@@ -348,9 +383,9 @@ begin
 end
 
 // Display
-assign iRed 	= SW[8] ? {Read_DATA3[11:2]} : {Read_DATA3[7:5], 7'h00};
-assign iGreen 	= SW[8] ? {iRed} : {Read_DATA3[4:2], 7'h00};
-assign iBlue 	= SW[8] ? {iRed} : {Read_DATA3[1:0], 8'h00};
+assign iRed 	= SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[7:5], 7'h00};
+assign iGreen 	= SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[4:2], 7'h00};
+assign iBlue 	= SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[1:0], 8'h00};
 
 // Display Reset
 // Sample switches
@@ -358,12 +393,12 @@ always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
   if (!DLY_RST_0) begin
     disp_sync_d  <= 9'h000;
   end else begin
-    disp_sync_d  <= {cur_img, SW[8], KEY[2]};	// Only need 7 bits for 47 image select
+    disp_sync_d  <= {cur_img, SW[8]};	// Only need 7 bits for 47 image select
   end
 end
 
 // Detect SW change
-wire disp_changed = ({cur_img, SW[8], KEY[2]} != disp_sync_d);
+wire disp_changed = ({cur_img, SW[8]} != disp_sync_d);
 
 // Generate rst
 always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
@@ -421,6 +456,16 @@ Reset_Delay			u2	(
  							.oRST_4(DLY_RST_DISP_4)
 						   );
 
+ Reset_Delay			u23	(	
+ 							.iCLK(CLOCK_50),
+ 							.iRST(KEY[2]),
+ 							.oRST_0(DLY_RST_KEY2_0),
+ 							.oRST_1(DLY_RST_KEY2_1),
+ 							.oRST_2(DLY_RST_KEY2_2),
+ 							.oRST_3(DLY_RST_KEY2_3),
+ 							.oRST_4(DLY_RST_KEY2_4)
+						   );
+
 //D5M image capture
 CCD_Capture			u3	(	
 							.oDATA(mCCD_DATA),
@@ -470,81 +515,45 @@ sdram_pll 			u6	(
 
 //SDRam Read and Write as Frame Buffer
 Sdram_Control	   u7	(	//	HOST Side						
-						   .RESET_N(KEY[0]&dispRst_ff),
+						   .RESET_N(KEY[0]), // dispRst_ff
 							.CLK(sdram_ctrl_clk),
 							
-							//	FIFO Write Side 3, Resize
-							.WR1_DATA({8'h00, resize_pix}),
-							.WR1(resize_wr), // resize_wr
-							.WR1_ADDR(23'h0A0000),
-                     .WR1_MAX_ADDR(23'h0A0000+(32*32)),
+							//	FIFO Write Side 1, Uart Rx
+							.WR1_DATA({8'h00, rx_data}),
+							.WR1(write & SW[7]),	// Only write whats recieved when SW[7] is asserted
+							.WR1_ADDR(23'h100000),
+                     .WR1_MAX_ADDR(23'h100000+(460800*10)), // for 15 images
 						   .WR1_LENGTH(8'h50),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
 
-							//	FIFO Write Side 1, Uart Rx
-							.WR2_DATA({8'h00, rx_data}),
-							.WR2(write & SW[7]),	// Only write whats recieved when SW[7] is asserted
-							.WR2_ADDR(23'h100000),
-                     .WR2_MAX_ADDR(23'h100000+(460800*10)), // for 15 images
-						   .WR2_LENGTH(8'h50),
-		               .WR2_LOAD(!DLY_RST_0),
-							.WR2_CLK(~CLOCK_50), // D5M_PIXLCLK
-
 							//	FIFO Write Side 2, Camera
-							.WR3_DATA({4'h0, sCCD_R}),  
-							.WR3(sCCD_DVAL), // sCCD_DVAL
-							.WR3_ADDR(0),
-							.WR3_MAX_ADDR(640*480),
-							.WR3_LENGTH(8'h50),
-							.WR3_LOAD(!DLY_RST_0),				
-							.WR3_CLK(~D5M_PIXLCLK),
+							.WR2_DATA({4'h0, sCCD_R}),  
+							.WR2(sCCD_DVAL), // sCCD_DVAL
+							.WR2_ADDR(0),
+							.WR2_MAX_ADDR(640*480),
+							.WR2_LENGTH(8'h50),
+							.WR2_LOAD(!DLY_RST_0),				
+							.WR2_CLK(~D5M_PIXLCLK),
 
-                     //	FIFO Write Side 4
-							.WR4_DATA({8'h00, rx_data}),
-							.WR4(1'b0),
-							.WR4_ADDR(23'h100000),
-                     .WR4_MAX_ADDR(23'h100000+(460800*10)),
-						   .WR4_LENGTH(8'h50),
-		               .WR4_LOAD(!DLY_RST_0),
-							.WR4_CLK(~CLOCK_50), // D5M_PIXLCLK
-
-							//	FIFO Read Side 3, Resize
+							//	FIFO Read Side 1, Resize
 						   .RD1_DATA(Read_DATA1),
 				        	.RD1(resize_rd), // resize_rd
 				        	.RD1_ADDR(resize_addr),
-                     .RD1_MAX_ADDR(20),
-							.RD1_LENGTH(8'h50),
+                     .RD1_MAX_ADDR(resize_addr+20),
+							.RD1_LENGTH(8'h14),
 							.RD1_LOAD(!DLY_RST_0),
 							.RD1_CLK(~CLOCK_50),
-							
-							//	FIFO Read Side 2, UART Tx
+
+                     //	FIFO Read Side 2, VGA
 						   .RD2_DATA(Read_DATA2),
-							.RD2(tbr & tx_en),    // Read
-							.RD2_ADDR(23'h0A0000),
-                     .RD2_MAX_ADDR(23'h0A0000+(32*32)),
-							.RD2_LENGTH(8'h50),
-                   	.RD2_LOAD(!DLY_RST_0), // resize_valid
-							.RD2_CLK(~CLOCK_50),
+				        	.RD2(Read),  //Read
+				        	.RD2_ADDR(read_addr),
+                     .RD2_MAX_ADDR(read_addr+(640*480)),
+							.RD2_LENGTH(8'h14),
+							.RD2_LOAD(!DLY_RST_0), // !DLY_RST_DISP_0
+							.RD2_CLK(~VGA_CTRL_CLK),
 
-                     //	FIFO Read Side 1, VGA
-						   .RD3_DATA(Read_DATA3),
-				        	.RD3(Read),  //Read
-				        	.RD3_ADDR(read_addr),
-                     .RD3_MAX_ADDR(read_addr+(640*480)),
-							.RD3_LENGTH(8'h50),
-							.RD3_LOAD(!DLY_RST_0 | !DLY_RST_DISP_0),
-							.RD3_CLK(~VGA_CTRL_CLK),
-
-                     //	FIFO Read Side 4, not used
-						   .RD4_DATA(Read_DATA4),
-				        	.RD4(1'b0),
-				        	.RD4_ADDR(0),
-                     .RD4_MAX_ADDR(640*480),
-							.RD4_LENGTH(8'h50),
-							.RD4_LOAD(!DLY_RST_0),
-							.RD4_CLK(~CLOCK_50),
-										
 							//	SDRAM Side
 						   .SA(DRAM_ADDR),
 							.BA(DRAM_BA),
@@ -589,7 +598,7 @@ VGA_Controller	  u1	(	//	Host Side
 							.oVGA_BLANK(VGA_BLANK_N),
 							//	Control Signal
 							.iCLK(VGA_CTRL_CLK),
-							.iRST_N(DLY_RST_2 & DLY_RST_DISP_2),
+							.iRST_N(DLY_RST_2), // DLY_RST_DISP_2
 							.iZOOM_MODE_SW(SW[9])
 						   );
 
@@ -621,9 +630,16 @@ uart_tx					uart_tx_inst (
 							.clk(CLOCK_50), 
 							.rst_n(DLY_RST_0),		
 							.trmt(tbr & tx_en),				
-							.tx_data(Read_DATA2[11:4]),		
+							.tx_data(ramData),		
 							.TX(txd),				
 							.tx_done(tbr)
 							);
-
+							
+RESIZED_IMG u100(
+	.address(addressRam),
+	.clock(CLOCK_50),
+	.data(resize_pix),
+	.wren(resize_wr),
+	.q(ramData));
+    
 endmodule

@@ -26,7 +26,6 @@ parameter	SC_RRD		=	7;
 parameter	SC_PM		  =	1;
 parameter	SC_BL		  =	1;
 */
-
 ///////////////////////////////////////
 ////////////	100 MHz	///////////////
 parameter	INIT_PER	=	24000;
@@ -36,7 +35,6 @@ parameter	SC_RCD		=	3;
 parameter	SC_RRD		=	7;
 parameter	SC_PM		  =	1;
 parameter	SC_BL		  =	1;
-
 ///////////////////////////////////////
 ////////////	50 MHz	///////////////
 /*
