@@ -19,12 +19,10 @@ reg        [9:0] vPixCnt; // Count of the amount of vertical pixels (up to 15)
 reg        [9:0] hPixCnt; // Count of the amount of horizontal pixels (up to 20)
 reg        [9:0] vPixCntResize; // Count of the amount of vertical pixels (up to 32)
 reg        [9:0] hPixCntResize; // Count of the amount of horizontal pixels (up to 32)
-reg        [9:0] vWriteCnt; // Count of the amount of vertical pixels written out (up to 32)
-reg        [9:0] hWriteCnt; // Count of the amount of horizontal pixels written out (up to 32)
 reg       [22:0] currBaseAddrV;
 reg       [22:0] currBaseAddrH;
 
-reg        [15:0] sum;
+reg        [16:0] sum;
 
 // 32 x 32 resized image
 reg        	[7:0] pixelsResize [0:31] [0:31];
@@ -67,7 +65,7 @@ end
 // Write to resize image
 always_ff @(posedge clk) begin
     if (write) begin
-        oPix <= sum/300;
+        oPix <= sum/300; // sum/300
 	 end else begin
 		  oPix <= 8'hAA;
 	 end
@@ -103,29 +101,6 @@ always_ff @(posedge clk, negedge rst_n) begin
         oResizeValid <= 1'b1;
     end else begin
         oResizeValid <= 1'b0;
-    end
-end
-
-// Write Data Control
-always_ff @(posedge clk, negedge rst_n) begin
-    if (!rst_n) begin
-        vWriteCnt <= 1'b0;
-        hWriteCnt <= 1'b0;
-    end else if (oSdramWr) begin
-        if (hWriteCnt >= 10'd31) begin
-            hWriteCnt <= 10'h000;
-            if (vWriteCnt >= 10'd31) begin
-                vWriteCnt <= 10'h000;
-            end else begin
-                vWriteCnt <= vWriteCnt + 1'b1;
-            end
-        end else begin
-            hWriteCnt <= hWriteCnt + 1'b1;
-        end
-
-    end else begin
-        hWriteCnt <= 10'd0;
-        vWriteCnt <= 10'd0;
     end
 end
 
