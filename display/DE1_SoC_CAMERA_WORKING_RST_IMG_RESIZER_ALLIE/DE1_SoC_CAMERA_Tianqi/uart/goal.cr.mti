@@ -1,0 +1,22 @@
+C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple.sv {1 {vlog -work work -sv -stats=none C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module image_resize_avg_simple
+
+Top level modules:
+	image_resize_avg_simple
+
+} {} {}} C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/uart_tx.sv {1 {vlog -work work -sv -stats=none C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/uart_tx.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module uart_tx
+
+Top level modules:
+	uart_tx
+
+} {} {}} C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple_tb_simple.sv {1 {vlog -work work -sv -stats=none C:/Users/Patron/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_NEW_IMG/uart/image_resize_avg_simple_tb_simple.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_image_resize_avg_simple
+
+Top level modules:
+	tb_image_resize_avg_simple
+
+} {} {}}
