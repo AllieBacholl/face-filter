@@ -1,2 +1,0 @@
-Info (10281): Verilog HDL Declaration information at ID_EX.sv(2): object "EXT" differs only in case from object "ext" in the same scope File: C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/Processor/ID_EX.sv Line: 2
-Info (10281): Verilog HDL Declaration information at EX_ME.sv(2): object "EXT" differs only in case from object "ext" in the same scope File: C:/Users/albac/Documents/face-filter/DE1_SoC_CAMERA/Processor/EX_ME.sv Line: 2

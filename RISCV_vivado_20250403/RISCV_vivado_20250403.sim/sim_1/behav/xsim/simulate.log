@@ -1,0 +1,7 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Loading test file: rv32ui-p-sub.txt
+############################
+########  pass  !!!#########
+############################
+$finish called at time : 9190 ns : File "F:/vivado_project/RISCV_vivado_20250403/RISCV_vivado_20250403.srcs/sim_1/imports/tb/riscv_soc_tb.v" Line 56

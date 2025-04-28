@@ -1,0 +1,39 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 3ebe628960034ca7aeb972937bcf6d47 --incr --debug typical --relax --mt 2 -d INSTR_FILE=rv32um-p-remu.txt -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot riscv_soc_tb_behav xil_defaultlib.riscv_soc_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "F:/vivado_project/RISCV_vivado_20250403/RISCV_vivado_20250403.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.mux2
+Compiling module xil_defaultlib.pc
+Compiling module xil_defaultlib.alu_add
+Compiling module xil_defaultlib.dff
+Compiling module xil_defaultlib.if_id
+Compiling module xil_defaultlib.main_ctrl
+Compiling module xil_defaultlib.mux2(DW=12)
+Compiling module xil_defaultlib.regs
+Compiling module xil_defaultlib.imm_gen
+Compiling module xil_defaultlib.or_gate
+Compiling module xil_defaultlib.dff(DW=1)
+Compiling module xil_defaultlib.dff(DW=3)
+Compiling module xil_defaultlib.dff(DW=5)
+Compiling module xil_defaultlib.id_ex
+Compiling module xil_defaultlib.mux3
+Compiling module xil_defaultlib.alu_ex
+Compiling module xil_defaultlib.alu_ctrl
+Compiling module xil_defaultlib.ex_mem
+Compiling module xil_defaultlib.mem_wb
+Compiling module xil_defaultlib.jump_ctrl_unit
+Compiling module xil_defaultlib.Hazard_Detection_Forwarding_unit
+Compiling module xil_defaultlib.riscv_core
+Compiling module xil_defaultlib.iram(MEM_DEPTH=2048)
+Compiling module xil_defaultlib.dual_ram(MEM_DEPTH=2048)
+Compiling module xil_defaultlib.dram(MEM_DEPTH=2048)
+Compiling module xil_defaultlib.riscv_soc
+Compiling module xil_defaultlib.riscv_soc_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot riscv_soc_tb_behav

@@ -20,3 +20,5 @@ work/         # Compiled work library folder
 *.o           # Object files
 *.so          # Shared libraries
 *.dll         # Windows DLL files
+
+./memory/
