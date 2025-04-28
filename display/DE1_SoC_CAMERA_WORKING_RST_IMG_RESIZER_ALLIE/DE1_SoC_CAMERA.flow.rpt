@@ -1,5 +1,5 @@
 Flow report for DE1_SoC_CAMERA
-Sun Apr 27 19:55:04 2025
+Sun Apr 27 23:22:21 2025
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Apr 27 19:54:58 2025       ;
+; Flow Status                     ; Successful - Sun Apr 27 23:22:14 2025       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; DE1_SoC_CAMERA                              ;
 ; Top-level Entity Name           ; DE1_SoC_CAMERA                              ;
@@ -48,10 +48,10 @@ refer to the applicable agreement for further details.
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
 ; Logic utilization (in ALMs)     ; 1,097 / 32,070 ( 3 % )                      ;
-; Total registers                 ; 1457                                        ;
+; Total registers                 ; 1461                                        ;
 ; Total pins                      ; 226 / 457 ( 49 % )                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 64,464 / 4,065,280 ( 2 % )                  ;
+; Total block memory bits         ; 65,488 / 4,065,280 ( 2 % )                  ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/27/2025 19:52:30 ;
+; Start date & time ; 04/27/2025 23:19:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE1_SoC_CAMERA      ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 125381169939211.174580155019540        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 125381169939211.174581399016360        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; img_resize/RESIZED_IMG_bb.v            ; --            ; --          ; --         ;
@@ -100,11 +100,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 5006 MB             ; 00:00:15                           ;
-; Fitter               ; 00:02:12     ; 1.1                     ; 7966 MB             ; 00:13:45                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4853 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 2.2                     ; 5386 MB             ; 00:00:11                           ;
-; Total                ; 00:02:30     ; --                      ; --                  ; 00:14:15                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4997 MB             ; 00:00:14                           ;
+; Fitter               ; 00:02:09     ; 1.1                     ; 8030 MB             ; 00:14:43                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4856 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:06     ; 2.3                     ; 5386 MB             ; 00:00:09                           ;
+; Total                ; 00:02:28     ; --                      ; --                  ; 00:15:10                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

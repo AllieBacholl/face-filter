@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE1_SoC_CAMERA
-Sun Apr 27 19:52:39 2025
+Sun Apr 27 23:19:59 2025
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -129,16 +129,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr 27 19:52:39 2025       ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr 27 23:19:59 2025       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; DE1_SoC_CAMERA                              ;
 ; Top-level Entity Name           ; DE1_SoC_CAMERA                              ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 1332                                        ;
+; Total registers                 ; 1334                                        ;
 ; Total pins                      ; 226                                         ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 64,464                                      ;
+; Total block memory bits         ; 65,488                                      ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -254,7 +254,8 @@ refer to the applicable agreement for further details.
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processors 7-16        ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processors 8-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -345,11 +346,11 @@ refer to the applicable agreement for further details.
 ;     -- 4 input functions                    ; 304                                                                               ;
 ;     -- <=3 input functions                  ; 1204                                                                              ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 1332                                                                              ;
+; Dedicated logic registers                   ; 1334                                                                              ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 226                                                                               ;
 ; Total MLAB memory bits                      ; 0                                                                                 ;
-; Total block memory bits                     ; 64464                                                                             ;
+; Total block memory bits                     ; 65488                                                                             ;
 ;                                             ;                                                                                   ;
 ; Total DSP Blocks                            ; 0                                                                                 ;
 ;                                             ;                                                                                   ;
@@ -357,9 +358,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 4                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; sdram_pll:u6|sdram_pll_0002:sdram_pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 582                                                                               ;
-; Total fan-out                               ; 13364                                                                             ;
-; Average fan-out                             ; 3.45                                                                              ;
+; Maximum fan-out                             ; 584                                                                               ;
+; Total fan-out                               ; 13418                                                                             ;
+; Average fan-out                             ; 3.46                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -368,11 +369,11 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                        ; Entity Name         ; Library Name ;
 +--------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |DE1_SoC_CAMERA                                              ; 1941 (198)          ; 1332 (66)                 ; 64464             ; 0          ; 226  ; 0            ; |DE1_SoC_CAMERA                                                                                                                                                                            ; DE1_SoC_CAMERA      ; work         ;
+; |DE1_SoC_CAMERA                                              ; 1941 (198)          ; 1334 (66)                 ; 65488             ; 0          ; 226  ; 0            ; |DE1_SoC_CAMERA                                                                                                                                                                            ; DE1_SoC_CAMERA      ; work         ;
 ;    |CCD_Capture:u3|                                          ; 39 (39)             ; 42 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|CCD_Capture:u3                                                                                                                                                             ; CCD_Capture         ; work         ;
 ;    |I2C_CCD_Config:u8|                                       ; 192 (136)           ; 131 (93)                  ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|I2C_CCD_Config:u8                                                                                                                                                          ; I2C_CCD_Config      ; work         ;
 ;       |I2C_Controller:u0|                                    ; 56 (56)             ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|I2C_CCD_Config:u8|I2C_Controller:u0                                                                                                                                        ; I2C_Controller      ; work         ;
-;    |RAW2RGB:u4|                                              ; 44 (29)             ; 46 (35)                   ; 30672             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|RAW2RGB:u4                                                                                                                                                                 ; RAW2RGB             ; work         ;
+;    |RAW2RGB:u4|                                              ; 44 (29)             ; 48 (37)                   ; 30672             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|RAW2RGB:u4                                                                                                                                                                 ; RAW2RGB             ; work         ;
 ;       |Line_Buffer1:u0|                                      ; 15 (0)              ; 11 (0)                    ; 30672             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|RAW2RGB:u4|Line_Buffer1:u0                                                                                                                                                 ; Line_Buffer1        ; work         ;
 ;          |altshift_taps:ALTSHIFT_TAPS_component|             ; 15 (0)              ; 11 (0)                    ; 30672             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|RAW2RGB:u4|Line_Buffer1:u0|altshift_taps:ALTSHIFT_TAPS_component                                                                                                           ; altshift_taps       ; work         ;
 ;             |shift_taps_lv51:auto_generated|                 ; 15 (0)              ; 11 (0)                    ; 30672             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|RAW2RGB:u4|Line_Buffer1:u0|altshift_taps:ALTSHIFT_TAPS_component|shift_taps_lv51:auto_generated                                                                            ; shift_taps_lv51     ; work         ;
@@ -389,7 +390,7 @@ refer to the applicable agreement for further details.
 ;       |SEG7_LUT:u1|                                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|SEG7_LUT_6:u5|SEG7_LUT:u1                                                                                                                                                  ; SEG7_LUT            ; work         ;
 ;       |SEG7_LUT:u2|                                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|SEG7_LUT_6:u5|SEG7_LUT:u2                                                                                                                                                  ; SEG7_LUT            ; work         ;
 ;       |SEG7_LUT:u3|                                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|SEG7_LUT_6:u5|SEG7_LUT:u3                                                                                                                                                  ; SEG7_LUT            ; work         ;
-;    |Sdram_Control:u7|                                        ; 829 (416)           ; 720 (162)                 ; 25600             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7                                                                                                                                                           ; Sdram_Control       ; work         ;
+;    |Sdram_Control:u7|                                        ; 829 (416)           ; 720 (162)                 ; 26624             ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7                                                                                                                                                           ; Sdram_Control       ; work         ;
 ;       |Sdram_RD_FIFO:u_read1_fifo|                           ; 71 (0)              ; 112 (0)                   ; 4096              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo                                                                                                                                ; Sdram_RD_FIFO       ; work         ;
 ;          |dcfifo_mixed_widths:dcfifo_mixed_widths_component| ; 71 (0)              ; 112 (0)                   ; 4096              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component                                                                              ; dcfifo_mixed_widths ; work         ;
 ;             |dcfifo_ahp1:auto_generated|                     ; 71 (14)             ; 112 (30)                  ; 4096              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated                                                   ; dcfifo_ahp1         ; work         ;
@@ -406,9 +407,9 @@ refer to the applicable agreement for further details.
 ;                |cmpr_906:wrfull_eq_comp|                     ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|cmpr_906:wrfull_eq_comp                           ; cmpr_906            ; work         ;
 ;                |dffpipe_oe9:ws_brp|                          ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|dffpipe_oe9:ws_brp                                ; dffpipe_oe9         ; work         ;
 ;                |dffpipe_oe9:ws_bwp|                          ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|dffpipe_oe9:ws_bwp                                ; dffpipe_oe9         ; work         ;
-;       |Sdram_RD_FIFO:u_read2_fifo|                           ; 71 (0)              ; 112 (0)                   ; 5120              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo                                                                                                                                ; Sdram_RD_FIFO       ; work         ;
-;          |dcfifo_mixed_widths:dcfifo_mixed_widths_component| ; 71 (0)              ; 112 (0)                   ; 5120              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component                                                                              ; dcfifo_mixed_widths ; work         ;
-;             |dcfifo_ahp1:auto_generated|                     ; 71 (13)             ; 112 (30)                  ; 5120              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated                                                   ; dcfifo_ahp1         ; work         ;
+;       |Sdram_RD_FIFO:u_read2_fifo|                           ; 71 (0)              ; 112 (0)                   ; 6144              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo                                                                                                                                ; Sdram_RD_FIFO       ; work         ;
+;          |dcfifo_mixed_widths:dcfifo_mixed_widths_component| ; 71 (0)              ; 112 (0)                   ; 6144              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component                                                                              ; dcfifo_mixed_widths ; work         ;
+;             |dcfifo_ahp1:auto_generated|                     ; 71 (13)             ; 112 (30)                  ; 6144              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated                                                   ; dcfifo_ahp1         ; work         ;
 ;                |a_gray2bin_oab:wrptr_g_gray2bin|             ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|a_gray2bin_oab:wrptr_g_gray2bin                   ; a_gray2bin_oab      ; work         ;
 ;                |a_gray2bin_oab:ws_dgrp_gray2bin|             ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|a_gray2bin_oab:ws_dgrp_gray2bin                   ; a_gray2bin_oab      ; work         ;
 ;                |a_graycounter_jdc:wrptr_g1p|                 ; 15 (15)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|a_graycounter_jdc:wrptr_g1p                       ; a_graycounter_jdc   ; work         ;
@@ -417,7 +418,7 @@ refer to the applicable agreement for further details.
 ;                   |dffpipe_re9:dffpipe5|                     ; 0 (0)               ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|alt_synch_pipe_apl:rs_dgwp|dffpipe_re9:dffpipe5   ; dffpipe_re9         ; work         ;
 ;                |alt_synch_pipe_bpl:ws_dgrp|                  ; 0 (0)               ; 20 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|alt_synch_pipe_bpl:ws_dgrp                        ; alt_synch_pipe_bpl  ; work         ;
 ;                   |dffpipe_se9:dffpipe8|                     ; 0 (0)               ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|alt_synch_pipe_bpl:ws_dgrp|dffpipe_se9:dffpipe8   ; dffpipe_se9         ; work         ;
-;                |altsyncram_86d1:fifo_ram|                    ; 0 (0)               ; 0 (0)                     ; 5120              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram                          ; altsyncram_86d1     ; work         ;
+;                |altsyncram_86d1:fifo_ram|                    ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram                          ; altsyncram_86d1     ; work         ;
 ;                |cmpr_906:rdempty_eq_comp|                    ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|cmpr_906:rdempty_eq_comp                          ; cmpr_906            ; work         ;
 ;                |cmpr_906:wrfull_eq_comp|                     ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|cmpr_906:wrfull_eq_comp                           ; cmpr_906            ; work         ;
 ;                |dffpipe_oe9:ws_brp|                          ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|dffpipe_oe9:ws_brp                                ; dffpipe_oe9         ; work         ;
@@ -828,12 +829,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1332  ;
+; Total registers                              ; 1334  ;
 ; Number of registers using Synchronous Clear  ; 336   ;
 ; Number of registers using Synchronous Load   ; 45    ;
 ; Number of registers using Asynchronous Clear ; 1169  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 622   ;
+; Number of registers using Clock Enable       ; 624   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -2121,7 +2122,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WR1_LENGTH[6]        ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 ; WR1_LENGTH[5]        ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; WR1_LENGTH[4]        ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; WR2_DATA[15..10]     ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; WR2_DATA[15..12]     ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; WR2_ADDR             ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (23 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; WR2_ADDR[22..0]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; WR2_MAX_ADDR         ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (23 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
@@ -2145,7 +2146,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; RD1_LENGTH[4]        ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 ; RD1_LENGTH[3]        ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; RD1_LENGTH[2]        ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; RD2_DATA[15..10]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; RD2_DATA[15..12]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
 ; RD2_ADDR[9..0]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; RD2_ADDR[22]         ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
 ; RD2_LENGTH[3..0]     ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
@@ -2185,17 +2186,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "RAW2RGB:u4"                                                                                                                                                                              ;
-+------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; oRed[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; oGreen     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; oBlue      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; iX_Cont    ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (11 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; iY_Cont    ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (11 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RAW2RGB:u4"                                                                                                                                                                           ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; oGreen  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; oBlue   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; iX_Cont ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (11 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; iY_Cont ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (11 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -2223,12 +2223,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 1332                        ;
+; arriav_ff             ; 1334                        ;
 ;     CLR               ; 503                         ;
 ;     CLR SCLR          ; 109                         ;
 ;     CLR SCLR SLD      ; 8                           ;
 ;     CLR SLD           ; 1                           ;
-;     ENA               ; 61                          ;
+;     ENA               ; 63                          ;
 ;     ENA CLR           ; 353                         ;
 ;     ENA CLR SCLR      ; 179                         ;
 ;     ENA CLR SLD       ; 16                          ;
@@ -2263,10 +2263,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         3 data inputs ; 12                          ;
 ; boundary_port         ; 226                         ;
 ; generic_pll           ; 4                           ;
-; stratixv_ram_block    ; 82                          ;
+; stratixv_ram_block    ; 84                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 19.00                       ;
-; Average LUT depth     ; 4.40                        ;
+; Average LUT depth     ; 4.39                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2285,7 +2285,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Apr 27 19:52:30 2025
+    Info: Processing started: Sun Apr 27 23:19:50 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC_CAMERA -c DE1_SoC_CAMERA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -2747,8 +2747,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (12128): Elaborating entity "altsyncram_aem1" for hierarchy "RESIZED_IMG:u100|altsyncram:altsyncram_component|altsyncram_aem1:auto_generated" File: c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram|q_b[10]" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/altsyncram_86d1.tdf Line: 361
-        Warning (14320): Synthesized away node "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram|q_b[11]" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/altsyncram_86d1.tdf Line: 393
         Warning (14320): Synthesized away node "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram|q_b[12]" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/altsyncram_86d1.tdf Line: 425
         Warning (14320): Synthesized away node "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram|q_b[13]" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/altsyncram_86d1.tdf Line: 457
         Warning (14320): Synthesized away node "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram|q_b[14]" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/altsyncram_86d1.tdf Line: 489
@@ -2921,18 +2919,18 @@ Warning (21074): Design contains 23 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 184
     Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 186
     Warning (15610): No output dependent on input pin "D5M_STROBE" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 220
-Info (21057): Implemented 2802 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2804 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 48 input pins
     Info (21059): Implemented 116 output pins
     Info (21060): Implemented 62 bidirectional pins
     Info (21061): Implemented 2490 logic cells
-    Info (21064): Implemented 82 RAM segments
+    Info (21064): Implemented 84 RAM segments
     Info (21065): Implemented 4 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 221 warnings
-    Info: Peak virtual memory: 5006 megabytes
-    Info: Processing ended: Sun Apr 27 19:52:39 2025
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 219 warnings
+    Info: Peak virtual memory: 4997 megabytes
+    Info: Processing ended: Sun Apr 27 23:19:59 2025
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Total CPU time (on all processors): 00:00:15
 
 
 +------------------------------------------+

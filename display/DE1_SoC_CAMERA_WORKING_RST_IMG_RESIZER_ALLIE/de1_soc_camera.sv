@@ -560,7 +560,7 @@ Sdram_Control	   u7	(	//	HOST Side
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
 
 							//	FIFO Write Side 2
-							.WR2_DATA({6'h00, sCCD_R[11:2]}),  
+							.WR2_DATA({4'h0, sCCD_R[11:0]}),  
 							.WR2(sCCD_DVAL), // sCCD_DVAL
 							.WR2_ADDR(0),
 							.WR2_MAX_ADDR(640*480),
@@ -616,9 +616,9 @@ I2C_CCD_Config 	u8	(	//	Host Side
 //VGA DISPLAY
 VGA_Controller	  u1	(	//	Host Side
 							.oRequest(Read),
-							.iRed(SW[8] ? {Read_DATA2[9:0]} : {Read_DATA2[7:5], 7'h00}),
-					      .iGreen(SW[8] ? {Read_DATA2[9:0]} : {Read_DATA2[4:2], 7'h00}),
-						   .iBlue(SW[8] ? {Read_DATA2[9:0]} : {Read_DATA2[1:0], 8'h00}),
+							.iRed(SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[7:5], 7'h00}),
+					      .iGreen(SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[4:2], 7'h00}),
+						   .iBlue(SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[1:0], 8'h00}),
 							.iSize(SW[8]),
 							//	VGA Side
 							.oVGA_R(oVGA_R),
@@ -660,7 +660,7 @@ image_resize     u12 (
                      .clk(CLOCK_50),       
                      .rst_n(DLY_RST_0),     
                      .iStart(resize_start),    
-                     .iPix(Read_DATA1[11:4]),      
+                     .iPix(Read_DATA1[11:4]),
                      .oSdramRd(resize_rd),  
                      .oSdramAddr(resize_addr),
                      .oSdramWr(resize_wr),  
