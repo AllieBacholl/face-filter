@@ -453,7 +453,6 @@ always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
   end
 end
 
-
 // D5M
 assign	D5M_TRIGGER	=	1'b1;  // tRIGGER
 assign	D5M_RESET_N	=	DLY_RST_1;

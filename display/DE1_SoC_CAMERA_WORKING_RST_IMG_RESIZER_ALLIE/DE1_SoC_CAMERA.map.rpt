@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE1_SoC_CAMERA
-Sun Apr 27 18:45:40 2025
+Sun Apr 27 19:52:39 2025
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -129,7 +129,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr 27 18:45:40 2025       ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr 27 19:52:39 2025       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; DE1_SoC_CAMERA                              ;
 ; Top-level Entity Name           ; DE1_SoC_CAMERA                              ;
@@ -249,13 +249,12 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processors 8-16        ;   0.0%      ;
+;     Processors 7-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -337,14 +336,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1143                                                                              ;
+; Estimate of Logic utilization (ALMs needed) ; 1145                                                                              ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 1939                                                                              ;
+; Combinational ALUT usage for logic          ; 1941                                                                              ;
 ;     -- 7 input functions                    ; 13                                                                                ;
-;     -- 6 input functions                    ; 260                                                                               ;
+;     -- 6 input functions                    ; 263                                                                               ;
 ;     -- 5 input functions                    ; 157                                                                               ;
-;     -- 4 input functions                    ; 303                                                                               ;
-;     -- <=3 input functions                  ; 1206                                                                              ;
+;     -- 4 input functions                    ; 304                                                                               ;
+;     -- <=3 input functions                  ; 1204                                                                              ;
 ;                                             ;                                                                                   ;
 ; Dedicated logic registers                   ; 1332                                                                              ;
 ;                                             ;                                                                                   ;
@@ -359,7 +358,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; sdram_pll:u6|sdram_pll_0002:sdram_pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 582                                                                               ;
-; Total fan-out                               ; 13347                                                                             ;
+; Total fan-out                               ; 13364                                                                             ;
 ; Average fan-out                             ; 3.45                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
@@ -369,7 +368,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                        ; Entity Name         ; Library Name ;
 +--------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |DE1_SoC_CAMERA                                              ; 1939 (198)          ; 1332 (66)                 ; 64464             ; 0          ; 226  ; 0            ; |DE1_SoC_CAMERA                                                                                                                                                                            ; DE1_SoC_CAMERA      ; work         ;
+; |DE1_SoC_CAMERA                                              ; 1941 (198)          ; 1332 (66)                 ; 64464             ; 0          ; 226  ; 0            ; |DE1_SoC_CAMERA                                                                                                                                                                            ; DE1_SoC_CAMERA      ; work         ;
 ;    |CCD_Capture:u3|                                          ; 39 (39)             ; 42 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|CCD_Capture:u3                                                                                                                                                             ; CCD_Capture         ; work         ;
 ;    |I2C_CCD_Config:u8|                                       ; 192 (136)           ; 131 (93)                  ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|I2C_CCD_Config:u8                                                                                                                                                          ; I2C_CCD_Config      ; work         ;
 ;       |I2C_Controller:u0|                                    ; 56 (56)             ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|I2C_CCD_Config:u8|I2C_Controller:u0                                                                                                                                        ; I2C_Controller      ; work         ;
@@ -457,7 +456,7 @@ refer to the applicable agreement for further details.
 ;                |dffpipe_oe9:rs_bwp|                          ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|Sdram_WR_FIFO:u_write2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ngp1:auto_generated|dffpipe_oe9:rs_bwp                               ; dffpipe_oe9         ; work         ;
 ;       |command:u_command|                                    ; 55 (55)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|command:u_command                                                                                                                                         ; command             ; work         ;
 ;       |control_interface:u_control_interface|                ; 75 (75)             ; 61 (61)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|Sdram_Control:u7|control_interface:u_control_interface                                                                                                                     ; control_interface   ; work         ;
-;    |VGA_Controller:u1|                                       ; 57 (57)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|VGA_Controller:u1                                                                                                                                                          ; VGA_Controller      ; work         ;
+;    |VGA_Controller:u1|                                       ; 59 (59)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|VGA_Controller:u1                                                                                                                                                          ; VGA_Controller      ; work         ;
 ;    |image_resize:u12|                                        ; 396 (196)           ; 130 (130)                 ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|image_resize:u12                                                                                                                                                           ; image_resize        ; work         ;
 ;       |lpm_divide:Div0|                                      ; 200 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|image_resize:u12|lpm_divide:Div0                                                                                                                                           ; lpm_divide          ; work         ;
 ;          |lpm_divide_qbm:auto_generated|                     ; 200 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC_CAMERA|image_resize:u12|lpm_divide:Div0|lpm_divide_qbm:auto_generated                                                                                                             ; lpm_divide_qbm      ; work         ;
@@ -1877,8 +1876,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; V_SYNC_BACK    ; 33    ; Signed Integer                        ;
 ; V_SYNC_FRONT   ; 10    ; Signed Integer                        ;
 ; V_SYNC_TOTAL   ; 525   ; Signed Integer                        ;
-; X_START        ; 144   ; Signed Integer                        ;
-; Y_START        ; 35    ; Signed Integer                        ;
 +----------------+-------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -2242,7 +2239,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 8                           ;
 ;     plain             ; 43                          ;
 ; arriav_io_obuf        ; 62                          ;
-; arriav_lcell_comb     ; 1944                        ;
+; arriav_lcell_comb     ; 1946                        ;
 ;     arith             ; 699                         ;
 ;         0 data inputs ; 19                          ;
 ;         1 data inputs ; 541                         ;
@@ -2251,14 +2248,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 40                          ;
 ;     extend            ; 13                          ;
 ;         7 data inputs ; 13                          ;
-;     normal            ; 1176                        ;
+;     normal            ; 1178                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 32                          ;
-;         2 data inputs ; 245                         ;
-;         3 data inputs ; 217                         ;
-;         4 data inputs ; 263                         ;
+;         2 data inputs ; 244                         ;
+;         3 data inputs ; 216                         ;
+;         4 data inputs ; 264                         ;
 ;         5 data inputs ; 157                         ;
-;         6 data inputs ; 260                         ;
+;         6 data inputs ; 263                         ;
 ;     shared            ; 56                          ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 9                           ;
@@ -2288,7 +2285,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Apr 27 18:45:30 2025
+    Info: Processing started: Sun Apr 27 19:52:30 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC_CAMERA -c DE1_SoC_CAMERA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -2340,7 +2337,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file de1_soc
 Info (12127): Elaborating entity "DE1_SoC_CAMERA" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(308): truncated value with size 32 to match size of target (23) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 308
 Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(359): truncated value with size 32 to match size of target (23) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 359
-Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(464): truncated value with size 16 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 464
+Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(463): truncated value with size 16 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 463
 Warning (10034): Output port "ADC_DIN" at de1_soc_camera.sv(41) has no driver File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 41
 Warning (10034): Output port "ADC_SCLK" at de1_soc_camera.sv(43) has no driver File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 43
 Warning (10034): Output port "AUD_DACDAT" at de1_soc_camera.sv(49) has no driver File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 49
@@ -2349,14 +2346,14 @@ Warning (10034): Output port "FAN_CTRL" at de1_soc_camera.sv(79) has no driver F
 Warning (10034): Output port "FPGA_I2C_SCLK" at de1_soc_camera.sv(82) has no driver File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 82
 Warning (10034): Output port "IRDA_TXD" at de1_soc_camera.sv(164) has no driver File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 164
 Warning (10034): Output port "TD_RESET_N" at de1_soc_camera.sv(185) has no driver File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 185
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:u2" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 490
-Info (12128): Elaborating entity "CCD_Capture" for hierarchy "CCD_Capture:u3" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 516
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:u2" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 489
+Info (12128): Elaborating entity "CCD_Capture" for hierarchy "CCD_Capture:u3" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 515
 Warning (10036): Verilog HDL or VHDL warning at CCD_Capture.v(164): object "ifval_fedge" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/CCD_Capture.v Line: 164
 Warning (10036): Verilog HDL or VHDL warning at CCD_Capture.v(165): object "y_cnt_d" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/CCD_Capture.v Line: 165
 Warning (10230): Verilog HDL assignment warning at CCD_Capture.v(125): truncated value with size 32 to match size of target (16) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/CCD_Capture.v Line: 125
 Warning (10230): Verilog HDL assignment warning at CCD_Capture.v(129): truncated value with size 32 to match size of target (16) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/CCD_Capture.v Line: 129
 Warning (10230): Verilog HDL assignment warning at CCD_Capture.v(185): truncated value with size 32 to match size of target (1) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/CCD_Capture.v Line: 185
-Info (12128): Elaborating entity "RAW2RGB" for hierarchy "RAW2RGB:u4" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 530
+Info (12128): Elaborating entity "RAW2RGB" for hierarchy "RAW2RGB:u4" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 529
 Warning (10036): Verilog HDL or VHDL warning at RAW2RGB.v(69): object "mCCD_R" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/RAW2RGB.v Line: 69
 Warning (10036): Verilog HDL or VHDL warning at RAW2RGB.v(70): object "mCCD_G" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/RAW2RGB.v Line: 70
 Warning (10036): Verilog HDL or VHDL warning at RAW2RGB.v(71): object "mCCD_B" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/RAW2RGB.v Line: 71
@@ -2383,9 +2380,9 @@ Info (12128): Elaborating entity "cntr_7of" for hierarchy "RAW2RGB:u4|Line_Buffe
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_qac.tdf
     Info (12023): Found entity 1: cmpr_qac File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/cmpr_qac.tdf Line: 22
 Info (12128): Elaborating entity "cmpr_qac" for hierarchy "RAW2RGB:u4|Line_Buffer1:u0|altshift_taps:ALTSHIFT_TAPS_component|shift_taps_lv51:auto_generated|cntr_7of:cntr1|cmpr_qac:cmpr4" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/cntr_7of.tdf Line: 35
-Info (12128): Elaborating entity "SEG7_LUT_6" for hierarchy "SEG7_LUT_6:u5" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 538
+Info (12128): Elaborating entity "SEG7_LUT_6" for hierarchy "SEG7_LUT_6:u5" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 537
 Info (12128): Elaborating entity "SEG7_LUT" for hierarchy "SEG7_LUT_6:u5|SEG7_LUT:u0" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/SEG7_LUT_6.v Line: 47
-Info (12128): Elaborating entity "sdram_pll" for hierarchy "sdram_pll:u6" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 547
+Info (12128): Elaborating entity "sdram_pll" for hierarchy "sdram_pll:u6" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 546
 Info (12128): Elaborating entity "sdram_pll_0002" for hierarchy "sdram_pll:u6|sdram_pll_0002:sdram_pll_inst" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/sdram_pll.v Line: 25
 Info (12128): Elaborating entity "altera_pll" for hierarchy "sdram_pll:u6|sdram_pll_0002:sdram_pll_inst|altera_pll:altera_pll_i" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/sdram_pll/sdram_pll_0002.v Line: 94
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -2451,7 +2448,7 @@ Info (12133): Instantiated megafunction "sdram_pll:u6|sdram_pll_0002:sdram_pll_i
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "Sdram_Control" for hierarchy "Sdram_Control:u7" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 600
+Info (12128): Elaborating entity "Sdram_Control" for hierarchy "Sdram_Control:u7" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 599
 Warning (10230): Verilog HDL assignment warning at Sdram_Control.v(385): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/Sdram_Control/Sdram_Control.v Line: 385
 Warning (10240): Verilog HDL Always Construct warning at Sdram_Control.v(423): inferring latch(es) for variable "rWR1_MAX_ADDR", which holds its previous value in one or more paths through the always construct File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/Sdram_Control/Sdram_Control.v Line: 423
 Warning (10240): Verilog HDL Always Construct warning at Sdram_Control.v(423): inferring latch(es) for variable "rWR2_MAX_ADDR", which holds its previous value in one or more paths through the always construct File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/Sdram_Control/Sdram_Control.v Line: 423
@@ -2681,7 +2678,7 @@ Info (12128): Elaborating entity "alt_synch_pipe_bpl" for hierarchy "Sdram_Contr
 Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_se9.tdf
     Info (12023): Found entity 1: dffpipe_se9 File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/dffpipe_se9.tdf Line: 24
 Info (12128): Elaborating entity "dffpipe_se9" for hierarchy "Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|alt_synch_pipe_bpl:ws_dgrp|dffpipe_se9:dffpipe8" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/db/alt_synch_pipe_bpl.tdf Line: 34
-Info (12128): Elaborating entity "I2C_CCD_Config" for hierarchy "I2C_CCD_Config:u8" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 613
+Info (12128): Elaborating entity "I2C_CCD_Config" for hierarchy "I2C_CCD_Config:u8" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 612
 Warning (10230): Verilog HDL assignment warning at I2C_CCD_Config.v(126): truncated value with size 32 to match size of target (1) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/I2C_CCD_Config.v Line: 126
 Warning (10230): Verilog HDL assignment warning at I2C_CCD_Config.v(127): truncated value with size 32 to match size of target (1) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/I2C_CCD_Config.v Line: 127
 Warning (10230): Verilog HDL assignment warning at I2C_CCD_Config.v(149): truncated value with size 32 to match size of target (25) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/I2C_CCD_Config.v Line: 149
@@ -2692,19 +2689,21 @@ Info (12128): Elaborating entity "I2C_Controller" for hierarchy "I2C_CCD_Config:
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(71): truncated value with size 32 to match size of target (1) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/I2C_Controller.v Line: 71
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(70): truncated value with size 32 to match size of target (1) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/I2C_Controller.v Line: 70
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(83): truncated value with size 32 to match size of target (7) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/I2C_Controller.v Line: 83
-Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:u1" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 636
-Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(121): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 121
-Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(122): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 122
-Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(129): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 129
-Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(132): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 132
+Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:u1" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 635
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(125): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 125
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(126): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 126
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(127): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 127
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(128): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 128
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(135): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 135
-Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(192): truncated value with size 32 to match size of target (13) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 192
-Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(218): truncated value with size 32 to match size of target (13) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 218
-Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:uart_rx_inst" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 648
-Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:uart_tx_inst" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 657
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(138): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 138
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(141): truncated value with size 32 to match size of target (10) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 141
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(198): truncated value with size 32 to match size of target (13) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 198
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(224): truncated value with size 32 to match size of target (13) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/v/VGA_Controller.v Line: 224
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:uart_rx_inst" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 647
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:uart_tx_inst" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 656
 Warning (10230): Verilog HDL assignment warning at uart_tx.sv(37): truncated value with size 32 to match size of target (12) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/uart/uart_tx.sv Line: 37
 Warning (10230): Verilog HDL assignment warning at uart_tx.sv(46): truncated value with size 32 to match size of target (4) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/uart/uart_tx.sv Line: 46
-Info (12128): Elaborating entity "image_resize" for hierarchy "image_resize:u12" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 670
+Info (12128): Elaborating entity "image_resize" for hierarchy "image_resize:u12" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 669
 Warning (10036): Verilog HDL or VHDL warning at image_resize.sv(34): object "doneResize" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/image_resize.sv Line: 34
 Warning (10036): Verilog HDL or VHDL warning at image_resize.sv(38): object "setPixel" assigned a value but never read File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/image_resize.sv Line: 38
 Warning (10230): Verilog HDL assignment warning at image_resize.sv(68): truncated value with size 32 to match size of target (8) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/image_resize.sv Line: 68
@@ -2725,7 +2724,7 @@ Info (10041): Inferred latch for "currBaseAddrV[4]" at image_resize.sv(108) File
 Info (10041): Inferred latch for "currBaseAddrV[5]" at image_resize.sv(108) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/image_resize.sv Line: 108
 Info (10041): Inferred latch for "currBaseAddrV[6]" at image_resize.sv(108) File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/image_resize.sv Line: 108
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pixelsResize" into its bus
-Info (12128): Elaborating entity "RESIZED_IMG" for hierarchy "RESIZED_IMG:u100" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 678
+Info (12128): Elaborating entity "RESIZED_IMG" for hierarchy "RESIZED_IMG:u100" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 677
 Info (12128): Elaborating entity "altsyncram" for hierarchy "RESIZED_IMG:u100|altsyncram:altsyncram_component" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/RESIZED_IMG.v Line: 85
 Info (12130): Elaborated megafunction instantiation "RESIZED_IMG:u100|altsyncram:altsyncram_component" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/RESIZED_IMG.v Line: 85
 Info (12133): Instantiated megafunction "RESIZED_IMG:u100|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/img_resize/RESIZED_IMG.v Line: 85
@@ -2922,18 +2921,18 @@ Warning (21074): Design contains 23 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 184
     Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 186
     Warning (15610): No output dependent on input pin "D5M_STROBE" File: C:/Users/albac/Downloads/face-filter/display/DE1_SoC_CAMERA_WORKING_RST_IMG_RESIZER_ALLIE/de1_soc_camera.sv Line: 220
-Info (21057): Implemented 2800 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2802 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 48 input pins
     Info (21059): Implemented 116 output pins
     Info (21060): Implemented 62 bidirectional pins
-    Info (21061): Implemented 2488 logic cells
+    Info (21061): Implemented 2490 logic cells
     Info (21064): Implemented 82 RAM segments
     Info (21065): Implemented 4 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 219 warnings
-    Info: Peak virtual memory: 5014 megabytes
-    Info: Processing ended: Sun Apr 27 18:45:40 2025
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:15
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 221 warnings
+    Info: Peak virtual memory: 5006 megabytes
+    Info: Processing ended: Sun Apr 27 19:52:39 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:16
 
 
 +------------------------------------------+

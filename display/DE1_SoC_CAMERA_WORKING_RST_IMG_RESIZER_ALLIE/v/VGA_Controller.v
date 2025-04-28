@@ -77,8 +77,10 @@ parameter	V_SYNC_TOTAL=	525;
 
 
 //	Start Offset
-parameter	X_START		=	H_SYNC_CYC+H_SYNC_BACK;
-parameter	Y_START		=	V_SYNC_CYC+V_SYNC_BACK;
+//parameter	X_START		=	H_SYNC_CYC+H_SYNC_BACK;
+//parameter	Y_START		=	V_SYNC_CYC+V_SYNC_BACK;
+
+
 //	Host Side
 input		[9:0]	iRed;
 input		[9:0]	iGreen;
@@ -117,9 +119,13 @@ assign v_mask = 13'd0 ;//iZOOM_MODE_SW ? 13'd0 : 13'd26;
 
 wire [9:0] V_SYNC_ACT;
 wire [9:0] H_SYNC_ACT;
+wire [9:0] X_START;
+wire [9:0] Y_START;
 
 assign V_SYNC_ACT = iSize ? 480 : 240;
 assign H_SYNC_ACT = iSize ? 640 : 320;
+assign X_START		= iSize ? H_SYNC_CYC+H_SYNC_BACK : H_SYNC_CYC+H_SYNC_BACK+160;
+assign Y_START		= iSize ? V_SYNC_CYC+V_SYNC_BACK : V_SYNC_CYC+V_SYNC_BACK+120;
 
 ////////////////////////////////////////////////////////
 
