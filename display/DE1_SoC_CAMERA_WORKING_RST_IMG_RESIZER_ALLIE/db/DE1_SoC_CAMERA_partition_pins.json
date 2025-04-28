@@ -500,14 +500,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "D5M_D[2]",
-					"strict" : false
-				},
-				{
-					"name" : "D5M_D[3]",
-					"strict" : false
-				},
-				{
 					"name" : "D5M_D[4]",
 					"strict" : false
 				},
@@ -537,6 +529,14 @@
 				},
 				{
 					"name" : "D5M_D[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D5M_D[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D5M_D[2]",
 					"strict" : false
 				},
 				{

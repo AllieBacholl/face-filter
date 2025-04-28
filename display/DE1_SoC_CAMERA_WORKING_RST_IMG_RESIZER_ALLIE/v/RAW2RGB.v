@@ -76,7 +76,6 @@ reg [11:0] pixel_out;
 // assign	oRed	=	mCCD_R[11:0];
 // assign	oGreen	=	mCCD_G[12:1];
 // assign	oBlue	=	mCCD_B[11:0];
-// Grayscale
 assign	oRed		=	pixel_out[11:0] ;
 assign	oGreen	=	pixel_out[11:0] ;
 assign	oBlue		=	pixel_out[11:0] ;
@@ -103,12 +102,9 @@ begin
 	begin
 		mDATAd_0	<=	mDATA_0;
 		mDATAd_1	<=	mDATA_1;
-		
 		// Greyscale
 		pixel_out <= (((mDATAd_0 + mDATA_1) + (mDATA_0 + mDATAd_1))/4);
 		mDVAL		<=	{iY_Cont[0]|iX_Cont[0]}	?	1'b0	:	iDVAL;
-		
-		// RGB
 		if({iY_Cont[0],iX_Cont[0]}==2'b10)
 		begin
 			mCCD_R	<=	mDATA_0;

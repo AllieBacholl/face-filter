@@ -278,6 +278,8 @@ wire		[9:0] 	iGreen;
 wire		[9:0] 	iBlue;
 reg		[7:0] 	cur_img;
 wire		[22:0] 	read_addr;
+wire		[22:0] 	max_read_addr;
+wire		[22:0] 	sel_addr;
 reg 		[9:0] 	disp_sync_d;
 reg					dispRst_ff;
 reg 					prev_button;   
@@ -303,8 +305,58 @@ wire		[7:0]		ramData;
 assign rxd = GPIO_0[5];
 assign GPIO_0[3] = txd;
 
-// UART Display Selection
-assign read_addr 	= SW[8] ? 23'h000000 : 23'h100000 + (23'h04B000 * cur_img);
+assign sel_addr = 
+	(cur_img == 8'd0)  ? 23'h050000 :
+	(cur_img == 8'd1)  ? 23'h050000 + (76800*1) :
+	(cur_img == 8'd2)  ? 23'h050000 + (76800*1) :
+	(cur_img == 8'd3)  ? 23'h050000 + (76800*2) :
+	(cur_img == 8'd4)  ? 23'h050000 + (76800*3) :
+	(cur_img == 8'd5)  ? 23'h050000 + (76800*4) :
+	(cur_img == 8'd6)  ? 23'h050000 + (76800*5) :
+	(cur_img == 8'd7)  ? 23'h050000 + (76800*6) :
+	(cur_img == 8'd8)  ? 23'h050000 + (76800*7) :
+	(cur_img == 8'd9)  ? 23'h050000 + (76800*8) :
+	(cur_img == 8'd10) ? 23'h050000 + (76800*9) :
+	(cur_img == 8'd11) ? 23'h050000 + (76800*10) :
+	(cur_img == 8'd12) ? 23'h050000 + (76800*11) :
+	(cur_img == 8'd13) ? 23'h050000 + (76800*12) :
+	(cur_img == 8'd14) ? 23'h050000 + (76800*13) :
+	(cur_img == 8'd15) ? 23'h050000 + (76800*14) :
+	(cur_img == 8'd16) ? 23'h050000 + (76800*15) :
+	(cur_img == 8'd17) ? 23'h050000 + (76800*16) :
+	(cur_img == 8'd18) ? 23'h050000 + (76800*17) :
+	(cur_img == 8'd19) ? 23'h050000 + (76800*18) :
+	(cur_img == 8'd20) ? 23'h050000 + (76800*38) :
+	(cur_img == 8'd21) ? 23'h050000 + (76800*19) :
+	(cur_img == 8'd22) ? 23'h050000 + (76800*20) :
+	(cur_img == 8'd23) ? 23'h050000 + (76800*21) :
+	(cur_img == 8'd24) ? 23'h050000 + (76800*22) :
+	(cur_img == 8'd25) ? 23'h050000 + (76800*23) :
+	(cur_img == 8'd26) ? 23'h050000 + (76800*24) :
+	(cur_img == 8'd27) ? 23'h050000 + (76800*25) :
+	(cur_img == 8'd28) ? 23'h050000 + (76800*19) :
+	(cur_img == 8'd29) ? 23'h050000 + (76800*26) :
+	(cur_img == 8'd30) ? 23'h050000 + (76800*27) :
+	(cur_img == 8'd31) ? 23'h050000 + (76800*28) :
+	(cur_img == 8'd32) ? 23'h050000 + (76800*29) :
+	(cur_img == 8'd33) ? 23'h050000 + (76800*30) :
+	(cur_img == 8'd34) ? 23'h050000 + (76800*1) :
+	(cur_img == 8'd35) ? 23'h050000 + (76800*7) :
+	(cur_img == 8'd36) ? 23'h050000 + (76800*31) :
+	(cur_img == 8'd37) ? 23'h050000 + (76800*32) :
+	(cur_img == 8'd38) ? 23'h050000 + (76800*33) :
+	(cur_img == 8'd39) ? 23'h050000 + (76800*34) :
+	(cur_img == 8'd40) ? 23'h050000 + (76800*35) :
+	(cur_img == 8'd41) ? 23'h050000 + (76800*29) :
+	(cur_img == 8'd42) ? 23'h050000 + (76800*36) :
+	(cur_img == 8'd43) ? 23'h050000 + (76800*37) :
+	(cur_img == 8'd44) ? 23'h050000 + (76800*38) :
+	(cur_img == 8'd45) ? 23'h050000 + (76800*39) :
+	23'h050000 + (76800*40); // 46
+
+// UART Display Selectio
+assign read_addr 	= SW[8] ? 23'h000000 : sel_addr;
+assign max_read_addr = SW[8] ? 640*480 : 320*240;
 
 always @(posedge CLOCK_50 or negedge DLY_RST_0) begin
   if (!DLY_RST_0) begin
@@ -364,11 +416,6 @@ begin
 		tx_count <= tx_count + 1'b1;
 	end
 end
-
-// Display
-assign iRed 	= SW[8] ? {Read_DATA2[11:2]} : {Read_DATA2[7:5], 7'h00};
-assign iGreen 	= SW[8] ? {iRed} : {Read_DATA2[4:2], 7'h00};
-assign iBlue 	= SW[8] ? {iRed} : {Read_DATA2[1:0], 8'h00};
 
 // Display Reset
 // Sample switches
@@ -507,14 +554,14 @@ Sdram_Control	   u7	(	//	HOST Side
 							//	FIFO Write Side 1
 							.WR1_DATA({8'h00, rx_data}),
 							.WR1(write & SW[7]),	// Only write whats recieved when SW[7] is asserted
-							.WR1_ADDR(23'h100000),
-                     .WR1_MAX_ADDR(23'h100000+(460800*10)), // for 15 images
+							.WR1_ADDR(23'h050000),
+                     .WR1_MAX_ADDR(23'h050000+(76800*47)), // for 47 images
 						   .WR1_LENGTH(8'h50),
 		               .WR1_LOAD(!DLY_RST_0),
 							.WR1_CLK(~CLOCK_50), // D5M_PIXLCLK
 
 							//	FIFO Write Side 2
-							.WR2_DATA({4'h0, sCCD_R}),  
+							.WR2_DATA({6'h00, sCCD_R[11:2]}),  
 							.WR2(sCCD_DVAL), // sCCD_DVAL
 							.WR2_ADDR(0),
 							.WR2_MAX_ADDR(640*480),
@@ -535,7 +582,7 @@ Sdram_Control	   u7	(	//	HOST Side
 						   .RD2_DATA(Read_DATA2),
 				        	.RD2(Read),
 				        	.RD2_ADDR(read_addr),
-                     .RD2_MAX_ADDR(read_addr+(640*480)),
+                     .RD2_MAX_ADDR(read_addr+(max_read_addr)),
 							.RD2_LENGTH(8'h50),
 							.RD2_LOAD(!DLY_RST_0 | !DLY_RST_DISP_0),
 							.RD2_CLK(~VGA_CTRL_CLK),
@@ -570,10 +617,10 @@ I2C_CCD_Config 	u8	(	//	Host Side
 //VGA DISPLAY
 VGA_Controller	  u1	(	//	Host Side
 							.oRequest(Read),
-							.iRed(iRed),
-					      .iGreen(iGreen),
-						   .iBlue(iBlue),
-						
+							.iRed(SW[8] ? {Read_DATA2[9:0]} : {Read_DATA2[7:5], 7'h00}),
+					      .iGreen(SW[8] ? {Read_DATA2[9:0]} : {Read_DATA2[4:2], 7'h00}),
+						   .iBlue(SW[8] ? {Read_DATA2[9:0]} : {Read_DATA2[1:0], 8'h00}),
+							.iSize(SW[8]),
 							//	VGA Side
 							.oVGA_R(oVGA_R),
 							.oVGA_G(oVGA_G),

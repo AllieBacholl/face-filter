@@ -44,6 +44,7 @@ module	VGA_Controller(	//	Host Side
 						iRed,
 						iGreen,
 						iBlue,
+						iSize,
 						oRequest,
 						//	VGA Side
 						oVGA_R,
@@ -61,16 +62,16 @@ module	VGA_Controller(	//	Host Side
 							);
 
 //	Horizontal Parameter	( Pixel )
-parameter	H_SYNC_CYC	=	96;
+parameter	H_SYNC_CYC	=	96; 
 parameter	H_SYNC_BACK	=	48;
-parameter	H_SYNC_ACT	=	640;	
+//parameter	H_SYNC_ACT	=	640;	//640 320
 parameter	H_SYNC_FRONT=	16;
 parameter	H_SYNC_TOTAL=	800;
 
 //	Virtical Parameter		( Line )
 parameter	V_SYNC_CYC	=	2;
 parameter	V_SYNC_BACK	=	33;
-parameter	V_SYNC_ACT	=	480;	
+//parameter	V_SYNC_ACT	=	480;	//480 240
 parameter	V_SYNC_FRONT=	10;
 parameter	V_SYNC_TOTAL=	525; 
 
@@ -82,6 +83,7 @@ parameter	Y_START		=	V_SYNC_CYC+V_SYNC_BACK;
 input		[9:0]	iRed;
 input		[9:0]	iGreen;
 input		[9:0]	iBlue;
+input				iSize;
 output	reg			oRequest;
 //	VGA Side
 output	reg	[9:0]	oVGA_R;
@@ -112,6 +114,12 @@ reg		[12:0]		V_Cont;
 wire	[12:0]		v_mask;
 
 assign v_mask = 13'd0 ;//iZOOM_MODE_SW ? 13'd0 : 13'd26;
+
+wire [9:0] V_SYNC_ACT;
+wire [9:0] H_SYNC_ACT;
+
+assign V_SYNC_ACT = iSize ? 480 : 240;
+assign H_SYNC_ACT = iSize ? 640 : 320;
 
 ////////////////////////////////////////////////////////
 
