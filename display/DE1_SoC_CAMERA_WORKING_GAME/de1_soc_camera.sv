@@ -297,6 +297,9 @@ wire     [22:0]   resize_addr;
 wire 		[9:0]		addressRam;
 wire		[7:0]		ramData;
 
+logic err, ext;
+
+
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -460,7 +463,7 @@ assign	D5M_RESET_N	=	DLY_RST_1;
 wire 		VGA_CTRL_CLK;
 
 
-assign	LEDR		=	Y_Cont;
+
 
 //fetch the high 8 bits
 // assign  VGA_R = oVGA_R[9:2];
@@ -656,6 +659,12 @@ uart_tx					uart_tx_inst (
 							);
 
 
+proc p00(
+    .clk(CLOCK_50), .rst(SW[0]), .EXT(ext),
+    .err(err)
+);
+
+
 vgatest vgatest(
 .clk_50m(CLOCK_50),
 .rst_n(SW[0]),
@@ -679,7 +688,7 @@ vgatest vgatest(
 .bullet_exit24(),//debug
 
 .random(),//debug
-.live_debug(),
+.live_debug(LEDR),
 .bullet_exit_debug()
 );
 

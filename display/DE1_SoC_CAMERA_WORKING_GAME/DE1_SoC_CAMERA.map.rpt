@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE1_SoC_CAMERA
-Tue Apr 29 17:34:35 2025
+Tue Apr 29 18:27:14 2025
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -80,50 +80,123 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  72. Parameter Settings for User Entity Instance: I2C_CCD_Config:u8
  73. Parameter Settings for User Entity Instance: VGA_Controller:u1
  74. Parameter Settings for User Entity Instance: uart_rx:uart_rx_inst
- 75. Parameter Settings for User Entity Instance: vgatest:vgatest
- 76. Parameter Settings for User Entity Instance: vgatest:vgatest|pll_clock:M1|pll_clock_0002:pll_clock_inst|altera_pll:altera_pll_i
- 77. Parameter Settings for User Entity Instance: image_resize:u12
- 78. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div1
- 79. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div0
- 80. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div2
- 81. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div3
- 82. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div4
- 83. altshift_taps Parameter Settings by Entity Instance
- 84. Port Connectivity Checks: "image_resize:u12"
- 85. Port Connectivity Checks: "vgatest:vgatest|pll_clock:M1"
- 86. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b3"
- 87. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b2"
- 88. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b1"
- 89. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b0"
- 90. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b3"
- 91. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b2"
- 92. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b1"
- 93. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b0"
- 94. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b3"
- 95. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b2"
- 96. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b1"
- 97. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b0"
- 98. Port Connectivity Checks: "vgatest:vgatest|RanGen:rangen0"
- 99. Port Connectivity Checks: "vgatest:vgatest"
-100. Port Connectivity Checks: "VGA_Controller:u1"
-101. Port Connectivity Checks: "I2C_CCD_Config:u8|I2C_Controller:u0"
-102. Port Connectivity Checks: "I2C_CCD_Config:u8"
-103. Port Connectivity Checks: "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo"
-104. Port Connectivity Checks: "Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo"
-105. Port Connectivity Checks: "Sdram_Control:u7|Sdram_WR_FIFO:u_write2_fifo"
-106. Port Connectivity Checks: "Sdram_Control:u7|Sdram_WR_FIFO:u_write1_fifo"
-107. Port Connectivity Checks: "Sdram_Control:u7|sdr_data_path:u_sdr_data_path"
-108. Port Connectivity Checks: "Sdram_Control:u7|control_interface:u_control_interface"
-109. Port Connectivity Checks: "Sdram_Control:u7"
-110. Port Connectivity Checks: "sdram_pll:u6"
-111. Port Connectivity Checks: "RAW2RGB:u4|Line_Buffer1:u0"
-112. Port Connectivity Checks: "RAW2RGB:u4"
-113. Port Connectivity Checks: "CCD_Capture:u3"
-114. Port Connectivity Checks: "Reset_Delay:u22"
-115. Post-Synthesis Netlist Statistics for Top Partition
-116. Elapsed Time Per Partition
-117. Analysis & Synthesis Messages
-118. Analysis & Synthesis Suppressed Messages
+ 75. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf
+ 76. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg0
+ 77. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg1
+ 78. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg2
+ 79. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg3
+ 80. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg4
+ 81. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg5
+ 82. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg6
+ 83. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg7
+ 84. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg8
+ 85. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg9
+ 86. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg10
+ 87. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg11
+ 88. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg12
+ 89. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg13
+ 90. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg14
+ 91. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg15
+ 92. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg16
+ 93. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg17
+ 94. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg18
+ 95. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg19
+ 96. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg20
+ 97. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg21
+ 98. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg22
+ 99. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg23
+100. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg24
+101. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg25
+102. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg26
+103. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg27
+104. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg28
+105. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg29
+106. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg30
+107. Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg31
+108. Parameter Settings for User Entity Instance: proc:p00|execute:execute|alu:alu
+109. Parameter Settings for User Entity Instance: vgatest:vgatest
+110. Parameter Settings for User Entity Instance: vgatest:vgatest|pll_clock:M1|pll_clock_0002:pll_clock_inst|altera_pll:altera_pll_i
+111. Parameter Settings for User Entity Instance: image_resize:u12
+112. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div1
+113. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div0
+114. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div2
+115. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div3
+116. Parameter Settings for Inferred Entity Instance: vgatest:vgatest|lpm_divide:Div4
+117. altshift_taps Parameter Settings by Entity Instance
+118. Port Connectivity Checks: "image_resize:u12"
+119. Port Connectivity Checks: "vgatest:vgatest|pll_clock:M1"
+120. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b3"
+121. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b2"
+122. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b1"
+123. Port Connectivity Checks: "vgatest:vgatest|enermy2bullet:t2b0"
+124. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b3"
+125. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b2"
+126. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b1"
+127. Port Connectivity Checks: "vgatest:vgatest|enermy1bullet:t1b0"
+128. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b3"
+129. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b2"
+130. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b1"
+131. Port Connectivity Checks: "vgatest:vgatest|mybullet:t0b0"
+132. Port Connectivity Checks: "vgatest:vgatest|RanGen:rangen0"
+133. Port Connectivity Checks: "vgatest:vgatest"
+134. Port Connectivity Checks: "proc:p00|ME_WB:ME_WB"
+135. Port Connectivity Checks: "proc:p00|memory:memory|memory2c:iMEMORY"
+136. Port Connectivity Checks: "proc:p00|ID_EX:ID_EX"
+137. Port Connectivity Checks: "proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg0"
+138. Port Connectivity Checks: "proc:p00|decode:decode"
+139. Port Connectivity Checks: "proc:p00|IF_ID:IF_ID"
+140. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[31]"
+141. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[30]"
+142. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[29]"
+143. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[28]"
+144. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[27]"
+145. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[26]"
+146. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[25]"
+147. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[24]"
+148. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[23]"
+149. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[22]"
+150. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[21]"
+151. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[20]"
+152. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[19]"
+153. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[18]"
+154. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[17]"
+155. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[16]"
+156. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[15]"
+157. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[14]"
+158. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[13]"
+159. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[12]"
+160. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[11]"
+161. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[10]"
+162. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[9]"
+163. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[8]"
+164. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[7]"
+165. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[6]"
+166. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[5]"
+167. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[4]"
+168. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[3]"
+169. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[2]"
+170. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[1]"
+171. Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[0]"
+172. Port Connectivity Checks: "proc:p00"
+173. Port Connectivity Checks: "VGA_Controller:u1"
+174. Port Connectivity Checks: "I2C_CCD_Config:u8|I2C_Controller:u0"
+175. Port Connectivity Checks: "I2C_CCD_Config:u8"
+176. Port Connectivity Checks: "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo"
+177. Port Connectivity Checks: "Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo"
+178. Port Connectivity Checks: "Sdram_Control:u7|Sdram_WR_FIFO:u_write2_fifo"
+179. Port Connectivity Checks: "Sdram_Control:u7|Sdram_WR_FIFO:u_write1_fifo"
+180. Port Connectivity Checks: "Sdram_Control:u7|sdr_data_path:u_sdr_data_path"
+181. Port Connectivity Checks: "Sdram_Control:u7|control_interface:u_control_interface"
+182. Port Connectivity Checks: "Sdram_Control:u7"
+183. Port Connectivity Checks: "sdram_pll:u6"
+184. Port Connectivity Checks: "RAW2RGB:u4|Line_Buffer1:u0"
+185. Port Connectivity Checks: "RAW2RGB:u4"
+186. Port Connectivity Checks: "CCD_Capture:u3"
+187. Port Connectivity Checks: "Reset_Delay:u22"
+188. Post-Synthesis Netlist Statistics for Top Partition
+189. Elapsed Time Per Partition
+190. Analysis & Synthesis Messages
+191. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -150,7 +223,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Apr 29 17:34:35 2025          ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 29 18:27:13 2025          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; DE1_SoC_CAMERA                                 ;
 ; Top-level Entity Name           ; DE1_SoC_CAMERA                                 ;
@@ -281,87 +354,109 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                            ;
-+-----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+-----------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                     ; Library   ;
-+-----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+-----------+
-; proj/vgatest.v                    ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v                    ;           ;
-; proj/segment.v                    ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/segment.v                    ;           ;
-; proj/RanGen.v                     ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/RanGen.v                     ;           ;
-; proj/mybullet.v                   ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/mybullet.v                   ;           ;
-; proj/enermy2bullet.v              ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/enermy2bullet.v              ;           ;
-; proj/enermy1bullet.v              ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/enermy1bullet.v              ;           ;
-; img_resize/image_resize.sv        ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/img_resize/image_resize.sv        ;           ;
-; uart/uart_tx.sv                   ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/uart/uart_tx.sv                   ;           ;
-; v/VGA_Controller.v                ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v                ;           ;
-; uart/uart_rx.v                    ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/uart/uart_rx.v                    ;           ;
-; v/Reset_Delay.v                   ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/Reset_Delay.v                   ;           ;
-; v/RAW2RGB.v                       ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/RAW2RGB.v                       ;           ;
-; v/I2C_Controller.v                ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_Controller.v                ;           ;
-; v/I2C_CCD_Config.v                ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_CCD_Config.v                ;           ;
-; v/CCD_Capture.v                   ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v                   ;           ;
-; Sdram_Control/Sdram_Params.h      ; yes             ; User File                    ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Params.h      ;           ;
-; Sdram_Control/Sdram_Control.v     ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Control.v     ;           ;
-; Sdram_Control/sdr_data_path.v     ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/sdr_data_path.v     ;           ;
-; Sdram_Control/control_interface.v ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/control_interface.v ;           ;
-; Sdram_Control/command.v           ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/command.v           ;           ;
-; v/SEG7_LUT_6.v                    ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/SEG7_LUT_6.v                    ;           ;
-; v/sdram_pll.v                     ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/sdram_pll.v                     ; sdram_pll ;
-; v/sdram_pll/sdram_pll_0002.v      ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/sdram_pll/sdram_pll_0002.v      ; sdram_pll ;
-; v/Line_Buffer1.v                  ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/Line_Buffer1.v                  ;           ;
-; Sdram_Control/Sdram_RD_FIFO.v     ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_RD_FIFO.v     ;           ;
-; Sdram_Control/Sdram_WR_FIFO.v     ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_WR_FIFO.v     ;           ;
-; de1_soc_camera.sv                 ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv                 ;           ;
-; pll_clock.v                       ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/pll_clock.v                       ; pll_clock ;
-; pll_clock/pll_clock_0002.v        ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/pll_clock/pll_clock_0002.v        ; pll_clock ;
-; altshift_taps.tdf                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altshift_taps.tdf                      ;           ;
-; altdpram.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                           ;           ;
-; lpm_counter.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_counter.inc                        ;           ;
-; lpm_compare.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_compare.inc                        ;           ;
-; lpm_constant.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_constant.inc                       ;           ;
-; db/shift_taps_lv51.tdf            ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/shift_taps_lv51.tdf            ;           ;
-; db/altsyncram_jug1.tdf            ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/altsyncram_jug1.tdf            ;           ;
-; db/cntr_7of.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cntr_7of.tdf                   ;           ;
-; db/cmpr_qac.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cmpr_qac.tdf                   ;           ;
-; altera_pll.v                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altera_pll.v                           ;           ;
-; dcfifo_mixed_widths.tdf           ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/dcfifo_mixed_widths.tdf                ;           ;
-; db/dcfifo_ngp1.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dcfifo_ngp1.tdf                ;           ;
-; db/a_gray2bin_oab.tdf             ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/a_gray2bin_oab.tdf             ;           ;
-; db/a_graycounter_nv6.tdf          ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/a_graycounter_nv6.tdf          ;           ;
-; db/a_graycounter_jdc.tdf          ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/a_graycounter_jdc.tdf          ;           ;
-; db/altsyncram_86d1.tdf            ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/altsyncram_86d1.tdf            ;           ;
-; db/dffpipe_oe9.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_oe9.tdf                ;           ;
-; db/alt_synch_pipe_8pl.tdf         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_8pl.tdf         ;           ;
-; db/dffpipe_pe9.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_pe9.tdf                ;           ;
-; db/alt_synch_pipe_9pl.tdf         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_9pl.tdf         ;           ;
-; db/dffpipe_qe9.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_qe9.tdf                ;           ;
-; db/cmpr_906.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cmpr_906.tdf                   ;           ;
-; db/dcfifo_ahp1.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dcfifo_ahp1.tdf                ;           ;
-; db/alt_synch_pipe_apl.tdf         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_apl.tdf         ;           ;
-; db/dffpipe_re9.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_re9.tdf                ;           ;
-; db/alt_synch_pipe_bpl.tdf         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_bpl.tdf         ;           ;
-; db/dffpipe_se9.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_se9.tdf                ;           ;
-; lpm_divide.tdf                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf                         ;           ;
-; abs_divider.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc                        ;           ;
-; sign_div_unsign.inc               ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                    ;           ;
-; aglobal231.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                         ;           ;
-; db/lpm_divide_0dm.tdf             ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_0dm.tdf             ;           ;
-; db/sign_div_unsign_6nh.tdf        ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_6nh.tdf        ;           ;
-; db/alt_u_div_i2f.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_i2f.tdf              ;           ;
-; db/lpm_divide_3dm.tdf             ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_3dm.tdf             ;           ;
-; db/sign_div_unsign_9nh.tdf        ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_9nh.tdf        ;           ;
-; db/alt_u_div_o2f.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_o2f.tdf              ;           ;
-; db/lpm_divide_scm.tdf             ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_scm.tdf             ;           ;
-; db/sign_div_unsign_2nh.tdf        ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_2nh.tdf        ;           ;
-; db/alt_u_div_a2f.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_a2f.tdf              ;           ;
-; db/lpm_divide_ibm.tdf             ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_ibm.tdf             ;           ;
-; db/sign_div_unsign_olh.tdf        ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_olh.tdf        ;           ;
-; db/alt_u_div_mve.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_mve.tdf              ;           ;
-; db/lpm_divide_fbm.tdf             ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_fbm.tdf             ;           ;
-; db/sign_div_unsign_llh.tdf        ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_llh.tdf        ;           ;
-; db/alt_u_div_gve.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_gve.tdf              ;           ;
-+-----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+-----------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
++-----------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+-----------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                           ; Library   ;
++-----------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+-----------+
+; RISC-V Processor/writeback.sv           ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/writeback.sv           ;           ;
+; RISC-V Processor/register.sv            ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/register.sv            ;           ;
+; RISC-V Processor/regFile_bypass.sv      ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/regFile_bypass.sv      ;           ;
+; RISC-V Processor/regFile.sv             ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/regFile.sv             ;           ;
+; RISC-V Processor/proc.sv                ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv                ;           ;
+; RISC-V Processor/my_dff.sv              ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/my_dff.sv              ;           ;
+; RISC-V Processor/memory2c.sv            ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory2c.sv            ;           ;
+; RISC-V Processor/memory.sv              ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory.sv              ;           ;
+; RISC-V Processor/ME_WB.sv               ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ME_WB.sv               ;           ;
+; RISC-V Processor/interrupt_handler.sv   ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/interrupt_handler.sv   ;           ;
+; RISC-V Processor/instr_mem.sv           ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_mem.sv           ;           ;
+; RISC-V Processor/instr_decoder.sv       ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv       ;           ;
+; RISC-V Processor/immediate_execution.sv ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/immediate_execution.sv ;           ;
+; RISC-V Processor/IF_ID.sv               ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/IF_ID.sv               ;           ;
+; RISC-V Processor/ID_EX.sv               ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ID_EX.sv               ;           ;
+; RISC-V Processor/hazard_detection.sv    ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/hazard_detection.sv    ;           ;
+; RISC-V Processor/fetch.sv               ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/fetch.sv               ;           ;
+; RISC-V Processor/execute.sv             ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/execute.sv             ;           ;
+; RISC-V Processor/EX_ME.sv               ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/EX_ME.sv               ;           ;
+; RISC-V Processor/decode.sv              ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/decode.sv              ;           ;
+; RISC-V Processor/alu_control.sv         ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/alu_control.sv         ;           ;
+; RISC-V Processor/alu.sv                 ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/alu.sv                 ;           ;
+; proj/vgatest.v                          ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v                          ;           ;
+; proj/segment.v                          ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/segment.v                          ;           ;
+; proj/RanGen.v                           ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/RanGen.v                           ;           ;
+; proj/mybullet.v                         ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/mybullet.v                         ;           ;
+; proj/enermy2bullet.v                    ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/enermy2bullet.v                    ;           ;
+; proj/enermy1bullet.v                    ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/enermy1bullet.v                    ;           ;
+; img_resize/image_resize.sv              ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/img_resize/image_resize.sv              ;           ;
+; uart/uart_tx.sv                         ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/uart/uart_tx.sv                         ;           ;
+; v/VGA_Controller.v                      ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v                      ;           ;
+; uart/uart_rx.v                          ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/uart/uart_rx.v                          ;           ;
+; v/Reset_Delay.v                         ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/Reset_Delay.v                         ;           ;
+; v/RAW2RGB.v                             ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/RAW2RGB.v                             ;           ;
+; v/I2C_Controller.v                      ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_Controller.v                      ;           ;
+; v/I2C_CCD_Config.v                      ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_CCD_Config.v                      ;           ;
+; v/CCD_Capture.v                         ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v                         ;           ;
+; Sdram_Control/Sdram_Params.h            ; yes             ; User File                    ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Params.h            ;           ;
+; Sdram_Control/Sdram_Control.v           ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Control.v           ;           ;
+; Sdram_Control/sdr_data_path.v           ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/sdr_data_path.v           ;           ;
+; Sdram_Control/control_interface.v       ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/control_interface.v       ;           ;
+; Sdram_Control/command.v                 ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/command.v                 ;           ;
+; v/SEG7_LUT_6.v                          ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/SEG7_LUT_6.v                          ;           ;
+; v/sdram_pll.v                           ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/sdram_pll.v                           ; sdram_pll ;
+; v/sdram_pll/sdram_pll_0002.v            ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/sdram_pll/sdram_pll_0002.v            ; sdram_pll ;
+; v/Line_Buffer1.v                        ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/Line_Buffer1.v                        ;           ;
+; Sdram_Control/Sdram_RD_FIFO.v           ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_RD_FIFO.v           ;           ;
+; Sdram_Control/Sdram_WR_FIFO.v           ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_WR_FIFO.v           ;           ;
+; de1_soc_camera.sv                       ; yes             ; User SystemVerilog HDL File  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv                       ;           ;
+; pll_clock.v                             ; yes             ; User Wizard-Generated File   ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/pll_clock.v                             ; pll_clock ;
+; pll_clock/pll_clock_0002.v              ; yes             ; User Verilog HDL File        ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/pll_clock/pll_clock_0002.v              ; pll_clock ;
+; altshift_taps.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altshift_taps.tdf                            ;           ;
+; altdpram.inc                            ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                                 ;           ;
+; lpm_counter.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_counter.inc                              ;           ;
+; lpm_compare.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_compare.inc                              ;           ;
+; lpm_constant.inc                        ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_constant.inc                             ;           ;
+; db/shift_taps_lv51.tdf                  ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/shift_taps_lv51.tdf                  ;           ;
+; db/altsyncram_jug1.tdf                  ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/altsyncram_jug1.tdf                  ;           ;
+; db/cntr_7of.tdf                         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cntr_7of.tdf                         ;           ;
+; db/cmpr_qac.tdf                         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cmpr_qac.tdf                         ;           ;
+; altera_pll.v                            ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altera_pll.v                                 ;           ;
+; dcfifo_mixed_widths.tdf                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/dcfifo_mixed_widths.tdf                      ;           ;
+; db/dcfifo_ngp1.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dcfifo_ngp1.tdf                      ;           ;
+; db/a_gray2bin_oab.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/a_gray2bin_oab.tdf                   ;           ;
+; db/a_graycounter_nv6.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/a_graycounter_nv6.tdf                ;           ;
+; db/a_graycounter_jdc.tdf                ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/a_graycounter_jdc.tdf                ;           ;
+; db/altsyncram_86d1.tdf                  ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/altsyncram_86d1.tdf                  ;           ;
+; db/dffpipe_oe9.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_oe9.tdf                      ;           ;
+; db/alt_synch_pipe_8pl.tdf               ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_8pl.tdf               ;           ;
+; db/dffpipe_pe9.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_pe9.tdf                      ;           ;
+; db/alt_synch_pipe_9pl.tdf               ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_9pl.tdf               ;           ;
+; db/dffpipe_qe9.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_qe9.tdf                      ;           ;
+; db/cmpr_906.tdf                         ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cmpr_906.tdf                         ;           ;
+; db/dcfifo_ahp1.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dcfifo_ahp1.tdf                      ;           ;
+; db/alt_synch_pipe_apl.tdf               ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_apl.tdf               ;           ;
+; db/dffpipe_re9.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_re9.tdf                      ;           ;
+; db/alt_synch_pipe_bpl.tdf               ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_bpl.tdf               ;           ;
+; db/dffpipe_se9.tdf                      ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_se9.tdf                      ;           ;
+; lpm_divide.tdf                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf                               ;           ;
+; abs_divider.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc                              ;           ;
+; sign_div_unsign.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                          ;           ;
+; aglobal231.inc                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                               ;           ;
+; db/lpm_divide_0dm.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_0dm.tdf                   ;           ;
+; db/sign_div_unsign_6nh.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_6nh.tdf              ;           ;
+; db/alt_u_div_i2f.tdf                    ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_i2f.tdf                    ;           ;
+; db/lpm_divide_3dm.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_3dm.tdf                   ;           ;
+; db/sign_div_unsign_9nh.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_9nh.tdf              ;           ;
+; db/alt_u_div_o2f.tdf                    ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_o2f.tdf                    ;           ;
+; db/lpm_divide_scm.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_scm.tdf                   ;           ;
+; db/sign_div_unsign_2nh.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_2nh.tdf              ;           ;
+; db/alt_u_div_a2f.tdf                    ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_a2f.tdf                    ;           ;
+; db/lpm_divide_ibm.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_ibm.tdf                   ;           ;
+; db/sign_div_unsign_olh.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_olh.tdf              ;           ;
+; db/alt_u_div_mve.tdf                    ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_mve.tdf                    ;           ;
+; db/lpm_divide_fbm.tdf                   ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/lpm_divide_fbm.tdf                   ;           ;
+; db/sign_div_unsign_llh.tdf              ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/sign_div_unsign_llh.tdf              ;           ;
+; db/alt_u_div_gve.tdf                    ; yes             ; Auto-Generated Megafunction  ; I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_u_div_gve.tdf                    ;           ;
++-----------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+-----------+
 
 
 +-----------------------------------------------------------+
@@ -2075,6 +2170,347 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg0 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg1 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg2 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg3 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg4 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg5 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg6 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg7 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg8 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg9 ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg10 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg11 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg12 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg13 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg14 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg15 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg16 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg17 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg18 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg19 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg20 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg21 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg22 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg23 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg24 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg25 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg26 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg27 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg28 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg29 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg30 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg31 ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: proc:p00|execute:execute|alu:alu ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; OPERAND_WIDTH  ; 32    ; Signed Integer                                       ;
+; NUM_OPERATIONS ; 5     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +--------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: vgatest:vgatest ;
 +----------------+------------+--------------------------------+
@@ -2651,6 +3087,365 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------+--------+----------+------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|ME_WB:ME_WB"                                                                       ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; pc_out       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs1_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs2_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs1_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs2_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|memory:memory|memory2c:iMEMORY" ;
++------------+-------+----------+-------------------------------------+
+; Port       ; Type  ; Severity ; Details                             ;
++------------+-------+----------+-------------------------------------+
+; createdump ; Input ; Info     ; Stuck at GND                        ;
++------------+-------+----------+-------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|ID_EX:ID_EX"                                                                            ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; alu_src_sel_A_in  ; Input  ; Info     ; Explicitly unconnected                                                              ;
+; err_out           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alu_src_sel_A_out ; Output ; Info     ; Explicitly unconnected                                                              ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg0" ;
++-------------+-------+----------+--------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                      ;
++-------------+-------+----------+--------------------------------------------------------------+
+; writeEnable ; Input ; Info     ; Stuck at GND                                                 ;
++-------------+-------+----------+--------------------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|decode:decode"            ;
++------------------+--------+----------+------------------------+
+; Port             ; Type   ; Severity ; Details                ;
++------------------+--------+----------+------------------------+
+; alu_src_sel_A_ID ; Output ; Info     ; Explicitly unconnected ;
+; instr_12_ID      ; Output ; Info     ; Explicitly unconnected ;
+; instr_14_ID      ; Output ; Info     ; Explicitly unconnected ;
++------------------+--------+----------+------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|IF_ID:IF_ID"                                                                  ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; err_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[31]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[30]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[29]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[28]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[27]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[26]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[25]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[24]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[23]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[22]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[21]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[20]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[19]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[18]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[17]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[16]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[15]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[14]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[13]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[12]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[11]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[10]" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[9]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[8]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[7]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[6]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[5]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[4]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[3]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[2]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[1]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00|fetch:fetch|instr_mem:IM[0]" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; rd_en ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "proc:p00"                                                                           ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; err  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "VGA_Controller:u1"                                                                         ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -2913,7 +3708,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:17     ;
+; Top            ; 00:00:22     ;
 +----------------+--------------+
 
 
@@ -2923,10 +3718,60 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Apr 29 17:33:34 2025
+    Info: Processing started: Tue Apr 29 18:25:48 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC_CAMERA -c DE1_SoC_CAMERA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/writeback.sv
+    Info (12023): Found entity 1: writeback File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/writeback.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/register.sv
+    Info (12023): Found entity 1: Register File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/regfile_bypass.sv
+    Info (12023): Found entity 1: regFile_bypass File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/regFile_bypass.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/regfile.sv
+    Info (12023): Found entity 1: regFile File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/regFile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/proc.sv
+    Info (12023): Found entity 1: proc File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/pc_reg.sv
+    Info (12023): Found entity 1: pc_reg File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/pc_reg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/my_dff.sv
+    Info (12023): Found entity 1: my_dff File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/my_dff.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/memory2c.sv
+    Info (12023): Found entity 1: memory2c File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory2c.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/memory.sv
+    Info (12023): Found entity 1: memory File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/me_wb.sv
+    Info (12023): Found entity 1: ME_WB File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ME_WB.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/interrupt_handler.sv
+    Info (12023): Found entity 1: interrupt_handler File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/interrupt_handler.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/instr_mem.sv
+    Info (12023): Found entity 1: instr_mem File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_mem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/instr_decoder.sv
+    Info (12023): Found entity 1: instr_decoder File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/immediate_execution.sv
+    Info (12023): Found entity 1: immediate_execution File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/immediate_execution.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/if_id.sv
+    Info (12023): Found entity 1: IF_ID File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/IF_ID.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/id_ex.sv
+    Info (12023): Found entity 1: ID_EX File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ID_EX.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/hazard_detection.sv
+    Info (12023): Found entity 1: hazard_detection File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/hazard_detection.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/fetch_tb.sv
+    Info (12023): Found entity 1: fetch_tb File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/fetch_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/fetch.sv
+    Info (12023): Found entity 1: fetch File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/fetch.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/execute.sv
+    Info (12023): Found entity 1: execute File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/execute.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/ex_me.sv
+    Info (12023): Found entity 1: EX_ME File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/EX_ME.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/decode.sv
+    Info (12023): Found entity 1: decode File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/decode.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/clkrst.sv
+    Info (12023): Found entity 1: clkrst File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/clkrst.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/alu_control.sv
+    Info (12023): Found entity 1: alu_control File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/alu_control.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file risc-v processor/alu.sv
+    Info (12023): Found entity 1: alu File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/alu.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file proj/vgatest.v
     Info (12023): Found entity 1: vgatest File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file proj/segment.v
@@ -2988,10 +3833,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll_clo
     Info (12023): Found entity 1: pll_clock File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/pll_clock.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file pll_clock/pll_clock_0002.v
     Info (12023): Found entity 1: pll_clock_0002 File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/pll_clock/pll_clock_0002.v Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at proc.sv(63): created implicit net for "polling" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 63
+Warning (10236): Verilog HDL Implicit Net warning at ME_WB.sv(35): created implicit net for "imm_ctrl_out" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ME_WB.sv Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at ME_WB.sv(35): created implicit net for "imm_ctrl_in" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ME_WB.sv Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at EX_ME.sv(40): created implicit net for "imm_ctrl_out" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/EX_ME.sv Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at EX_ME.sv(40): created implicit net for "imm_ctrl_in" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/EX_ME.sv Line: 40
 Info (12127): Elaborating entity "DE1_SoC_CAMERA" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(308): truncated value with size 32 to match size of target (23) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 308
-Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(359): truncated value with size 32 to match size of target (23) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 359
-Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(463): truncated value with size 16 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 463
+Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(311): truncated value with size 32 to match size of target (23) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 311
+Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(362): truncated value with size 32 to match size of target (23) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 362
+Warning (10230): Verilog HDL assignment warning at de1_soc_camera.sv(466): truncated value with size 16 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 466
 Warning (10034): Output port "ADC_DIN" at de1_soc_camera.sv(41) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 41
 Warning (10034): Output port "ADC_SCLK" at de1_soc_camera.sv(43) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 43
 Warning (10034): Output port "AUD_DACDAT" at de1_soc_camera.sv(49) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 49
@@ -3000,14 +3850,14 @@ Warning (10034): Output port "FAN_CTRL" at de1_soc_camera.sv(79) has no driver F
 Warning (10034): Output port "FPGA_I2C_SCLK" at de1_soc_camera.sv(82) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 82
 Warning (10034): Output port "IRDA_TXD" at de1_soc_camera.sv(164) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 164
 Warning (10034): Output port "TD_RESET_N" at de1_soc_camera.sv(185) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 185
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:u2" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 489
-Info (12128): Elaborating entity "CCD_Capture" for hierarchy "CCD_Capture:u3" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 515
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:u2" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 492
+Info (12128): Elaborating entity "CCD_Capture" for hierarchy "CCD_Capture:u3" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 518
 Warning (10036): Verilog HDL or VHDL warning at CCD_Capture.v(164): object "ifval_fedge" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v Line: 164
 Warning (10036): Verilog HDL or VHDL warning at CCD_Capture.v(165): object "y_cnt_d" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v Line: 165
 Warning (10230): Verilog HDL assignment warning at CCD_Capture.v(125): truncated value with size 32 to match size of target (16) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v Line: 125
 Warning (10230): Verilog HDL assignment warning at CCD_Capture.v(129): truncated value with size 32 to match size of target (16) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v Line: 129
 Warning (10230): Verilog HDL assignment warning at CCD_Capture.v(185): truncated value with size 32 to match size of target (1) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/CCD_Capture.v Line: 185
-Info (12128): Elaborating entity "RAW2RGB" for hierarchy "RAW2RGB:u4" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 529
+Info (12128): Elaborating entity "RAW2RGB" for hierarchy "RAW2RGB:u4" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 532
 Warning (10036): Verilog HDL or VHDL warning at RAW2RGB.v(69): object "mCCD_R" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/RAW2RGB.v Line: 69
 Warning (10036): Verilog HDL or VHDL warning at RAW2RGB.v(70): object "mCCD_G" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/RAW2RGB.v Line: 70
 Warning (10036): Verilog HDL or VHDL warning at RAW2RGB.v(71): object "mCCD_B" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/RAW2RGB.v Line: 71
@@ -3034,7 +3884,7 @@ Info (12128): Elaborating entity "cntr_7of" for hierarchy "RAW2RGB:u4|Line_Buffe
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_qac.tdf
     Info (12023): Found entity 1: cmpr_qac File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cmpr_qac.tdf Line: 23
 Info (12128): Elaborating entity "cmpr_qac" for hierarchy "RAW2RGB:u4|Line_Buffer1:u0|altshift_taps:ALTSHIFT_TAPS_component|shift_taps_lv51:auto_generated|cntr_7of:cntr1|cmpr_qac:cmpr4" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/cntr_7of.tdf Line: 36
-Info (12128): Elaborating entity "sdram_pll" for hierarchy "sdram_pll:u6" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 546
+Info (12128): Elaborating entity "sdram_pll" for hierarchy "sdram_pll:u6" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 549
 Info (12128): Elaborating entity "sdram_pll_0002" for hierarchy "sdram_pll:u6|sdram_pll_0002:sdram_pll_inst" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/sdram_pll.v Line: 25
 Info (12128): Elaborating entity "altera_pll" for hierarchy "sdram_pll:u6|sdram_pll_0002:sdram_pll_inst|altera_pll:altera_pll_i" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/sdram_pll/sdram_pll_0002.v Line: 94
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -3100,7 +3950,7 @@ Info (12133): Instantiated megafunction "sdram_pll:u6|sdram_pll_0002:sdram_pll_i
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "Sdram_Control" for hierarchy "Sdram_Control:u7" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 599
+Info (12128): Elaborating entity "Sdram_Control" for hierarchy "Sdram_Control:u7" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 602
 Warning (10230): Verilog HDL assignment warning at Sdram_Control.v(385): truncated value with size 32 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Control.v Line: 385
 Warning (10240): Verilog HDL Always Construct warning at Sdram_Control.v(423): inferring latch(es) for variable "rWR1_MAX_ADDR", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Control.v Line: 423
 Warning (10240): Verilog HDL Always Construct warning at Sdram_Control.v(423): inferring latch(es) for variable "rWR2_MAX_ADDR", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/Sdram_Control/Sdram_Control.v Line: 423
@@ -3330,7 +4180,7 @@ Info (12128): Elaborating entity "alt_synch_pipe_bpl" for hierarchy "Sdram_Contr
 Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_se9.tdf
     Info (12023): Found entity 1: dffpipe_se9 File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/dffpipe_se9.tdf Line: 25
 Info (12128): Elaborating entity "dffpipe_se9" for hierarchy "Sdram_Control:u7|Sdram_RD_FIFO:u_read1_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|alt_synch_pipe_bpl:ws_dgrp|dffpipe_se9:dffpipe8" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/alt_synch_pipe_bpl.tdf Line: 35
-Info (12128): Elaborating entity "I2C_CCD_Config" for hierarchy "I2C_CCD_Config:u8" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 612
+Info (12128): Elaborating entity "I2C_CCD_Config" for hierarchy "I2C_CCD_Config:u8" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 615
 Warning (10230): Verilog HDL assignment warning at I2C_CCD_Config.v(126): truncated value with size 32 to match size of target (1) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_CCD_Config.v Line: 126
 Warning (10230): Verilog HDL assignment warning at I2C_CCD_Config.v(127): truncated value with size 32 to match size of target (1) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_CCD_Config.v Line: 127
 Warning (10230): Verilog HDL assignment warning at I2C_CCD_Config.v(149): truncated value with size 32 to match size of target (25) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_CCD_Config.v Line: 149
@@ -3341,7 +4191,7 @@ Info (12128): Elaborating entity "I2C_Controller" for hierarchy "I2C_CCD_Config:
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(71): truncated value with size 32 to match size of target (1) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_Controller.v Line: 71
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(70): truncated value with size 32 to match size of target (1) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_Controller.v Line: 70
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(83): truncated value with size 32 to match size of target (7) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/I2C_Controller.v Line: 83
-Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:u1" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 635
+Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:u1" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 638
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(125): truncated value with size 32 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v Line: 125
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(126): truncated value with size 32 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v Line: 126
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(127): truncated value with size 32 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v Line: 127
@@ -3351,11 +4201,75 @@ Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(138): trunca
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(141): truncated value with size 32 to match size of target (10) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v Line: 141
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(198): truncated value with size 32 to match size of target (13) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v Line: 198
 Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(224): truncated value with size 32 to match size of target (13) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/v/VGA_Controller.v Line: 224
-Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:uart_rx_inst" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 647
-Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:uart_tx_inst" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 656
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:uart_rx_inst" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 650
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:uart_tx_inst" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 659
 Warning (10230): Verilog HDL assignment warning at uart_tx.sv(37): truncated value with size 32 to match size of target (12) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/uart/uart_tx.sv Line: 37
 Warning (10230): Verilog HDL assignment warning at uart_tx.sv(46): truncated value with size 32 to match size of target (4) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/uart/uart_tx.sv Line: 46
-Info (12128): Elaborating entity "vgatest" for hierarchy "vgatest:vgatest" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 684
+Info (12128): Elaborating entity "proc" for hierarchy "proc:p00" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 665
+Info (12128): Elaborating entity "fetch" for hierarchy "proc:p00|fetch:fetch" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 70
+Info (12128): Elaborating entity "instr_mem" for hierarchy "proc:p00|fetch:fetch|instr_mem:IM[0]" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/fetch.sv Line: 45
+Warning (10858): Verilog HDL warning at instr_mem.sv(9): object instr_mem used but never assigned File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_mem.sv Line: 9
+Info (12128): Elaborating entity "IF_ID" for hierarchy "proc:p00|IF_ID:IF_ID" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 90
+Warning (10034): Output port "EXT_out" at IF_ID.sv(15) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/IF_ID.sv Line: 15
+Info (12128): Elaborating entity "my_dff" for hierarchy "proc:p00|IF_ID:IF_ID|my_dff:pc[0]" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/IF_ID.sv Line: 18
+Warning (10230): Verilog HDL assignment warning at my_dff.sv(14): truncated value with size 32 to match size of target (1) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/my_dff.sv Line: 14
+Info (12128): Elaborating entity "decode" for hierarchy "proc:p00|decode:decode" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 126
+Info (12128): Elaborating entity "immediate_execution" for hierarchy "proc:p00|decode:decode|immediate_execution:IE" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/decode.sv Line: 45
+Info (12128): Elaborating entity "instr_decoder" for hierarchy "proc:p00|decode:decode|instr_decoder:instr_decoder" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/decode.sv Line: 64
+Warning (10036): Verilog HDL or VHDL warning at instr_decoder.sv(20): object "alu_ctrl" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 20
+Warning (10272): Verilog HDL Case Statement warning at instr_decoder.sv(756): case item expression covers a value already covered by a previous case item File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 756
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "reg_write", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "alu_src_sel_A", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "alu_src_sel_B", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "imm_ctrl", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "jump", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "branch", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "mem_write_en", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "result_sel", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "pcJalSrc", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "mem_length", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "mem_read", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Warning (10240): Verilog HDL Always Construct warning at instr_decoder.sv(101): inferring latch(es) for variable "mem_sign", which holds its previous value in one or more paths through the always construct File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "mem_sign" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "mem_read" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "mem_length[0]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "mem_length[1]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "pcJalSrc" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "result_sel[0]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "result_sel[1]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "mem_write_en" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "branch" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "jump" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "imm_ctrl[0]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "imm_ctrl[1]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "imm_ctrl[2]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "alu_src_sel_B[0]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "alu_src_sel_B[1]" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "alu_src_sel_A" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (10041): Inferred latch for "reg_write" at instr_decoder.sv(101) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 101
+Info (12128): Elaborating entity "alu_control" for hierarchy "proc:p00|decode:decode|instr_decoder:instr_decoder|alu_control:alu_control_logic" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/instr_decoder.sv Line: 96
+Info (12128): Elaborating entity "regFile_bypass" for hierarchy "proc:p00|decode:decode|regFile_bypass:RF" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/decode.sv Line: 70
+Info (12128): Elaborating entity "regFile" for hierarchy "proc:p00|decode:decode|regFile_bypass:RF|regFile:rf" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/regFile_bypass.sv Line: 33
+Info (12128): Elaborating entity "Register" for hierarchy "proc:p00|decode:decode|regFile_bypass:RF|regFile:rf|Register:reg0" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/regFile.sv Line: 45
+Info (12128): Elaborating entity "ID_EX" for hierarchy "proc:p00|ID_EX:ID_EX" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 186
+Info (12128): Elaborating entity "execute" for hierarchy "proc:p00|execute:execute" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 220
+Warning (10034): Output port "EXT_out" at execute.sv(26) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/execute.sv Line: 26
+Info (12128): Elaborating entity "alu" for hierarchy "proc:p00|execute:execute|alu:alu" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/execute.sv Line: 58
+Info (12128): Elaborating entity "EX_ME" for hierarchy "proc:p00|EX_ME:EX_ME" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 262
+Warning (10030): Net "imm_ctrl_in" at EX_ME.sv(40) has no driver or initial value, using a default initial value '0' File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/EX_ME.sv Line: 40
+Info (12128): Elaborating entity "memory" for hierarchy "proc:p00|memory:memory" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 282
+Info (12128): Elaborating entity "memory2c" for hierarchy "proc:p00|memory:memory|memory2c:iMEMORY" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory.sv Line: 31
+Warning (10230): Verilog HDL assignment warning at memory2c.sv(77): truncated value with size 32 to match size of target (17) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory2c.sv Line: 77
+Warning (10230): Verilog HDL assignment warning at memory2c.sv(84): truncated value with size 32 to match size of target (17) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/memory2c.sv Line: 84
+Info (12128): Elaborating entity "ME_WB" for hierarchy "proc:p00|ME_WB:ME_WB" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 313
+Warning (10030): Net "imm_ctrl_in" at ME_WB.sv(35) has no driver or initial value, using a default initial value '0' File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/ME_WB.sv Line: 35
+Info (12128): Elaborating entity "writeback" for hierarchy "proc:p00|writeback:writeback" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 324
+Info (12128): Elaborating entity "hazard_detection" for hierarchy "proc:p00|hazard_detection:hazard_detection" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 355
+Info (12128): Elaborating entity "interrupt_handler" for hierarchy "proc:p00|interrupt_handler:interrupt_handler" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 366
+Warning (10034): Output port "interrupt_handling_addr" at interrupt_handler.sv(4) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/interrupt_handler.sv Line: 4
+Warning (10034): Output port "interrupt_ctrl" at interrupt_handler.sv(6) has no driver File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/interrupt_handler.sv Line: 6
+Warning (12158): Entity "interrupt_handler" contains only dangling pins File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 366
+Info (12128): Elaborating entity "vgatest" for hierarchy "vgatest:vgatest" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 693
 Warning (10858): Verilog HDL warning at vgatest.v(92): object rgb used but never assigned File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 92
 Warning (10036): Verilog HDL or VHDL warning at vgatest.v(93): object "addr" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 93
 Warning (10230): Verilog HDL assignment warning at vgatest.v(303): truncated value with size 32 to match size of target (4) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 303
@@ -3441,7 +4355,7 @@ Info (12133): Instantiated megafunction "vgatest:vgatest|pll_clock:M1|pll_clock_
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "image_resize" for hierarchy "image_resize:u12" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 697
+Info (12128): Elaborating entity "image_resize" for hierarchy "image_resize:u12" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/de1_soc_camera.sv Line: 706
 Warning (10036): Verilog HDL or VHDL warning at image_resize.sv(34): object "doneResize" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/img_resize/image_resize.sv Line: 34
 Warning (10036): Verilog HDL or VHDL warning at image_resize.sv(38): object "setPixel" assigned a value but never read File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/img_resize/image_resize.sv Line: 38
 Warning (10230): Verilog HDL assignment warning at image_resize.sv(68): truncated value with size 32 to match size of target (8) File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/img_resize/image_resize.sv Line: 68
@@ -3503,6 +4417,8 @@ Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "vgatest:vgatest|tank_y[2]" is missing source, defaulting to GND File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 73
     Warning (12110): Net "vgatest:vgatest|tank_y[1]" is missing source, defaulting to GND File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 73
     Warning (12110): Net "vgatest:vgatest|tank_y[0]" is missing source, defaulting to GND File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/proj/vgatest.v Line: 73
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "proc:p00|polling" is missing source, defaulting to GND File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/RISC-V Processor/proc.sv Line: 63
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "Sdram_Control:u7|Sdram_RD_FIFO:u_read2_fifo|dcfifo_mixed_widths:dcfifo_mixed_widths_component|dcfifo_ahp1:auto_generated|altsyncram_86d1:fifo_ram|q_b[0]" File: I:/WIN/Desktop/face-filter/display/DE1_SoC_CAMERA_WORKING_GAME/db/altsyncram_86d1.tdf Line: 42
@@ -3750,11 +4666,11 @@ Info (21057): Implemented 10506 device resources after synthesis - the final res
     Info (21064): Implemented 56 RAM segments
     Info (21065): Implemented 6 PLLs
     Info (21062): Implemented 10 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 284 warnings
-    Info: Peak virtual memory: 5026 megabytes
-    Info: Processing ended: Tue Apr 29 17:34:36 2025
-    Info: Elapsed time: 00:01:02
-    Info: Total CPU time (on all processors): 00:00:30
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 316 warnings
+    Info: Peak virtual memory: 5068 megabytes
+    Info: Processing ended: Tue Apr 29 18:27:14 2025
+    Info: Elapsed time: 00:01:26
+    Info: Total CPU time (on all processors): 00:00:43
 
 
 +------------------------------------------+
