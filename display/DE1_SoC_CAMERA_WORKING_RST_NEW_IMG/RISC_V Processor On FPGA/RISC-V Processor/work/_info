@@ -1,0 +1,615 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/4-/ece554/face-filter/RISC-V Processor
+valu
+Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z1 !s110 1745532549
+!i10b 1
+!s100 cQzIFaShgg7h_:1G2WZd]1
+In?Tm6dg3IoQjOz2S5?dTY0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+Z3 dC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor
+Z4 w1745524168
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu.sv
+L0 1
+Z5 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z6 !s108 1745532549.000000
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu.sv|
+!i113 1
+Z7 o-work work -sv
+valu_control
+R0
+R1
+!i10b 1
+!s100 <XF=hR=SiM5:YcgIzn^;R2
+IIVPLR:4=S@7zeGjF3EnE>0
+R2
+!s105 alu_control_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu_control.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu_control.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu_control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/alu_control.sv|
+!i113 1
+R7
+vclkrst
+R0
+R1
+!i10b 1
+!s100 N0W8^@XITV9k424@URjJ40
+Ihjl=YSlB3G:OjIHfd[Nl60
+R2
+!s105 clkrst_sv_unit
+S1
+R3
+w1745525355
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/clkrst.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/clkrst.sv
+L0 5
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/clkrst.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/clkrst.sv|
+!i113 1
+R7
+vdecode
+R0
+!s110 1745532273
+!i10b 1
+!s100 >QO:jBmH`WRzMM6R6Bcl?3
+IFZl<@Sb@Lm[;4bML8?Vl02
+R2
+!s105 decode_sv_unit
+S1
+R3
+w1745532262
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/decode.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/decode.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1745532273.000000
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/decode.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/decode.sv|
+!i113 1
+R7
+vdff_proc
+R0
+R1
+!i10b 1
+!s100 <8fD4f9HBihE@PnYOf1Rf3
+I?<z3:^Pb8BVOj7EQSa_L11
+R2
+!s105 dff_proc_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/dff_proc.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/dff_proc.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/dff_proc.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/dff_proc.sv|
+!i113 1
+R7
+vEX_ME
+R0
+R1
+!i10b 1
+!s100 1;M08Lz33ZG@Wie9PRE`03
+IE:VA=m[Xg6e=dJE:@kSB^3
+R2
+!s105 EX_ME_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/EX_ME.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/EX_ME.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/EX_ME.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/EX_ME.sv|
+!i113 1
+R7
+n@e@x_@m@e
+vexecute
+R0
+R1
+!i10b 1
+!s100 IKMC6DLNiE9=zi@T>3B?@2
+I?Ng^=BcEPYF9zmEOU]LdY2
+R2
+!s105 execute_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/execute.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/execute.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/execute.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/execute.sv|
+!i113 1
+R7
+vfetch
+R0
+R1
+!i10b 1
+!s100 meS3=8Gl`B<EROaJLE`]F2
+IbUFkaXiN@_ji1l3ZdjnOJ0
+R2
+!s105 fetch_sv_unit
+S1
+R3
+w1745531847
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch.sv|
+!i113 1
+R7
+vfetch_tb
+R0
+R1
+!i10b 1
+!s100 mf>Pmf7Ye:[_QFIGnZozH1
+IFN:cm[o]UjEBjLUS44c5K1
+R2
+!s105 fetch_tb_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch_tb.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch_tb.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/fetch_tb.sv|
+!i113 1
+R7
+vhazard_detection
+R0
+R1
+!i10b 1
+!s100 ^DI4Vn:;J^`nieK82UOdf3
+I0e=OCN0S`zG<CCmX7=?NR2
+R2
+!s105 hazard_detection_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/hazard_detection.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/hazard_detection.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/hazard_detection.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/hazard_detection.sv|
+!i113 1
+R7
+vID_EX
+R0
+R1
+!i10b 1
+!s100 ^GzaPjF`7PF=9M^@FHmzk1
+IYgGO1>=3653Oa3oAmGOGL0
+R2
+!s105 ID_EX_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ID_EX.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ID_EX.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ID_EX.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ID_EX.sv|
+!i113 1
+R7
+n@i@d_@e@x
+vIF_ID
+R0
+R1
+!i10b 1
+!s100 WjXfc30^bg[0RNWIB@g?W2
+IO7IgfMIoflazL6Yd88T[S0
+R2
+!s105 IF_ID_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/IF_ID.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/IF_ID.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/IF_ID.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/IF_ID.sv|
+!i113 1
+R7
+n@i@f_@i@d
+vimmediate_execution
+R0
+Z8 !s110 1745532550
+!i10b 1
+!s100 agA^9;ZGKeba=MhLT8Di^3
+IB9FEJM]n0<M6VbeGDAmC91
+R2
+!s105 immediate_execution_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/immediate_execution.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/immediate_execution.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z9 !s108 1745532550.000000
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/immediate_execution.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/immediate_execution.sv|
+!i113 1
+R7
+vinstr_decoder
+R0
+R8
+!i10b 1
+!s100 W_EjENR1Qh?o<;RVz[oF61
+I4Y0_=lnG?i<D83f7>B21=2
+R2
+!s105 instr_decoder_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_decoder.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_decoder.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_decoder.sv|
+!i113 1
+R7
+vinstr_mem
+R0
+R8
+!i10b 1
+!s100 eoi10A2RUR9O87403jRbW0
+IAB0WDlgfmDdA31gO;>iQz1
+R2
+!s105 instr_mem_sv_unit
+S1
+R3
+w1745525186
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_mem.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_mem.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_mem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/instr_mem.sv|
+!i113 1
+R7
+vinterrupt_handler
+R0
+R8
+!i10b 1
+!s100 SRF`UjWRmneRMTjVW4D6C1
+IiPdX_>NMo;8=WTmiBbYc81
+R2
+!s105 interrupt_handler_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/interrupt_handler.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/interrupt_handler.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/interrupt_handler.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/interrupt_handler.sv|
+!i113 1
+R7
+vME_WB
+R0
+R8
+!i10b 1
+!s100 l?G5:4j<zg@Qba7GUzciO2
+I4EmF`o;7T_3dD6m5F@zmJ2
+R2
+!s105 ME_WB_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ME_WB.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ME_WB.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ME_WB.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/ME_WB.sv|
+!i113 1
+R7
+n@m@e_@w@b
+vmemory
+R0
+R8
+!i10b 1
+!s100 5KRe4f00OjQ8>iSjnD[mL3
+I4X;RaI58JakPW0iZ5`]kB0
+R2
+!s105 memory_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory.sv|
+!i113 1
+R7
+vmemory2c
+R0
+R8
+!i10b 1
+!s100 5hK47HjCShUH6EleEX?8@1
+IX=i<P:hhX;@B??G:FEMC70
+R2
+!s105 memory2c_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory2c.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory2c.sv
+L0 4
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory2c.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/memory2c.sv|
+!i113 1
+R7
+vpc_reg
+R0
+R8
+!i10b 1
+!s100 cz0f_]:XC^NSVTQT;cj7:0
+IggRR=@jefckORnf3CLcZi1
+R2
+!s105 pc_reg_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/pc_reg.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/pc_reg.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/pc_reg.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/pc_reg.sv|
+!i113 1
+R7
+vproc
+R0
+R8
+!i10b 1
+!s100 UmR:flhV;M?bOE^@2oM4<0
+Ii2MeHPKiP[7[AF1NXBIa`3
+R2
+!s105 proc_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc.sv|
+!i113 1
+R7
+vproc_hier
+R0
+R8
+!i10b 1
+!s100 IY7Z2d6zANTXUZz9L4hWO1
+I[=b?JMG7l7T]Xa<onABBT1
+R2
+!s105 proc_hier_sv_unit
+S1
+R3
+w1745530268
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc_hier.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc_hier.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc_hier.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/proc_hier.sv|
+!i113 1
+R7
+vregFile
+R0
+R8
+!i10b 1
+!s100 NhgmTfCG_PO[L7k_eEhbf2
+I[dXfPojb?F[OH?P;QVRW33
+R2
+!s105 regFile_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R9
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile.sv|
+!i113 1
+R7
+nreg@file
+vregFile_bypass
+R0
+Z10 !s110 1745532551
+!i10b 1
+!s100 :G]SM7`g;A]0IA@>[oGX73
+IMVN>m4k:]]`?YCezcgT>X3
+R2
+!s105 regFile_bypass_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile_bypass.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile_bypass.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z11 !s108 1745532551.000000
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile_bypass.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/regFile_bypass.sv|
+!i113 1
+R7
+nreg@file_bypass
+vRegister
+R0
+R10
+!i10b 1
+!s100 @gThQ083hPTBTBNL4a=kD1
+ISLG^Z]5LD8lR:8<?l`CJ21
+R2
+!s105 register_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/register.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/register.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/register.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/register.sv|
+!i113 1
+R7
+n@register
+vwriteback
+R0
+!s110 1745532548
+!i10b 1
+!s100 m1UhQ@jn9Mz`TkGdY?XlL0
+INmiO6UgW`LBN:J^1nh^<L3
+R2
+!s105 writeback_sv_unit
+S1
+R3
+R4
+8C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/writeback.sv
+FC:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/writeback.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1745532548.000000
+!s107 C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/writeback.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/4-/face-filter/RISC_V Processor On FPGA/RISC-V Processor/writeback.sv|
+!i113 1
+R7
